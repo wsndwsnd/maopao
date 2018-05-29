@@ -4,7 +4,7 @@ namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Userinfo extends Model
+class Power extends Model
 {
-    public $table = 'user_details';
+    public $table = 'power';
 }
