@@ -37,8 +37,7 @@
 	                </tr>
 	                <tr>
 	                	<th>头像</th>
-	                	{{dump($data->img)}}
-	                    <td><img src="{{ $data->img }}"></td>
+	                    <td><img width="100px"  src="{{ $data->img }}"></td>
 	                    <td>&nbsp;</td>
 	                </tr>
 	                <tr>
@@ -76,7 +75,7 @@
                     <td colspan="2">
                       <input type="hidden" name="profilesubmit" value="true" />
                       <button type="submit" name="profilesubmitbtn"  value="true" class="pn pnc" />
-                      <strong>修改</strong></button>
+                      <strong>点击修改</strong></button>
                       <span id="submit_result" class="rq"></span>
                     </td>
                   </tr>

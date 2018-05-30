@@ -40,7 +40,7 @@
                 	<th>头像</th>
                 		<td>
                 			<input type="file" name="img"><br>
-                			<img src="{{ $data->img}}">
+                			<img width="100px"  src="{{ $data->img }}">
                 		</td>
                 </tr>
                   <tr >
@@ -143,19 +143,8 @@
               <h2 class="mt bbda">设置</h2>
               <ul>
                 <li>
-                  <a href="home.php?mod=spacecp&amp;ac=avatar">修改头像</a></li>
-                <li class="a">
-                  <a href="home.php?mod=spacecp&amp;ac=profile">个人资料</a></li>
-                <li>
-                  <a href="home.php?mod=spacecp&amp;ac=credit">积分</a></li>
-                <li>
-                  <a href="home.php?mod=spacecp&amp;ac=usergroup">用户组</a></li>
-                <li>
-                  <a href="home.php?mod=spacecp&amp;ac=privacy">隐私筛选</a></li>
-                <li>
-                  <a href="home.php?mod=spacecp&amp;ac=profile&amp;op=password">密码安全</a></li>
-                <li>
-                  <a href="home.php?mod=spacecp&amp;ac=promotion">访问推广</a></li>
+                  <a href="home.php?mod=spacecp&amp;ac=avatar">修改用户</a></li>
+                
               </ul>
             </div>
           </div>

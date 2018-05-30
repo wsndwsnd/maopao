@@ -12,7 +12,7 @@ use DB;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * 前台用户详情
      *
      * @return \Illuminate\Http\Response
      */
@@ -24,17 +24,18 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * 登录页面
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
         //
+        return view('Home.user.create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 验证登录
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -42,6 +43,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**

@@ -130,16 +130,19 @@
           <span class="pipe">|</span>
           <a href="/Home/http://29.92zyb.com/" onclick="addFavorite(this.href, 'Discuz! Board');return false;">收藏本站</a></div>
         <div class="y">
-          <a href="/Home/home.php?mod=space&amp;uid=14" class="wi_ttbat">
+          <a href="/user" class="wi_ttbat">
             <img src="/Home/picture/avatar.php" /></a>
-          <a href="/Home/home.php?mod=space&amp;uid=14" class="top_gly" target="_blank" title="访问我的空间">123456</a>
+          <a href="/user" class="top_gly" target="_blank" title="访问我的空间">123456</a>
           <a href="/Home/javascript:;" id="wqmenu" class="showmenu" onMouseOver="showMenu({'ctrlid':'wqmenu','pos':'34!','ctrlclass':'a','duration':2});">导航
             <span class="arrow"></span></a>
           <a href="/Home/home.php?mod=spacecp" class="u31">设置</a>
           <a href="/Home/javascript:;" id="wmn" class="showmenu " onMouseOver="showMenu({'ctrlid':'wmn','pos':'34!','ctrlclass':'a','duration':2});">消息</a>
           <a href="/Home/home.php?mod=space&amp;do=notice" id="myprompt">提醒</a>
           <span id="myprompt_check"></span>
-          <a href="/Home/member.php?mod=logging&amp;action=logout&amp;formhash=316f8b52">退出</a></div>
+          <a href="/Home/member.php?mod=logging&amp;action=logout&amp;formhash=316f8b52">退出</a>
+          <a href="/Home/member.php?mod=logging&amp;action=logout&amp;formhash=316f8b52">登录</a>
+          <a href="/Home/member.php?mod=logging&amp;action=logout&amp;formhash=316f8b52">注册</a>
+        </div>
       </div>
     </div>
     <!--快捷导航-->
@@ -179,7 +182,7 @@
       <div class="wp">
         <div class="hdc cl">
           <h2>
-            <a href="/Home/./" title="Discuz! Board">
+            <a href="/" title="Discuz! Board">
               <img src="/Home/picture/logo.png" alt="Discuz! Board" border="0" /></a>
           </h2>
           <div id="scbar" class="cl">
@@ -217,7 +220,7 @@
             <div id="nv_a" class="wp">
               <ul>
                 <li class="xnv_1 a xnv_a1" id="mn_portal">
-                  <a href="/Home/portal.php" hidefocus="true" title="Portal">首页
+                  <a href="/" hidefocus="true" title="Portal">首页
                     <span>Portal</span></a>
                 </li>
                 <li class="xnv_2" id="mn_forum" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})">
@@ -240,12 +243,12 @@
           </div>
           <div id="um">
             <div class="avt y">
-              <a href="/Home/home.php?mod=space&amp;uid=14">
+              <a href="/user">
                 <img src="/Home/picture/avatar.php" /></a>
             </div>
             <p>
               <strong class="vwmy">
-                <a href="/Home/home.php?mod=space&amp;uid=14" target="_blank" title="访问我的空间">123456</a></strong>
+                <a href="/user" target="_blank" title="访问我的空间">123456</a></strong>
               <span class="pipe">|</span>
               <a href="/Home/javascript:;" id="myitem" class="showmenu" onmouseover="showMenu({'ctrlid':'myitem'});">我的</a>
               <span class="pipe">|</span>
@@ -272,16 +275,15 @@
       </ul>
       <ul class="p_pop h_pop" id="mn_P1_menu" style="display: none">
         <li>
-          <a href="/Home/portal.php?mod=list&catid=1" hidefocus="true">资讯列表页</a></li>
+          <a href="/?mod=list&catid=1" hidefocus="true">资讯列表页</a></li>
         <li>
-          <a href="/Home/portal.php?mod=view&aid=12" hidefocus="true">文章内容页</a></li>
+          <a href="/?mod=view&aid=12" hidefocus="true">文章内容页</a></li>
       </ul>
       <div class="p_pop h_pop" id="mn_userapp_menu" style="display: none"></div>
       <div id="mu" class="cl"></div>
     </div>
     <div class="bottombg">
       <script type="text/javascript">go();</script>
-
        @if(session('error'))
        {{ session('error') }}
        @endif
@@ -292,8 +294,6 @@
        
        @section('sidebar')
        @show
-
-
       <div class="ft_wp">
         <div class="zjdba">
           <div id="zjdb" class="wp">
@@ -409,11 +409,11 @@
             <span>返回顶部</span></a>
         </li>
         <li>
-          <a href="/Home/portal.php#wd_home7" title="生活" class="scroll_news">
+          <a href="/#wd_home7" title="生活" class="scroll_news">
             <span>生活</span></a>
         </li>
         <li>
-          <a href="/Home/portal.php#wd_home3" title="轻松" class="scroll_pic">
+          <a href="/#wd_home3" title="轻松" class="scroll_pic">
             <span>轻松</span></a>
         </li>
         <li>
