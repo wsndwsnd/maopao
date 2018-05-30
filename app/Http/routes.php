@@ -14,6 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+//后台显示主页面
+// Route::get('/admin','Admin\IndexController@index');
+//后台用户管理
+Route::resource('/admin/user','Admin\UserController');
+//后台公告管理
+Route::resource('/admin/notice','Admin\NoticeController');
+Route::get('/admin/notice/up/{id}','Admin\NoticeController@up');
+Route::get('/admin/notice/down/{id}','Admin\NoticeController@down');
 
 Route::resource('/admin','Admin\PowerController');

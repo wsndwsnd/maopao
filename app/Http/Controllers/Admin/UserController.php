@@ -22,12 +22,12 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        // $count = $request->input('count','5');
-        // $username = $request -> input('user_name','');
+        $count = $request->input('count','5');
+        $username = $request -> input('user_name','');
         
-        // $data = User::where('user_name','like','%'.$username.'%')->paginate($count);
-        // $num = User::count('id');
-        // return view('Admin.user.index',['data'=>$data,'user_name'=>$username,'num'=>$num,'count'=>$count]);
+        $data = User::where('user_name','like','%'.$username.'%')->paginate($count);
+        $num = User::count('id');
+        return view('Admin.user.index',['data'=>$data,'user_name'=>$username,'num'=>$num,'count'=>$count]);
     }
 
     /**
@@ -37,7 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        // return view('Admin.user.create');
+        return view('Admin.user.create');
     }
 
     /**

@@ -16,11 +16,14 @@ class PowerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $power = Power::paginate(5);
-        // dump($power);
-        return view('Admin.powers.index',['power'=>$power]);
+        // $power = Power::paginate(5);
+        $count = $request->input('count','5');
+        $username = $request -> input('username','');
+        
+        $power = Power::where('username','like','%'.$username.'%')->paginate($count);
+        return view('Admin.powers.index',['power'=>$power,'username'=>$username,'count'=>$count]);
     }
 
     /**

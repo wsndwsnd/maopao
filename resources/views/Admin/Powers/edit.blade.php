@@ -1,6 +1,6 @@
-@extends('admin.powers.create');
+@extends('Admin.layout.Index')
 
-@section('content');
+@section('content')
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span>{{$title}}</span>
@@ -34,4 +34,4 @@
         </form>
     </div>      
 </div>
-@endsection;
+@endsection

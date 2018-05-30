@@ -1,4 +1,4 @@
-@extends('Admin.Powers.common')
+@extends('Admin.layout.Index')
 
 @section('content')
     <div class="mws-panel grid_8">

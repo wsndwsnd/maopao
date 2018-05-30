@@ -72,7 +72,7 @@
 }
 
 .mws-table tbody tr.odd td.sorting_1 {
-    background-color:#eeeeee ;
+    background-color: #cccccc;
 }
 
 .mws-table tbody tr.even td.sorting_1 {
@@ -161,7 +161,7 @@
     color: #ffffff;
     float: right;
     padding: 2px;
-    margin: 10px 8px 0px 0;
+    margin: 10px 8px 10px 0;
     background-color: rgba(0, 0, 0, 0.15);
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
