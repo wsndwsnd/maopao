@@ -14,5 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin','Admin\IndexController@index');
-Route::resource('/admin/user','Admin\UserController');
+
+
+Route::resource('/admin','Admin\PowerController');
