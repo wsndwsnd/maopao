@@ -32,7 +32,10 @@
                                            超级管理员
                                         @endif
                                     </td>
+
                                     <td class=" " style="border:1px #CCCCCC solid;width: 140px;text-align: center;">
+
+                                 
                                         <form style="display: inline;" action="/admin/power/{{$v->id}}" method="post">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}

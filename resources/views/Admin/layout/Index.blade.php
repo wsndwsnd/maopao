@@ -263,6 +263,7 @@
                         <ul>
                             <li><a href="/admin/power">管理员列表</a></li>
                             <li><a href="/admin/power/create">管理员添加</a></li>
+
                             
                         </ul>
                     </li>
@@ -272,6 +273,15 @@
                             <li><a href="/admin/posts">帖子列表</a></li>
                             <li><a href="/admin/posts/create">帖子添加</a></li>
                             
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-list"></i>论坛管理</a>
+                        <ul>
+                            <li><a href="/admin/luntan">论坛列表</a></li>
+                            <li><a href="/admin/luntan/create">添加论坛</a></li>
+
                         </ul>
                     </li>
                 </ul>
