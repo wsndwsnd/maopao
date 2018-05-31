@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','Home\IndexController@index');
 //后台显示主页面
 // Route::get('/admin','Admin\IndexController@index');
 //后台用户管理
@@ -24,16 +22,27 @@ Route::get('/admin/notice/up/{id}','Admin\NoticeController@up');
 Route::get('/admin/notice/down/{id}','Admin\NoticeController@down');
 //后台管理员
 Route::resource('/admin/power','Admin\PowerController');
-
 //后台帖子管理
 Route::resource('/admin/posts','Admin\PostsController');
 Route::get('/admin/posts/up/{id}','Admin\PostsController@up');
 Route::get('/admin/posts/down/{id}','Admin\PostsController@down');
-
-//后台论坛
-Route::resource('/admin/luntan','Admin\LuntanController');
+//后台轮播图
 
 
-//前台论坛
-Route::resource('/home/luntan','Home\LuntanController');
+//前台
 
+//注册
+Route::resource('/login','Home\LoginController');
+//前台用户
+Route::resource('/user','Home\UserController');
+//用户退出 
+Route::get('/quit', function()
+    {
+         Session()->flush();
+    });
+
+//前台帖子
+Route::resource('/posts','Home\PostsController');
+
+//前台公告
+Route::resource('/home/notice','Home\NoticeController');

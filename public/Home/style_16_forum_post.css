@@ -1,0 +1,453 @@
+.quote {
+	background: url("http://29.92zyb.com/static/image/common/qa.gif") no-repeat 0px 0px; margin: 10px 0px; color: rgb(102, 102, 102); overflow: hidden; padding-left: 16px;
+}
+.quote blockquote {
+	background: url("http://29.92zyb.com/static/image/common/qz.gif") no-repeat 100% 100%; margin: 0px; padding-right: 16px; display: inline;
+}
+.m_c .quote {
+	width: 585px;
+}
+.blockcode {
+	background: rgb(247, 247, 247); margin: 10px 0px; padding: 5px 10px; color: rgb(102, 102, 102); overflow: hidden;
+}
+.blockcode code {
+	line-height: 1.8em; font-family: Monaco,Consolas,"Lucida Console","Courier New",serif; font-size: 12px;
+}
+* html .blockcode code {
+	font-family: "Courier New",serif;
+}
+.ct2_a .mn {
+	float: left;
+}
+.appl {
+	border: currentColor; border-image: none; margin-top: 8px; float: right; background-color: transparent;
+}
+.upf {
+	width: 500px;
+}
+* + html .upf {
+	width: 520px;
+}
+.upnf {
+	white-space: normal;
+}
+.upbk {
+	-ms-zoom: 1;
+}
+.fldt {
+	margin-bottom: 8px;
+}
+.p_pop .flb {
+	top: 18px; right: 10px; position: absolute;
+}
+.fnm {
+	width: 130px !important;
+}
+.fszm {
+	width: 55px !important; line-height: normal;
+}
+.fnm li {
+	cursor: pointer;
+}
+.fszm li {
+	cursor: pointer;
+}
+.simm li {
+	cursor: pointer;
+}
+.qsv {
+	background: url("http://29.92zyb.com/static/image/common/repquote.gif") no-repeat 50% 50%; width: 16px; height: 16px; padding-left: 16px; cursor: pointer;
+}
+.marked {
+	background: url("http://29.92zyb.com/static/image/common/mark.png") no-repeat 100% 50%; padding-right: 16px;
+}
+#taglistarea a {
+	white-space: nowrap; -ms-zoom: 1;
+}
+#taglistarea .marked {
+	background: none; color: rgb(255, 0, 0) !important; padding-right: 0px; font-weight: 700;
+}
+#post_extra_tb {
+	position: relative; z-index: 2;
+}
+#post_extra_tb label {
+	border: 1px solid rgb(223, 223, 223); border-image: none; height: 21px; line-height: 21px; margin-right: 3px; float: left; white-space: nowrap;
+}
+#post_extra_tb label.a {
+	background: rgb(229, 237, 242); border-bottom-color: rgb(229, 237, 242); box-shadow: none;
+}
+#post_extra_tb label span {
+	background: url("http://29.92zyb.com/static/image/common/dot.gif") no-repeat 8px 8px; padding: 0px 8px 0px 20px; line-height: 21px; float: left;
+}
+#post_extra_tb span.a {
+	background-image: url("http://29.92zyb.com/static/image/common/dot_c.gif");
+}
+#post_extra_c {
+	position: relative; z-index: 1;
+}
+#post_extra_c .exfm {
+	margin: -1px 0px 0px; border: 1px solid rgb(223, 223, 223); border-image: none;
+}
+#extra_additional_c label {
+	width: 16%; float: left;
+}
+#draftlist {
+	border-width: 1px 1px 0px; border-style: solid; border-color: rgb(255, 255, 255);
+}
+.a#draftlist {
+	background: rgb(254, 254, 254); border-color: rgb(221, 221, 221); position: relative; z-index: 302;
+}
+#draftlist_menu {
+	background: rgb(254, 254, 254); padding: 10px; border: 1px solid rgb(221, 221, 221); border-image: none; margin-top: -1px;
+}
+.p_tbl {
+	height: auto; line-height: 160%; border-bottom-color: currentColor; border-bottom-width: medium; border-bottom-style: none;
+}
+.p_tbl table {
+	
+}
+.p_tbl table td {
+	height: 28px; line-height: 28px; border-bottom-color: rgb(242, 242, 242); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.atnu {
+	width: 16px;
+}
+.atna {
+	
+}
+.atna p img {
+	height: 16px; vertical-align: middle;
+}
+.attswf p img {
+	height: 16px; vertical-align: middle;
+}
+.atna .lighttxt {
+	color: rgb(102, 102, 102) !important;
+}
+.attswf .lighttxt {
+	color: rgb(102, 102, 102) !important;
+}
+.attpr {
+	width: 40px; text-align: center;
+}
+.attv .px {
+	width: 25px;
+}
+.attp .px {
+	width: 25px;
+}
+.attv {
+	width: 100px;
+}
+.atturl img {
+	height: 20px !important;
+}
+.attc {
+	width: 20px;
+}
+* + html .attc {
+	width: 40px;
+}
+.atds {
+	width: 80px; text-align: center;
+}
+.atds .px {
+	width: 60px;
+}
+.attp {
+	width: 40px; text-align: center;
+}
+.attach_preview {
+	border: 1px solid rgb(223, 223, 223); border-image: none; box-shadow: 0px 0px 5px rgba(96,96,96,0.3);
+}
+.ie8 .attach_preview {
+	top: 57px; right: 18px;
+}
+.ie9 .attach_preview {
+	top: 57px; right: 18px;
+}
+.upfl {
+	height: auto !important; overflow: auto; margin-top: -1px; -ms-overflow-x: hidden; max-height: 300px;
+}
+.upfl a {
+	color: rgb(51, 102, 153);
+}
+#imgattachlist a {
+	color: rgb(51, 102, 153);
+}
+.upfl table td {
+	height: 30px; line-height: 24px; border-bottom-color: rgb(223, 223, 223); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.imgl {
+	width: 100%; margin-bottom: 5px;
+}
+.imgl td {
+	padding: 8px 0px; text-align: center; vertical-align: bottom;
+}
+.imgl tr:last-child td {
+	border-bottom-color: currentColor; border-bottom-width: medium; border-bottom-style: none;
+}
+.imgl img {
+	border: 1px solid rgb(153, 153, 153); border-image: none; max-width: 110px;
+}
+.ie6 .imgl img {
+	
+}
+.imgf .px {
+	padding: 2px; width: 106px; height: 14px; line-height: 14px;
+}
+.imgdeleted {
+	opacity: 0.3;
+}
+.opattach {
+	margin: 0px auto; border: 1px solid rgb(205, 205, 205); border-image: none; width: 110px; display: block; position: relative;
+}
+.opattach:hover {
+	text-decoration: none;
+}
+.opattach_ctrl {
+	background: rgba(0, 0, 0, 0.3); left: 0px; width: 100%; bottom: 0px; color: rgb(255, 255, 255); display: none; position: absolute;
+}
+.opattach:hover .opattach_ctrl {
+	display: block;
+}
+.opattach img {
+	border: currentColor; border-image: none;
+}
+.tfm .fwin .t_l {
+	padding: 0px;
+}
+.tfm .fwin .t_c {
+	padding: 0px;
+}
+.tfm .fwin .t_r {
+	padding: 0px;
+}
+.tfm .fwin .m_c {
+	padding: 0px;
+}
+.tfm .fwin .b_l {
+	padding: 0px;
+}
+.tfm .fwin .b_c {
+	padding: 0px;
+}
+.tfm .fwin .b_r {
+	padding: 0px;
+}
+.tfm .fwin th {
+	padding: 0px; width: auto;
+}
+.tfm .fwin .px {
+	width: auto;
+}
+.tfm .fwin .upfl table td {
+	border-bottom-color: currentColor; border-bottom-width: medium; border-bottom-style: none;
+}
+#newspecial_menu {
+	width: 90px;
+}
+#newspecial_menu li {
+	background: url("http://29.92zyb.com/static/image/common/folder_new.gif") no-repeat 8px 50%; display: block; -ms-zoom: 1;
+}
+#sti .wx {
+	background: url("http://29.92zyb.com/static/image/common/folder_new.gif") no-repeat 8px 50%; display: block; -ms-zoom: 1;
+}
+#newspecial_menu .poll {
+	background-image: url("http://29.92zyb.com/static/image/common/pollsmall.gif");
+}
+#sti .poll {
+	background-image: url("http://29.92zyb.com/static/image/common/pollsmall.gif");
+}
+#newspecial_menu .trade {
+	background-image: url("http://29.92zyb.com/static/image/common/tradesmall.gif");
+}
+#sti .trade {
+	background-image: url("http://29.92zyb.com/static/image/common/tradesmall.gif");
+}
+#newspecial_menu .reward {
+	background-image: url("http://29.92zyb.com/static/image/common/rewardsmall.gif");
+}
+#sti .reward {
+	background-image: url("http://29.92zyb.com/static/image/common/rewardsmall.gif");
+}
+#newspecial_menu .activity {
+	background-image: url("http://29.92zyb.com/static/image/common/activitysmall.gif");
+}
+#sti .activity {
+	background-image: url("http://29.92zyb.com/static/image/common/activitysmall.gif");
+}
+#newspecial_menu .debate {
+	background-image: url("http://29.92zyb.com/static/image/common/debatesmall.gif");
+}
+#sti .debate {
+	background-image: url("http://29.92zyb.com/static/image/common/debatesmall.gif");
+}
+#newspecial_menu a {
+	padding: 3px 0px 3px 30px; display: block; white-space: normal;
+}
+#newspecial_menu a:hover {
+	background: none; color: rgb(51, 102, 153); text-decoration: underline; text-shadow: none;
+}
+#sti {
+	
+}
+#sti .wx {
+	background-position: 0px 50%; padding-left: 25px;
+}
+#sti .tb {
+	margin-top: 0px;
+}
+.exfm {
+	background: rgb(229, 237, 242); margin: 10px 0px; padding: 10px 14px; border: 1px dashed rgb(194, 213, 227); border-image: none;
+}
+.exfm .pn {
+	height: 22px; line-height: 22px; font-size: 12px;
+}
+.ie6 .exfm .pn {
+	line-height: 16px;
+}
+.ie7 .exfm .pn {
+	line-height: 16px;
+}
+.exfm .rq {
+	padding-right: 2px; float: right;
+}
+.exfm table {
+	width: 100%;
+}
+.exfm table th {
+	padding: 4px 2px;
+}
+.exfm table td {
+	padding: 4px 2px;
+}
+.mdcp .um {
+	padding: 10px 5px; margin-bottom: 0px;
+}
+.sinf p {
+	padding: 2px 0px; height: 30px; line-height: 30px;
+}
+.sadd p {
+	padding: 2px 0px; height: 30px; line-height: 30px;
+}
+.sinf .px {
+	width: 120px;
+}
+.sadd .px {
+	width: 120px;
+}
+.sinf {
+	width: 380px; padding-right: 14px; border-right-color: rgb(230, 230, 230); border-right-width: 1px; border-right-style: dashed; float: left;
+}
+.sinf h4 {
+	padding: 6px 0px;
+}
+.sinf textarea {
+	width: 368px; height: 80px;
+}
+.sinf a.d {
+	margin-top: 8px;
+}
+.sinf object {
+	vertical-align: middle;
+}
+.onum {
+	width: 16px; margin-right: 6px; float: left;
+}
+.oinf {
+	width: 270px !important;
+}
+.sinf dl {
+	overflow: hidden;
+}
+.sadd dl {
+	overflow: hidden;
+}
+.sinf dl dt {
+	width: 75px; clear: left; float: left;
+}
+.sadd dl dt {
+	width: 75px; clear: left; float: left;
+}
+.sinf dl dd {
+	overflow: hidden; margin-bottom: 10px;
+}
+.sadd dl dd {
+	overflow: hidden; margin-bottom: 10px;
+}
+.sinf dl dd {
+	width: 300px;
+}
+.sinf span.fb {
+	height: 26px; line-height: 26px; margin-right: 6px; float: left; display: block; white-space: nowrap;
+}
+.sadd span.fb {
+	height: 26px; line-height: 26px; margin-right: 6px; float: left; display: block; white-space: nowrap;
+}
+.sinf dl dd strong {
+	padding: 0px 8px;
+}
+.sadd {
+	width: 520px; overflow: hidden; margin-left: 10px; float: left;
+}
+.sadd dl dd {
+	width: 420px;
+}
+.ct2_a .sadd {
+	width: 360px;
+}
+.ct2_a .sadd dl dd {
+	width: 260px;
+}
+.spl em {
+	height: 20px; line-height: 20px; margin-right: 9px; float: left;
+}
+.spl input[type=radio] {
+	margin: 0px 3px 0px 0px;
+}
+.spimg {
+	margin: 0px 10px 0px 0px; border: 1px solid rgb(170, 170, 170); border-image: none; width: 200px;
+}
+.spmp {
+	width: 30px;
+}
+.spmf {
+	width: 300px;
+}
+.spmf {
+	overflow: hidden; _height: 1%;
+}
+.spmf3 {
+	overflow: hidden; _height: 1%;
+}
+.spmf label {
+	padding-top: 5px; display: block;
+}
+.spmf3 label {
+	padding-top: 5px; display: block;
+}
+.spmf em {
+	width: 150px; float: left;
+}
+.spmf3 em {
+	margin-right: 12px; float: left;
+}
+.spmf3 .px {
+	margin: 0px !important; width: 72px;
+}
+#fjump_menu {
+	-ms-overflow-x: hidden; max-height: 600px;
+}
+#fjump_menu dl {
+	width: 200px;
+}
+#fjump_menu dt {
+	font-weight: 700;
+}
+#fjump_menu dd {
+	text-indent: 1em;
+}
+#fjump_menu li.a a {
+	background-color: rgb(229, 237, 242);
+}

@@ -17,15 +17,11 @@
                     </div>
                     <div class="mws-form-row" >
                         <label class="mws-form-label">权限:</label>
-
                             <div class="mws-form-item">
                                 <select class="small" name="power">
                                   
                                     <option value="1">普通管理员</option>
                                     <option value="2">超级管理员</option>
-
-                           
-
                                 </select>
                             </div>
                     </div>

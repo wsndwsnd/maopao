@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Models\Home\User;
+use App\Models\Home\Userinfo;
+use App\Models\Admin\Notices;
+use DB;
 class IndexController extends Controller
 {
     /**
@@ -16,7 +19,8 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('/home/index');
+        $notices = Notices::all();
+        return view('Home/index',['notices'=>$notices]);
     }
 
     /**

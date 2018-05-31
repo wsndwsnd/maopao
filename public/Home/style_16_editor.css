@@ -1,0 +1,321 @@
+.edt {
+	border-width: 1px; border-style: solid; border-color: rgb(153, 153, 153) rgb(204, 204, 204) rgb(204, 204, 204) rgb(153, 153, 153); border-image: none;
+}
+.edt .bar {
+	background: rgb(242, 242, 242); padding: 4px; height: 44px; border-bottom-color: rgb(221, 221, 221); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.edt .cst {
+	background: rgb(242, 242, 242); border-bottom-color: rgb(221, 221, 221); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.edt .cst.nbb {
+	border-bottom-color: currentColor !important; border-bottom-width: medium !important; border-bottom-style: none !important;
+}
+.edt .bbar {
+	background: rgb(242, 242, 242); height: 20px; text-align: right; border-top-color: rgb(221, 221, 221); border-top-width: 1px; border-top-style: solid;
+}
+.edt .bbar img {
+	vertical-align: bottom; cursor: row-resize;
+}
+.edt .bbar em {
+	width: 200px; height: 20px; text-align: left; overflow: hidden; float: left; white-space: nowrap;
+}
+.edt .bbar {
+	color: rgb(153, 153, 153);
+}
+.edt .bbar a {
+	color: rgb(153, 153, 153);
+}
+.edt .btn {
+	border-right-color: rgb(254, 254, 254); border-right-width: 1px; border-right-style: solid; float: left;
+}
+.edt .b1r {
+	padding: 0px 3px; height: 44px; border-right-color: rgb(221, 221, 221); border-left-color: rgb(254, 254, 254); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid; float: left; position: relative;
+}
+.edt .b2r {
+	padding: 0px 3px; height: 44px; border-right-color: rgb(221, 221, 221); border-left-color: rgb(254, 254, 254); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid; float: left; position: relative;
+}
+.edt .b2r p {
+	clear: both;
+}
+.edt .b2r br {
+	clear: both;
+}
+.edt .esb p {
+	width: 25px; clear: none; float: left;
+}
+.edt .esbs p {
+	clear: none; float: left;
+}
+.edt .bar a {
+	background: url("http://29.92zyb.com/static/image/editor/editor.gif") no-repeat 0px 0px; border: 1px solid rgb(242, 242, 242); border-image: none; overflow: hidden; float: left;
+}
+.edt .b1r a {
+	width: 35px; height: 15px; text-align: center; padding-top: 27px; font-family: Arial,PMingLiU,sans-serif; font-size: 11px; -webkit-text-size-adjust: none;
+}
+.edt .b2r a {
+	width: 20px; height: 20px; text-indent: -9999px;
+}
+.edt .b2r a.dp {
+	background: url("http://29.92zyb.com/static/image/common/newarow.gif") no-repeat 100% 0px rgb(255, 255, 255); border-color: rgb(132, 132, 132) rgb(224, 224, 224) rgb(224, 224, 224) rgb(132, 132, 132); width: 78px; height: 20px; text-indent: 0px; padding-left: 2px; margin-right: 1px;
+}
+.edt .b2r a.dp:hover {
+	background-position: 100% -23px; border-color: rgb(0, 153, 204);
+}
+.edt .nbl {
+	padding-left: 0px; border-left-color: currentColor; border-left-width: medium; border-left-style: none;
+}
+.edt .nbr {
+	padding-right: 0px; border-right-color: currentColor; border-right-width: medium; border-right-style: none;
+}
+.edt .bar a:hover {
+	border-color: rgb(0, 153, 204); text-decoration: none; background-color: rgb(255, 255, 255);
+}
+.edt .bar a.hover {
+	border-color: rgb(0, 153, 204); text-decoration: none; background-color: rgb(255, 255, 255);
+}
+.edt .bar a.tblbtn_disabled:hover {
+	border-color: rgb(242, 242, 242) !important; cursor: default; background-color: transparent !important;
+}
+.edt .bar a.hd_dsb:hover {
+	border-color: rgb(242, 242, 242) !important; cursor: default; background-color: transparent !important;
+}
+.edt .area {
+	background: rgb(255, 255, 255); padding: 4px; -ms-zoom: 1;
+}
+.edt .pt {
+	background: rgb(255, 255, 255); padding: 0px !important; border: currentColor; border-image: none; width: 100%; height: 400px; font-size: 14px;
+}
+.ie8 .edt .pt {
+	width: 800px; min-width: 100%; max-width: 100%;
+}
+.edt .pt:focus {
+	-moz-box-shadow: none;
+}
+.edt a.cst {
+	text-align: center; text-indent: 0px; background-image: none;
+}
+.edt a.cst img {
+	vertical-align: middle;
+}
+.simpleedt .bar {
+	height: 22px;
+}
+.simpleedt .b1r {
+	height: 22px;
+}
+.simpleedt .b2r {
+	height: 22px;
+}
+.bar_swch {
+	clear: both; display: block;
+}
+#e_bold {
+	background-position: 0px 0px;
+}
+#e_fontsize {
+	width: 45px;
+}
+#e_italic {
+	background-position: -20px 0px;
+}
+#e_underline {
+	background-position: -40px 0px;
+}
+#e_forecolor {
+	background-position: -60px 0px;
+}
+#e_backcolor {
+	background-position: -80px 0px;
+}
+#e_url {
+	background-position: -40px -20px;
+}
+#e_unlink {
+	background-position: -60px -20px;
+}
+#e_justifyleft {
+	background-position: -80px -20px;
+}
+#e_justifycenter {
+	background-position: -240px -40px;
+}
+#e_justifyright {
+	background-position: -260px -40px;
+}
+#e_autotypeset {
+	background-position: -220px -40px;
+}
+#e_floatleft {
+	background-position: -100px -60px;
+}
+#e_floatright {
+	background-position: -120px -60px;
+}
+#e_insertorderedlist {
+	background-position: -100px -20px;
+}
+#e_insertunorderedlist {
+	background-position: 0px -60px;
+}
+#e_inserthorizontalrule {
+	background-position: -20px -60px;
+}
+#e_tbl {
+	background-position: -160px -20px;
+}
+.tblbtn_disabled {
+	background-position: -180px -20px !important;
+}
+#e_tool {
+	background-position: 0px -40px;
+}
+#e_undo {
+	background-position: -20px -40px;
+}
+#e_redo {
+	background-position: -40px -40px;
+}
+#e_removeformat {
+	background-position: -60px -40px;
+}
+#e_tpr {
+	background-position: -80px -40px;
+}
+#e_chck {
+	background-position: -100px -40px;
+}
+#e_hide {
+	background-position: -120px -40px;
+}
+.hd_dsb {
+	background-position: -200px -40px !important;
+}
+#e_free {
+	background-position: -140px -40px;
+}
+#e_svd {
+	background-position: -160px -40px;
+}
+#e_rst {
+	background-position: -180px -40px;
+}
+#e_sml {
+	background-position: -3px -80px;
+}
+.b2r #e_sml {
+	background-position: -20px -20px;
+}
+#e_image {
+	background-position: -43px -80px;
+}
+.b2r #e_image {
+	background-position: 0px -20px;
+}
+#e_attach {
+	background-position: -83px -80px;
+}
+.b2r #e_attach {
+	background-position: -200px -20px;
+}
+#e_code {
+	background-position: -123px -80px;
+}
+.b2r #e_code {
+	background-position: -120px -20px;
+}
+#e_quote {
+	background-position: -163px -80px;
+}
+.b2r #e_quote {
+	background-position: -140px -20px;
+}
+#e_pasteword {
+	background-position: -60px -60px;
+}
+#e_downremoteimg {
+	background-position: -80px -60px;
+}
+#e_page {
+	background-position: -200px -60px;
+}
+#e_index {
+	background-position: -220px -120px;
+}
+#e_password {
+	background-position: -180px -120px;
+}
+#e_postbg {
+	background-position: -160px -120px;
+}
+#e_fls {
+	background-position: -3px -120px;
+}
+.b2r #e_fls {
+	background-position: -260px -20px;
+}
+#e_aud {
+	background-position: -43px -120px;
+}
+.b2r #e_aud {
+	background-position: -220px -20px;
+}
+#e_vid {
+	background-position: -83px -120px;
+}
+.b2r #e_vid {
+	background-position: -240px -20px;
+}
+#e_at {
+	background-position: -126px -120px;
+}
+.b2r #e_at {
+	background-position: -140px 0px;
+}
+#e_imagen {
+	background: url("http://29.92zyb.com/static/image/editor/editor.gif") no-repeat -244px -80px; left: 63px; top: 3px; width: 14px; height: 15px; text-indent: -9999px; position: absolute;
+}
+#e_attachn {
+	background: url("http://29.92zyb.com/static/image/editor/editor.gif") no-repeat -244px -80px; left: 63px; top: 3px; width: 14px; height: 15px; text-indent: -9999px; position: absolute;
+}
+#e_attachn {
+	left: 100px;
+}
+.b2r #e_imagen {
+	left: 35px; top: -4px;
+}
+.b2r #e_attachn {
+	left: 35px; top: -4px;
+}
+.b2r #e_attachn {
+	left: 57px;
+}
+#e_switcher input {
+	margin-right: 4px; vertical-align: middle;
+}
+#e_simple {
+	background: url("http://29.92zyb.com/static/image/common/card_btn.png") repeat-x 0px 100%; padding: 0px 2px; border: 1px solid rgb(194, 213, 227); border-image: none; text-align: right;
+}
+#e_fullswitcher {
+	background: url("http://29.92zyb.com/static/image/common/card_btn.png") repeat-x 0px 100%; padding: 0px 2px; border: 1px solid rgb(194, 213, 227); border-image: none; text-align: right;
+}
+#e_fullswitcher {
+	margin-right: 3px;
+}
+#e_beginning {
+	background-position: -246px -120px;
+}
+.b2r #e_beginning {
+	background-position: -260px -78px;
+}
+.popupfix .px {
+	margin-bottom: 4px;
+}
+#e_body {
+	display: block !important;
+}
+#e_body_loading {
+	display: none;
+}
+.ie8 .editortoolbar .flbc {
+	position: relative;
+}

@@ -93,7 +93,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
+
         $data = Posts::find($id);
+        
         return view('Admin.posts.show',['data'=>$data]);
     }
 

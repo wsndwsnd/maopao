@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Home\Notice;
 
-class LuntanController extends Controller
+class NoticeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,7 @@ class LuntanController extends Controller
      */
     public function index()
     {
-        return view('home.luntan');
+        //
     }
 
     /**
@@ -41,7 +42,7 @@ class LuntanController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * 公告页面
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -49,6 +50,9 @@ class LuntanController extends Controller
     public function show($id)
     {
         //
+        $data = Notice::find($id);
+        // dd($data);
+        return view('Home.notice.index',['data'=>$data]);
     }
 
     /**
