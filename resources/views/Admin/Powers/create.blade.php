@@ -6,7 +6,7 @@
             <span>添加用户</span>
         </div>
         <div class="mws-panel-body no-padding">
-            <form class="mws-form" action="/admin" method="post">
+            <form class="mws-form" action="/admin/power" method="post">
                 {{ csrf_field() }}
                 <div class="mws-form-inline">
                     <div class="mws-form-row">
@@ -17,8 +17,8 @@
                     </div>
                     <div class="mws-form-row" >
                         <label class="mws-form-label">权限:</label>
-                            <div class="mws-form-item">
-                                <select class="large" name="power">
+                            <div class="mws-form-item" class="small">
+                                <select class="small" name="power">
                                     <option value="1">普通用户</option>
                                     <option value="2">管理员</option>
                                     <option value="3">超级管理员</option>

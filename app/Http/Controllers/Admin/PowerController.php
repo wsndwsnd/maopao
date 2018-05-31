@@ -51,7 +51,7 @@ class PowerController extends Controller
         $power -> power = $request->input('power');
         $res = $power -> save();
         if($res){
-            return redirect('/admin')->with('success','添加成功');
+            return redirect('/admin/power')->with('success','添加成功');
         }else{
             return back()->with('error','添加失败');
         }
@@ -92,7 +92,7 @@ class PowerController extends Controller
         $power = $request->power;
         $res = Power::where('id','=',$id)->update(['power'=>$power]);
         if($res){
-            return redirect('/admin')->with('success','修改成功');
+            return redirect('/admin/power')->with('success','修改成功');
         }else{
             return back()->with('error','修改失败');
         }
@@ -108,7 +108,7 @@ class PowerController extends Controller
     {
         $res = Power::destroy($id);
         if($res){
-            return redirect('/admin')->with('success','删除成功');
+            return redirect('/admin/power')->with('success','删除成功');
         }else{
             return back()->with('error','删除失败');
         }

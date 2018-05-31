@@ -22,5 +22,12 @@ Route::resource('/admin/user','Admin\UserController');
 Route::resource('/admin/notice','Admin\NoticeController');
 Route::get('/admin/notice/up/{id}','Admin\NoticeController@up');
 Route::get('/admin/notice/down/{id}','Admin\NoticeController@down');
+//后台管理员
+Route::resource('/admin/power','Admin\PowerController');
+//后台论坛
+Route::resource('/admin/luntan','Admin\LuntanController');
 
-Route::resource('/admin','Admin\PowerController');
+//前台主页
+Route::resource('/home/index','Home\IndexController');
+//前台论坛
+Route::resource('/home/luntan','Home\LuntanController');

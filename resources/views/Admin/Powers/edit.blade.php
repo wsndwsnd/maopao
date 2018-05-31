@@ -6,7 +6,7 @@
         <span>{{$title}}</span>
     </div>
     <div class="mws-panel-body no-padding">
-        <form class="mws-form" action="/admin/{{ $power->id }}" method="post">
+        <form class="mws-form" action="/admin/power/{{ $power->id }}" method="post">
             {{ csrf_field() }}
             {{ method_field('PUT') }}
             <div class="mws-form-inline">

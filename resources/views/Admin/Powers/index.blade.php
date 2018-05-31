@@ -35,13 +35,13 @@
                                         @endif
                                     </td>
                                     <td class=" " style="border:1px #CCCCCC solid;width: 140px;">
-                                        <form style="display: inline;" action="/admin/{{$v->id}}" method="post">
+                                        <form style="display: inline;" action="/admin/power/{{$v->id}}" method="post">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <input type="submit" value="删除" class="btn btn-danger" onclick="confirm('确定删除吗?')">
                                         </form>
 
-                                        <form style="display: inline;" action="/admin/{{$v->id}}/edit" method="get">
+                                        <form style="display: inline;" action="/admin/power/{{$v->id}}/edit" method="get">
                                             {{ csrf_field() }}
                                             <input type="submit" value="修改" class="btn btn-info">
                                             
