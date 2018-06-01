@@ -21,7 +21,7 @@
                         <tbody role="alert" aria-live="polite" aria-relevant="all">
                             @foreach($power as $v)
                                 <tr class="odd" >
-                                    <td class="sorting_1" style="border:1px #CCCCCC solid;text-align: center;">{{ $v->id }}</td>
+                                    <td class=" " style="border:1px #CCCCCC solid;text-align: center;">{{ $v->id }}</td>
                                     <td class=" " style="border:1px #CCCCCC solid;text-align: center;">{{ $v->username }}</td>
                                     <td class=" " style="border:1px #CCCCCC solid;text-align: center;">
                                    

@@ -56,7 +56,7 @@
 		                <td class=" ">{{ $v->id }}</td>
 		                <td class=" ">{{ $v->notice_title}}</td>
 		                <!-- <td class=" ">{{ $v->notice_content}}</td> -->
-		                <td class=" ">{{ $v->created_at}}</td>
+		                <td class=" ">{{ substr($v->created_at,0,10)}}</td>
 		                <td class=" ">{{ $v->updated_at}}</td>
 		                @if( $v->notice_status == 0)
 		                <td class=" ">待审</td>

@@ -13,7 +13,7 @@ class NoticeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return 返回公告列表页
      */
     public function index(Request $request)
     {
@@ -33,7 +33,7 @@ class NoticeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return 返回公告添加页
      */
     public function create()
     {
@@ -44,11 +44,11 @@ class NoticeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return 执行添加操作
      */
     public function store(Request $request)
     {
-      
+        //表单验证
         $this -> validate($request,[
             'notice_title' => 'required',
             'notice_content' => 'required',
@@ -63,6 +63,8 @@ class NoticeController extends Controller
         $notice -> notice_title = $request ->input('notice_title','');
         $notice -> notice_content = $request ->input('notice_content','');
         $notice -> notice_status= $request ->input('notice_status');
+      
+
         $notice -> save();
 
         if($notice){
@@ -76,7 +78,7 @@ class NoticeController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return 公告详情
      */
     public function show($id)
     {
@@ -88,7 +90,7 @@ class NoticeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return 返回修改页
      */
     public function edit($id)
     {
@@ -100,8 +102,8 @@ class NoticeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id 要修改的id 
+     * @return 执行修改
      */
     public function update(Request $request, $id)
     {
@@ -136,6 +138,7 @@ class NoticeController extends Controller
 
     /**
      * 公告权限-发布
+     * status 状态
      */
     public function up(Request $request,$id,$status=1)
     {
@@ -147,6 +150,7 @@ class NoticeController extends Controller
 
     /**
      * 公告权限-待审
+     *  status 状态
      */
     public function down($id,$status=0)
     {

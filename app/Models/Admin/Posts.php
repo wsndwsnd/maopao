@@ -16,5 +16,9 @@ class Posts extends Model
 	        // 一对一
 	        return $this->hasOne('App\Models\Admin\Postsinfo','tid');
 	    }
+	     public function cates()
+	    {
+	        return $this->belongsTo('App\Models\Admin\Category','cid');
+	    }
 }
 

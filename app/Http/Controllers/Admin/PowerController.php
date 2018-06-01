@@ -14,11 +14,11 @@ class PowerController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return 管理员
      */
     public function index(Request $request)
     {
-        // $power = Power::paginate(5);
+        
         $count = $request->input('count','5');
         $username = $request -> input('username','');
         
@@ -29,7 +29,7 @@ class PowerController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return 添加页面
      */
     public function create()
     {
@@ -41,10 +41,11 @@ class PowerController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return 执行修改
      */
     public function store(Request $request)
     {
+        //实例化 power 类
         $power = new Power;
         $power -> username = $request->input('username');
         $power -> password = $request->input('password');
@@ -72,7 +73,7 @@ class PowerController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return 显示修改页
      */
     public function edit($id)
     {
@@ -84,8 +85,8 @@ class PowerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id 要修改的id
+     * @return 执行修改
      */
     public function update(Request $request, $id)
     {
@@ -101,8 +102,8 @@ class PowerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id 要删除的id
+     * @return 执行删除
      */
     public function destroy($id)
     {

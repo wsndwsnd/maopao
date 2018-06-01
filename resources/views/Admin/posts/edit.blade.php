@@ -11,6 +11,10 @@
         </ul>
     </div>
 @endif
+<!-- 配置文件 -->
+    <script type="text/javascript" src="/utf8-php/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/utf8-php/ueditor.all.js"></script>
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span>修改帖子</span>
@@ -24,39 +28,47 @@
                     <label class="mws-form-label">发帖标题</label>
                     <div class="mws-form-item">
                         <input type="text" class="small" name="posts_title" value="{{ $data->posts_title }}">
-						　类别　
-                        <select size="1" name="cid" aria-controls="DataTables_Table_1">
-                        <option value="1"  >1</option>
-                        <option value="2" >2</option>
-                        <option value="3" >3</option>
-                        <option value="4" >4</option>
-                    	</select>
+						
+                        
                     </div>
                 </div>
 		
-
+             <div class="mws-form-row">
+                    <label class="mws-form-label">类别<span class="required">*</span></label>
+                       <div class="mws-form-item">
+                            <select size="1" name="cid" aria-controls="DataTables_Table_1">
+                                <option value="0" >选择类别</option>
+                                @foreach($data1 as $v)
+                                <option value="{{$v->id}}" @if($data->cates->id == $v->id) selected @endif >{{$v->title}}</option>
+                             @endforeach
+                            </select>
+                      </div>
+                </div>
                 <div class="mws-form-row">
                     <label class="mws-form-label">发帖内容</label>
                     <div class="mws-form-item" >
-                        <textarea rows="" cols="" class="large" name="content" value="" style="height: 300px;"> {{ $data->postsinfo->content }}</textarea>
+                        <script id="container" name="content" type="text/plain" class="small" style="height: 200px;">
+                          {!! $data->postsinfo->content !!}
+                        </script>
+                        
                     </div>
                 </div>
-                <div class="mws-form-row">
-                    <label class="mws-form-label">修改图片</label>
-                    <div class="mws-form-item" style="width:400px;">
-                        <input type="file" name="pic" value="" >
-                        <img src="{{ $data->postsinfo->pic }}">
-                    </div>
-                </div>
+                
                 
             </div>
             <div class="mws-button-row">
                 <input type="submit" value="提交" class="btn ">
                 <input type="reset" value="重置" class="btn ">
                 <a href="/admin/posts" ><input type="button" class="btn " value="返回"> </a>
-
             </div>
         </form>
     </div>      
 </div>
+<script type="text/javascript">
+        var ue = UE.getEditor('container',{
+           toolbars: [
+                ['fullscreen', 'source', 'undo', 'redo', 'bold','simpleupload','insertimage','italic','forecolor','backcolor','edittip' ]
+            ]
+        });
+    </script>
 @endsection

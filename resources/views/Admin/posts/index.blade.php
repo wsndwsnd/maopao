@@ -26,15 +26,18 @@
             <thead>
                 <tr role="row">
                 	<th  role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 20px;">
-                	帖子编号
+                	编号
+                	</th>
+                	<th  role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 20px;">
+                	类别
                 	</th>
                 	<th role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 120px;">
-                	帖子标题
+                	标题
                 	</th>
              	    <th role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 80px;">
                 	作者
                 	</th>
-                	 <th role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 80px;">
+                	 <th role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 50px;">
                 	浏览量
                 	</th>
                 	<th role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 80px;">
@@ -54,6 +57,7 @@
 		        @foreach($data as $k=>$v)
 		        	<tr class="even " style="border:1px solid #ddd;text-align: center" >
 		                <td class=" ">{{ $v->id }}</td>
+		                <td>{{ $v->cates->title }}</td>
 		                <td class=" ">{{ $v->posts_title}}</td>
 		                
 		               

@@ -137,7 +137,7 @@
               <a href="">收藏</a>
               <a href="/Home/javascript:;" id="wmn" class="showmenu " onMouseOver="showMenu({'ctrlid':'wmn','pos':'34!','ctrlclass':'a','duration':2});">消息</a>
               <span id="myprompt_check"></span>
-              <a href="/quit">退出</a>
+              <a href="/user/">退出</a>
           @else
               <a href="/user/create">登录</a>
               <a href="/login">注册</a>
@@ -230,8 +230,9 @@
                   <a href="/" hidefocus="true" title="Portal">首页
                     <span>Portal</span></a>
                 </li>
-                <li class="xnv_2" id="mn_forum" onmouseover="">
-                  <a href="/Home/forum.php" hidefocus="true" title="BBS">分类<span>BBS</span></a>
+                <li class="xnv_2" id="mn_forum" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})">
+                  <a href="/Home/forum.php" hidefocus="true" title="BBS">分类
+                    <span>BBS</span></a>
                 </li>
                 <li class="xnv_3" id="mn_forum_10">
                   <a href="/Home/forum.php?mod=guide" hidefocus="true" title="Guide">导读
@@ -246,12 +247,6 @@
               </ul>
               <script src="/Home/js/nv.js" type="text/javascript"></script>
             </div>
-            <script type="text/javascript">
-              // var xxoo = document.getElementsById('mn_forum');
-              // xxoo.onmouseover = function(){
-                // alert(1);
-              // }
-            </script>
           </div>
           <div id="um">
             <div class="avt y">

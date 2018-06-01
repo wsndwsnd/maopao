@@ -274,6 +274,22 @@
                             
                         </ul>
                     </li>
+                     <li>
+                        <a href="#"><i class="icon-list"></i>类别管理</a>
+                        <ul class="closed"> 
+                            <li><a href="/admin/cate">类别列表</a></li>
+                            <li><a href="/admin/cate/create">类别添加</a></li>
+                            
+                        </ul>
+                    </li>
+                     <li>
+                        <a href="#"><i class="icon-list"></i>文章管理</a>
+                        <ul class="closed"> 
+                            <li><a href="/admin/article">文章列表</a></li>
+                            <li><a href="/admin/article/create">文章添加</a></li>
+                            
+                        </ul>
+                    </li>
                 </ul>
             </div>         
         </div>

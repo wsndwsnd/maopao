@@ -56,6 +56,7 @@ class LoginController extends Controller
             'repassword.same' => '两次密码不一致',
            ]
        );
+
         $data = $request;
         $users = new User;
         $user_name= $data->user_name;
@@ -69,11 +70,14 @@ class LoginController extends Controller
         $res2 = $userinfo->save();
        if($res1 && $res2){
         //成功
+             dump(1);
              DB::commit();
-             return redirect('/');
+             // return redirect('/admin/users/');
        }else{
         //失败
+        dump(2);
         DB::rollBack();
+            // return redirect('/admin/users/create');
        }
         // dump($request -> all());
 

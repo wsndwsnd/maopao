@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Home\User;
-use App\Models\Home\Userinfo;
+use App\Models\home\Userinfo;
 use DB;
 class UserController extends Controller
 {
@@ -18,8 +18,8 @@ class UserController extends Controller
      */
     public function index()
     {   
-        $id = session()->get('user_id');
-        $data = User::find($id);
+
+        $data = User::find(21);
         return view('Home.user.index',['data'=>$data]);
     }
 
@@ -49,7 +49,7 @@ class UserController extends Controller
         $user = User::where('user_name',$user_name)->where('user_password',$password)->first();
         if($user){
             //把用户数据保存到session
-            session(['user_name'=>$user->user_name,'user_password'=>$user->user_password,'user_id'=>$user->id]);
+            session(['user_name'=>$user->user_name,'user_password'=>$user->user_password]);
             
             return redirect('/user');
         }
@@ -130,6 +130,5 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-       
     }
 }
