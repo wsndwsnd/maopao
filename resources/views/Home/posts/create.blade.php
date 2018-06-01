@@ -1,6 +1,9 @@
 @extends('Home.layout.master')
 @section('sidebar')
-
+<!-- 配置文件 -->
+    <script type="text/javascript" src="/utf8-php/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/utf8-php/ueditor.all.js"></script>
 <div class="bottombg">  
 
 <script type="text/javascript">
@@ -60,7 +63,7 @@ var pwlength = 6;
 <div class="rfm">
 <table>
 <tbody><tr>
-<th><span class="rq">*</span><label for="">类别:</label></th>
+<th><span class="rq">*</span><label for="">帖子类别:</label></th>
   <td>
         <select name="cid" class="ps" tabindex="1">
             <option value="x">类别1</option>
@@ -77,7 +80,7 @@ var pwlength = 6;
 <table>
 <tbody>
 <tr>
-<th><span class="rq">*</span><label for="">文章图片:</label></th>
+<th><span class="rq">*</span><label for="">帖子图片:</label></th>
 <td>
   <input type="file" name="pic"><br>
   <img width="100px"  src="">
@@ -90,11 +93,10 @@ var pwlength = 6;
 <table>
 <tbody>
 <tr>
-<th><span class="rq">*</span><label for="">文章内容:</label></th>
-<td>
-  <textarea name="content" style="width: 500px; height: 200px">
-    
-  </textarea>
+<th><span class="rq">*</span><label for="">帖子内容:</label></th>
+<td style="width:630px">
+  <script id="container" name="content" type="text/plain">
+    </script>
 </td>
 </tr>
 </tbody></table>
@@ -252,4 +254,12 @@ Copyright <br> © 2001-2013 <a href="http://www.tmd9.com" target="_blank">www.tm
 </div></div>
 </div>
 </div>
+ <script type="text/javascript">
+        var ue = UE.getEditor('container', {
+          toolbars: [
+              ['indent','redo','time','date','simpleupload','insertimage']
+              ],
+              
+          });
+    </script>
 @stop

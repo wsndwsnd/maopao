@@ -10,6 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+//验证码
+Route::get('/code','CodeController@index');
+Route::get('/check','CodeController@check');
+
 
 Route::get('/','Home\IndexController@index');
 //后台显示主页面
@@ -26,7 +30,8 @@ Route::resource('/admin/power','Admin\PowerController');
 Route::resource('/admin/posts','Admin\PostsController');
 Route::get('/admin/posts/up/{id}','Admin\PostsController@up');
 Route::get('/admin/posts/down/{id}','Admin\PostsController@down');
-//后台轮播图
+//后台友情链接
+Route::resource('/admin/link','Admin\LinkController');
 
 
 //前台

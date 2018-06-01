@@ -70,7 +70,7 @@ class LoginController extends Controller
        if($res1 && $res2){
         //成功
              DB::commit();
-             return redirect('/');
+             return redirect('/user/create');
        }else{
         //失败
         DB::rollBack();
