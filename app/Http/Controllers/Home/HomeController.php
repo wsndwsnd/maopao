@@ -6,21 +6,23 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Home\User;
-use App\Models\Home\Userinfo;
 use App\Models\Admin\Notices;
-use DB;
-class IndexController extends Controller
+use App\Models\Admin\Link;
+use App\Models\Admin\Articles;
+class HomeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * 前台首页
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $notices = Notices::all();
-        return view('Home/index',['notices'=>$notices]);
+        //
+        $article = Articles::get();
+        $link = Link::get();
+        $notice = Notices::get();
+        return view('Home.index',['notice'=>$notice,'link'=>$link,'article'=>$article]);
     }
 
     /**

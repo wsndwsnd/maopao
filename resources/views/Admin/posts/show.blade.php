@@ -6,12 +6,10 @@
     </div>
     <div class="mws-panel-body no-padding">
 
-    		  <div class="mws-panel-body">
-	    	<center>
-	    	<p><img src="{{ $data->postsinfo->pic }}" alt="" width="500px" ></p>
-	    	</center>	
-	    	<hr>
-	        <p>{{$data->postsinfo->content}}</p>
+    	<div class="mws-panel-body" style="height:600px;">
+	    		    
+	        	<p>{!! $data->postsinfo->content !!}</p>
+	       
 	    </div>
 	</div>
 	<div class="btn-toolbar">

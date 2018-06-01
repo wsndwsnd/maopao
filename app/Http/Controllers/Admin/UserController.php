@@ -18,7 +18,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return 用户列表
      */
     public function index(Request $request)
     {
@@ -26,6 +26,7 @@ class UserController extends Controller
         $username = $request -> input('user_name','');
         
         $data = User::where('user_name','like','%'.$username.'%')->paginate($count);
+        // 总条数
         $num = User::count('id');
         return view('Admin.user.index',['data'=>$data,'user_name'=>$username,'num'=>$num,'count'=>$count]);
     }
@@ -33,7 +34,7 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return 添加页面
      */
     public function create()
     {
@@ -44,7 +45,7 @@ class UserController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return 执行添加
      */
     public function store(UserInsertRequest $request)
     {
@@ -88,7 +89,7 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return 用户详细信息
      */
     public function show($id)
     {
@@ -100,7 +101,7 @@ class UserController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return 返回修改页面
      */
     public function edit($id)
     {
@@ -112,8 +113,8 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id 要修改的id
+     * @return 执行修改操作
      */
     public function update(UserEditRequest $request, $id)
     {
@@ -156,8 +157,8 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id 要删除的id
+     * @return 执行删除操作
      */
     public function destroy($id)
     {

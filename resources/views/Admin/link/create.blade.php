@@ -34,6 +34,12 @@
                         <input type="text" name="Link_url" class="required email small" value="{{ old('Link_url') }}">
                     </div>
                 </div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">联系电话<span class="required">*</span></label>
+                    <div class="mws-form-item">
+                        <input type="text" name="tel" class="required email small" value="{{ old('tel') }}">
+                    </div>
+                </div>
             </fieldset>
             
             

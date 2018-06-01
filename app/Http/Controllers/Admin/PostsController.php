@@ -9,16 +9,19 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Posts;
 use App\Models\Admin\Postsinfo;
 use DB;
+use  App\Http\Controllers\Admin\CateController;
 class PostsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return 返回帖子列表
      */
     public function index(Request $request)
     {
-         $count = $request->input('count','5');
+        //接收显示条数
+        $count = $request->input('count','5');
+        //接收搜索内容
         $posts_title = $request -> input('posts_title','');
         
         $data = Posts::where('posts_title','like','%'.$posts_title.'%')->paginate($count);
@@ -29,49 +32,34 @@ class PostsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return 显示添加页
      */
     public function create()
     {
-          
-        return view('Admin.posts.create');
+        //CateController::getCategory()  遍历类别   
+        return view('Admin.posts.create',['data'=>CateController::getCategory()]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return 执行添加
      */
     public function store(Request $request)
     {
+        //开启事务
         DB::beginTransaction();
         
-        $data1 = $request -> only('posts_title');
-        // dd($data1);
+        $data1 = $request -> only('posts_title','cid');
+        
         $data1['uid'] = '21';
-        $data1['cid'] = '1';
+
         $data1['created_at']=date('Y-m-d H:i:s',time());
         $res1 = Posts::insertGetId($data1);
-        // dump($data1);
+
         $data2 = $request->only('content');
-        //判断是否上传文件
-        if($request->hasFile("pic")){
-        //获取上传信息
-        $file = $request->file("pic");
-        //确认上传的文件是否成功
-        if($file->isValid()){
-           
-            $ext = $file->getClientOriginalExtension(); //获取上传文件名的后缀名
-            //执行移动上传文件
-            $filename = time().rand(1000,9999).".".$ext;
-            $dir_name = 'pic/'.date('Ymd',time());//拼接路径便于存储
-            $name = '/'.$dir_name.'/'.$filename;          
-            $data2['pic']=$name;
-           
-            $file ->move($dir_name,$filename);
-        }
-    }
+       
         $data2['tid'] = $res1;
         
         $res2 = Postsinfo::insert($data2);
@@ -88,8 +76,8 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id 要是帖子的id
+     * @return 显示帖子内容
      */
     public function show($id)
     {
@@ -103,43 +91,27 @@ class PostsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return 返回修改页面
      */
     public function edit($id)
     {
         $data = Posts::find($id);
-        return view('Admin.posts.edit',['data'=>$data]);
+        return view('Admin.posts.edit',['data'=>$data,'data1'=>CateController::getCategory()]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id  要修改的id
+     * @return 执行修改
      */
     public function update(Request $request, $id)
     {
         DB::beginTransaction();
         $data1 = $request -> only('posts_title','cid');
         $data2 = $request -> only('content');
-             //判断是否上传文件
-            if($request->hasFile("pic")){
-            //获取上传信息
-            $file = $request->file("pic");
-            //确认上传的文件是否成功
-            if($file->isValid()){
-               
-                $ext = $file->getClientOriginalExtension(); //获取上传文件名的后缀名
-                //执行移动上传文件
-                $filename = time().rand(1000,9999).".".$ext;
-                $dir_name = 'pic/'.date('Ymd',time());//拼接路径便于存储
-                $name = '/'.$dir_name.'/'.$filename;          
-                $data2['pic']=$name;
-               
-                $file ->move($dir_name,$filename);
-            }
-        }
+        
         $res1 = Posts::where('id',$id)->update($data1);
         $res2 = Postsinfo::where('tid',$id)->update($data2);
         if ($res1 && $res2) {
@@ -156,8 +128,8 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id 要删除的ID
+     * @return 执行删除
      */
     public function destroy($id)
     {
@@ -178,6 +150,7 @@ class PostsController extends Controller
 
      /**
      * 帖子状态-上线
+     * attr 状态
      */
     public function up(Request $request,$id,$attr=1)
     {
@@ -189,6 +162,7 @@ class PostsController extends Controller
 
     /**
      * 帖子状态-待审
+     * attr 状态
      */
     public function down($id,$attr=0)
     {

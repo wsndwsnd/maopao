@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Home\Notice;
-
-class NoticeController extends Controller
+use App\Models\Admin\Articles;
+class ZixunController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,8 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        //
+        $data = Articles::all();
+        return view('Home.zixun.index',['data'=>$data]);
     }
 
     /**
@@ -42,7 +42,7 @@ class NoticeController extends Controller
     }
 
     /**
-     * 公告页面
+     * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -50,9 +50,6 @@ class NoticeController extends Controller
     public function show($id)
     {
         //
-        $data = Notice::find($id);
-        // dd($data);
-        return view('Home.notice.index',['data'=>$data]);
     }
 
     /**
