@@ -10,10 +10,17 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
 //前台首页
 Route::get('/', function () {
 	return view('Home.index');
 });
+
+//验证码
+Route::get('/code','CodeController@index');
+Route::get('/check','CodeController@check');
+
+
 
 //后台首页
 Route::get('/admin','Admin\IndexController@index');
@@ -36,6 +43,11 @@ Route::resource('/admin/power','Admin\PowerController');
 Route::resource('/admin/posts','Admin\PostsController');
 Route::get('/admin/posts/up/{id}','Admin\PostsController@up');
 Route::get('/admin/posts/down/{id}','Admin\PostsController@down');
+
+
+//后台友情链接
+Route::resource('/admin/link','Admin\LinkController');
+
 
 //后台帖子类别
 Route::resource('/admin/cate','Admin\CateController');

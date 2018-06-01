@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Home\User;
 use App\Models\home\Userinfo;
 use DB;
+use App\Http\Controllers\CodeController;
 class UserController extends Controller
 {
     /**
@@ -42,6 +43,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
+        $res = CodeController::check($request -> input('code'));
+        if(!$res){
+            dd('验证码错误');
+        }
         //获取信息
         $user_name = $request -> user_name;
         $password = $request -> password;
@@ -51,7 +57,7 @@ class UserController extends Controller
             //把用户数据保存到session
             session(['user_name'=>$user->user_name,'user_password'=>$user->user_password]);
             
-            return redirect('/user');
+            return redirect('/');
         }
             dd('失败');//失败
     }

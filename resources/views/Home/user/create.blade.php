@@ -68,11 +68,24 @@ var pwlength = 6;
 
 <div class="rfm">
 <table>
-<tbody><tr>
+<tbody>
+<tr>
 <th><span class="rq">*</span><label for="">密码:</label></th>
 <td><input type="password" class="px" name="password"></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
+
+<div class="rfm">
+<table>
+<tbody>
+<tr>
+<th><span class="rq">*</span><label for="">验证码:</label></th>
+<td><input type="text" class="px" name="code"><br><br><img src="/code" onclick="rand(this)"></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -219,6 +232,10 @@ Copyright <br> © 2001-2013 <a href="http://www.tmd9.com" target="_blank">www.tm
 </div></div>
 </div>
 </div>
-      
+<script type="text/javascript">
+  function rand(obj){
+    obj.src = '/code?a='+Math.random();
+  }
+</script>
 
 @stop

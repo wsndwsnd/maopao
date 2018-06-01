@@ -72,7 +72,9 @@ class LoginController extends Controller
         //成功
              dump(1);
              DB::commit();
-             // return redirect('/admin/users/');
+
+             return redirect('/user/create');
+
        }else{
         //失败
         dump(2);
