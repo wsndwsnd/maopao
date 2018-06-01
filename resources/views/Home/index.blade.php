@@ -88,21 +88,13 @@
                   <div id="portal_block_62_content" class="dxb_bc">
                     <div class="module cl">
                       <ul>
+                        @foreach($notice as $v)
                         <li class="cc1">
-                          <em>12-25</em>
-                          <a href="forum.php?mod=announcement&id=9" title="公告201701" target="_blank">公告201701</a></li>
-                        <li class="cc2">
-                          <em>12-25</em>
-                          <a href="forum.php?mod=announcement&id=10" title="公告201702" target="_blank">公告201702</a></li>
-                        <li class="cc3">
-                          <em>12-25</em>
-                          <a href="forum.php?mod=announcement&id=11" title="公告201703" target="_blank">公告201703</a></li>
-                        <li class="cc4">
-                          <em>12-25</em>
-                          <a href="forum.php?mod=announcement&id=12" title="公告201704" target="_blank">公告201704</a></li>
-                        <li class="cc5">
-                          <em>12-25</em>
-                          <a href="forum.php?mod=announcement&id=13" title="公告201705" target="_blank">公告201705</a></li>
+                         
+                          <a href="forum.php?mod=announcement&id=9" target="_blank" style="font-size:20px;">{{ $v->notice_title }}</a>
+                           <em style="float:right; font-size:10px;">{{ substr($v ->created_at,0,10) }}</em>
+                        </li>
+                        @endforeach
                       </ul>
                     </div>
                   </div>
@@ -265,23 +257,25 @@
                       <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">最新文章</span></div>
                   <div id="portal_block_66_content" class="dxb_bc">
                       <div class="module cl xld slidebox" slidenum="8" slidestep="8" id="0.0344960488936239" style="display: block;">
+                        <!-- 遍历文章 -->
+                        @foreach($article as $v)
                           <div class="slideshow">
                               <dl class="cl" style="display: block;">
                                   <dd class="m">
-                                      <a href="portal.php?mod=view&amp;aid=12" title="昆凌称结婚签字像过家家 羞曝如何抓住周董心" target="_blank">
-                                          <img src="data/attachment/block/a7/a7a2ce7d3f9d4f86cb7573657b818259.jpg" width="266" height="180" alt="昆凌称结婚签字像过家家 羞曝如何抓住周董心"></a>
+                                      <a href="portal.php?mod=view&amp;aid=12" title="" target="_blank">
+                                          <img src="{{ ltrim($v->article_img,'.') }}" width="266" height="180" alt=""></a>
                                   </dd>
-                                  <a href="portal.php?mod=view&amp;aid=12" title="昆凌称结婚签字像过家家 羞曝如何抓住周董心" target="_blank"></a>
+                                  <a href="portal.php?mod=view&amp;aid=12" title="" target="_blank"></a>
                                   <dt class="leftjl">
-                                      <a href="portal.php?mod=view&amp;aid=12" title="昆凌称结婚签字像过家家 羞曝如何抓住周董心" target="_blank"></a>
-                                      <a href="portal.php?mod=view&amp;aid=12" title="昆凌称结婚签字像过家家 羞曝如何抓住周董心" target="_blank">昆凌称结婚签字像过家家 羞曝如何抓住周董</a></dt>
+                                      <a href="portal.php?mod=view&amp;aid=12" title="" target="_blank"></a>
+                                      <a href="portal.php?mod=view&amp;aid=12" title="" target="_blank">{{$v -> article_title}}</a></dt>
                                   <dd class="xinx leftjl">
                                       <span class="fbtime">
                                           <i>
-                                          </i>2016-04-15</span>
+                                          </i>{{substr($v ->created_at,0,10)}}</span>
                                       <span class="zuoz">
                                           <i>
-                                          </i>admin</span>
+                                          </i>{{$v->article_author}}</span>
                                       <span class="lookn">
                                           <i>
                                           </i>62</span>
@@ -289,11 +283,11 @@
                                           <i>
                                           </i>3</span>
                                   </dd>
-                                  <dd class="sumr leftjl">据台湾媒体报道，周杰伦4月在脸书粉丝团宣布昆凌“带球跑”，13日报出爱妻10日已平安产下宝贝女儿小周周。从1月在英国古堡的世纪婚礼之后，所有人都把她视为公主、幸运女神，彷佛过着不同于一般人的胜利人生。不过，...</dd>
+                                  <dd class="sumr leftjl">{{ $v->article_dec }}</dd>
                                   <dd class="rdmore leftjl">
-                                      <a href="portal.php?mod=view&amp;aid=12" title="昆凌称结婚签字像过家家 羞曝如何抓住周董心" target="_blank">read more</a></dd>
+                                      <a href="portal.php?mod=view&amp;aid=12" target="_blank">查看详情</a></dd>
                               </dl>
-
+                        @endforeach
                           </div>
                           <div class="btn">
                               <div class="slidebarup">
@@ -411,26 +405,17 @@
                   <div class="blocktitle title">
                     <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">友情链接</span>
                     <span class="subtitle" style="float:right;margin-right:px;font-size:">
-                      <a href="#" target="_blank" style="color:#8D8D8D !important;">申请链接 &gt;</a></span>
+                      <a href="/link" target="_blank" style="color:#8D8D8D !important;">申请链接 &gt;</a></span>
                   </div>
                   <div id="portal_block_70_content" class="dxb_bc">
                     <div class="x cl">
                       <ul class="cl">
+                        @foreach($link as $v)
                         <li class="line cc1">|</li>
                         <li>
-                          <a href="http://www.discuz.net" target="_blank">官方论坛</a></li>
-                        <li class="line cc2">|</li>
-                        <li>
-                          <a href="http://www.comsenz.com" target="_blank">Comsenz</a></li>
-                        <li class="line cc3">|</li>
-                        <li>
-                          <a href="http://www.manyou.com/" target="_blank">漫游平台</a></li>
-                        <li class="line cc4">|</li>
-                        <li>
-                          <a href="http://w.jiale9.com" target="_blank">discuz模板教程</a></li>
-                        <li class="line cc5">|</li>
-                        <li>
-                          <a href="https://shop166047796.taobao.com/" target="_blank">加田小店</a></li>
+                          <a href="{{$v -> Link_url}}" target="_blank">{{$v -> Link_text}}</a></li>
+                          <li class="line cc3">|</li>
+                        @endforeach
                       </ul>
                     </div>
                   </div>

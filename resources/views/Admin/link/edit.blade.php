@@ -13,7 +13,7 @@
 
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
-    	<span><i class="icon-magic"></i>用户修改</span>
+    	<span><i class="icon-magic"></i>友情链接修改</span>
     </div>
     <div class="mws-panel-body no-padding">
        <form class="mws-form wzd-default wizard-form wizard-form-horizontal" action="/admin/link/{{ $data->id }}" method="post" enctype="multipart/form-data">
@@ -32,6 +32,12 @@
                     <label class="mws-form-label">友情链接地址<span class="required">*</span></label>
                     <div class="mws-form-item">
                         <input type="text" name="Link_url" class="required email small" value="{{ $data -> Link_url }}">
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">联系电话<span class="required">*</span></label>
+                    <div class="mws-form-item">
+                        <input type="text" name="tel" class="required email small" value="{{ $data -> tel }}">
                     </div>
                 </div>
             </fieldset>

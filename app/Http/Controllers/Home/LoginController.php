@@ -40,22 +40,22 @@ class LoginController extends Controller
     public function store(Request $request)
     {
        DB::beginTransaction();
-       $this -> validate($request,[
-            'user_name' => 'required|unique:users|regex:/[\w]{1,12}/',
-            'password' => 'required|regex:/[\w]{6,18}/',
-            'repassword' => 'required|same:password',
-            'email' => 'required|email',
-           ],[
-            'user_name.required' => '用户名不能为空',
-            'user_name.unique' => '用户名已存在',
-            'email.required' => '邮箱不能为空',
-            'email.email' => '邮箱格式不合法',
-            'password.required' => '密码不能为空',
-            'password.regex' => '请输入6-8位合法密码',
-            'repassword.required' => '确认密码不能为空',
-            'repassword.same' => '两次密码不一致',
-           ]
-       );
+       // $this -> validate($request,[
+       //      'user_name' => 'required|unique:users|regex:/[\w]{1,12}/',
+       //      'password' => 'required|regex:/[\w]{6,18}/',
+       //      'repassword' => 'required|same:password',
+       //      'email' => 'required|email',
+       //     ],[
+       //      'user_name.required' => '用户名不能为空',
+       //      'user_name.unique' => '用户名已存在',
+       //      'email.required' => '邮箱不能为空',
+       //      'email.email' => '邮箱格式不合法',
+       //      'password.required' => '密码不能为空',
+       //      'password.regex' => '请输入6-8位合法密码',
+       //      'repassword.required' => '确认密码不能为空',
+       //      'repassword.same' => '两次密码不一致',
+       //     ]
+       // );
 
         $data = $request;
         $users = new User;
@@ -70,18 +70,14 @@ class LoginController extends Controller
         $res2 = $userinfo->save();
        if($res1 && $res2){
         //成功
-             dump(1);
              DB::commit();
-
              return redirect('/user/create');
 
        }else{
         //失败
-        dump(2);
         DB::rollBack();
-            // return redirect('/admin/users/create');
+            return back()->with('error','请输入合法信息');
        }
-        // dump($request -> all());
 
     }
 

@@ -11,10 +11,8 @@
 |
 */
 
-//前台首页
-Route::get('/', function () {
-	return view('Home.index');
-});
+
+
 
 //验证码
 Route::get('/code','CodeController@index');
@@ -47,19 +45,26 @@ Route::get('/admin/posts/down/{id}','Admin\PostsController@down');
 
 //后台友情链接
 Route::resource('/admin/link','Admin\LinkController');
+Route::post('/admin/link/audit','Admin\LinkController@audit');
+Route::get('/admin/links/auditindex','Admin\LinkController@auditindex');
+Route::get('/admin/link/up/{id}','Admin\LinkController@up');
+Route::get('/admin/link/down/{id}','Admin\LinkController@down');
+
+
 
 
 //后台帖子类别
 Route::resource('/admin/cate','Admin\CateController');
 
-//后台文章管理路由
+//后台文章管理路
 Route::resource('/admin/article','Admin\ArticleController');
 //文章发布-待审路由
 Route::get('/admin/article/up/{id}','Admin\ArticleController@up');
 Route::get('/admin/article/down/{id}','Admin\ArticleController@down');
 
 //前台
-
+//前台首页
+Route::get('/','Home\HomeController@index');
 //注册
 Route::resource('/login','Home\LoginController');
 //前台用户
@@ -67,5 +72,12 @@ Route::resource('/user','Home\UserController');
 
 //前台帖子
 Route::resource('/posts','Home\PostsController');
+
+
 //前台咨询  文章列表
 Route::resource('/zixun','Home\ZixunController');
+
+
+//申请友情链接
+Route::get('/link','Home\LinkController@index');
+

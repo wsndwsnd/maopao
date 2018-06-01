@@ -275,6 +275,7 @@
                         </ul>
                     </li>
 
+
                      <li>
                         <a href="#"><i class="icon-list"></i>类别管理</a>
                         <ul class="closed"> 
@@ -291,13 +292,18 @@
                         </ul>
                     </li>
 
+
                     <li>
                         <a href="#"><i class="icon-list"></i>友情链接管理</a>
                         <ul class="closed"> 
                             <li><a href="/admin/link">友情链接列表</a></li>
+
                             <li><a href="/admin/link/create">友情链接添加</a></li>
 
                             
+
+                            <li><a href="/admin/links/auditindex">前台待审</a></li>
+
                         </ul>
                     </li>
                 </ul>

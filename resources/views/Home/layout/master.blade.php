@@ -17,6 +17,7 @@
 
 
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_portal_index.css" />
+
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_index.css" />
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_viewthread.css" />
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_home_space.css" />
@@ -26,6 +27,9 @@
     
 
     <link rel="stylesheet" type="text/css" href="/Home/css/index.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
 
     <script type="text/javascript">var STYLEID = '16',
       STATICURL = 'static/',
@@ -48,6 +52,7 @@
       DYNAMICURL = '';</script>
     <script src="/Home/js/common.js" type="text/javascript"></script>
     <script src="/Home/js/common.js" type="text/javascript"></script>
+    <script src="/layui/layui.all.js" type="text/javascript"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=6" />
     <meta http-equiv="X-UA-Compatible" content="IE=7" />
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
@@ -99,11 +104,22 @@
       });</script>
     <script type="text/javascript">var tpldir = './template/xinglan_l30';</script>
     <script src="/Home/js/jquery.js" type="text/javascript"></script>
+
     <script type="text/javascript">var jq = jQuery.noConflict();</script>
 
   </head>
   
+
+    <script type="text/javascript" src="/layui/jquery-3.2.1.min.js"></script>
+
   <body id="nv_portal" class="pg_index" onkeydown="if(event.keyCode==27) return false;">
+<script>
+//由于模块都一次性加载，因此不用执行 layui.use() 来加载对应模块，直接使用即可：
+;!function(){
+  var layer = layui.layer
+  ,form = layui.form;
+}();
+</script>
     <div id="append_parent"></div>
     <div id="ajaxwaitid"></div>
     <ul id="myprompt_menu" class="p_pop" style="display: none;">
@@ -155,12 +171,13 @@
               <span id="myprompt_check"></span>
               <a href="/user/">退出</a>
           @else
-              <a href="/user/create">登录</a>
+              <a id="user_dl" href="/user/create">登录</a>
               <a href="/login">注册</a>
            @endif
         </div>
       </div>
     </div>
+  
     <!--快捷导航-->
     <ul id="wqmenu_menu" class="wi_pop" style="display: none;">
       <ul>
@@ -307,6 +324,7 @@
     </div>
     <div class="bottombg">
       <script type="text/javascript">go();</script>
+
        @if(session('error'))
        {{ session('error') }}
        @endif
