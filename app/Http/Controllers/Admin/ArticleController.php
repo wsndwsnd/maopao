@@ -50,10 +50,14 @@ class ArticleController extends Controller
             'article_title' => 'required',
             'article_author' => 'required',
             'article_content' => 'required',
+            'article_dec' => 'required',
+
             'article_img' => 'required|image',
         ],[
             'article_title.required' => '文章标题必填', 
             'article_author.required' => '文章作者必填', 
+            'article_dec.required' => '内容简介必填', 
+
             'article_content.required' => '文章内容必填', 
             'article_img.required' => '封面图片必须上传', 
             'article_img.image' => '封面图片格式不正确',
@@ -80,6 +84,8 @@ class ArticleController extends Controller
         $article -> article_content = $request ->input('article_content','');
         $article -> article_author = $request ->input('article_author','');
         $article -> article_pview = $request ->input('article_pview','0');
+        $article -> article_dec = $request ->input('article_dec','');
+
       
         $res = $article -> save();
 
@@ -120,16 +126,18 @@ class ArticleController extends Controller
             'article_author' => 'required',
             'article_content' => 'required',
             'article_img' => 'image',
+             'article_dec' => 'required',
         ],[
             'article_title.required' => '文章标题必填', 
             'article_author.required' => '文章标题必填', 
             'article_content.required' => '文章标题必填', 
+            'article_dec.required' => '内容简介必填', 
             'article_img.image' => '图片格式不正确',
             
         ]);
 
         DB::beginTransaction();
-        $data = $request -> only('article_title','article_author','article_content','article_status');
+        $data = $request -> only('article_title','article_author','article_content','article_dec');
         //判断是否上传文件
         if($request->hasFile("article_img")){
             //获取上传信息

@@ -12,7 +12,21 @@
     <meta name="MSSmartTagsPreventParsing" content="True" />
     <meta http-equiv="MSThemeCompatible" content="Yes" />
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_common.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_announcement.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_guide.css" />
+
+
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_portal_index.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_index.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_viewthread.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/style_16_home_space.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/style_16_home_spacecp.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/style_16_portal_list.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/style_16_portal_view.css" />
+    
+
+    <link rel="stylesheet" type="text/css" href="/Home/css/index.css" />
+
     <script type="text/javascript">var STYLEID = '16',
       STATICURL = 'static/',
       IMGDIR = 'static/image/common',
@@ -85,7 +99,9 @@
       });</script>
     <script type="text/javascript">var tpldir = './template/xinglan_l30';</script>
     <script src="/Home/js/jquery.js" type="text/javascript"></script>
-    <script type="text/javascript">var jq = jQuery.noConflict();</script></head>
+    <script type="text/javascript">var jq = jQuery.noConflict();</script>
+
+  </head>
   
   <body id="nv_portal" class="pg_index" onkeydown="if(event.keyCode==27) return false;">
     <div id="append_parent"></div>
@@ -239,7 +255,7 @@
                     <span>Guide</span></a>
                 </li>
                 <li class="xnv_4" id="mn_P1" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})">
-                  <a href="/Home/http://29.92zyb.com/portal.php?mod=list&catid=1" hidefocus="true">资讯</a></li>
+                  <a href="/zixun" hidefocus="true">资讯</a></li>
                 <li class="xnv_5" id="mn_N326f">
                   <a href="/Home/forum.php?mod=forumdisplay&fid=41" hidefocus="true">瀑布流</a></li>
                 <li class="xnv_6" id="mn_Nb2c4">

@@ -49,12 +49,11 @@ Route::get('/admin/article/down/{id}','Admin\ArticleController@down');
 //前台
 
 //注册
-Route::resource('/home/login','Home\LoginController');
+Route::resource('/login','Home\LoginController');
 //前台用户
-Route::resource('/home/user','Home\UserController');
+Route::resource('/user','Home\UserController');
 
 //前台帖子
-Route::resource('/home/posts','Home\PostsController');
-
+Route::resource('/posts','Home\PostsController');
 //前台咨询  文章列表
-Route::resource('/home/zixun','Home\ZixunController');
+Route::resource('/zixun','Home\ZixunController');

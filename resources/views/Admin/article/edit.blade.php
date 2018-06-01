@@ -36,6 +36,19 @@
                         <input type="text" class="small" name="article_author" value="{{ $data->article_author }}">
                     </div>
                 </div>
+                 <div class="mws-form-row">
+                    <label class="mws-form-label">修改封面</label>
+                    <div class="mws-form-item" style="width:400px">
+                        <img src="{{ ltrim($data->article_img,'.') }}" alt="">
+                        <input type="file" name="article_img" value="" >
+                    </div>
+                </div>
+                 <div class="mws-form-row">
+                    <label class="mws-form-label">内容简介</label>
+                    <div class="mws-form-item">
+                       <textarea class="small" name="article_dec">{{ $data->article_dec }}</textarea>
+                    </div>
+                </div> 
                 <div class="mws-form-row">
                     <label class="mws-form-label">文章内容</label>
                     <div class="mws-form-item" >
@@ -45,13 +58,7 @@
                         </script>
                     </div>
                 </div>
-                <div class="mws-form-row">
-                    <label class="mws-form-label">修改封面</label>
-                    <div class="mws-form-item" style="width:400px">
-                        <img src="{{ ltrim($data->article_img,'.') }}" alt="">
-                        <input type="file" name="article_img" value="" >
-                    </div>
-                </div>
+               
                
             </div>
             <div class="mws-button-row">
