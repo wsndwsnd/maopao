@@ -5,7 +5,7 @@
         <span>修改类别名称</span>
     </div>
     <div class="mws-panel-body no-padding">
-        <form class="mws-form" action="/admin/cate/{{ $data->id }}" method="post">
+        <form class="mws-form" action="/admin/cate/{{ $data->id }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             {{ method_field('PUT') }}
             <div class="mws-form-inline">
@@ -16,6 +16,14 @@
                     </div>
                 </div>
                 
+            </div>
+            <div class="mws-form-inline">
+                <div class="mws-form-row" style="width:350px;">
+                    <label class="mws-form-label">上传图片<span class="required">*</span></label>
+                    <div class="mws-form-item">
+                        <input type="file" name="picture" class="required email large" >
+                    </div>
+                </div>
             </div>
             <div class="mws-button-row">
                 <input type="submit" value="提交" class="btn btn">

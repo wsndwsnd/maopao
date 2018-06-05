@@ -28,6 +28,14 @@ Route::resource('/admin/user','Admin\UserController');
 //后台公告管理
 Route::resource('/admin/notice','Admin\NoticeController');
 
+//后台论坛管理
+Route::resource('/admin/luntan','Admin\CateController');
+
+//轮播图
+Route::resource('/admin/slide','Admin\SlideController');
+
+//前台论坛
+Route::resource('/home/luntan','Home\LuntanController');
 //公告发布 
 Route::get('/admin/notice/up/{id}','Admin\NoticeController@up');
 
