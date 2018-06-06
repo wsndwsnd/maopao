@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use App\Models\Category;
 
 use App\Models\Posts;
+
 
 
 
@@ -94,6 +96,21 @@ class CateController extends Controller
     public function store(Request $request)
     {
 
+    if($request->hasFile("picture")){
+            //获取上传信息
+            $file = $request->file("picture");
+            //确认上传的文件是否成功
+            if($file->isValid()){
+                //$picname = $file->getClientOriginalName(); //获取上传原文件名
+                $ext = $file->getClientOriginalExtension(); //获取上传文件名的后缀名
+                //执行移动上传文件
+                $filename = time().rand(1000,9999).".".$ext;
+                $dir_name = 'uploads/'.date('Ymd',time());//拼接路径便于存储
+                $name = '/'.$dir_name.'/'.$filename;          
+                $data['picture']=$name;
+                $file ->move($dir_name,$filename);
+            }
+        }
         $tid = $request -> input('tid',0);
         $category = new Category;
         if($tid == 0){
@@ -105,6 +122,7 @@ class CateController extends Controller
         $category -> title = $request->input('title');
         $category -> tid = $tid;
         $category -> path = $path;
+        $category -> picture = $name;
         if($category->save()){
             return redirect('/admin/cate')->with('success','添加成功');
         }{
@@ -145,7 +163,22 @@ class CateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $res = Category::where('id',$id)->update(['title'=>$request->title]);
+        if($request->hasFile("picture")){
+            //获取上传信息
+            $file = $request->file("picture");
+            //确认上传的文件是否成功
+            if($file->isValid()){
+                //$picname = $file->getClientOriginalName(); //获取上传原文件名
+                $ext = $file->getClientOriginalExtension(); //获取上传文件名的后缀名
+                //执行移动上传文件
+                $filename = time().rand(1000,9999).".".$ext;
+                $dir_name = 'uploads/'.date('Ymd',time());//拼接路径便于存储
+                $name = '/'.$dir_name.'/'.$filename;          
+                $data['picture']=$name;
+                $file ->move($dir_name,$filename);
+            }
+        }
+        $res = Category::where('id',$id)->update(['title'=>$request->title,'picture'=>$name]);
         if($res){
             return redirect('/admin/cate')->with('success','修改成功');
         }{
@@ -169,6 +202,8 @@ class CateController extends Controller
         }
         //类别下是否有帖子
         $data = Posts::where('cid',$id)->first();
+
+
 
         if($data){
             return back()->with('error','当前类别有帖子内容,不允许删除');

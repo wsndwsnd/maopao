@@ -31,9 +31,9 @@
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_portal_view.css" />
     
 
-    <link rel="stylesheet" type="text/css" href="/Home/css/index.css" />
-
-
+    <link rel="stylesheet" type="text/css" href="/home/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/home/css/style_16_common.css" />
+    <link rel="stylesheet" type="text/css" href="/home/css/style_16_forum_forumdisplay.css"/>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 
@@ -304,7 +304,7 @@
                     <span>Portal</span></a>
                 </li>
                 <li class="xnv_2" id="mn_forum" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})">
-                  <a href="/Home/forum.php" hidefocus="true" title="BBS">分类
+                  <a href="/home/luntan" hidefocus="true" title="BBS">分类
                     <span>BBS</span></a>
                 </li>
                 <li class="xnv_3" id="mn_forum_10">

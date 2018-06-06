@@ -5,7 +5,7 @@
         <span>添加类别</span>
     </div>
     <div class="mws-panel-body no-padding">
-        <form class="mws-form" action="/admin/cate" method="post">
+        <form class="mws-form" action="/admin/cate" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="mws-form-inline">
                 <div class="mws-form-row">
@@ -24,6 +24,12 @@
                                 @endforeach
                             </select>
                         </div>
+                </div>
+                <div class="mws-form-row" style="width:350px;">
+                    <label class="mws-form-label">上传图片<span class="required">*</span></label>
+                    <div class="mws-form-item">
+                        <input type="file" name="picture" class="required email large" >
+                    </div>
                 </div>
                 
             </div>

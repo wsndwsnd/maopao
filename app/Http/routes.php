@@ -34,7 +34,13 @@ Route::resource('/admin/user','Admin\UserController');
 //后台公告管理
 Route::resource('/admin/notice','Admin\NoticeController');
 
-//后台公告发布 
+//轮播图
+Route::resource('/admin/slide','Admin\SlideController');
+
+//前台论坛
+Route::resource('/home/luntan','Home\LuntanController');
+
+//公告发布 
 Route::get('/admin/notice/up/{id}','Admin\NoticeController@up');
 
 // 后台公告下架
@@ -91,6 +97,8 @@ Route::post('/usertx/uploads','Home\UserController@uploads');
 //前台帖子
 Route::resource('/posts','Home\PostsController');
 
+//前台帖子详情
+Route::get('/home/read/{id}','Home\ReadController@index');
 
 //前台资讯  文章列表
 Route::resource('/zixun','Home\ZixunController');
