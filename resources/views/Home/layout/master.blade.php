@@ -17,9 +17,9 @@
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_announcement.css" />
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_guide.css" />
 
-    <link rel="stylesheet" type="text/css" href="/Home/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <script type="text/javascript" src="/Home/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="/Home/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="/Home/bootstrap-3.3.7-dist/css/bootstrap.min.css"> -->
+    <!-- <script type="text/javascript" src="/Home/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script> -->
+    <!-- <script type="text/javascript" src="/Home/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script> -->
 
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_portal_index.css" />
 
@@ -35,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="/home/css/style_16_common.css" />
     <link rel="stylesheet" type="text/css" href="/home/css/style_16_forum_forumdisplay.css"/>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
-    <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css"> -->
 
 
     <script type="text/javascript">var STYLEID = '16',
@@ -60,13 +60,13 @@
     <script src="/Home/js/common.js" type="text/javascript"></script>
     <script src="/Home/js/common.js" type="text/javascript"></script>
     <script src="/layui/layui.all.js" type="text/javascript"></script>
-<<<<<<< HEAD
-    <script src="/layui/layui.js" charset="utf-8"></script>
-    <script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js" charset="utf-8"></script>
 
-=======
+    <script src="/layui/layui.js" charset="utf-8"></script>
+    <!-- <script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js" charset="utf-8"></script> -->
+
+
     <script src="/Home/jquery-1.8.3.min.js" type="text/javascript"></script>
->>>>>>> 6468081aea35f71a8d2febd964d11e237c5cd4a1
+
     <meta http-equiv="X-UA-Compatible" content="IE=6" />
     <meta http-equiv="X-UA-Compatible" content="IE=7" />
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
@@ -124,13 +124,10 @@
    /*分页  */
       .list-page-a{padding:15px 0;text-align:center;}
       .list-page-a  li{display:inline-block;width:30px; }
-<<<<<<< HEAD
+
       .list-page-a a{margin:0 5px;padding:2px 8px;border:1px solid #B1191A;background:#B1191A;text-decoration:none;color:white;}
       .list-page-a a:hover{background:#AAA;border:1px solid #908f8f;color:white;}
-=======
-      .list-page-a a{margin:0 5px;padding:2px 8px;border:1px solid #B1191A;background:#B1191A;text-decoration:none;color:White;}
-      .list-page-a a:hover{background:#AAA;border:1px solid #908f8f;color:  White}
->>>>>>> 6468081aea35f71a8d2febd964d11e237c5cd4a1
+
       .list-page-a .current{margin:0 5px;padding:2px 7px;background:#f60;border:1px solid #fe8101;color:#fff; }
       a{
         text-decoration:none;
@@ -196,7 +193,7 @@
         <div class="y">
           @if( session('user_name') ) 
               <a href="/user" class="wi_ttbat">
-                <img src="{{ session('user_img') }}" /></a>
+                <img src="{{ ltrim(session('user_img'),'.') }}" /></a>
               <a href="/user" class="top_gly" target="_blank" title="访问我的空间">{{session('user_name')}}</a>
               <a href="/posts/create" class="u31">发贴</a>
               <a href="">收藏</a>
