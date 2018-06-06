@@ -22,16 +22,22 @@ Route::get('/check','CodeController@check');
 
 //后台首页
 Route::get('/admin','Admin\IndexController@index');
+
+//后台登录
+Route::resource('/admin/login','Admin\LoginController');
+//后台退出
+Route::get('/admin/logout','Admin\LoginController@logout');
+
 //后台用户管理
 Route::resource('/admin/user','Admin\UserController');
 
 //后台公告管理
 Route::resource('/admin/notice','Admin\NoticeController');
 
-//公告发布 
+//后台公告发布 
 Route::get('/admin/notice/up/{id}','Admin\NoticeController@up');
 
-// 公告下架
+// 后台公告下架
 Route::get('/admin/notice/down/{id}','Admin\NoticeController@down');
 
 //后台管理员
@@ -50,14 +56,16 @@ Route::get('/admin/links/auditindex','Admin\LinkController@auditindex');
 Route::get('/admin/link/up/{id}','Admin\LinkController@up');
 Route::get('/admin/link/down/{id}','Admin\LinkController@down');
 
-
-
-
 //后台帖子类别
 Route::resource('/admin/cate','Admin\CateController');
 
-//后台文章管理路
+//后台文章管理路由
 Route::resource('/admin/article','Admin\ArticleController');
+//后台文章查看评论路由
+Route::get('/admin/comments/{id}','Admin\ArticleController@read');
+//后台文章删除评论
+Route::get('/admin/comments/del/{id}','Admin\ArticleController@del');
+
 //文章发布-待审路由
 Route::get('/admin/article/up/{id}','Admin\ArticleController@up');
 Route::get('/admin/article/down/{id}','Admin\ArticleController@down');
@@ -74,10 +82,18 @@ Route::resource('/user','Home\UserController');
 Route::resource('/posts','Home\PostsController');
 
 
-//前台咨询  文章列表
+//前台资讯  文章列表
 Route::resource('/zixun','Home\ZixunController');
+//前台文章评论
+Route::resource('/comment','Home\CommentController');
+//前台文章评论删除
+Route::get('/comment/del/{id}','Home\CommentController@del');
+//文章收藏
+Route::resource('/acollect','Home\AcollectController');
 
 
 //申请友情链接
 Route::get('/link','Home\LinkController@index');
 
+//前台导读
+Route::resource('/daodu','Home\DaoduController');

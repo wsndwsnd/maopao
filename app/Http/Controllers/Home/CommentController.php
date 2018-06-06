@@ -6,11 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Models\Posts;
-use App\Models\Postsinfo;
+use App\Models\Comment;
+use App\Models\Articles;
 use DB;
-class PostsController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,21 +19,20 @@ class PostsController extends Controller
     public function index()
     {
         //
-        echo '帖子 index';
     }
 
     /**
-     * 用户添加帖子页面
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('Home.posts.create');
+        //
     }
 
     /**
-     * 接收执行添加
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -42,38 +40,30 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         DB::beginTransaction();
-        if($request->hasFile("pic")){
 
-            //获取上传信息
-            $file = $request->file("pic");
-            //确认上传的文件是否成功
-            if($file->isValid()){
-                $ext = $file->getClientOriginalExtension(); //获取上传文件名的后缀名
-                //执行移动上传文件
-                $filename = time().rand(1000,9999).".".$ext;
-                $dir_name = 'pic/'.date('Ymd',time());//拼接路径便于存储
-                $name = '/'.$dir_name.'/'.$filename;         
-                $file ->move($dir_name,$filename);
-            }
-         }
+        $data = $request->only('content','uid','aid');
+        
+        $data['created_at']= date('Y-m-d H:i:s',time());
+       
+        $res = Comment::insertGetId($data); 
 
-        $res1 = Posts::insertGetId(['cid'=>1,'uid'=>21,'posts_title'=>$request->posts_title,'created_at'=>date('Y-m-d H:i:s',time())]);
-        // dd($res1);
-        //帖子详情
-        $postsinfo = new Postsinfo;
-        //获取tid 
-        $postsinfo->tid = $res1;
-        $postsinfo->content = $request -> content;
-        $postsinfo->pic = $name;
-        $res2 = $postsinfo->save();
-
-        if($res1 && $res2){
-            DB::commit();
-            dump('成功');
+        if ($res) {
+            //添加评论量
+           $article = Articles::where('id',$data['aid'])->first();
+           $num = $article ->article_comments;
+           $num +=1;
+           Articles::where('id',$data['aid'])->update(['article_comments'=>$num]);
+           DB::commit();
+           // return back()->with('success','评论成功');
+           echo $res;
         }else{
-            DB::rollBack();
-            dump('失败');
+           DB::rollBack();
+            
+           // return back()->with('error','评论失败');
+           echo 2;
+           
         }
+
     }
 
     /**
@@ -118,6 +108,24 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
+    public function del($id)
+    {
+        DB::beginTransaction();
+        $data = Comment::where('id',$id)->first();
+        $aid = $data->articles->id;
+        $num = $data->articles->article_comments;
+        $num -=1;
+        $res1 = Articles::where('id',$aid)->update(['article_comments'=>$num]);
+        $res2 = Comment::destroy($id);
+        if ($res2 && $res1) {
+             DB::commit();
+             echo 1;         
+        }else{
+             DB::rollBack();           
+             echo 2;
+        }
+    }
+
 }

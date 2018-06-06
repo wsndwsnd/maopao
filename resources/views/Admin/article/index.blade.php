@@ -80,6 +80,8 @@
 							@else
 							<a href="/admin/article/down/{{$v->id}}" class="btn btn-efault" style="background: #ccc">待审</a>
 							@endif
+                            <a href="/admin/comments/{{ $v->id }}" class="btn btn-warning">评论</a>
+
 						</td>
 		            </tr>
 		        @endforeach

@@ -11,6 +11,7 @@
     <meta name="copyright" content="2001-2017 Comsenz Inc." />
     <meta name="MSSmartTagsPreventParsing" content="True" />
     <meta http-equiv="MSThemeCompatible" content="Yes" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_common.css" />
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_announcement.css" />
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_guide.css" />
@@ -30,6 +31,8 @@
 
 
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
 
     <script type="text/javascript">var STYLEID = '16',
       STATICURL = 'static/',
@@ -53,6 +56,9 @@
     <script src="/Home/js/common.js" type="text/javascript"></script>
     <script src="/Home/js/common.js" type="text/javascript"></script>
     <script src="/layui/layui.all.js" type="text/javascript"></script>
+    <script src="/layui/layui.js" charset="utf-8"></script>
+    <script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js" charset="utf-8"></script>
+
     <meta http-equiv="X-UA-Compatible" content="IE=6" />
     <meta http-equiv="X-UA-Compatible" content="IE=7" />
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
@@ -106,7 +112,21 @@
     <script src="/Home/js/jquery.js" type="text/javascript"></script>
 
     <script type="text/javascript">var jq = jQuery.noConflict();</script>
-
+<style type="text/css">
+   /*分页  */
+      .list-page-a{padding:15px 0;text-align:center;}
+      .list-page-a  li{display:inline-block;width:30px; }
+      .list-page-a a{margin:0 5px;padding:2px 8px;border:1px solid #B1191A;background:#B1191A;text-decoration:none;color:white;}
+      .list-page-a a:hover{background:#AAA;border:1px solid #908f8f;color:white;}
+      .list-page-a .current{margin:0 5px;padding:2px 7px;background:#f60;border:1px solid #fe8101;color:#fff; }
+      a{
+        text-decoration:none;
+        color:#696969;
+      }
+      a:hover{
+        color:#b1191a;
+      }
+</style>
   </head>
   
 
@@ -268,7 +288,7 @@
                     <span>BBS</span></a>
                 </li>
                 <li class="xnv_3" id="mn_forum_10">
-                  <a href="/Home/forum.php?mod=guide" hidefocus="true" title="Guide">导读
+                  <a href="/daodu" hidefocus="true" title="Guide">导读
                     <span>Guide</span></a>
                 </li>
                 <li class="xnv_4" id="mn_P1" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})">
@@ -323,15 +343,19 @@
       <div id="mu" class="cl"></div>
     </div>
     <div class="bottombg">
-      <script type="text/javascript">go();</script>
+      <script type="text/javascript">go();
 
-       @if(session('error'))
-       {{ session('error') }}
-       @endif
+        @if(session('error'))
+            layer.msg("{{ session('error') }}");
+         @endif
 
-       @if( session('success') )
-       {{ session('success') }}
-       @endif
+         @if( session('success') )
+         layer.msg("{{ session('success') }}")
+         @endif
+
+    </script>
+
+      
        
        @section('sidebar')
        @show

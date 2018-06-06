@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,6 +8,6 @@ class Category extends Model
 {
 	  public function posts()
     {
-        return $this->hasMany('App\Models\Admin\Posts','cid');
+        return $this->hasMany('App\Models\Posts','cid');
     }
 }

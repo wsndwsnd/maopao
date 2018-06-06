@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Home\User;
-use App\Models\home\Userinfo;
+use App\Models\User;
+use App\Models\Userinfo;
 use DB;
 use App\Http\Controllers\CodeController;
 class UserController extends Controller
@@ -55,7 +55,7 @@ class UserController extends Controller
         $user = User::where('user_name',$user_name)->where('user_password',$password)->first();
         if($user){
             //把用户数据保存到session
-            session(['user_name'=>$user->user_name,'user_password'=>$user->user_password]);
+            session(['user_name'=>$user->user_name,'user_password'=>$user->user_password,'img'=>$user->img,'id'=>$user->id]);
             
             return redirect('/');
         }

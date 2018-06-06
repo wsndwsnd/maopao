@@ -6,23 +6,18 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Notices;
-use App\Models\Link;
-use App\Models\Articles;
-class HomeController extends Controller
+
+class DaoduController extends Controller
 {
     /**
-     * 前台首页
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
-        $article = Articles::get();
-        $link = Link::get();
-        $notice = Notices::get();
-        return view('Home.index',['notice'=>$notice,'link'=>$link,'article'=>$article]);
+
+        return view('Home.daodu.index');
     }
 
     /**

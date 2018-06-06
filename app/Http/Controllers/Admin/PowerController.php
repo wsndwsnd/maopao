@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
-use App\Models\Admin\Power;
-
+use App\Models\Power;
+use Hash;
 class PowerController extends Controller
 {
     /**
@@ -48,7 +48,7 @@ class PowerController extends Controller
         //实例化 power 类
         $power = new Power;
         $power -> username = $request->input('username');
-        $power -> password = $request->input('password');
+        $power -> password = Hash::make($request->input('password'));
         $power -> power = $request->input('power');
         $res = $power -> save();
         if($res){

@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Posts;
-use App\Models\Admin\Postsinfo;
+use App\Models\Posts;
+use App\Models\Postsinfo;
 use DB;
 use  App\Http\Controllers\Admin\CateController;
 class PostsController extends Controller

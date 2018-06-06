@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Userinfo extends Model
 {
+    //
     public $table = 'user_details';
+    public $primaryKey = 'id';
+
 }

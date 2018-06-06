@@ -1,28 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Notices;
-use App\Models\Link;
-use App\Models\Articles;
-class HomeController extends Controller
+use App\Models\Power;
+use Hash;
+use App\Http\Controllers\CodeController;
+
+class LoginController extends Controller
 {
     /**
-     * 前台首页
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
-        $article = Articles::get();
-        $link = Link::get();
-        $notice = Notices::get();
-        return view('Home.index',['notice'=>$notice,'link'=>$link,'article'=>$article]);
+        return view('Admin.login.login');
     }
 
     /**
@@ -43,8 +40,44 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $username = $request->input('username','');
+       
+        $password = $request->input('password','');
+        $data = Power::where('username',$username)->first();
+        $res = CodeController::check($request -> input('code'));
+
+        if(!$res){
+             return back()->with('error','验证码错误');
+        }
+               
+         
+        
+      
+        if ($data &&  Hash::check($password,$data->password)) {
+                $request->session()->put('admin_username', $username);
+                // dd(session('admin_username'));
+                return redirect('/admin')->with('success','登陆成功');
+         }else{
+                return back()->with('error','账号或密码错误');
+         }
+
     }
+
+    public function logout(Request $request)
+    {
+
+        $res = $request->session()->forget('admin_username');
+        
+
+        if (!$res) {
+             return redirect('/admin/login')->with('success','已退出,请重新登录');
+        }else{
+             return back()->with('error','未成功退出,请重新退出');
+
+        }
+    }
+
+
 
     /**
      * Display the specified resource.

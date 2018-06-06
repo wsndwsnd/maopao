@@ -31,9 +31,9 @@
                 <div class="h hm">
                   <h1 class="ph">{{ $data->article_title }}</h1>
                   <p class="xg1">发布时间：{{ $data->created_at }}
-                    <a class="zz jl" href="home.php?mod=space&amp;uid=1">作者：{{ $data->article_author }}</a>
+                    <a class="zz jl" href="">作者：{{ $data->article_author }}</a>
                     <span class="yd">阅读：
-                      <em id="_viewnum">{{ $data->article_pview }}</em></span>评论: 0</p>
+                      <em id="_viewnum">{{ $data->article_pview }}</em></span>评论:{{ $data->comments->count() }} </p>
                     
                 </div>
                 <!--[diy=diysummarytop]-->
@@ -98,17 +98,10 @@
                     <div id="diycontentclickbottom" class="area"></div>
                     <!--[/diy]--></div>
                   <div class="o cl ptm pbm">
-                    <a href="home.php?mod=spacecp&amp;ac=favorite&amp;type=article&amp;id=12&amp;handlekey=favoritearticlehk_12" id="a_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" class="oshr ofav">收藏</a>
-                    <a href="misc.php?mod=invite&amp;action=article&amp;id=12" id="a_invite" onclick="showWindow('invite', this.href, 'get', 0);" class="oshr oivt">邀请</a>
-                    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
-                      <span class="shear">分享到：</span>
-                      <span class="bds_more"></span>
-                      <a class="bds_qzone"></a>
-                      <a class="bds_tsina"></a>
-                      <a class="bds_tqq"></a>
-                      <a class="bds_renren"></a>
-                      <a class="bds_t163"></a>
-                    </div>
+                   
+                    <a href="javascript:;" id="a_favorite"  class="oshr ofav">收藏</a>    
+          
+
                   </div>
                   <div class="pren pbm cl">
                   	@if($data1)
@@ -137,31 +130,57 @@
             <!--[/diy]-->
             <div id="comment" class="bm">
               <div class="bm_h cl">
-                <a class="y">已经有0人参与评论</a>
+              
                 <h3>发表评论</h3></div>
               <div id="comment_ul" class="bm_c">
-                <form id="cform" name="cform" action="portal.php?mod=portalcp&ac=comment" method="post" autocomplete="off">
+                <div id="div">
+                    <dl id="comment_4_li" class="ptm pbm bbda cl comment_4_li" style="display: none;">
+                      <dt class="mbm">                   
+                         <span class="y xw0 xi2">
+                          <a href="javascript:;" onclick="return confirm('确认要删除吗?')" class='del'>删除</a>
+                         </span>
+                      <img src="" width="100px;">
+                      <a href="" class="xi2 xw1" c="1" mid="card_463" id="ajaxid_0.3901175271303092" initialized="true"></a>&nbsp;&nbsp;&nbsp;
+                      <span class="xg1 xw0"></span>
+                      </dt>
+                      <dd><div class="quote"><blockquote></blockquote></div></dd>                    
+                    </dl>
+                    @foreach($data5 as $v)
+
+                      <dl id="comment_4_li" class="ptm pbm bbda cl comment_4_li">
+                        <dt class="mbm">                   
+                     
+                           <span class="y xw0 xi2">
+                            <a href="javascript:;" class='del' onclick="return confirm('确认要删除吗?')" value="{{ $v->id }}">删除</a>
+                           </span>
+                        <img src="{{ $v->users->img or '/uploads/1.jpg' }}" width="100px;">
+                        <a href="" class="xi2 xw1" c="1" mid="card_463" id="ajaxid_0.3901175271303092" initialized="true">{{ $v->users->user_name }}</a>&nbsp;&nbsp;&nbsp;
+                        <span class="xg1 xw0">{{ $v->created_at }}</span>
+                        </dt>
+                        <dd><div class="quote"><blockquote>{{  $v->content  }} </blockquote></div></dd>                    
+                      </dl>
+                    @endforeach
+
+              </div>
+               <div class="list-page-a current">
+              {!! $data5->render() !!}
+            </div>
+                <!-- <form action="/comment?aid={{ $data->id }}&uid=21" method="post"> -->
+                  {{ csrf_field() }}
                   <div class="tedt">
                     <div class="area">
-                      <textarea name="message" rows="7" class="pt" id="message" onkeydown="ctrlEnter(event, 'commentsubmit_btn');"></textarea>
+                      <textarea name="content" rows="7" class="pt message" id="message" ></textarea>
                     </div>
                   </div>
                   <div class="mtm">
                     <span id="seccode_cSzhQbYN"></span>
                     <script type="text/javascript" reload="1">updateseccode('cSzhQbYN', '<sec> <span id="sec<hash>" onclick="showMenu(this.id);"><sec></span><div id="sec<hash>_menu" class="p_pop p_opt" style="display:none"><sec></div>', 'portal::view');</script></div>
-                  <input type="hidden" name="portal_referer" value="portal.php?mod=view&aid=12#comment">
-                  <input type="hidden" name="referer" value="portal.php?mod=view&aid=12#comment" />
-                  <input type="hidden" name="id" value="0" />
-                  <input type="hidden" name="idtype" value="" />
-                  <input type="hidden" name="aid" value="12">
-                  <input type="hidden" name="formhash" value="316f8b52">
-                  <input type="hidden" name="replysubmit" value="true">
-                  <input type="hidden" name="commentsubmit" value="true" />
+                 
                   <p class="ptn">
-                    <button type="submit" name="commentsubmit_btn" id="commentsubmit_btn" value="true" class="pn">
-                      <strong>评论</strong></button>
+                    <button name="commentsubmit_btn" id="commentsubmit_btn"  class="pn" style="font-weight: 777;color: white">
+                      评论</button>
                   </p>
-                </form>
+                <!-- </form> -->
               </div>
             </div>
             <!--[diy=diycontentcomment]-->
@@ -191,7 +210,7 @@
 
                             <li class="cc{{ $k+1 }}">
                               <span></span>
-                              <a href="/zixun/{{ $v->id }}"  target="_blank" >{{ $v->article_title }}</a></li>
+                              <a href="/zixun/{{ $v->id }}"  target="_blank" style=" display: block;display: -webkit-box;max-width: 400px;margin: 0 auto;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{{ $v->article_title }}</a></li>
                             @endforeach
                            
                  
@@ -205,83 +224,25 @@
                         <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">推荐阅读</span></div>
                       <div id="portal_block_77_content" class="dxb_bc">
                         <div class="module cl xld">
+                           @foreach($data4 as $v)
                           <dl class="cl">
                             <dd class="m">
-                              <a href="forum.php?mod=viewthread&tid=100" target="_blank">
-                                <img  src="/home/picture/91dc790fbbb74a6b1546996a0c8a9c95.jpg" width="274" height="146" alt="发帖测试" /></a>
+                              <a href="/zixun/{{ $v->id }}" target="_blank">
+                                <img  src="{{ ltrim($v->article_img,'.') }}" width="274" height="146" alt="" /></a>
                             </dd>
                             <dt>
-                              <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank">发帖测试
-                                <i>>></i>
+                              <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank" style=" display: block;display: -webkit-box;max-width: 400px;margin: 0 auto;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{{ $v->article_title }}
+                               
                               </a>
                             </dt>
-                            <dd class="fttime">2018-04-25 17:26</dd></dl>
-                          <dl class="cl">
-                            <dd class="m">
-                              <a href="forum.php?mod=viewthread&tid=95" target="_blank">
-                                <img  src="/home/picture/957e96ffde288fa51079ddbcf5fee966.jpg" width="274" height="146" alt="【加田小店】新锐创想轻主题模板活动演示帖[广州市]" /></a>
-                            </dd>
-                            <dt>
-                              <a href="forum.php?mod=viewthread&tid=95" title="【加田小店】新锐创想轻主题模板活动演示帖[广州市]" target="_blank">【加田小店】新锐创想轻主题模板活动
-                                <i>>></i>
-                              </a>
-                            </dt>
-                            <dd class="fttime">2017-04-27 23:14</dd></dl>
-                          <dl class="cl">
-                            <dd class="m">
-                              <a href="forum.php?mod=viewthread&tid=32" target="_blank">
-                                <img  src="/home/picture/8c9e917f78a9b907dbab8ce017a4b532.jpg" width="274" height="146" alt="迷人的大光圈 教你使用焦外的正确时机" /></a>
-                            </dd>
-                            <dt>
-                              <a href="forum.php?mod=viewthread&tid=32" title="迷人的大光圈 教你使用焦外的正确时机" target="_blank">迷人的大光圈 教你使用焦外的正确时
-                                <i>>></i>
-                              </a>
-                            </dt>
-                            <dd class="fttime">2016-04-21 20:28</dd></dl>
+                            <dd class="fttime">{{ $v->created_at }}</dd></dl>
+                            @endforeach
+                          
+                        
                         </div>
                       </div>
                     </div>
-                    <!-- <div id="portal_block_78" class="zxlbyjcdp block move-span">
-                      <div class="blocktitle title">
-                        <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">精彩点评</span></div>
-                      <div id="portal_block_78_content" class="dxb_bc">
-                        <div class="module cl xld">
-                          <dl class="cl cc1">
-                            <dt>
-                              <em class="zuoz">
-                                <a href="home.php?mod=space&uid=14" target="_blank">123456</a></em>原文：
-                              <a href="forum.php?mod=viewthread&tid=101" title="123123123" target="_blank">123123123</a></dt>
-                            <dd>
-                              <i>
-                              </i>
-                              <p>123123123123123123</p>
-                            </dd>
-                          </dl>
-                          <dl class="cl cc2">
-                            <dt>
-                              <em class="zuoz">
-                                <a href="home.php?mod=space&uid=12" target="_blank">fff</a></em>原文：
-                              <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank">发帖测试</a></dt>
-                            <dd>
-                              <i>
-                              </i>
-                              <p>这是一条测试</p>
-                            </dd>
-                          </dl>
-                          <dl class="cl cc3">
-                            <dt>
-                              <em class="zuoz">
-                                <a href="home.php?mod=space&uid=1" target="_blank">admin</a></em>原文：
-                              <a href="forum.php?mod=viewthread&tid=92" title="新锐创想主题社区模板演示站签到帖" target="_blank">新锐创想主题社区模板演示站签到帖</a></dt>
-                            <dd>
-                              <i>
-                              </i>
-                              <p>新锐创想主题社区模板演示站签到帖</p>
-                            </dd>
-                          </dl>
-                        </div>
-                      </div>
-                    </div> -->
+                   
                   </div>
                 </div>
               </div>
@@ -313,6 +274,107 @@
         </div>
         <input type="hidden" id="portalview" value="1"></div>
       <div class="ft_wp">
+      <script type="text/javascript">
 
+           
+            //评论
+            $('#commentsubmit_btn').click(function(){
+
+             if($('#message').val() == ''){
+                  return false;
+             }
+               var date = new Date();
+               var n = date.getFullYear();
+               var y = date.getMonth()+1;
+               var r = date.getDate();
+               var s = date.getHours();
+               var f = date.getMinutes();
+               var m = date.getSeconds();
+
+              $.ajax({
+              // 请求服务器的地址
+              url:"/comment?aid={{ $data->id }}&uid={{ session('id') }}",
+              // 请求的方式 默认get方式
+              type:'post',
+              
+              //发送到服务器的数据
+              data:{'content':$('#message').val(),'_token':'{{csrf_token()}}'},
+              //请求成功后的回调函数。
+              success:function(msg){
+                if(msg !== 2 ){
+                  
+                  layer.msg("评论成功");
+                  
+                  var attr =  $('#comment_4_li').clone(true);
+
+                  attr.find('img').eq(0).attr('src'," /uploads/1.jpg");
+                  attr.css('display','block');
+                  attr.find('a').eq(0).attr('value',msg);
+                  attr.find('a').eq(1).html("{{ session('user_name') }}");
+                  attr.find('span').eq(1).html(n+'-'+y+'-'+r+'    '+s+':'+f+':'+m);
+                  attr.find('div').eq(0).html( $('#message').val());         
+
+                  $('#div').append(attr);
+
+                  $('#message').val('');
+                }else{
+                  layer.msg("评论失败");
+                }
+              },
+              // 预期服务器返回的数据类型
+              dateType:'html',
+              // (默认: true) 默认设置下，所有请求均为异步请求。
+              async:true
+            });
+      });
+                  //删除
+                  $('.del').click(function(){
+                      $(this).parent().parent().parent().remove();
+                      $.get('/comment/del/'+$(this).attr('value'),function(msg){
+                      if(msg == 1){
+
+                        layer.msg('删除成功');
+
+                      }else{
+
+                        layer.msg('删除失败');
+
+                      }                      
+                    });
+                 });
+          
+           //收藏       
+            $('#a_favorite').click(function(){
+            
+              $.ajax({
+              // 请求服务器的地址
+              url:'/acollect?aid={{ $data->id }}&uid=21',
+              // 请求的方式 默认get方式
+              type:'post',
+              
+              //发送到服务器的数据
+              data:{'_token':'{{csrf_token()}}'},
+              //请求成功后的回调函数。
+              success:function(msg){
+                  if(msg==1){
+                   
+                    layer.msg("收藏成功,请到个人中心查看");
+                    
+                  }else if(msg == 2){
+                    layer.msg("未收藏成功");                 
+                 }else{
+                    layer.msg("你已收藏,请到个人中心查看");                 
+
+                 }
+              },
+              // 预期服务器返回的数据类型
+              dateType:'html',
+              // (默认: true) 默认设置下，所有请求均为异步请求。
+              async:true
+            });
+      });
+
+     
+      </script>
 
 @endsection

@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Home\User;
-use App\Models\home\Userinfo;
+use App\Models\User;
+use App\Models\Userinfo;
 use DB;
 class LoginController extends Controller
 {

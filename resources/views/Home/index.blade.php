@@ -287,8 +287,9 @@
                                   <dd class="rdmore leftjl">
                                       <a href="portal.php?mod=view&amp;aid=12" target="_blank">查看详情</a></dd>
                               </dl>
+                               </div>
                         @endforeach
-                          </div>
+                         
                           <div class="btn">
                               <div class="slidebarup">
                                   <a href="javascript:void(0);" mevent="click">上一页</a></div>

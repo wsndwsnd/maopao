@@ -8,7 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use DB;
-use App\Models\Admin\Articles;
+use App\Models\Articles;
+use App\Models\Comment;
+
 class ArticleController extends Controller
 {
     /**
@@ -196,5 +198,28 @@ class ArticleController extends Controller
         $data['article_status'] = $status;
         $res =  Articles::where('id',$id)->update($data); 
         return redirect('/admin/article');
+    }
+
+    /**
+     * 查看评论
+     */
+    public function read(Request $request,$id)
+    {   $count = $request -> input('count','');
+        $data = Comment::where('aid',$id)->paginate($count);
+        $num = Comment::where('aid',$id)->count('id');
+
+        return view('Admin.article.read',['data'=>$data,'count'=>$count,'id'=>$id,'num'=>$num]);
+    }
+    /**
+     * 删除评论
+     */
+    public function del($id)
+    {
+        $res = Comment::destroy($id);
+         if($res){
+            return  back()->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        } 
     }
 }

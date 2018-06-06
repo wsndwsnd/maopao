@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Home;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,11 +12,11 @@ class User extends Model
     //关联用户详情
      public function userinfo()
     {
-        return $this->hasOne('App\Models\Home\Userinfo','user_id');
+        return $this->hasOne('App\Models\Userinfo','user_id');
     }
     //关连贴子表 一对多
     public function userposts()
     {
-    	return $this->hasMany('App\Models\Home\Posts','uid');
+    	return $this->hasMany('App\Models\Posts','uid');
     }
 }

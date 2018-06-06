@@ -6,8 +6,8 @@
         <div class="wp">
           <div id="pt" class="bm cl">
             <div class="z">
-              <a href="./" class="nvhm" title="首页">Discuz! Board</a>
-              <a href="portal.php">&nbsp;&nbsp;首页</a>
+              <a href="/" class="nvhm" title="首页">Discuz! Board</a>
+              <a href="/">&nbsp;&nbsp;首页</a>
               <em>&rsaquo;</em>资讯</div></div>
           <!--[diy=diyab]-->
           <div id="diyab" class="area"></div>
@@ -17,14 +17,17 @@
             <div class="bm2">
               <div class="tttop">
                 <div class="bm_h cl">
-                  <!-- <a href="portal.php?mod=rss&amp;catid=1" class="y xi2 rss" target="_blank" title="RSS">我要订阅</a> -->
-                  <h1 class="xs2">资讯</h1></div>
+                @if(session('user_name'))
+                <a href="/zixun/create" class="y xi2 rss btn btn-danger" target="_blank" title="发表文章">发表文章</a>
+                @endif
+                <h1 class="xs2">资讯</h1>
+                </div>
+                
               </div>
               <div class="bm_c xld zxlblb">
                 @foreach($data as $v)
                 <div class="top_new cl newss_1" >
-                  <a href="portal.php?mod=rss&amp;catid=1" class="y xi2 rss" target="_blank" title="RSS">我要收藏</a>
-
+                
                   <div class="box01 cl">
                     <div class="new_pic pic02">
                       <a class="zwul" href="portal.php?mod=view&aid=12" target="_blank">
@@ -55,11 +58,14 @@
                         <script type="text/javascript" id="bdshell_js"></script>
                         <script type="text/javascript">document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date() / 3600000)</script>
                         <!-- Baidu Button END --></div>
-                      <div id="weibo_info01" class="new_body body02 grey64" style=" display: block;display: -webkit-box;max-width: 400px;margin: 0 auto;font-size: 12px;line-height: 1.4;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{!! $v->article_dec !!}</div>
+                      <div id="weibo_info01" class="new_body body02 grey64" style=" display: block;display: -webkit-box;margin: 0 auto;font-size: 12px;line-height: 1.4;-webkit-line-clamp: 3;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{!! $v->article_dec !!}</div>
                       <a class="readmore" href="/zixun/{{ $v->id }}" target="_blank">read more</a></div>
                   </div>
                 </div>
         @endforeach
+            <div class="list-page-a current">
+              {!! $data->render() !!}
+            </div>
               </div>
               <!--[diy=listloopbottom]-->
               <div id="listloopbottom" class="area"></div>
@@ -80,99 +86,37 @@
                     </div>
                     <div id="portal_block_72" class="zxlbyltph block move-span">
                       <div class="blocktitle title">
-                        <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">最新文章</span></div>
+                        <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">阅读排行</span></div>
                       <div id="portal_block_72_content" class="dxb_bc">
                         <div class="module cl xl xl1">
                           <ul>
-                            <li class="cc1">
+                            @foreach($data1 as $k=>$v)
+                            <li class="cc{{ $k+1 }}">
                               <span>1</span>
-                              <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank">发帖测试</a></li>
+                              <a href="/zixun/{{ $v->id }}"  target="_blank" style=" display: block;display: -webkit-box;max-width: 400px;margin: 0 auto;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{{ $v->article_title }}</a></li>
+                            @endforeach
                           </ul>
                         </div>
                       </div>
                     </div>
-                    <div id="portal_block_73" class="zxlbytjyd block move-span">
-                      <div class="blocktitle title">
-                        <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">推荐阅读</span></div>
-                      <div id="portal_block_73_content" class="dxb_bc">
-                        <div class="module cl xld">
-                          <dl class="cl">
-                            <dd class="m">
-                              <a href="forum.php?mod=viewthread&tid=100" target="_blank">
-                                <img  src="/Home/picture/91dc790fbbb74a6b1546996a0c8a9c95.jpg" width="274" height="146" alt="发帖测试" /></a>
-                            </dd>
-                            <dt>
-                              <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank">发帖测试
-                                <i>>></i>
-                              </a>
-                            </dt>
-                            <dd class="fttime">2018-04-25 17:26</dd></dl>
-                          <dl class="cl">
-                            <dd class="m">
-                              <a href="forum.php?mod=viewthread&tid=95" target="_blank">
-                                <img  src="/Home/picture/957e96ffde288fa51079ddbcf5fee966.jpg" width="274" height="146" alt="【加田小店】新锐创想轻主题模板活动演示帖[广州市]" /></a>
-                            </dd>
-                            <dt>
-                              <a href="forum.php?mod=viewthread&tid=95" title="【加田小店】新锐创想轻主题模板活动演示帖[广州市]" target="_blank">【加田小店】新锐创想轻主题模板活动
-                                <i>>></i>
-                              </a>
-                            </dt>
-                            <dd class="fttime">2017-04-27 23:14</dd></dl>
-                          <dl class="cl">
-                            <dd class="m">
-                              <a href="forum.php?mod=viewthread&tid=32" target="_blank">
-                                <img  src="/Home/picture/8c9e917f78a9b907dbab8ce017a4b532.jpg" width="274" height="146" alt="迷人的大光圈 教你使用焦外的正确时机" /></a>
-                            </dd>
-                            <dt>
-                              <a href="forum.php?mod=viewthread&tid=32" title="迷人的大光圈 教你使用焦外的正确时机" target="_blank">迷人的大光圈 教你使用焦外的正确时
-                                <i>>></i>
-                              </a>
-                            </dt>
-                            <dd class="fttime">2016-04-21 20:28</dd></dl>
+
+                    <div id="portal_block_69" class="syzttj block move-span">
+                        <div class="blocktitle title">
+                          <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">推荐阅读</span></div>
+                        <div id="portal_block_69_content" class="dxb_bc">
+                          <div class="module cl ml">
+                            <ul>
+                              @foreach($data2 as $v)
+                              <li style="width: 292px;">
+                                <p>{{ $v->article_title }}</p>
+                                <a class="tupian" href="/zixun/{{ $v->id }}" target="_blank" title="{{ $v->article_title }}">
+                                  <img src="{{ ltrim($v->article_img,'.') }}" width="292" height="180" alt="{{ $v->article_title }}"></a>
+                              </li>
+                              @endforeach
+                            </ul>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div id="portal_block_74" class="zxlbyjcdp block move-span">
-                      <div class="blocktitle title">
-                        <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">精彩点评</span></div>
-                      <div id="portal_block_74_content" class="dxb_bc">
-                        <div class="module cl xld">
-                          <dl class="cl cc1">
-                            <dt>
-                              <em class="zuoz">
-                                <a href="home.php?mod=space&uid=14" target="_blank">123456</a></em>原文：
-                              <a href="forum.php?mod=viewthread&tid=101" title="123123123" target="_blank">123123123</a></dt>
-                            <dd>
-                              <i>
-                              </i>
-                              <p>123123123123123123</p>
-                            </dd>
-                          </dl>
-                          <dl class="cl cc2">
-                            <dt>
-                              <em class="zuoz">
-                                <a href="home.php?mod=space&uid=12" target="_blank">fff</a></em>原文：
-                              <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank">发帖测试</a></dt>
-                            <dd>
-                              <i>
-                              </i>
-                              <p>这是一条测试</p>
-                            </dd>
-                          </dl>
-                          <dl class="cl cc3">
-                            <dt>
-                              <em class="zuoz">
-                                <a href="home.php?mod=space&uid=1" target="_blank">admin</a></em>原文：
-                              <a href="forum.php?mod=viewthread&tid=92" title="新锐创想主题社区模板演示站签到帖" target="_blank">新锐创想主题社区模板演示站签到帖</a></dt>
-                            <dd>
-                              <i>
-                              </i>
-                              <p>新锐创想主题社区模板演示站签到帖</p>
-                            </dd>
-                          </dl>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -202,4 +146,6 @@
             <!--[/diy]--></div>
         </div>
       </div>
+
 @endsection
+

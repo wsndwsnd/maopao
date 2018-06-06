@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Category;
+use App\Models\Category;
+use App\Models\Posts;
 
 class CateController extends Controller
 {
@@ -164,7 +165,8 @@ class CateController extends Controller
             exit;
         }
         //类别下是否有帖子
-        $data = Category::find($id)->posts;
+        $data = Posts::where('cid',$id)->first();
+
         if($data){
             return back()->with('error','当前类别有帖子内容,不允许删除');
             exit;

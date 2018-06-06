@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Notices;
+use App\Models\Notices;
 
 class NoticeController extends Controller
 {
