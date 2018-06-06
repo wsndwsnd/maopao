@@ -21,4 +21,3 @@ class Posts extends Model
 	        return $this->belongsTo('App\Models\Admin\Category','cid');
 	    }
 }
-

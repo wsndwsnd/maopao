@@ -207,7 +207,7 @@
 <!--分类开始-->   
 @foreach($value->sub as $val)
           
-            <div class="fl_g" style="width: 50%;height: 100px;float: left;margin-top:15px; "> 
+            <div class="fl_g" style="width: 49%;height: 100px;float: left;margin:13px 0px 13px 0px;"> 
              <div class="fl_icn_g" style="width: 100px;"> 
               <a href="forum.php?mod=forumdisplay&amp;fid=2"><img src="{{$val->picture}}" width="100px" height="100px" align="left" alt="" /></a>
              </div> 
@@ -220,11 +220,15 @@
                <em><i>帖数: </i>8</em>
               </dd>
               <!--帖子标题开始-->
-              @foreach($val->sub as $v)
+              
               <dd class="zyzy"> 
-               <a href="forum.php?mod=redirect&amp;tid=8&amp;goto=lastpost#lastpost" class="xi2">{{$v->title}}</a> 
+               <a href="forum.php?mod=redirect&amp;tid=8&amp;goto=lastpost#lastpost" class="xi2">
+                
+                {{$val->posts[0]->posts_title}}
+               
+               </a> 
               </dd> 
-              @endforeach
+             
               <!--帖子标题结束-->
               <dd>
                <cite>2016-4-14 14:37 <a href="home.php?mod=space&amp;username=admin">admin</a></cite>

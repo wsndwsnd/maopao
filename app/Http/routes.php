@@ -81,6 +81,8 @@ Route::resource('/user','Home\UserController');
 //前台帖子
 Route::resource('/posts','Home\PostsController');
 
+//前台帖子详情
+Route::get('/home/read/{id}','Home\ReadController@index');
 
 //前台咨询  文章列表
 Route::resource('/zixun','Home\ZixunController');
