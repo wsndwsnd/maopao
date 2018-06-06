@@ -170,4 +170,34 @@ class PostsController extends Controller
         $res = Posts::where('id',$id)->update($data); 
         return redirect('/admin/posts');
     }
+
+    //前台申请标签
+    public function sq(Request $request)
+    {
+        DB::beginTransaction();
+        $id = $request -> input('pid');
+        $label = $request -> input('label');
+        $data['status'] = 2;
+        $res = Posts::where('id',$id)->update($data);
+        if($res){
+            DB::commit();
+            return back()->with('success','成功申请，等待处理');
+        }else{
+            DB::rollBack();
+            return back()->with('error','申请失败');
+        }
+    }
+
+    //带处理帖子
+    public function sqlb(Request $request)
+    {
+        //接收显示条数
+        $count = $request->input('count','5');
+        //接收搜索内容
+        $posts_title = $request -> input('posts_title','');
+        
+        $data = Posts::where('posts_title','like','%'.$posts_title.'%')->where('status','2')->paginate($count);
+        $num = Posts::count('id');
+        return view('Admin.posts.dsq',['data'=>$data,'posts_title'=>$posts_title,'num'=>$num,'count'=>$count]);
+    }
 }

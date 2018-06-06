@@ -146,7 +146,7 @@ class LinkController extends Controller
         
         $data['status'] = $status;
         $res = Link::where('id',$id)->update($data); 
-        return redirect('/admin/link');
+         return back();
     }
 
     /**
@@ -157,7 +157,7 @@ class LinkController extends Controller
     {
         $data['status'] = $status;
         $res = Link::where('id',$id)->update($data); 
-        return redirect('/admin/link');
+         return back();
     }
 
     //前台申请
@@ -179,7 +179,7 @@ class LinkController extends Controller
         }else{
             DB::rollBack();
         }
-        return redirect('/');
+        return redirect('/')->with('success','申请成功，待审中');
     }
 
     //待审列表 

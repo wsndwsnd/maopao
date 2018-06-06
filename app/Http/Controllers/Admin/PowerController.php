@@ -8,7 +8,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Models\Power;
+
 use Hash;
+
+
+
 class PowerController extends Controller
 {
     /**

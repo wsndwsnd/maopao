@@ -9,6 +9,9 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Posts;
 use App\Models\Postsinfo;
+
+use  App\Http\Controllers\Admin\CateController;
+
 use DB;
 class PostsController extends Controller
 {
@@ -30,49 +33,34 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('Home.posts.create');
+        return view('Home.posts.create',['data'=>CateController::getCategory()]);
     }
 
     /**
-     * 接收执行添加
+     * 接收执行添加帖子
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         DB::beginTransaction();
-        if($request->hasFile("pic")){
-
-            //获取上传信息
-            $file = $request->file("pic");
-            //确认上传的文件是否成功
-            if($file->isValid()){
-                $ext = $file->getClientOriginalExtension(); //获取上传文件名的后缀名
-                //执行移动上传文件
-                $filename = time().rand(1000,9999).".".$ext;
-                $dir_name = 'pic/'.date('Ymd',time());//拼接路径便于存储
-                $name = '/'.$dir_name.'/'.$filename;         
-                $file ->move($dir_name,$filename);
-            }
-         }
-
-        $res1 = Posts::insertGetId(['cid'=>1,'uid'=>21,'posts_title'=>$request->posts_title,'created_at'=>date('Y-m-d H:i:s',time())]);
-        // dd($res1);
+        $data1 = $request -> only('posts_title','cid');
+        $data1['uid'] = session('user_id');
+        $data1['created_at']=date('Y-m-d H:i:s',time());
+        $res1 = Posts::insertGetId($data1);
         //帖子详情
-        $postsinfo = new Postsinfo;
-        //获取tid 
-        $postsinfo->tid = $res1;
-        $postsinfo->content = $request -> content;
-        $postsinfo->pic = $name;
-        $res2 = $postsinfo->save();
+        $data2 = $request->only('content');
+        $data2['tid'] = $res1;
+        $res2 = Postsinfo::insert($data2);
 
         if($res1 && $res2){
             DB::commit();
-            dump('成功');
+            dd('成功');
+            return redirect("/posts/$res1")->with('success','成功发表');
         }else{
             DB::rollBack();
-            dump('失败');
+            return back()->with('error','发布失败');
         }
     }
 

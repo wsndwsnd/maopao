@@ -84,39 +84,31 @@
                           <img  src="/Home/picture/ad2.jpg" width="100%" /></div>
                       </div>
                     </div>
-                    <div id="portal_block_72" class="zxlbyltph block move-span">
+
+                    <div id="portal_block_73" class="zxlbytjyd block move-span">
                       <div class="blocktitle title">
-                        <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">阅读排行</span></div>
-                      <div id="portal_block_72_content" class="dxb_bc">
-                        <div class="module cl xl xl1">
-                          <ul>
-                            @foreach($data1 as $k=>$v)
-                            <li class="cc{{ $k+1 }}">
-                              <span>1</span>
-                              <a href="/zixun/{{ $v->id }}"  target="_blank" style=" display: block;display: -webkit-box;max-width: 400px;margin: 0 auto;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{{ $v->article_title }}</a></li>
+                        <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">推荐阅读</span></div>
+                      <div id="portal_block_73_content" class="dxb_bc">
+                        <div class="module cl xld">
+                          @foreach($data1 as $v)
+                          <dl class="cl">
+                            <dd class="m">
+                              <a href="/zixun/{{ $v->id }}" target="_blank">
+                                <img  src="{{ ltrim($v->article_img,'.') }}" width="274" height="146" alt="" /></a>
+                            </dd>
+                            <dt>
+                              <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank" style=" display: block;display: -webkit-box;max-width: 400px;margin: 0 auto;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{{ $v->article_title }}
+                               
+                              </a>
+                            </dt>
+                            <dd class="fttime">{{ $v->created_at }}</dd></dl>
                             @endforeach
-                          </ul>
+
                         </div>
                       </div>
                     </div>
+                
 
-                    <div id="portal_block_69" class="syzttj block move-span">
-                        <div class="blocktitle title">
-                          <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">推荐阅读</span></div>
-                        <div id="portal_block_69_content" class="dxb_bc">
-                          <div class="module cl ml">
-                            <ul>
-                              @foreach($data2 as $v)
-                              <li style="width: 292px;">
-                                <p>{{ $v->article_title }}</p>
-                                <a class="tupian" href="/zixun/{{ $v->id }}" target="_blank" title="{{ $v->article_title }}">
-                                  <img src="{{ ltrim($v->article_img,'.') }}" width="292" height="180" alt="{{ $v->article_title }}"></a>
-                              </li>
-                              @endforeach
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
                   </div>
                 </div>
               </div>

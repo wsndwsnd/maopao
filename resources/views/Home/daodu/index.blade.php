@@ -41,52 +41,204 @@ go();
        <div id="pgt" class="bm bw0 pgs cl"> 
         <a onclick="showWindow('nav', this.href, 'get', 0)" href="forum.php?mod=misc&amp;action=nav"><img src="/Home/picture/pn_post.png" alt="发新帖" /></a> 
        </div> 
-       <ul id="thread_types" class="ttp bm cl"> 
-        <li class="xw1 a"><a href="">热门</a></li> 
-        <li><a href="">精华</a></li> 
-        <li><a href="">置顶</a></li> 
 
-        <li><a id="filter_special" href="" onmouseover="showMenu(this.id)">我的帖子</a></li> 
-       </ul> 
+       <div>
+            <div class="tabbable"> <!-- Only required for left/right tabs -->
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#xxoo1" data-toggle="tab">热门</a></li>
+                <li><a href="#xxoo2" data-toggle="tab">精华</a></li>
+                <li><a href="#xxoo3" data-toggle="tab">置顶</a></li>
+                <li><a href="#xxoo4" data-toggle="tab">普通贴</a></li>
+
+              </ul> 
+              <div class="tab-content">
+                <div class="tab-pane active" id="xxoo1">
+                         <div id="threadlist" class="tl bm bmw"> 
+                            <div class="th"> 
+                             <table cellspacing="0" cellpadding="0"> 
+                              <tbody>
+                               <tr> 
+                                <th colspan="2"> 标题 </th> 
+                                <td class="by">版块/群组</td> 
+                                <td class="by">作者</td> 
+                                <td class="num">评论</td>
+                               
+                               </tr> 
+                              
+                              </tbody>
+                             </table> 
+                            </div> 
+                            @foreach( $posts1 as $v)
+                                <div class="bm_c"> 
+                                 <div id="forumnew" style="display:none"></div> 
+                                 <table cellspacing="0" cellpadding="0"> 
+                                 <tbody id="normalthread_99">
+                                   <tr style="font-size: 12px;">
+                                    <td class="icn">
+                                      <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
+                                        <img src="/Home/images/pollsmall.gif" alt="投票">
+                                      </a>
+                                    </td>
+                                    <th class="common">
+                                     <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" target="_blank" class="xst">[精品]{{$v -> posts_title}}</a></th>
+                                    <td class="by" ><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                                    <td class="by">
+                                    <cite>
+                                    <a href="home.php?mod=space&amp;uid=1" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                                    <em><span>{{$v -> created_at}}</span></em>
+                                    </td>
+                                    <td class="num"><a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                                   
+                                  </tr>
+                                  </tbody>
+                                 </table> 
+                                </div> 
+                            @endforeach
+                      </div> 
+                </div>
+                <div class="tab-pane" id="xxoo2">
+                  <div id="threadlist" class="tl bm bmw"> 
+                            <div class="th"> 
+                             <table cellspacing="0" cellpadding="0"> 
+                              <tbody>
+                               <tr> 
+                                <th colspan="2"> 标题 </th> 
+                                <td class="by">版块/群组</td> 
+                                <td class="by">作者</td> 
+                                <td class="num">评论</td>
+                               
+                               </tr> 
+                              
+                              </tbody>
+                             </table> 
+                            </div> 
+                            @foreach( $posts2 as $v)
+                                <div class="bm_c"> 
+                                 <div id="forumnew" style="display:none"></div> 
+                                 <table cellspacing="0" cellpadding="0"> 
+                                 <tbody id="normalthread_99">
+                                   <tr style="font-size: 12px;">
+                                    <td class="icn">
+                                      <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
+                                        <img src="/Home/images/pollsmall.gif" alt="投票">
+                                      </a>
+                                    </td>
+                                    <th class="common">
+                                     <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" target="_blank" class="xst">[精品]{{$v -> posts_title}}</a></th>
+                                    <td class="by" ><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                                    <td class="by">
+                                    <cite>
+                                    <a href="home.php?mod=space&amp;uid=1" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                                    <em><span>{{$v -> created_at}}</span></em>
+                                    </td>
+                                    <td class="num"><a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                                   
+                                  </tr>
+                                  </tbody>
+                                 </table> 
+                                </div> 
+                            @endforeach
+                      </div> 
+                  </div> 
+                   <div class="tab-pane" id="xxoo3">
+                    <div id="threadlist" class="tl bm bmw"> 
+                            <div class="th"> 
+                             <table cellspacing="0" cellpadding="0"> 
+                              <tbody>
+                               <tr> 
+                                <th colspan="2"> 标题 </th> 
+                                <td class="by">版块/群组</td> 
+                                <td class="by">作者</td> 
+                                <td class="num">评论</td>
+                               
+                               </tr> 
+                              
+                              </tbody>
+                             </table> 
+                            </div> 
+                     @foreach( $posts3 as $v)
+                        <div class="bm_c"> 
+                         <div id="forumnew" style="display:none"></div> 
+                         <table cellspacing="0" cellpadding="0"> 
+                         <tbody id="normalthread_99">
+                           <tr style="font-size: 12px;">
+                            <td class="icn">
+                              <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
+                                <img src="/Home/images/pollsmall.gif" alt="投票">
+                              </a>
+                            </td>
+                            <th class="common">
+                             <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" target="_blank" class="xst">[置顶]{{$v -> posts_title}}</a></th>
+                            <td class="by" ><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                            <td class="by">
+                            <cite>
+                            <a href="home.php?mod=space&amp;uid=1" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                            <em><span>{{$v -> created_at}}</span></em>
+                            </td>
+                            <td class="num"><a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                           
+                          </tr>
+                          </tbody>
+                         </table> 
+                        </div> 
+                    @endforeach
+                  </div>
+                 </div> 
+                 <div class="tab-pane" id="xxoo4">
+                  <div id="threadlist" class="tl bm bmw"> 
+                            <div class="th"> 
+                             <table cellspacing="0" cellpadding="0"> 
+                              <tbody>
+                               <tr> 
+                                <th colspan="2"> 标题 </th> 
+                                <td class="by">版块/群组</td> 
+                                <td class="by">作者</td> 
+                                <td class="num">评论</td>
+                               
+                               </tr> 
+                              
+                              </tbody>
+                             </table> 
+                            </div> 
+                     @foreach( $posts4 as $v)
+                        <div class="bm_c"> 
+                         <div id="forumnew" style="display:none"></div> 
+                         <table cellspacing="0" cellpadding="0"> 
+                         <tbody id="normalthread_99">
+                           <tr style="font-size: 12px;">
+                            <td class="icn">
+                              <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
+                                <img src="/Home/images/pollsmall.gif" alt="投票">
+                              </a>
+                            </td>
+                            <th class="common">
+                             <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" target="_blank" class="xst">[普通贴]{{$v -> posts_title}}</a></th>
+                            <td class="by" ><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                            <td class="by">
+                            <cite>
+                            <a href="home.php?mod=space&amp;uid=1" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                            <em><span>{{$v -> created_at}}</span></em>
+                            </td>
+                            <td class="num"><a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                           
+                          </tr>
+                          </tbody>
+                         </table> 
+                        </div> 
+                    @endforeach
+                  </div>
+                  </div> 
+       </div> 
+                </div>
+               
+       
+       </div> 
+                
+ 
        <div id="threadlist" class="tl bm bmw"> 
-        <div class="th"> 
-         <table cellspacing="0" cellpadding="0"> 
-          <tbody>
-           <tr> 
-            <th colspan="2"> 标题 </th> 
-            <td class="by">版块/群组</td> 
-            <td class="by">作者</td> 
-            <td class="num">评论</td>
-           
-           </tr> 
-          
-          </tbody>
-         </table> 
-        </div> 
-        <div class="bm_c"> 
-         <div id="forumnew" style="display:none"></div> 
-         <table cellspacing="0" cellpadding="0"> 
-         <tbody id="normalthread_99">
-           <tr style="font-size: 12px;">
-            <td class="icn">
-              <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
-                <img src="/Home/images/pollsmall.gif" alt="投票">
-              </a>
-            </td>
-            <th class="common">
-             <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" target="_blank" class="xst">[图片类]投票：您觉得里面哪位妹纸好看？</a></th>
-            <td class="by" ><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">特殊主题</a></td>
-            <td class="by">
-            <cite>
-            <a href="home.php?mod=space&amp;uid=1" c="1" mid="card_6457">admin</a></cite>
-            <em><span>2017-4-27</span></em>
-            </td>
-            <td class="num"><a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
-           
-          </tr>
-          </tbody>
-         </table> 
-        </div> 
+       
+
+
        </div> 
        <div class="bm bw0 pgs cl"> 
         <span class="pgb y"><a href="forum.php?mod=guide">导读首页</a></span> 
@@ -94,14 +246,7 @@ go();
       </div> 
      </div> 
     </div> 
-    <div id="filter_special_menu" class="p_pop" style="display:none"> 
-     <ul> 
-      <li><a href="home.php?mod=space&amp;do=poll&amp;view=me" target="_blank">投票</a></li> 
-      <li><a href="home.php?mod=space&amp;do=trade&amp;view=me" target="_blank">商品</a></li> 
-      <li><a href="home.php?mod=space&amp;do=reward&amp;view=me" target="_blank">悬赏</a></li> 
-      <li><a href="home.php?mod=space&amp;do=activity&amp;view=me" target="_blank">活动</a></li> 
-     </ul> 
-    </div> 
+   
    </div> 
    
   </div>

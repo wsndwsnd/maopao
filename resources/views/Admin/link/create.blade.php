@@ -14,7 +14,7 @@
 
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
-    	<span><i class="icon-magic"></i>用户添加</span>
+    	<span><i class="icon-magic"></i>添加友情链接</span>
     </div>
     <div class="mws-panel-body no-padding">
        <form class="mws-form wzd-default wizard-form wizard-form-horizontal" action="/admin/link" method="post" enctype="multipart/form-data">

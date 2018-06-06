@@ -20,6 +20,8 @@
                   <a href="home.php?mod=spacecp&amp;ac=profile&amp;op=work">工作情况</a></li>
                 <li>
                   <a href="home.php?mod=spacecp&amp;ac=profile&amp;op=info">个人信息</a></li>
+                  <li>
+                  <a href="/userposts/{{session('user_id')}}">我发的贴子</a></li>
               </ul>
               <iframe id="frame_profile" name="frame_profile" style="display: none"></iframe>
               <form action="/user/{{$data->id}}/edit" method="get" >

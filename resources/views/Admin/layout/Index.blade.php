@@ -271,7 +271,7 @@
                         <ul class="closed"> 
                             <li><a href="/admin/posts">帖子列表</a></li>
                             <li><a href="/admin/posts/create">帖子添加</a></li>
-                            
+                            <li><a href="/admin/postssqlb">前台申请标签</a></li>
                         </ul>
                     </li>
 

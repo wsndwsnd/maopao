@@ -287,9 +287,12 @@
                                   <dd class="rdmore leftjl">
                                       <a href="portal.php?mod=view&amp;aid=12" target="_blank">查看详情</a></dd>
                               </dl>
+
                                </div>
                         @endforeach
                          
+
+
                           <div class="btn">
                               <div class="slidebarup">
                                   <a href="javascript:void(0);" mevent="click">上一页</a></div>
@@ -298,8 +301,10 @@
                           </div>
                       </div>
                       <script type="text/javascript">runslideshow();</script></div>
-              </div>
-              </div>
+                </div>
+                </div>
+
+              <!-- 阅读排行 -->
               <div id="frameFMd872_center" class="column frame-2-1-r">
                 <div id="frameFMd872_center_temp" class="move-span temp"></div>
                 <div id="portal_block_67" class="syydph block move-span">
@@ -457,5 +462,6 @@
           <div id="diy15" class="area"></div>
           <!--[/diy]--></div>
       </div>
+
       
 @endsection

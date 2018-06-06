@@ -98,9 +98,11 @@
                     <div id="diycontentclickbottom" class="area"></div>
                     <!--[/diy]--></div>
                   <div class="o cl ptm pbm">
+
                    
                     <a href="javascript:;" id="a_favorite"  class="oshr ofav">收藏</a>    
           
+
 
                   </div>
                   <div class="pren pbm cl">
@@ -123,10 +125,10 @@
                 </div>
               </div>
               <!--[diy=diycontentrelatetop]-->
-              <div id="diycontentrelatetop" class="area"></div>
+              <div id="diycontentrelatetop" class="area">111</div>
               <!--[/diy]--></div>
             <!--[diy=diycontentrelate]-->
-            <div id="diycontentrelate" class="area"></div>
+            <div id="diycontentrelate" class="area">111</div>
             <!--[/diy]-->
             <div id="comment" class="bm">
               <div class="bm_h cl">

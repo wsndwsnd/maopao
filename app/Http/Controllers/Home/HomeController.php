@@ -20,7 +20,7 @@ class HomeController extends Controller
     {
         //
         $article = Articles::get();
-        $link = Link::get();
+        $link = Link::where('status','<','3')->get();
         $notice = Notices::get();
         return view('Home.index',['notice'=>$notice,'link'=>$link,'article'=>$article]);
     }

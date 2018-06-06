@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use DB;
 use App\Models\Articles;
+
 use App\Models\Comment;
 
 class ArticleController extends Controller

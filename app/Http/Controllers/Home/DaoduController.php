@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Models\Daodu;
+use App\Models\Posts;
+
 class DaoduController extends Controller
 {
     /**
@@ -17,7 +20,14 @@ class DaoduController extends Controller
     public function index()
     {
 
-        return view('Home.daodu.index');
+
+        $daodu = Daodu::get();
+        $posts1 = Posts::where('label',1)->get();
+        $posts2 = Posts::where('label',2)->get();
+        $posts3 = Posts::where('label',3)->get();
+        $posts4 = Posts::where('label',4)->get();
+        return view('Home.daodu.index',['daodu'=>$daodu,'posts1'=>$posts1,'posts2'=>$posts2,'posts3'=>$posts3,'posts4'=>$posts4]);
+
     }
 
     /**
