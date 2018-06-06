@@ -9,8 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserInsertRequest;
 use App\Http\Requests\UserEditRequest;
 
-use App\Models\Admin\User;
-use App\Models\Admin\Userinfo;
+use App\Models\User;
+use App\Models\Userinfo;
 use Hash;
 use DB;
 class UserController extends Controller

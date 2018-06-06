@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Articles;
+use App\Models\Articles;
 class ZixunController extends Controller
 {
     /**
@@ -16,10 +16,12 @@ class ZixunController extends Controller
      */
     public function index()
     {
-        $data = Articles::where('article_status',1)->orderBy('article_pview','desc')->get();
-        $data1 = Articles::where('article_status',1)->orderBy('article_pview','desc')->get();
 
-        return view('Home.zixun.index',['data'=>$data]);
+        $data = Articles::where('article_status',1)->orderBy('id','desc')->paginate(4);
+        //推荐阅读
+        $data1 = Articles::where('article_status',1)->orderBy('article_pview','desc')->paginate(3);
+
+        return view('Home.zixun.index',['data'=>$data,'data1'=>$data1]);
     }
 
     /**
@@ -51,21 +53,21 @@ class ZixunController extends Controller
      */
     public function show($id)
     {   
-
         $data = Articles::find($id);
         //阅读量
         $i = $data->article_pview;
         $i +=1;
         Articles::where('id',$id)->update(['article_pview'=>$i]);
         //上一篇文章
-        $data1 = Articles::where('id','<',$id)->where('article_status',1)->orderBy('id','desc')->first();
+        $data1 = Articles::where('id','>',$id)->where('article_status',1)->first();
         //下一篇文章
-        $data2 = Articles::where('id','>',$id)->where('article_status',1)->first();
-        
+        $data2 = Articles::where('id','<',$id)->where('article_status',1)->orderBy('id','desc')->first();
         //阅读排行
         $data3 = Articles::where('article_status',1)->orderBy('article_pview','desc')->paginate(3);
+        //推荐阅读
+        $data4 = Articles::where('article_status',1)->orderBy('id','desc')->paginate(3);
         // dd($data3);
-        return view('Home.zixun.show',['data'=>$data,'data1'=>$data1,'data2'=>$data2,'data3'=>$data3]);
+        return view('Home.zixun.show',['data'=>$data,'data1'=>$data1,'data2'=>$data2,'data3'=>$data3,'data4'=>$data4]);
     }
 
     /**

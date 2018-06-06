@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Home\User;
-use App\Models\home\Userinfo;
+use App\Models\User;
+use App\Models\Userinfo;
 use DB;
 use App\Http\Controllers\CodeController;
+use App\Models\Posts;
 class UserController extends Controller
 {
     /**
@@ -19,8 +20,7 @@ class UserController extends Controller
      */
     public function index()
     {   
-
-        $data = User::find(21);
+        $data = User::find(session('user_id'));
         return view('Home.user.index',['data'=>$data]);
     }
 
@@ -41,12 +41,13 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
 
         $res = CodeController::check($request -> input('code'));
         if(!$res){
-            dd('验证码错误');
+            return back()->with('error','验证码错误');
         }
         //获取信息
         $user_name = $request -> user_name;
@@ -55,11 +56,11 @@ class UserController extends Controller
         $user = User::where('user_name',$user_name)->where('user_password',$password)->first();
         if($user){
             //把用户数据保存到session
-            session(['user_name'=>$user->user_name,'user_password'=>$user->user_password]);
+            session(['user_name'=>$user->user_name,'user_id'=>$user->id,'user_img'=>$user->img]);
             
             return redirect('/');
         }
-            dd('失败');//失败
+            return back()->with('error','用户或密码错误');
     }
 
     /**
@@ -74,7 +75,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * 修改个人信息
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -88,7 +89,7 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * 执行修改
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -98,21 +99,6 @@ class UserController extends Controller
     {
          DB::beginTransaction();
          $data1 = $request -> only('user_email');
-         if($request->hasFile("img")){
-
-            //获取上传信息
-            $file = $request->file("img");
-            //确认上传的文件是否成功
-            if($file->isValid()){
-                $ext = $file->getClientOriginalExtension(); //获取上传文件名的后缀名
-                //执行移动上传文件
-                $filename = time().rand(1000,9999).".".$ext;
-                $dir_name = 'uploads/'.date('Ymd',time());//拼接路径便于存储
-                $name = '/'.$dir_name.'/'.$filename;         
-                $data1['img']=$name;
-                $file ->move($dir_name,$filename);
-            }
-         }
         $data2 = $request -> only('age','sex','birthday','user_tel');
         // dump($data1);dump($data2);
         $res1 = User::where('id',$id)->update($data1);
@@ -135,6 +121,60 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //清空session
+        Session()->flush();
+        return redirect('/');
+    }
+
+
+    //上传头像
+    public function uploads(Request $request)
+    {
+        DB::beginTransaction();
+        if($request -> hasFile('profile')){
+            $profile = $request -> file('profile');
+            $dir_name = 'uploads/'.date('Ymd');
+            $file_name = str_random(20);
+            $hz = $profile->getClientOriginalExtension();
+            $name = $file_name.'.'.$hz;
+            $res = $profile -> move($dir_name,$name);
+            $userimg = '/'.$dir_name.'/'.$name; 
+            if($res){
+                $arr = [
+                    'code' => 1,
+                    'msg' => '上传成功',
+                    'data' => [
+                        'src' => ltrim($dir_name.'/'.$name,'.')
+                    ],
+                ];
+            $data1['img']=$userimg;
+            $id = session('user_id');
+            User::where('id',$id)->update($data1);
+            DB::commit();
+            }else{
+                $arr = [
+                    'code' => 0,
+                    'msg' => '上传失败',
+                    'data' => [
+                        'src' => ''
+                    ],
+                ];
+            DB::rollBack();
+
+            }
+        }
+
+        //处理返回值
+        echo json_encode($arr);
+    }
+
+    /**
+     * 我发的帖子
+     *   
+     */
+    public function posts($id)
+    {
+        $data = Posts::where('uid',$id)->get();
+        return view('Home.user.posts',['data'=>$data]);
     }
 }

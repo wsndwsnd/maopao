@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Notices;
-use App\Models\Admin\Link;
-use App\Models\Admin\Articles;
+use App\Models\Notices;
+use App\Models\Link;
+use App\Models\Articles;
 class HomeController extends Controller
 {
     /**
@@ -20,7 +20,7 @@ class HomeController extends Controller
     {
         //
         $article = Articles::get();
-        $link = Link::get();
+        $link = Link::where('status','<','3')->get();
         $notice = Notices::get();
         return view('Home.index',['notice'=>$notice,'link'=>$link,'article'=>$article]);
     }

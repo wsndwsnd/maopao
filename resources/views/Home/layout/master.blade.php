@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
     <title>Discuz! Board - Powered by Discuz!</title>
     <meta name="keywords" content="首页" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="首页 " />
     <meta name="generator" content="Discuz! X3.4" />
     <meta name="author" content="Discuz! Team and Comsenz UI Team" />
@@ -15,6 +16,9 @@
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_announcement.css" />
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_guide.css" />
 
+    <link rel="stylesheet" type="text/css" href="/Home/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="/Home/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/Home/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_portal_index.css" />
 
@@ -53,6 +57,7 @@
     <script src="/Home/js/common.js" type="text/javascript"></script>
     <script src="/Home/js/common.js" type="text/javascript"></script>
     <script src="/layui/layui.all.js" type="text/javascript"></script>
+    <script src="/Home/jquery-1.8.3.min.js" type="text/javascript"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=6" />
     <meta http-equiv="X-UA-Compatible" content="IE=7" />
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
@@ -106,7 +111,21 @@
     <script src="/Home/js/jquery.js" type="text/javascript"></script>
 
     <script type="text/javascript">var jq = jQuery.noConflict();</script>
-
+<style type="text/css">
+   /*分页  */
+      .list-page-a{padding:15px 0;text-align:center;}
+      .list-page-a  li{display:inline-block;width:30px; }
+      .list-page-a a{margin:0 5px;padding:2px 8px;border:1px solid #B1191A;background:#B1191A;text-decoration:none;color:White;}
+      .list-page-a a:hover{background:#AAA;border:1px solid #908f8f;color:  White}
+      .list-page-a .current{margin:0 5px;padding:2px 7px;background:#f60;border:1px solid #fe8101;color:#fff; }
+      a{
+        text-decoration:none;
+        color:#696969;
+      }
+      a:hover{
+        color:#b1191a;
+      }
+</style>
   </head>
   
 
@@ -163,16 +182,23 @@
         <div class="y">
           @if( session('user_name') ) 
               <a href="/user" class="wi_ttbat">
-                <img src="/Home/picture/avatar.php" /></a>
+                <img src="{{ session('user_img') }}" /></a>
               <a href="/user" class="top_gly" target="_blank" title="访问我的空间">{{session('user_name')}}</a>
               <a href="/posts/create" class="u31">发贴</a>
               <a href="">收藏</a>
               <a href="/Home/javascript:;" id="wmn" class="showmenu " onMouseOver="showMenu({'ctrlid':'wmn','pos':'34!','ctrlclass':'a','duration':2});">消息</a>
               <span id="myprompt_check"></span>
-              <a href="/user/">退出</a>
+              <a onclick="document:usertc.submit();">退出</a>
+              <form method="post" id="usertc" action="/user/{{session('user_id')}}">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+              </form>
+              <script type="text/javascript">
+
+              </script>
           @else
               <a id="user_dl" href="/user/create">登录</a>
-              <a href="/login">注册</a>
+              <a href="/register">注册</a>
            @endif
         </div>
       </div>
@@ -268,7 +294,7 @@
                     <span>BBS</span></a>
                 </li>
                 <li class="xnv_3" id="mn_forum_10">
-                  <a href="/Home/forum.php?mod=guide" hidefocus="true" title="Guide">导读
+                  <a href="/daodu" hidefocus="true" title="Guide">导读
                     <span>Guide</span></a>
                 </li>
                 <li class="xnv_4" id="mn_P1" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})">
@@ -326,13 +352,17 @@
       <script type="text/javascript">go();</script>
 
        @if(session('error'))
-       {{ session('error') }}
+       <script type="text/javascript">
+            layer.msg("{{session('error')}}");
+       </script>
        @endif
 
        @if( session('success') )
-       {{ session('success') }}
+       <script type="text/javascript">
+            layer.msg("{{session('success')}}");
+       </script>
        @endif
-       
+
        @section('sidebar')
        @show
       <div class="ft_wp">

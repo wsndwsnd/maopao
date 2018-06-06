@@ -99,16 +99,8 @@
                     <!--[/diy]--></div>
                   <div class="o cl ptm pbm">
                     <a href="home.php?mod=spacecp&amp;ac=favorite&amp;type=article&amp;id=12&amp;handlekey=favoritearticlehk_12" id="a_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" class="oshr ofav">收藏</a>
-                    <a href="misc.php?mod=invite&amp;action=article&amp;id=12" id="a_invite" onclick="showWindow('invite', this.href, 'get', 0);" class="oshr oivt">邀请</a>
-                    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
-                      <span class="shear">分享到：</span>
-                      <span class="bds_more"></span>
-                      <a class="bds_qzone"></a>
-                      <a class="bds_tsina"></a>
-                      <a class="bds_tqq"></a>
-                      <a class="bds_renren"></a>
-                      <a class="bds_t163"></a>
-                    </div>
+                   
+                    
                   </div>
                   <div class="pren pbm cl">
                   	@if($data1)
@@ -130,10 +122,10 @@
                 </div>
               </div>
               <!--[diy=diycontentrelatetop]-->
-              <div id="diycontentrelatetop" class="area"></div>
+              <div id="diycontentrelatetop" class="area">111</div>
               <!--[/diy]--></div>
             <!--[diy=diycontentrelate]-->
-            <div id="diycontentrelate" class="area"></div>
+            <div id="diycontentrelate" class="area">111</div>
             <!--[/diy]-->
             <div id="comment" class="bm">
               <div class="bm_h cl">
@@ -191,7 +183,7 @@
 
                             <li class="cc{{ $k+1 }}">
                               <span></span>
-                              <a href="/zixun/{{ $v->id }}"  target="_blank" >{{ $v->article_title }}</a></li>
+                              <a href="/zixun/{{ $v->id }}"  target="_blank" style=" display: block;display: -webkit-box;max-width: 400px;margin: 0 auto;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{{ $v->article_title }}</a></li>
                             @endforeach
                            
                  
@@ -205,83 +197,25 @@
                         <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">推荐阅读</span></div>
                       <div id="portal_block_77_content" class="dxb_bc">
                         <div class="module cl xld">
+                           @foreach($data4 as $v)
                           <dl class="cl">
                             <dd class="m">
-                              <a href="forum.php?mod=viewthread&tid=100" target="_blank">
-                                <img  src="/home/picture/91dc790fbbb74a6b1546996a0c8a9c95.jpg" width="274" height="146" alt="发帖测试" /></a>
+                              <a href="/zixun/{{ $v->id }}" target="_blank">
+                                <img  src="{{ ltrim($v->article_img,'.') }}" width="274" height="146" alt="" /></a>
                             </dd>
                             <dt>
-                              <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank">发帖测试
-                                <i>>></i>
+                              <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank" style=" display: block;display: -webkit-box;max-width: 400px;margin: 0 auto;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{{ $v->article_title }}
+                               
                               </a>
                             </dt>
-                            <dd class="fttime">2018-04-25 17:26</dd></dl>
-                          <dl class="cl">
-                            <dd class="m">
-                              <a href="forum.php?mod=viewthread&tid=95" target="_blank">
-                                <img  src="/home/picture/957e96ffde288fa51079ddbcf5fee966.jpg" width="274" height="146" alt="【加田小店】新锐创想轻主题模板活动演示帖[广州市]" /></a>
-                            </dd>
-                            <dt>
-                              <a href="forum.php?mod=viewthread&tid=95" title="【加田小店】新锐创想轻主题模板活动演示帖[广州市]" target="_blank">【加田小店】新锐创想轻主题模板活动
-                                <i>>></i>
-                              </a>
-                            </dt>
-                            <dd class="fttime">2017-04-27 23:14</dd></dl>
-                          <dl class="cl">
-                            <dd class="m">
-                              <a href="forum.php?mod=viewthread&tid=32" target="_blank">
-                                <img  src="/home/picture/8c9e917f78a9b907dbab8ce017a4b532.jpg" width="274" height="146" alt="迷人的大光圈 教你使用焦外的正确时机" /></a>
-                            </dd>
-                            <dt>
-                              <a href="forum.php?mod=viewthread&tid=32" title="迷人的大光圈 教你使用焦外的正确时机" target="_blank">迷人的大光圈 教你使用焦外的正确时
-                                <i>>></i>
-                              </a>
-                            </dt>
-                            <dd class="fttime">2016-04-21 20:28</dd></dl>
+                            <dd class="fttime">{{ $v->created_at }}</dd></dl>
+                            @endforeach
+                          
+                        
                         </div>
                       </div>
                     </div>
-                    <!-- <div id="portal_block_78" class="zxlbyjcdp block move-span">
-                      <div class="blocktitle title">
-                        <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">精彩点评</span></div>
-                      <div id="portal_block_78_content" class="dxb_bc">
-                        <div class="module cl xld">
-                          <dl class="cl cc1">
-                            <dt>
-                              <em class="zuoz">
-                                <a href="home.php?mod=space&uid=14" target="_blank">123456</a></em>原文：
-                              <a href="forum.php?mod=viewthread&tid=101" title="123123123" target="_blank">123123123</a></dt>
-                            <dd>
-                              <i>
-                              </i>
-                              <p>123123123123123123</p>
-                            </dd>
-                          </dl>
-                          <dl class="cl cc2">
-                            <dt>
-                              <em class="zuoz">
-                                <a href="home.php?mod=space&uid=12" target="_blank">fff</a></em>原文：
-                              <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank">发帖测试</a></dt>
-                            <dd>
-                              <i>
-                              </i>
-                              <p>这是一条测试</p>
-                            </dd>
-                          </dl>
-                          <dl class="cl cc3">
-                            <dt>
-                              <em class="zuoz">
-                                <a href="home.php?mod=space&uid=1" target="_blank">admin</a></em>原文：
-                              <a href="forum.php?mod=viewthread&tid=92" title="新锐创想主题社区模板演示站签到帖" target="_blank">新锐创想主题社区模板演示站签到帖</a></dt>
-                            <dd>
-                              <i>
-                              </i>
-                              <p>新锐创想主题社区模板演示站签到帖</p>
-                            </dd>
-                          </dl>
-                        </div>
-                      </div>
-                    </div> -->
+                   
                   </div>
                 </div>
               </div>

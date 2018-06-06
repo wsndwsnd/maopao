@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use DB;
-use App\Models\Admin\Articles;
+use App\Models\Articles;
 class ArticleController extends Controller
 {
     /**

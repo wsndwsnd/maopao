@@ -37,7 +37,7 @@ var pwlength = 6;
 
 <div class="bm_h bbs" id="main_hnav">
 <span class="y">
-<a href="member.php?mod=logging&amp;action=login&amp;referer=http%3A%2F%2F29.92zyb.com%2F.%2F" onclick="showWindow('login', this.href);return false;" class="xi2">已有帐号？现在登录</a>
+
 </span>
 <h3 id="layer_reginfo_t" class="xs2">编辑文章</h3>
 </div>
@@ -46,46 +46,48 @@ var pwlength = 6;
 
 
 
-<form method="post" " action="/posts" enctype="multipart/form-data">
+<form method="post" action="/posts" enctype="multipart/form-data">
   {{ csrf_field() }}
 <div id="layer_reg" class="bm_c">
 <div class="mtw">
 <div id="reginfo_a">
-<div class="rfm">
-<table>
-<tbody><tr>
-<th><span class="rq">*</span><label for="">帖子标题:</label></th>
-<td><input type="text" class="px" name="posts_title"></td>
-</tr>
-</tbody></table>
-</div>
 
 <div class="rfm">
 <table>
 <tbody><tr>
 <th><span class="rq">*</span><label for="">帖子类别:</label></th>
   <td>
-        <select name="cid" class="ps" tabindex="1">
-            <option value="x">类别1</option>
-            <option value="m">类别2</option>
-            <option value="w">类别3</option>
+         <select size="1" name="cid" class="form-control" >
+            <option value="0" >选择类别</option>
+            @foreach($data as $v)
+            <option value="{{$v->id}}">{{$v->title}}</option>
+            @endforeach
         </select>
   </td>       
 </tr>
 </tbody></table>
 </div>
+  
+<div class="rfm">
+
+<table>
+
+<tbody>
+  <tr>
+<th><span class="rq">*</span><label for="">帖子标题:</label></th>
+<td><input type="text"  class="form-control" name="posts_title"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
 
 
 <div class="rfm">
 <table>
 <tbody>
-<tr>
-<th><span class="rq">*</span><label for="">帖子图片:</label></th>
-<td>
-  <input type="file" name="pic"><br>
-  <img width="100px"  src="">
-</td>
-</tr>
+
 </tbody></table>
 </div>
 
@@ -94,8 +96,8 @@ var pwlength = 6;
 <tbody>
 <tr>
 <th><span class="rq">*</span><label for="">帖子内容:</label></th>
-<td style="width:630px">
-  <script id="container" name="content" type="text/plain">
+<td style="width:630px;">
+  <script id="container" name="content" type="text/plain" style="height: 300px">
     </script>
 </td>
 </tr>
@@ -164,96 +166,7 @@ var pwlength = 6;
 </div></div>
 </div></div>
  
-     
 
-
-<div class="ft_wp">
-
-<div class="zjdba">
-<div id="zjdb" class="wp">
-<div id="gll">
-<div id="gywm">
-<ul>
-<span id="listtitle">关于我们</span>
-        <li><a href="www.tmd9.com">网站简介</a></li>
-        <li><a href="www.tmd9.com">付费推广</a></li>
-<li><a href="#">合作联盟</a></li>
-  </ul>
-</div>
-
-<div id="bzzx">
-<ul>
-<span id="listtitle">帮助中心</span>
-        <li><a href="#">新手上路</a></li>
-        <li><a href="#">常见问题</a></li>
-<li><a href="#">在线答疑</a></li>
-  </ul>
-</div>
-
-<div id="lxwm">
-<ul>
-<span id="listtitle">联系我们</span>
-        <li>咨询电话：0000 - www.tmd9.com</li>
-        <li>邮箱：www.tmd9.com</li>
-<li>地址：www.tmd9.com</li>
-  </ul>
-</div>
-
-    <div id="yyonload">
-<ul> 
-    <span id="listtitle">移动客户端：</span>
-<li class="a1"><a href="#"></a></li>
-<li class="a2"><a href="#"></a></li>  
-<li class="a3"><a href="#"></a></li>
-</ul>
-</div>  
-
-<div id="gzwm">
-<ul>
-<span id="listtitle">关注我们：</span>
-        <li>微信公众号：</li>
-        <li>123cwyy</li>
-<li>扫描二维码加关注</li>
-  </ul>
-</div>
-
-<div id="erwm">
-<p></p>
-</div>
-
-
-</div>
-</div>
-</div>
- 
-  <div id="ft" class=" cl">
-
-<div id="flk" style="display:none;">
-
-<p>
-Copyright © 2001-2015 <a href="#" target="_blank">www.tmd9.com</a> All Rights Reserved <a href="#" target="_blank">京 ICP备11000000号－4</a></p>
-
-<p>
-<a href="archiver/">Archiver</a><span class="pipe">|</span><a href="forum.php?mobile=yes">手机版</a><span class="pipe">|</span><a href="forum.php?mod=misc&amp;action=showdarkroom">小黑屋</a><span class="pipe">|</span><a href="http://www.comsenz.com/" target="_blank">Comsenz Inc.</a>
-</p>
-
-</div>
-
-<div id="ftl">
-<p>Powered by <a href="http://www.tmd9.com" target="_blank">Discuz!</a> <em>X3.4</em>
-Copyright <br> © 2001-2013 <a href="http://www.tmd9.com" target="_blank">www.tmd9.com Inc.</a></p>
-</div>
-
-
-<div id="frt">
-
-            
-            <p>
-<a href="archiver/">Archiver</a><span class="pipe">|</span><a href="forum.php?mobile=yes">手机版</a><span class="pipe">|</span><a href="forum.php?mod=misc&amp;action=showdarkroom">小黑屋</a><span class="pipe">|</span><a href="http://www.comsenz.com/" target="_blank">Comsenz Inc.</a>
-</p><p>GMT+8, 2018-5-28 20:05                   , Processed in 1.062500 second(s), 8 queries.</p>
-</div></div>
-</div>
-</div>
  <script type="text/javascript">
         var ue = UE.getEditor('container', {
           toolbars: [

@@ -41,6 +41,8 @@ Route::resource('/admin/power','Admin\PowerController');
 Route::resource('/admin/posts','Admin\PostsController');
 Route::get('/admin/posts/up/{id}','Admin\PostsController@up');
 Route::get('/admin/posts/down/{id}','Admin\PostsController@down');
+Route::post('/admin/posts/sq','Admin\PostsController@sq');
+Route::get('/admin/postssqlb','Admin\PostsController@sqlb');
 
 
 //后台友情链接
@@ -66,9 +68,17 @@ Route::get('/admin/article/down/{id}','Admin\ArticleController@down');
 //前台首页
 Route::get('/','Home\HomeController@index');
 //注册
-Route::resource('/login','Home\LoginController');
+Route::post('/registerphone','Home\RegisterController@phone_code');
+Route::post('/register/ajax','Home\RegisterController@ajax');
+Route::get('/registerjh/jihuo','Home\RegisterController@jihuo');
+Route::resource('/register','Home\RegisterController');
+
 //前台用户
 Route::resource('/user','Home\UserController');
+Route::get('/userposts/{id}','Home\UserController@posts');
+//修改头像
+Route::post('/usertx/uploads','Home\UserController@uploads');
+
 
 //前台帖子
 Route::resource('/posts','Home\PostsController');
@@ -81,3 +91,5 @@ Route::resource('/zixun','Home\ZixunController');
 //申请友情链接
 Route::get('/link','Home\LinkController@index');
 
+//前台导读
+Route::resource('/daodu','Home\DaoduController');
