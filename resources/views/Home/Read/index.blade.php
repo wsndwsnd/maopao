@@ -389,5 +389,10 @@
    <span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')" class="scrolltopa"><b>返回顶部</b></a></span> 
    <span> <a href="/home/forum.php?mod=forumdisplay&amp;fid=2" hidefocus="true" class="returnlist" title="返回列表"><b>返回列表</b></a> </span> 
   </div> 
-  <script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script> 
+  <script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script>
+  <div></div> 
+  <div></div> 
+  <div></div> 
+  <div></div> 
+  <div></div> 
 @endsection
