@@ -9,14 +9,14 @@
         <!--[/diy]-->
         <div id="pt" class="bm cl">
           <div class="z">
-            <a href="/home/./" class="nvhm" title="首页">Discuz! Board</a>
-            <a href="/home/portal.php">&nbsp;&nbsp;首页</a>
+            <a href="/" class="nvhm" title="首页">Discuz! Board</a>
+            <a href="/">&nbsp;&nbsp;首页</a>
             <em>&rsaquo;</em>
-            <a href="/home/forum.php">论坛</a>
+            <a href="/home/luntan">论坛</a>
             <em>&rsaquo;</em>
-            <a href="/home/forum.php?gid=1">{{$data2['attributes']['title']}}</a>
+            <a href="javascript:history.back(-1)">{{$data2['attributes']['title']}}</a>
             <em>&rsaquo;</em>
-            <a href="/home/forum.php?mod=forumdisplay&fid=2">{{$data1['attributes']['title']}}</a></div>
+            <a href="#">{{$data1['attributes']['title']}}</a></div>
         </div>
         <div class="wp">
           <!--[diy=diy1]-->
@@ -24,41 +24,10 @@
           <!--[/diy]--></div>
         <div class="boardnav">
           <div id="ct" class="wp cl ct2">
-            <div class="mn">
+            <div class="mn" style="width:880px;">
               <div class="orde">
                 <div class="lslsls">
-                  <div class="bm bml pbn mysss">
-                    <div id="pimg">
-                      <p>
-                        <img src="/home/picture/common_2_icon.png" /></p>
-                    </div>
-                    <div class="bkleft">
-                      <img src="/home/picture/common_2_icon.png" alt="美食天下" />
-                      <div class="bm_h cl">
-                        <span class="y">
-                          <a href="/home/home.php?mod=spacecp&amp;ac=favorite&amp;type=forum&amp;id=2&amp;handlekey=favoriteforum&amp;formhash=316f8b52" id="a_favorite" class="fa_fav" onclick="showWindow(this.id, this.href, 'get', 0);">收藏本版
-                            <strong class="xi1" id="number_favorite" style="display:none;">(
-                              <span id="number_favorite_num">0</span>)</strong></a>
-                          <span class="pipe">|</span>
-                          <a href="/home/forum.php?mod=rss&amp;fid=2&amp;auth=50e79v%2BtmlSCDPnh4tECCCwkrWeIO3QOyYzvVdnlAjxjNzaDsrGyKk5A" class="fa_rss" target="_blank" title="RSS">订阅</a></span>
-                        <h1 class="xs2">
-                          <a href="/home/forum.php?mod=forumdisplay&amp;fid=2">{{$data1['attributes']['title']}}</a>
-                          <span class="xs1 xw0 i">今日:
-                            <strong class="xi1">0</strong>
-                            <span class="pipe">|</span>主题:
-                            <strong class="xi1">8</strong>
-                            <span class="pipe">|</span>排名:
-                            <strong class="xi1" title="上次排名:1">2</strong>
-                            <b class="ico_fall">&nbsp;</b></span>
-                        </h1>
-                      </div>
-                      <div class="bm_c cl pbn">
-                        <div class="pbn">暂无版主</div>
-                        <div class="haobaba">
-                          <div id="forum_rules_2" style=";line-height:23px;" class="guize">本版块规则:显示于主题列表页的当前版块规则，留空为不显示</div></div>
-                      </div>
-                    </div>
-                  </div>
+                  
                   <div class="bkright">
                     <div class="fbtiez">
                       <a href="/home/javascript:;" id="newspecial" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&action=newthread&fid=2')" title="发新帖">
@@ -76,47 +45,7 @@
                   <!--[/diy]--></div>
               </div>
               <div class="cenbor">
-                <div class="fyfl">
-                  <div id="pgt" class="bm bw0 pgs cl">
-                    <span id="fd_page_top"></span>
-                    <span class="pgb y">
-                      <a href="/home/forum.php">返&nbsp;回</a></span>
-                  </div>
-                  <ul id="thread_types" class="ttp bm cl">
-                    <li id="ttp_all" class="xw1 a">
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=2">全部主题</a></li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=typeid&amp;typeid=3">
-                        <font color="red">
-                          <b>粤菜</b>
-                        </font>
-                      </a>
-                    </li>
-                    <li class="line">|</li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=typeid&amp;typeid=4">川菜
-                        <span class="xg1 num">1</span></a>
-                    </li>
-                    <li class="line">|</li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=typeid&amp;typeid=5">湘菜</a></li>
-                    <li class="line">|</li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=typeid&amp;typeid=6">鲁菜</a></li>
-                    <li class="line">|</li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=typeid&amp;typeid=7">苏菜</a></li>
-                    <li class="line">|</li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=typeid&amp;typeid=8">浙菜</a></li>
-                    <li class="line">|</li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=typeid&amp;typeid=9">闽菜</a></li>
-                    <li class="line">|</li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=typeid&amp;typeid=10">徽菜</a></li>
-                    <li class="line">|</li></ul>
-                  </div>
+                
                 <div id="threadlist" class="tl bm bmw" style="position: relative;">
                   <div class="th">
                     <table cellspacing="0" cellpadding="0">
@@ -177,7 +106,7 @@
                               <a id="toux" href="/home/home.php?mod=space&amp;uid=1" target="_blank" title="进入admin的空间" class="">
                                 <img src="/home/picture/avatar.php" width="52" height="52"></a>
                               <a href="/home/javascript:;" id="content_46" class="showcontent y" title="更多操作" onclick="CONTENT_TID='46';CONTENT_ID='stickthread_46';showMenu({'ctrlid':this.id,'menuid':'content_menu'})"></a>
-                              <a href="/home/javascript:void(0);" class="showhide y" title="隐藏置顶帖">隐藏置顶帖</a>
+                              <a href="/home/javascript:void(0);" style="display: none;" class="" title="隐藏置顶帖">隐藏置顶帖</a>
                               <a href="/home/read/{{ $v->id }}" onclick="atarget(this)" class="s xst">{{ $v->posts_title }}</a>
                               <img src="/home/picture/011.small.gif" alt="新人帖" align="absmiddle" />
                               <img src="/home/picture/image_s.gif" alt="attach_img" title="图片附件" align="absmiddle" />

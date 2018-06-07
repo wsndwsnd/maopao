@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Posts;
+use App\Models\Category;
+use App\Models\Slide;
 
 class ReadController extends Controller
 {
@@ -14,9 +17,13 @@ class ReadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('home.read.index');
+        $data = Posts::where('id',$id)->first();
+        $tid = $data->cates->tid;
+        $data1 = Category::where('id',$tid)->first();
+        $data2 = Slide::where('slide_status','3')->get();
+        return view('home.read.index',['data'=>$data,'data1'=>$data1,'data2'=>$data2]);
     }
 
     /**
