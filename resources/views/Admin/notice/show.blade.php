@@ -6,7 +6,7 @@
     	<span>公告内容</span>
     </div>
     <div class="mws-panel-body">
-        <p>{{$data->notice_content}}</p>
+        <p>{!!$data->notice_content!!}</p>
     </div>
 </div>
 <div class="btn-toolbar">

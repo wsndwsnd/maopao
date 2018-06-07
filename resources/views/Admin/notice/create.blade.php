@@ -11,6 +11,10 @@
         </ul>
     </div>
 @endif
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="/utf8-php/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/utf8-php/ueditor.all.js"></script>
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span>公告添加</span>
@@ -27,8 +31,10 @@
                 </div>
                 <div class="mws-form-row">
                     <label class="mws-form-label">公告内容</label>
-                    <div class="mws-form-item">
-                        <textarea rows="" cols="" class="small" name="notice_content" value="">{{ old('notice_content') }}</textarea>
+                    <div class="mws-form-item">                    
+                        <script id="container" name="notice_content" type="text/plain" class="small" style="height: 200px;">
+                          {!! old('article_content') !!}
+                        </script>
                     </div>
                 </div>
                 <div class="mws-form-row">
@@ -48,5 +54,11 @@
         </form>
     </div>      
 </div>
-
+<script type="text/javascript">
+        var ue = UE.getEditor('container',{
+           toolbars: [
+                ['fullscreen', 'source', 'undo', 'redo', 'bold','italic','forecolor','backcolor' ]
+            ]
+        });
+</script>
 @endsection

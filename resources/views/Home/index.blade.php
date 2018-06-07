@@ -91,11 +91,23 @@
                         @foreach($notice as $v)
                         <li class="cc1">
                          
-                          <a href="forum.php?mod=announcement&id=9" target="_blank" style="font-size:20px;">{{ $v->notice_title }}</a>
-                           <em style="float:right; font-size:10px;">{{ substr($v ->created_at,0,10) }}</em>
-                        </li>
+                          <a href="/notice" style=" font-size: 14px;" class="click">{{ $v->notice_title }}</a>
+                           <em style=" float:right;font-size:12px;">{{ substr($v ->created_at,0,10) }}</em>        
+                        </li>                       
                         @endforeach
+  
                       </ul>
+                      <script type="text/javascript">
+
+                          // layer.open({
+                          //     type: 0,
+                          //     skin: 'layui-layer-rim', //加上边框
+                          //     area: ['420px', '300px'], //宽高
+                          //     content: '<form class="layui-form" action=""><div class="layui-form-item"><label class="layui-form-label">用户名</label><div class="layui-input-block"><input type="text" name="user_name" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input"></div></div><div class="layui-form-item"><label class="layui-form-label">密码</label><div class="layui-input-block"><input type="text" name="user_name" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input"></div></div><div class="layui-form-item"><label class="layui-form-label">验证码</label><div class="layui-input-block"><img src="/code"></div></div></form>'
+                          //   });
+
+                        
+                      </script>
                     </div>
                   </div>
                 </div>
@@ -262,13 +274,13 @@
                           <div class="slideshow">
                               <dl class="cl" style="display: block;">
                                   <dd class="m">
-                                      <a href="portal.php?mod=view&amp;aid=12" title="" target="_blank">
+                                      <a href="/zixun/{{ $v->id }}" title="" target="_blank">
                                           <img src="{{ ltrim($v->article_img,'.') }}" width="266" height="180" alt=""></a>
                                   </dd>
-                                  <a href="portal.php?mod=view&amp;aid=12" title="" target="_blank"></a>
+                                  
                                   <dt class="leftjl">
-                                      <a href="portal.php?mod=view&amp;aid=12" title="" target="_blank"></a>
-                                      <a href="portal.php?mod=view&amp;aid=12" title="" target="_blank">{{$v -> article_title}}</a></dt>
+                         
+                                      <a href="/zixun/{{ $v->id }}" title="" target="_blank">{{$v -> article_title}}</a></dt>
                                   <dd class="xinx leftjl">
                                       <span class="fbtime">
                                           <i>
@@ -285,7 +297,7 @@
                                   </dd>
                                   <dd class="sumr leftjl">{{ $v->article_dec }}</dd>
                                   <dd class="rdmore leftjl">
-                                      <a href="portal.php?mod=view&amp;aid=12" target="_blank">查看详情</a></dd>
+                                      <a href="/zixun/{{ $v->id }}" target="_blank">查看详情</a></dd>
                               </dl>
 
                                </div>

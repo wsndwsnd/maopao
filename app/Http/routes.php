@@ -108,7 +108,11 @@ Route::resource('/comment','Home\CommentController');
 Route::get('/comment/del/{id}','Home\CommentController@del');
 //文章收藏
 Route::resource('/acollect','Home\AcollectController');
+//文章评论 懒加载
+Route::get('/commentajax','Home\ZixunController@ajax');
 
+//前台公告
+Route::resource('/notice','Home\NoticeController');
 
 //申请友情链接
 Route::get('/link','Home\LinkController@index');

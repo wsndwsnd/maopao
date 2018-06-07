@@ -18,21 +18,21 @@
           <div id="diy1" class="area"></div>
           <!--[/diy]--></div>
         <style id="diy_style" type="text/css"></style>
-        <div id="ct" class="ct2 wp cl">
-          <div class="mn">
+        <div id="ct" class="ct2 wp cl" >
+          <div class="mn" style="width: 880px;">
             <div class="bm_haa cl">
               <div class="bm_h cl">
                 <a href="portal.php?mod=rss&amp;catid=1" class="y xi2 rss" target="_blank" title="RSS">订阅</a>
                 <h1 class="xs2">文章</h1></div>
             </div>
-            <div class="kjkjb">
+            <div class="kjkjb" >
               <div class="bm vw" style="margin-bottom:0;">
                 <div class="h hm">
                   <h1 class="ph">{{ $data->article_title }}</h1>
                   <p class="xg1">发布时间：{{ $data->created_at }}
                     <a class="zz jl" href="">作者：{{ $data->article_author }}</a>
                     <span class="yd">阅读：
-                      <em id="_viewnum">{{ $data->article_pview }}</em></span>评论:{{ $data->article_comments }} </p>
+                      <em id="_viewnum">{{ $data->article_pview }}</em></span >评论:<font id="font">{{ $data->article_comments }}</font></p>
                     
                 </div>
                 <!--[diy=diysummarytop]-->
@@ -105,19 +105,19 @@
 
                   </div>
                   <div class="pren pbm cl">
-                  	@if($data1)
+                    @if($data1)
                     <em>上一篇：
                       <a href="/zixun/{{ $data1->id }}">{{ $data1->article_title }}</a></em>
                      @else
                     <em>上一篇：
-					<a href="javascript:;">已经给不了你太多了</a></em>
+          <a href="javascript:;">已经给不了你太多了</a></em>
                      @endif
                      @if($data2)
                     <em>下一篇：
                       <a href="/zixun/{{ $data2->id }}">{{ $data2->article_title }}</a></em>
                      @else
                     <em>下一篇：
-					<a href="javascript:;">已经给不了你太多了</a></em>
+          <a href="javascript:;">已经给不了你太多了</a></em>
                      @endif
                    
                 </div>
@@ -132,7 +132,7 @@
                     <dl id="comment_4_li" class="ptm pbm bbda cl comment_4_li" style="display: none;">
                       <dt class="mbm">                   
                          <span class="y xw0 xi2">
-                          <a href="javascript:;" onclick="return confirm('确认要删除吗?')" class='del'>删除</a>
+                          <a href="javascript:;"  class='del' style="color: red;">删除</a>
                          </span>
                       <img src="" width="100px;">
                       <a href="" class="xi2 xw1" c="1" mid="card_463" id="ajaxid_0.3901175271303092" initialized="true"></a>&nbsp;&nbsp;&nbsp;
@@ -146,7 +146,9 @@
                         <dt class="mbm">                   
                      
                            <span class="y xw0 xi2">
-                            <a href="javascript:;" class='del' onclick="return confirm('确认要删除吗?')" value="{{ $v->id }}">删除</a>
+                            @if(session('user_id') == $v->uid)
+                            <a href="javascript:;" class='del'  value="{{ $v->id }}" style="color: red;">删除</a>
+                            @endif
                            </span>
                         <img src="{{ ltrim($v->users->img,'.') }}" width="100px;">
                         <a href="" class="xi2 xw1" c="1" mid="card_463" id="ajaxid_0.3901175271303092" initialized="true">{{ $v->users->user_name }}</a>&nbsp;&nbsp;&nbsp;
@@ -157,14 +159,12 @@
                     @endforeach
 
               </div>
-               <div class="list-page-a current">
-              {!! $data5->render() !!}
-            </div>
+               
                 <!-- <form action="/comment?aid={{ $data->id }}&uid=21" method="post"> -->
                   {{ csrf_field() }}
                   <div class="tedt">
                     <div class="area">
-                      <textarea name="content" rows="7" class="pt message" id="message" ></textarea>
+                      <textarea name="content" rows="7" class="pt message" id="message" style="background: #eee"></textarea>
                     </div>
                   </div>
                   <div class="mtm">
@@ -181,8 +181,10 @@
             <!--[diy=diycontentcomment]-->
             <div id="diycontentcomment" class="area"></div>
             <!--[/diy]--></div>
-          <div class="sd pph">
-            <div class="drag">
+          
+        </div>
+        <div class="sd pph" style="width: 300px;">
+            <div class="drag" >
               <!--[diy=diyrighttop]-->
               <div id="diyrighttop" class="area">
                 <div id="frameZkWxkX" class="frame move-span cl frame-1">
@@ -194,26 +196,23 @@
                           <img  src="/home/picture/ad2.jpg" width="100%" /></div>
                       </div>
                     </div>
-                    <div id="portal_block_76" class="zxlbyltph block move-span">
-                      <div class="blocktitle title">
-                        <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">阅读排行</span></div>
-                      <div id="portal_block_76_content" class="dxb_bc">
-                        <div class="module cl xl xl1" >
-                          <ul >
-                          
-                          	@foreach($data3 as $k => $v)
-
-                            <li class="cc{{ $k+1 }}">
-                              <span></span>
-                              <a href="/zixun/{{ $v->id }}"  target="_blank" style=" display: block;display: -webkit-box;max-width: 400px;margin: 0 auto;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{{ $v->article_title }}</a></li>
-                            @endforeach
-                           
-                 
-                              
-                          </ul>
-                        </div>
-                      </div>
+                    <div id="portal_block_69" class="syzttj block move-span">
+                  <div class="blocktitle title">
+                    <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">阅读排行</span></div>
+                  <div id="portal_block_69_content" class="dxb_bc">
+                    <div class="module cl ml">
+                      <ul>
+                        @foreach($data3 as $v)
+                        <li style="width: 292px;">
+                          <p style=" display: block;display: -webkit-box;max-width: 400px;margin: 0 auto;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{{ $v->article_title }}</p>
+                          <a class="tupian" href="/zixun/{{ $v->id }}" target="_blank" title="{{ $v->article_title }}">
+                            <img src="{{ ltrim($v->article_img,'.') }}" width="292" height="180" alt="{{ $v->article_title }}" /></a>
+                        </li>
+                       @endforeach
+                      </ul>
                     </div>
+                  </div>
+                </div>
                     <div id="portal_block_77" class="zxlbytjyd block move-span">
                       <div class="blocktitle title">
                         <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">推荐阅读</span></div>
@@ -226,7 +225,7 @@
                                 <img  src="{{ ltrim($v->article_img,'.') }}" width="274" height="146" alt="" /></a>
                             </dd>
                             <dt>
-                              <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank" style=" display: block;display: -webkit-box;max-width: 400px;margin: 0 auto;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{{ $v->article_title }}
+                              <a href="forum.php?mod=viewthread&tid=100"  target="_blank" style=" display: block;display: -webkit-box;max-width: 400px;margin: 0 auto;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;">{{ $v->article_title }}
                                
                               </a>
                             </dt>
@@ -266,11 +265,10 @@
               <div id="wd_new_t04" class="area"></div>
               <!--[/diy]--></div>
           </div>
-        </div>
        </div>
 </div>
       <script type="text/javascript">
-
+                 
             //评论
             $('#commentsubmit_btn').click(function(){
 
@@ -323,18 +321,24 @@
       });
                   //删除
                   $('.del').click(function(){
-                      $(this).parent().parent().parent().remove();
-                      $.get('/comment/del/'+$(this).attr('value'),function(msg){
-                      if(msg == 1){
+                      var obj =  $(this);
+                      layer.confirm('您确定要删除？', {
+                        btn: ['是','否'] //按钮
+                      }, function(){
+                        
+                            $.get('/comment/del/'+obj.attr('value'),function(msg){
+                            if(msg == 1){
+                              layer.msg('删除成功');
+                              obj.parent().parent().parent().remove();
+                            }else{
 
-                        layer.msg('删除成功');
+                              layer.msg('删除失败');
 
-                      }else{
+                            }                      
+                          });
+                     
+                      });
 
-                        layer.msg('删除失败');
-
-                      }                      
-                    });
                  });
           
            //收藏       
@@ -368,7 +372,6 @@
             });
       });
 
-     
       </script>
 
 @endsection
