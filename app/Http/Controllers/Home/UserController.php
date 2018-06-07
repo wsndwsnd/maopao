@@ -11,6 +11,7 @@ use App\Models\Userinfo;
 use DB;
 use App\Http\Controllers\CodeController;
 use App\Models\Posts;
+use Hash;
 class UserController extends Controller
 {
     /**
@@ -52,18 +53,19 @@ class UserController extends Controller
         //获取信息
         $user_name = $request -> user_name;
         $password = $request -> password;
+        $user = User::where('user_name',$user_name)->first();
+        if(Hash::check($password,$user->user_password)){
+             //把用户数据保存到session
 
-        $user = User::where('user_name',$user_name)->where('user_password',$password)->first();
-        if($user){
-            //把用户数据保存到session
-
-            session(['user_name'=>$user->user_name,'user_id'=>$user->id,'user_img'=>$user->img]);
+            session(['user_name'=>$user->user_name,'user_id'=>$user->id,'user_img'=>$user->img,'user_token'=>$user->token]);
 
             // dd(session('user_img'));
             return redirect('/');
+        }else{
+             return back()->with('error','用户或密码错误');
         }
-            return back()->with('error','用户或密码错误');
     }
+           
 
     /**
      * Display the specified resource.

@@ -42,6 +42,7 @@ var pwlength = 6;
 
 <form method="post" " action="/user">
   {{ csrf_field() }}
+  
 <div id="layer_reg" class="bm_c">
 <div class="mtw">
 <div id="reginfo_a">

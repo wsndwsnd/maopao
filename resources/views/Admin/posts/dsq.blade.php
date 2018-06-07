@@ -45,7 +45,7 @@
                 	</th>
                 	
                 	<th role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 30px;">
-                	状态
+                	申请标签
                 	</th>
                 	<th role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 82px;">
                 	操作
@@ -65,24 +65,23 @@
 		                <td class=" ">@if(isset($v->postsinfo)){{ $v->postsinfo->count }} @endif</td>
 
 		                <td class=" ">{{ $v->created_at}}</td>
-		                @if( $v->attr == 0)
-		                <td class=" ">下线</td>
-		                @else
-						<td class=" ">上线</td>
+		                @if( $v->uplabel == 1)
+		                <td class=" ">热门</td>
+		                @elseif($v->uplabel == 2)
+						<td class=" ">精品</td>
+						@elseif($v->uplabel == 3)
+						<td class=" ">置顶</td>
+
 		                @endif
 		            	 <td>
-							<a href="/admin/posts/{{ $v->id }}/edit" class="btn btn-warning">修改</a>
+							<a href="/admin/posts/uplabel/{{ $v->id }}" class="btn btn-warning">通过</a>
 							<form action="/admin/posts/{{ $v->id }}" method="post" style="display:inline;line-height:30px">
 								{{ csrf_field() }}
 								{{ method_field('DELETE') }}
 								<input type="submit" value="删除" class="btn btn-danger" onclick="return confirm('确认要删除吗?')">
 							</form>
 							<a href="/admin/posts/{{ $v->id }}" class="btn btn-info">详情</a>
-							@if( $v->attr == 0)
-							<a href="/admin/posts/up/{{$v->id}}" class="btn btn-success">上线</a>
-							@else
-							<a href="/admin/posts/down/{{$v->id}}" class="btn btn-efault" style="background: #ccc">下线</a>
-							@endif
+							
 						</td>
 		            </tr>
 		        @endforeach

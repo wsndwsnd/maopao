@@ -133,7 +133,9 @@ class ZixunController extends Controller
 
         
         //显示评论
+
         $data5 = Comment::where('aid',$id)->get();        
+
         
  
     

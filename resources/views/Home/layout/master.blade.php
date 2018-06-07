@@ -311,7 +311,7 @@
                 <li class="xnv_4" id="mn_P1" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})">
                   <a href="/zixun" hidefocus="true">资讯</a></li>
                 <li class="xnv_5" id="mn_N326f">
-                  <a href="/Home/forum.php?mod=forumdisplay&fid=41" hidefocus="true">瀑布流</a></li>
+                  <a href="/pbl" hidefocus="true">瀑布流</a></li>
                 <li class="xnv_6" id="mn_Nb2c4">
                   <a href="/Home/https://item.taobao.com/item.htm?id=549841050832" hidefocus="true" style="color: yellow">进入购买</a></li>
               </ul>

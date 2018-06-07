@@ -28,6 +28,10 @@ Route::resource('/admin/login','Admin\LoginController');
 //后台退出
 Route::get('/admin/logout','Admin\LoginController@logout');
 
+//网站配置管理
+Route::get('/admin/site','Admin\SiteController@index');
+
+
 //后台用户管理
 Route::resource('/admin/user','Admin\UserController');
 
@@ -50,11 +54,16 @@ Route::get('/admin/notice/down/{id}','Admin\NoticeController@down');
 Route::resource('/admin/power','Admin\PowerController');
 
 //后台帖子管理
+//申请标签
+Route::get('/admin/posts/uplabel/{id}','Admin\PostsController@uplabel');
+//ajax删除
+Route::get('/admin/postsdel/{id}','Admin\PostsController@ajaxdel');
 Route::resource('/admin/posts','Admin\PostsController');
 Route::get('/admin/posts/up/{id}','Admin\PostsController@up');
 Route::get('/admin/posts/down/{id}','Admin\PostsController@down');
 Route::post('/admin/posts/sq','Admin\PostsController@sq');
 Route::get('/admin/postssqlb','Admin\PostsController@sqlb');
+
 
 
 //后台友情链接
@@ -78,13 +87,33 @@ Route::get('/admin/comments/del/{id}','Admin\ArticleController@del');
 Route::get('/admin/article/up/{id}','Admin\ArticleController@up');
 Route::get('/admin/article/down/{id}','Admin\ArticleController@down');
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //前台
 //前台首页
 Route::get('/','Home\HomeController@index');
 //注册
-Route::post('/registerphone','Home\RegisterController@phone_code');
+//发送验证码
+Route::get('/register/phone','Home\RegisterController@phone_code');
+//验证手机号
+Route::post('/register/ajax1','Home\RegisterController@ajax1');
+//验证用户名是否存在
 Route::post('/register/ajax','Home\RegisterController@ajax');
-Route::get('/registerjh/jihuo','Home\RegisterController@jihuo');
 Route::resource('/register','Home\RegisterController');
 
 //前台用户
@@ -119,3 +148,7 @@ Route::get('/link','Home\LinkController@index');
 
 //前台导读
 Route::resource('/daodu','Home\DaoduController');
+
+//瀑布流
+Route::get('/pbl','Home\PblController@index');
+Route::get('/pbl/ajax','Home\PblController@ajax');

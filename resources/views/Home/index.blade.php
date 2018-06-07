@@ -274,6 +274,7 @@
                           <div class="slideshow">
                               <dl class="cl" style="display: block;">
                                   <dd class="m">
+
                                       <a href="/zixun/{{ $v->id }}" title="" target="_blank">
                                           <img src="{{ ltrim($v->article_img,'.') }}" width="266" height="180" alt=""></a>
                                   </dd>
@@ -281,6 +282,7 @@
                                   <dt class="leftjl">
                          
                                       <a href="/zixun/{{ $v->id }}" title="" target="_blank">{{$v -> article_title}}</a></dt>
+
                                   <dd class="xinx leftjl">
                                       <span class="fbtime">
                                           <i>
@@ -297,7 +299,9 @@
                                   </dd>
                                   <dd class="sumr leftjl">{{ $v->article_dec }}</dd>
                                   <dd class="rdmore leftjl">
+
                                       <a href="/zixun/{{ $v->id }}" target="_blank">查看详情</a></dd>
+
                               </dl>
 
                                </div>

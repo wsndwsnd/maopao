@@ -139,7 +139,7 @@ class PostsController extends Controller
             $res2 = Postsinfo::where('tid',$id)->delete();
              if ($res1 && $res2) {
                 DB::commit();
-                return redirect('/admin/posts')->with('success','删除成功');
+                return back()->with('success','删除成功');
             }else{
                 DB::rollBack();
 
@@ -176,8 +176,10 @@ class PostsController extends Controller
     {
         DB::beginTransaction();
         $id = $request -> input('pid');
-        $label = $request -> input('label');
+        $uplabel = $request -> input('label');
+        //修改状态 代审理
         $data['status'] = 2;
+        $data['uplabel'] = $uplabel;
         $res = Posts::where('id',$id)->update($data);
         if($res){
             DB::commit();
@@ -199,5 +201,42 @@ class PostsController extends Controller
         $data = Posts::where('posts_title','like','%'.$posts_title.'%')->where('status','2')->paginate($count);
         $num = Posts::count('id');
         return view('Admin.posts.dsq',['data'=>$data,'posts_title'=>$posts_title,'num'=>$num,'count'=>$count]);
+    }
+
+    //修改标签
+    public function uplabel(Request $request,$id)
+    {
+        DB::beginTransaction();
+
+        $posts = Posts::find($id);
+
+        $data1['label'] = $posts -> uplabel;
+        $data1['status'] = 1;
+        $res1 = Posts::where('id',$id)->update($data1);
+        if ($res1) {
+            DB::commit();
+            return redirect('/admin/posts')->with('success','修改成功');
+        }else{
+            DB::rollBack();
+            return back()->with('error','修改失败');
+        }
+
+    }
+
+    public function ajaxdel(Request $request,$id)
+    {
+        DB::beginTransaction();
+
+            $res1 = Posts::destroy($id);
+            $res2 = Postsinfo::where('tid',$id)->delete();
+             if ($res1 && $res2) {
+                DB::commit();
+                //删除成功
+                echo 1;
+            }else{
+                DB::rollBack();
+                //删除失败
+                echo 2;
+            }
     }
 }

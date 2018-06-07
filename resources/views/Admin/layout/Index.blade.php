@@ -241,7 +241,9 @@
             <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul >
-                   
+                   <li>
+                        <a href="/admin/site"><i class="icon-list"></i>网站管理</a>
+                    </li>
                     <li>
                         <a href="#"><i class="icon-list"></i> 用户管理</a>
                         <ul class="closed">
