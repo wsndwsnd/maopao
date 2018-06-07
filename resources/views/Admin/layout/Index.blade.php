@@ -269,14 +269,8 @@
                     <li>
                         <a href="#"><i class="icon-list"></i>类别管理</a>
                         <ul class="closed"> 
-
-
-                           
-
                             <li><a href="/admin/cate">类别列表</a></li>
                             <li><a href="/admin/cate/create">类别添加</a></li>
-                            
-
                         </ul>
                     </li>
 
@@ -288,7 +282,7 @@
                              <li><a href="/admin/postssqlb">前台申请标签</a></li>
                         </ul>
                     </li>
-
+                    
 
                     
                      <li>
@@ -299,6 +293,13 @@
                         </ul>
                     </li>
 
+                    <li>
+                        <a href="#"><i class="icon-list"></i>轮播图管理</a>
+                        <ul class="closed"> 
+                            <li><a href="/admin/slide">轮播图列表</a></li>
+                            <li><a href="/admin/slide/create">轮播图添加</a></li>
+                        </ul>
+                    </li>
 
                     <li>
                         <a href="#"><i class="icon-list"></i>友情链接管理</a>

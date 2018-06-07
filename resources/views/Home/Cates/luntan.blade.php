@@ -81,16 +81,16 @@
                         </script>
                     </div>
                     <div class="z">
-                        <a href="./" class="nvhm" title="首页">
+                        <a href="/" class="nvhm" title="首页">
                             Discuz! Board
                         </a>
-                        <a href="portal.php">
+                        <a href="/">
                             &nbsp;&nbsp;首页
                         </a>
                         <em>
                             &rsaquo;
                         </em>
-                        <a href="forum.php">
+                        <a href="#">
                             论坛
                         </a>
                     </div>
@@ -105,11 +105,9 @@
                             <div id="portal_block_83" style="height: 300px;" class="ltsyhdp block move-span" >
                                 <div class="layui-carousel" id="test1" >
                                   <div carousel-item style="height: 300px;">
-                                    <div >条目1</div>
-                                    <div>条目2</div>
-                                    <div>条目3</div>
-                                    <div>条目4</div>
-                                    <div>条目5</div>
+                                    @foreach($data2 as $v)
+                                    <div><img src="{{ $v->slide_url }}" width="858" height="300"></div>
+                                    @endforeach
                                   </div>
                                 </div>
                                     <script>
@@ -120,7 +118,7 @@
                                           elem: '#test1'
                                           ,width: '100%' //设置容器宽度
                                           ,arrow: 'always' //始终显示箭头
-                                          //,anim: 'updown' //切换动画方式
+                                          // ,anim: 'fade' //切换动画方式
                                         });
                                       });
                                       </script>
@@ -194,7 +192,7 @@
                 </a>
             </div>
         </div>
-            <div class="mn">
+            <div class="mn" style="width:880px;padding: 0px;">
                 <div class="fl bm">
                     @foreach($data as $value)
     <div class="bm bmw  flg cl"> 
@@ -207,7 +205,7 @@
 <!--分类开始-->   
 @foreach($value->sub as $val)
           
-            <div class="fl_g" style="width: 49%;height: 100px;float: left;margin:13px 0px 13px 0px;"> 
+            <div class="fl_g" style="width: 49%;height: 104px;float: left;margin:13px 0px 13px 0px;"> 
              <div class="fl_icn_g" style="width: 100px;"> 
               <a href="forum.php?mod=forumdisplay&amp;fid=2"><img src="{{$val->picture}}" width="100px" height="100px" align="left" alt="" /></a>
              </div> 
@@ -215,23 +213,20 @@
               <dt>
                <a href="/home/luntan/{{$val->id}}">{{$val->title}}</a>
               </dt> 
-              <dd>
-               <em><i>主题: </i>8</em>, 
-               <em><i>帖数: </i>8</em>
-              </dd>
+              
               <!--帖子标题开始-->
               
               <dd class="zyzy"> 
                <a href="forum.php?mod=redirect&amp;tid=8&amp;goto=lastpost#lastpost" class="xi2">
                 
                 {{$val->posts[0]->posts_title}}
-               
+                
                </a> 
               </dd> 
              
               <!--帖子标题结束-->
               <dd>
-               <cite>2016-4-14 14:37 <a href="home.php?mod=space&amp;username=admin">admin</a></cite>
+               <cite>{{ $val->created_at }} &nbsp;&nbsp;<a href="#">admin</a></cite>
               </dd> 
              </dl> 
            </div> 
@@ -251,7 +246,7 @@
                     <!--[/diy]-->
                 </div>
             </div>
-            <div id="sd" class="sd">
+            <div id="sd" class="sd" style="float: left;width:300px;margin-left:8px;">
                 <div class="drag">
                     <!--[diy=diy2]-->
                     <div id="diy2" class="area">

@@ -10,4 +10,9 @@ class Category extends Model
     {
         return $this->hasMany('App\Models\Posts','cid');
     }
+
+    public function cate_title()
+    {
+        return $this->hasMany('App\Models\Category','id');
+    }
 }
