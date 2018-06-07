@@ -1,6 +1,5 @@
 @extends('Home.layout.master')
 @section('sidebar')   
-
       <div id="wp" class="wp xuxian">
         <link rel="stylesheet" type="text/css" href="/home/css/index.css">
         <script src="/home/js/forum_viewthread.js" type="text/javascript"></script>
@@ -33,7 +32,7 @@
                   <p class="xg1">发布时间：{{ $data->created_at }}
                     <a class="zz jl" href="">作者：{{ $data->article_author }}</a>
                     <span class="yd">阅读：
-                      <em id="_viewnum">{{ $data->article_pview }}</em></span>评论:{{ $data->comments->count() }} </p>
+                      <em id="_viewnum">{{ $data->article_pview }}</em></span>评论:{{ $data->article_comments }} </p>
                     
                 </div>
                 <!--[diy=diysummarytop]-->
@@ -124,12 +123,6 @@
                 </div>
                 </div>
               </div>
-              <!--[diy=diycontentrelatetop]-->
-              <div id="diycontentrelatetop" class="area">111</div>
-              <!--[/diy]--></div>
-            <!--[diy=diycontentrelate]-->
-            <div id="diycontentrelate" class="area">111</div>
-            <!--[/diy]-->
             <div id="comment" class="bm">
               <div class="bm_h cl">
               
@@ -155,7 +148,7 @@
                            <span class="y xw0 xi2">
                             <a href="javascript:;" class='del' onclick="return confirm('确认要删除吗?')" value="{{ $v->id }}">删除</a>
                            </span>
-                        <img src="{{ $v->users->img or '/uploads/1.jpg' }}" width="100px;">
+                        <img src="{{ ltrim($v->users->img,'.') }}" width="100px;">
                         <a href="" class="xi2 xw1" c="1" mid="card_463" id="ajaxid_0.3901175271303092" initialized="true">{{ $v->users->user_name }}</a>&nbsp;&nbsp;&nbsp;
                         <span class="xg1 xw0">{{ $v->created_at }}</span>
                         </dt>
@@ -274,11 +267,10 @@
               <!--[/diy]--></div>
           </div>
         </div>
-        <input type="hidden" id="portalview" value="1"></div>
-      <div class="ft_wp">
+       </div>
+</div>
       <script type="text/javascript">
 
-           
             //评论
             $('#commentsubmit_btn').click(function(){
 
@@ -295,7 +287,7 @@
 
               $.ajax({
               // 请求服务器的地址
-              url:"/comment?aid={{ $data->id }}&uid={{ session('id') }}",
+              url:"/comment?aid={{ $data->id }}&uid={{ session('user_id') }}",
               // 请求的方式 默认get方式
               type:'post',
               
@@ -309,7 +301,7 @@
                   
                   var attr =  $('#comment_4_li').clone(true);
 
-                  attr.find('img').eq(0).attr('src'," /uploads/1.jpg");
+                  attr.find('img').eq(0).attr('src',"{{ ltrim( session('user_img'),'.' ) }}");
                   attr.css('display','block');
                   attr.find('a').eq(0).attr('value',msg);
                   attr.find('a').eq(1).html("{{ session('user_name') }}");
@@ -350,7 +342,7 @@
             
               $.ajax({
               // 请求服务器的地址
-              url:'/acollect?aid={{ $data->id }}&uid=21',
+              url:"/acollect?aid={{ $data->id }}&uid={{ session('user_id') }}",
               // 请求的方式 默认get方式
               type:'post',
               

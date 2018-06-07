@@ -59,7 +59,7 @@ class UserController extends Controller
 
             session(['user_name'=>$user->user_name,'user_id'=>$user->id,'user_img'=>$user->img]);
 
-            
+            // dd(session('user_img'));
             return redirect('/');
         }
             return back()->with('error','用户或密码错误');
@@ -135,22 +135,23 @@ class UserController extends Controller
         DB::beginTransaction();
         if($request -> hasFile('profile')){
             $profile = $request -> file('profile');
-            $dir_name = 'uploads/'.date('Ymd');
+            $dir_name = './uploads/'.date('Ymd');
             $file_name = str_random(20);
             $hz = $profile->getClientOriginalExtension();
-            $name = $file_name.'.'.$hz;
+            $name = '/'.$file_name.'.'.$hz;
             $res = $profile -> move($dir_name,$name);
-            $userimg = '/'.$dir_name.'/'.$name; 
+            $userimg = $dir_name.$name; 
             if($res){
                 $arr = [
                     'code' => 1,
                     'msg' => '上传成功',
                     'data' => [
-                        'src' => ltrim($dir_name.'/'.$name,'.')
+                        'src' => ltrim($dir_name.$name,'.')
                     ],
                 ];
             $data1['img']=$userimg;
             $id = session('user_id');
+            session(['user_img'=> $userimg]);
             User::where('id',$id)->update($data1);
             DB::commit();
             }else{

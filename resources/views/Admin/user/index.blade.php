@@ -19,7 +19,7 @@
                     <td class="sorting_1" style="text-align: center;">{{ $v->id }}</td>
                     <td class=" " style="text-align: center;">{{ $v->user_name }}</td>
                     <td class=" " style="text-align: center;">{{ $v->user_email }}</td>
-                    <td class=" " style="text-align: center;"><img src="{{ $v->img or '/uploads/1.jpg'}}" alt="" width="60px"></td>
+                    <td class=" " style="text-align: center;"><img src="{{ ltrim($v->img,'.') }}" alt="" width="60px"></td>
                     <td class=" " style="text-align: center;">
 						 <form action="/admin/user/{{$v->id}}" method="post" style="display: inline;">
                                     {{ csrf_field() }}

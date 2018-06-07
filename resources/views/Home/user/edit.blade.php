@@ -33,7 +33,7 @@
                       <th>头像</th>
                         <td>
                           <label for="test1">
-                          <img width="60px" height="60px" style="border-radius: 10px;" id="pic"  src="{{ $data->img }}"> 
+                          <img width="60px" height="60px" style="border-radius: 10px;" id="pic"  src="{{ ltrim($data->img,'.') }}"> 
                           </label>
                           <button type="button" class="layui-btn" id="test1" style="display: none">
                       <i class="layui-icon">&#xe67c;</i>上传头像
