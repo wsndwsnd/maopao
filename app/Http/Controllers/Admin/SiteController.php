@@ -1,28 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Notices;
-use App\Models\Link;
-use App\Models\Articles;
-class HomeController extends Controller
+use App\Models\Site;
+class SiteController extends Controller
 {
     /**
-     * 前台首页
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
-        $article = Articles::orderBy('id','desc')->get();
-        $link = Link::where('status','<','3')->get();
-        $notice = Notices::paginate(5);
-        return view('Home.index',['notice'=>$notice,'link'=>$link,'article'=>$article]);
+        $data = Site::find(1);
+        return view('Admin/site/index');
     }
 
     /**

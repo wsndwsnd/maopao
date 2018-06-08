@@ -13,7 +13,7 @@
           <div id="diyab" class="area"></div>
           <!--[/diy]--></div>
         <div id="ct" class="ct2 wp cl">
-          <div class="mn">
+          <div class="mn" style="width: 880px;">
             <div class="bm2">
               <div class="tttop">
                 <div class="bm_h cl">
@@ -71,7 +71,7 @@
               <div id="listloopbottom" class="area"></div>
               <!--[/diy]--></div>
           </div>
-          <div class="sd pph">
+          <div class="sd pph" style="width: 300px;">
             <div class="drag">
               <!--[diy=diyrighttop]-->
               <div id="diyrighttop" class="area">

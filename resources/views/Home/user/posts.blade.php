@@ -32,10 +32,11 @@
                              <table cellspacing="0" cellpadding="0"> 
                               <tbody>
                                <tr> 
+                                <th style="width: 80px;"></th>
                                 <th colspan="2"> 标题 </th> 
                                 <td class="by">版块/群组</td> 
-                                <td class="by">作者</td> 
-                                <td class="num">评论</td>
+                                <td class="by" style="width: 80px">作者</td> 
+                                <td class="num" >评论</td>
                                 <td class="by" style="width: 125px">申请</td>
                                </tr> 
                               </tbody>
@@ -47,21 +48,21 @@
                                  <table cellspacing="0" cellpadding="0"> 
                                  <tbody id="normalthread_99">
                                    <tr style="font-size: 12px;">
-                                    <td class="icn">
+                                    <td class="icn" style="width: 100px">
                                       <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
                                         <img src="/Home/images/pollsmall.gif" alt="投票">
                                       </a>
                                     </td>
                                     <th class="common">
                                      <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" target="_blank" class="xst">[@if($v->label == 1) 热门 @elseif($v->label == 2) 精品 @elseif($v->label == 3) 置顶 @elseif($v->label == 4) 普通贴 @endif]{{$v -> posts_title}}</a></th>
-                                    <td class="by" ><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
-                                    <td class="by">
+                                    <td class="by" style="width: 130px"><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                                    <td class="by" style="width: 100px">
                                     <cite>
                                     <a href="home.php?mod=space&amp;uid=1" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                                     <em><span>{{$v -> created_at}}</span></em>
                                     </td>
-                                    <td class="num"><a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
-                                    <td class="by" style="width: 125px">
+                                    <td class="num" ><a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                                    <td class="by" style="width: 160px">
                                      <form method="post" action="/admin/posts/sq">
                                           {{ csrf_field() }} 
                                             <select class="form-control" name="label" style="width:60px;float:left;">
@@ -81,7 +82,9 @@
                                               @endif
                                             </select>
                                             <input type="hidden" name="pid" value="{{$v->id}}">
-                                              <button type="submit" class="btn btn-info" >申请</button>
+                                              <button type="submit" class="layui-btn layui-btn-xs" >申请</button>
+                                              <button type="button" value="{{$v->id}}" class="layui-btn layui-btn-danger layui-btn-xs postsdel">删除</button>
+
                                      </form>
                                     </td>
                                   </tr>
@@ -89,6 +92,7 @@
                                  </table> 
                                 </div> 
 		                @endforeach
+                    
                   </div>
                 </div>
 	            </div>
@@ -98,6 +102,19 @@
           </div>
         </div>
 </div>
+<script type="text/javascript">
+     $('.postsdel').click(function(){
+      var obj =  $(this);
 
-
+      $.get('/admin/postsdel/'+obj.attr('value'),function(msg){
+          if(msg == 1){
+            layer.msg('删除成功');
+            obj.parent().parent().parent().remove();
+          }else{
+            layer.msg('删除失败');
+          }                      
+        });
+     });
+</script>
 @stop
+

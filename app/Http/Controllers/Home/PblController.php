@@ -6,25 +6,38 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Notices;
-use App\Models\Link;
+use App\Models\Posts;
 use App\Models\Articles;
-class HomeController extends Controller
+use DB;
+class PblController extends Controller
 {
     /**
-     * 前台首页
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
-        $article = Articles::orderBy('id','desc')->get();
-        $link = Link::where('status','<','3')->get();
-        $notice = Notices::paginate(5);
-        return view('Home.index',['notice'=>$notice,'link'=>$link,'article'=>$article]);
+        
+        $data = Articles::take(6)->get();
+        return view('Home.pbl.index',['data'=>$data]);
     }
 
+    //瀑布流
+    public function ajax()
+    {
+        //获取当前页数
+        $p = isset($_GET['p'])?$_GET['p']:2;
+        //统计总条数
+        // $total = Articles::count();
+        //页大小
+        $num = 6;
+        //跳过的条数
+        $start = ($p - 1) * $num;
+        //拼接原生语句
+        $data = DB::select("select * from Article limit $start,$num");
+        echo json_encode($data);
+    }
     /**
      * Show the form for creating a new resource.
      *

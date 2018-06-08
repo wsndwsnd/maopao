@@ -50,369 +50,273 @@ var pwlength = 6;
 </script>
 
 
-<div class="tabbable"> <!-- Only required for left/right tabs -->
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab">手机注册</a></li>
-    <li><a href="#tab2" data-toggle="tab">邮箱注册</a></li>
-  </ul>
-  <div class="tab-content">
-    <div class="tab-pane active" id="tab1">
-           <form method="post" id="forma" action="/register">
-            <input type="hidden" name="phone_type" value='1'>
-            {{ csrf_field() }}
-          <div id="layer_reg" class="bm_c">
-          <div class="mtw">
-          <div id="reginfo_a">
-          <div class="rfm">
-          <table>
-          <tbody><tr>
-          <th><span class="rq">*</span><label for="">手机号:</label></th>
-          <td><input type="text" style="height:27px" class="px" name="user_tel" id="user_tel"></td>
-          <td class="tipcol"><span id="ooxx"></span></td>
-          <td class="tipcol"><button id="hqyzm" class="btn btn-info" >获取验证码</button></td>
-          </tr>
-          </tbody></table>
-          
+<div class="tabbable">
+            <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a href="#tab1" data-toggle="tab">手机注册</a></li>
+              <!-- <li>
+                <a href="#tab2" data-toggle="tab">邮箱注册</a></li> -->
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab1">
+                <form method="post" id="form" action="/register">
+                  <input type="hidden" name="phone_type" value='1'>
+                  {{ csrf_field() }}
+                  <div id="layer_reg" class="bm_c">
+                    <div class="mtw">
+                      <div id="reginfo_a">
+                        <div class="rfm">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <th>
+                                  <span class="rq">*</span>
+                                  <label for="">手机号:</label>
+                                </th>
+                                <td>
+                                  <input type="text" style="height:27px" class="px" name="user_tel" id="user_tel"><span id="tel"></span>
+                                </td>
+                                <td class="tipcol">
+                                  <button  class="layui-btn" href="javascript:void(0);" onclick="sendMobileCode()">获取验证码</button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="rfm">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <th>
+                                  <span class="rq">*</span>
+                                  <label for="">验证码:</label></th>
+                                <td>
+                                  <input type="text" style="height:27px" class="px" name="phone_code" id=""></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="rfm">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <th>
+                                  <span class="rq">*</span>
+                                  <label for="">用户名:</label></th>
+                                <td>
+                                  <input type="text" style="height:27px" class="px" name="user_name" id="user_name"></td>
+                                <td class="tipcol">
+                                  <span id="xxoo1">请填写2-6位用户名</span></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="rfm">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <th>
+                                  <span class="rq">*</span>
+                                  <label for="">密码:</label></th>
+                                <td>
+                                  <input type="password" style="height:27px" class="px" name="password" id="user_password"></td>
+                                <td class="tipcol">
+                                  <span id="xxoo2">请填写密码,长度为6-18位</span></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="rfm">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <th>
+                                  <span class="rq">*</span>
+                                  <label for="">确认密码:</label></th>
+                                <td>
+                                  <input type="password" style="height:27px" class="px" name="repassword" id="repassword"></td>
+                                <td class="tipcol">
+                                  <span id="xxoo3">请输入确认密码</span></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="layer_reginfo_b">
+                    <div class="rfm mbw bw0">
+                      <table width="100%">
+                        <tbody>
+                          <tr>
+                            <th>&nbsp;</th>
+                            <td>
+                              <span id="reginfo_a_btn">
+                                <em>&nbsp;</em>
+                                <button class="pn pnc" id="registerformsubmit" type="submit" name="regsubmit" value="true" tabindex="1">
+                                  <strong>注册</strong></button>
+                              </span>
+                            </td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+
+            </div>
           </div>
-          <div class="rfm">
-          <table>
-          <tbody><tr>
-          <th><span class="rq">*</span><label for="">验证码:</label></th>
-          <td><input type="text" style="height:27px" class="px" name="" id=""></td>
-          </tr>
-          </tbody></table>
-          </div>
+          <script>
+              function sendMobileCode(){
+                  // alert(11);
+                  // 获取手机号
+                  var phone = $('#user_tel').val();
+                  // dump(phone);
+                  // 发送手机验证码
+                  $.get('/register/phone',{'phone':phone},function(msg){
+                      if(msg.code == 2){
+                          layer.msg('发送成功');
+                      }else{
+                          layer.msg(msg.msg);
+                      }
+                  },'json');
+                }
+          </script>
+          <script type="text/javascript">
 
-          <div class="rfm">
-          <table>
-          <tbody><tr>
-          <th><span class="rq">*</span><label for="">用户名:</label></th>
-          <td><input type="text" style="height:27px" class="px" name="user_name1" id="user_name1"></td>
-          <td class="tipcol"><span id="ooxx1">请填写2-6位 合法的用户名</span></td>
-          </tr>
-          </tbody></table>
-          </div>
+            var isUname = false;
+            var isPassword = false;
+            var isRepassword = false;
+            var isPhone = false;
 
-          <div class="rfm">
-          <table>
-          <tbody><tr>
-          <th><span class="rq">*</span><label for="">密码:</label></th>
-          <td><input type="password" style="height:27px" class="px" name="password1" id="user_password1"></td>
-          <td class="tipcol"><span id="ooxx2">请填写密码,长度为6-18位</span></td>
-          </tr>
-          </tbody></table>
-          </div>
+            //验证手机
+            $('#user_tel').blur(function() {
+              var phone = $(this).val();
+              $.ajax({
+                // 请求服务器的地址
+                url: '/register/ajax1',
+                // 请求的方式 默认get方式
+                type: 'post',
 
-          <div class="rfm">
-          <table>
-          <tbody><tr>
-          <th><span class="rq">*</span><label for="">确认密码:</label></th>
-          <td><input type="password" style="height:27px" class="px" name="repassword1" id="repassword1"></td>
-          <td class="tipcol"><span id="ooxx3">请输入确认密码</span></td>
+                //发送到服务器的数据
+                data: {
+                  'phone': phone,
+                  '_token': '{{csrf_token()}}'
+                },
+                //请求成功后的回调函数。
+                success: function(msg) {
+                  if (msg == 1) {
+                    isPhone = false;
+                    $('#tel').html('<font color="#CA7D7D">手机号已存在</font>');
+                  }
+                },
+                // 预期服务器返回的数据类型
+                dateType: 'html',
+                // (默认: true) 默认设置下，所有请求均为异步请求。
+                async: true
+              });
 
-          </tr>
-          </tbody></table>
-          </div>
+              var preg_phone = /^1[3|4|5|7|8][0-9]{9}$/;
+              if (preg_phone.test(phone)) {
+                isPhone = true;
+                // 成功
+                $('#tel').html('<font color="#74CFA0">恭喜手机号可用</font>');
+              } else {
+                isPhone = false;
+                //失败
+                $('#tel').html('<font color="#CA7D7D">请填写正确的手机号</font>');
+              }
+            });
 
-          </div>
-          </div>
-          </div>
-          <div id="layer_reginfo_b">
-          <div class="rfm mbw bw0">
-          <table width="100%">
-          <tbody><tr>
-          <th>&nbsp;</th>
-          <td>
-          <span id="reginfo_a_btn">
-          <em>&nbsp;</em><button class="pn pnc" id="registerformsubmit" type="submit" name="regsubmit" value="true" tabindex="1"><strong>注册</strong></button>
-          </span>
-          </td>
-          <td></td>
-          </tr>
-          </tbody></table>
-          </div>
-          </div>
-          </form>
-    </div>
-<script type="text/javascript">
-    var isUname1 = false;
-    var isPsaword1 = false;
-    var isRepassword1 = false;
-    $('#hqyzm').click(function(){
-        var phone = $('#user_tel').val();
-        //发送ajax
-         $.ajax({
-        // 请求服务器的地址
-        url:'/registerphone',
-        // 请求的方式 默认get方式
-        type:'post',
-        
-        //发送到服务器的数据
-        data:{'phone':phone, '_token':'{{csrf_token()}}'},
-        //var_dump(data);
-        //请求成功后的回调函数。
-        success:function(msg){
-          
-        },
-        // 预期服务器返回的数据类型
-        dateType:'html',
-        // (默认: true) 默认设置下，所有请求均为异步请求。
-        async:true
-      });
-    });
-    $('#user_tel').blur(function(){
-      var user_tel = $(this).val();
-      var preg_tel = /^[\w]{11}$/;
-        if(preg_tel.test(user_tel)){
-          isUname1 = true;
-          // 成功
-          $('#ooxx').html('<font color="#CA7D7D"></font>');
-        }else{
-          isUname1 = false;
-          //失败
-          $('#ooxx').html('<font color="#CA7D7D">合法的手机号</font>'); 
-        } 
-    });
+            //验证用户名 user_name
+            $('#user_name').blur(function() {
+              var uname = $(this).val();
+              $.ajax({
+                // 请求服务器的地址
+                url: '/register/ajax',
+                // 请求的方式 默认get方式
+                type: 'post',
 
+                //发送到服务器的数据
+                data: {
+                  'uname': uname,
+                  '_token': '{{csrf_token()}}'
+                },
+                //请求成功后的回调函数。
+                success: function(msg) {
+                  if (msg == 2) {
+                    isUname = false;
+                    $('#xxoo1').html('<font color="#CA7D7D">用户名已存在</font>');
+                  }
+                },
+                // 预期服务器返回的数据类型
+                dateType: 'html',
+                // (默认: true) 默认设置下，所有请求均为异步请求。
+                async: true
+              });
 
-    //验证用户名 user_name
-    $('#user_name1').blur(function(){
-        var uname = $(this).val();
-        $.ajax({
-        // 请求服务器的地址
-        url:'/register/ajax',
-        // 请求的方式 默认get方式
-        type:'post',
-        
-        //发送到服务器的数据
-        data:{'uname':uname, '_token':'{{csrf_token()}}'},
-        //请求成功后的回调函数。
-        success:function(msg){
-          if(msg == 2){
-            isUname1 = false;
-            $('#ooxx').html('<font color="#CA7D7D">用户名已存在</font>');
-          }
-        },
-        // 预期服务器返回的数据类型
-        dateType:'html',
-        // (默认: true) 默认设置下，所有请求均为异步请求。
-        async:true
-      });
+              var preg_uname = /^[\w]{2,6}$/;
+              if (preg_uname.test(uname)) {
+                isUname = true;
+                // 成功
+                $('#xxoo1').html('<font color="#74CFA0">恭喜用户名可用</font>');
+              } else {
+                isUname = false;
+                //失败
+                $('#xxoo1').html('<font color="#CA7D7D">请填写2-6位 合法的用户名</font>');
+              }
+            });
+            
 
-        var preg_uname = /^[\w]{2,6}$/;
-        if(preg_uname.test(uname1)){
-          isUname1 = true;
-          // 成功
-          $('#ooxx1').html('<font color="#74CFA0">恭喜用户名可用</font>');
-        }else{
-          isUname1 = false;
-          //失败
-          $('#ooxx1').html('<font color="#CA7D7D">请填写2-6位 合法的用户名</font>'); 
-        }
-    });
+            $('#user_password').blur(function() {
+              var password = $(this).val();
+              if(password==''){
+                  layer.msg('请填写密吗');
+              }
+              var preg_password = /^[\w]{6,18}$/;
+              if (preg_password.test(password)) {
+                isPassword = true;
+                // 成功
+                $('#xxoo2').html('<font color="#74CFA0">恭喜密码可用</font>');
+              } else {
+                isPassword = false;
+                //失败
+                $('#xxoo2').html('<font color="#CA7D7D">请填写6—18位 合法的密码</font>');
+              }
+            });
 
-    $('#user_password1').blur(function(){
-        var psaaword1 = $(this).val();
-        var preg_psaword1 = /^[\w]{6,18}$/;
-        if(preg_psaword1.test(psaaword1)){
-          isPsaword1 = true;
-          // 成功
-          $('#ooxx2').html('<font color="#74CFA0">恭喜密码可用</font>');
-        }else{
-          isPsaword1 = false;
-          //失败
-          $('#ooxx2').html('<font color="#CA7D7D">请填写6—18位 合法的密码</font>'); 
-        }
-    });
+            $('#repassword').blur(function() {
+              var repassword = $(this).val();
+              var password = $('#user_password').val();
+                if (repassword == password ) {
+                  isRepassword = true;
+                  // 成功
+                  $('#xxoo3').html('<font color="#74CFA0">两次密码一致</font>');
+                } else {
+                  isRepassword = false;
+                  //失败
+                  $('#xxoo3').html('<font color="#CA7D7D">两次密码不一致</font>');
+                }
+            });
+            
 
-    $('#repassword1').blur(function(){
-        var repsaaword1 = $(this).val();
-        var psaaword1 = $('#user_password1').val();
-        if(repsaaword1 == psaaword1 ){
-          isRepassword1 = true;
-          // 成功
-          $('#ooxx3').html('<font color="#74CFA0">两次密码一致</font>');
-        }else{
-          isRepassword1 = false;
-          //失败
-          $('#ooxx3').html('<font color="#CA7D7D">两次密码不一致</font>'); 
-        }
-    });
-    
-    $('#forma').submit(function(){
-      if(isUname1 && isPsaword1 && isRepassword1){
-        return true;//提交
-      }
+            $('#form').submit(function() {
+              if (isUname && isPassword && isRepassword && isPhone) {
+                return true; //提交
+              }
 
-      return false; //阻止form表单提交
-    });
-</script>
-
-    <div class="tab-pane" id="tab2">
-      <form method="post" id="forms" action="/register">
-        {{ csrf_field() }}
-      <div id="layer_reg" class="bm_c">
-      <div class="mtw">
-      <div id="reginfo_a">
-        <div class="rfm">
-      <table>
-      <tbody><tr>
-      <th><span class="rq">*</span><label for="">邮箱:</label></th>
-      <td><input type="text" style="height:27px" class="px" name="user_email" id="user_email"></td>
-      <td class="tipcol"><span id="xxoo">请填写合法的邮箱</span></td>
-      </tr>
-      </tbody></table>
-      </div>
-      <div class="rfm">
-      <table>
-      <tbody><tr>
-      <th><span class="rq">*</span><label for="">用户名:</label></th>
-      <td><input type="text" style="height:27px" class="px" name="user_name" id="user_name"></td>
-      <td class="tipcol"><span id="xxoo1">请填写2-6位 合法的用户名</span></td>
-      </tr>
-      </tbody></table>
-      </div>
-
-      <div class="rfm">
-      <table>
-      <tbody><tr>
-      <th><span class="rq">*</span><label for="">密码:</label></th>
-      <td><input type="password" style="height:27px" class="px" name="password" id="user_password"></td>
-      <td class="tipcol"><span id="xxoo2">请填写密码,长度为6-18位</span></td>
-      </tr>
-      </tbody></table>
-      </div>
-
-      <div class="rfm">
-      <table>
-      <tbody><tr>
-      <th><span class="rq">*</span><label for="">确认密码:</label></th>
-      <td><input type="password" style="height:27px" class="px" name="repassword" id="repassword"></td>
-      <td class="tipcol"><span id="xxoo3">请输入确认密码</span></td>
-
-      </tr>
-      </tbody></table>
-      </div>
-
-      </div>
-      </div>
-      </div>
-      <div id="layer_reginfo_b">
-      <div class="rfm mbw bw0">
-      <table width="100%">
-      <tbody><tr>
-      <th>&nbsp;</th>
-      <td>
-      <span id="reginfo_a_btn">
-      <em>&nbsp;</em><button class="pn pnc" id="registerformsubmit" type="submit" name="regsubmit" value="true" tabindex="1"><strong>注册</strong></button>
-      </span>
-      </td>
-      <td></td>
-      </tr>
-      </tbody></table>
-      </div>
-      </div>
-      </form>
-    </div>
+              return false; //阻止form表单提交
+            });
+          </script>
+   
   </div>
 </div>
 
 
-<script type="text/javascript">
-
-
-    var isUname = false;
-    var isPsaword = false;
-    var isRepassword = false;
-    var isEmail = false;
-
-    //邮箱注册
-    $('#user_email').blur(function(){
-      var email = $(this).val();
-      var preg_email = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
-        if(preg_email.test(email)){
-          isEmail = true;
-          // 成功
-          $('#xxoo').html('<font color="#74CFA0">恭喜邮箱可用</font>');
-        }else{
-          isEmail = false;
-          //失败
-          $('#xxoo').html('<font color="#CA7D7D">请填写合法的邮箱</font>'); 
-        }
-    });
-
-    //验证用户名 user_name
-    $('#user_name').blur(function(){
-        var uname = $(this).val();
-        $.ajax({
-        // 请求服务器的地址
-        url:'/register/ajax',
-        // 请求的方式 默认get方式
-        type:'post',
-        
-        //发送到服务器的数据
-        data:{'uname':uname, '_token':'{{csrf_token()}}'},
-        //请求成功后的回调函数。
-        success:function(msg){
-          if(msg == 2){
-            isUname = false;
-            $('#xxoo1').html('<font color="#CA7D7D">用户名已存在</font>');
-          }
-        },
-        // 预期服务器返回的数据类型
-        dateType:'html',
-        // (默认: true) 默认设置下，所有请求均为异步请求。
-        async:true
-      });
-
-        var preg_uname = /^[\w]{2,6}$/;
-        if(preg_uname.test(uname)){
-          isUname = true;
-          // 成功
-          $('#xxoo1').html('<font color="#74CFA0">恭喜用户名可用</font>');
-        }else{
-          isUname = false;
-          //失败
-          $('#xxoo1').html('<font color="#CA7D7D">请填写2-6位 合法的用户名</font>'); 
-        }
-    });
-
-    $('#user_password').blur(function(){
-        var psaaword = $(this).val();
-        var preg_psaword = /^[\w]{6,18}$/;
-        if(preg_psaword.test(psaaword)){
-          isPsaword = true;
-          // 成功
-          $('#xxoo2').html('<font color="#74CFA0">恭喜密码可用</font>');
-        }else{
-          isPsaword = false;
-          //失败
-          $('#xxoo2').html('<font color="#CA7D7D">请填写6—18位 合法的密码</font>'); 
-        }
-    });
-
-    $('#repassword').blur(function(){
-        var repsaaword = $(this).val();
-        var psaaword = $('#user_password').val();
-        if(repsaaword == psaaword ){
-          isRepassword = true;
-          // 成功
-          $('#xxoo3').html('<font color="#74CFA0">两次密码一致</font>');
-        }else{
-          isRepassword = false;
-          //失败
-          $('#xxoo3').html('<font color="#CA7D7D">两次密码不一致</font>'); 
-        }
-    });
-    
-    $('#forms').submit(function(){
-      if(isUname && isPsaword && isRepassword && isEmail){
-        return true;//提交
-      }
-
-      return false; //阻止form表单提交
-    });
-</script>
 
 </div>
 <div id="layer_regmessage" class="f_c blr nfl" style="display: none">
