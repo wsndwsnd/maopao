@@ -12,8 +12,8 @@ class LinkController extends Controller
 {
     /**
      * 列表页
-     *
-     * @return \Illuminate\Http\Response
+     *  【request】 分页 查询条件
+     * @return 审批后的友情链接
      */
     public function index(Request $request)
     {
@@ -30,11 +30,10 @@ class LinkController extends Controller
     /**
      * 添加页面
      *
-     * @return \Illuminate\Http\Response
+     * @return 
      */
     public function create()
     {
-        //
         return view('Admin.link.create');
     }
 
@@ -80,21 +79,21 @@ class LinkController extends Controller
      * 修改页面
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return 修改页面
      */
     public function edit($id)
     {
-        //
+        //接收表单数据
         $data = Link::find($id);
         return view('Admin.Link.edit',['data'=>$data]);
     }
 
     /**
-     * Update the specified resource in storage.
+     * 执行修改
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  表单数据
+     * @param  id
+     * @return 列表页
      */
     public function update(Request $request, $id)
     {

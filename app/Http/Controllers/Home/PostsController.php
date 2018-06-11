@@ -33,7 +33,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('Home.posts.create',['data'=>CateController::getCategory()]);
+        return view('Home.posts.create',['data'=>CateController::getPidCates(0)]);
     }
 
     /**
@@ -53,11 +53,9 @@ class PostsController extends Controller
         $data2 = $request->only('content');
         $data2['tid'] = $res1;
         $res2 = Postsinfo::insert($data2);
-
         if($res1 && $res2){
             DB::commit();
-            dd('成功');
-            return redirect("/posts/$res1")->with('success','成功发表');
+            return redirect("/home/read/$res1")->with('success','成功发表');
         }else{
             DB::rollBack();
             return back()->with('error','发布失败');

@@ -256,23 +256,26 @@
               <img src="/Home/picture/logo.png" alt="Discuz! Board" border="0" /></a>
           </h2>
           <div id="scbar" class="cl">
-            <form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus($('scbar_txt'))" action="search.php?searchsubmit=yes" target="_blank">
-              <input type="hidden" name="mod" id="scbar_mod" value="search" />
+
+
+            <form id="scbar_form" method="git" autocomplete="off" action="/home/seek" target="_blank">
+             <!--  <input type="hidden" name="mod" id="scbar_mod" value="search" />
               <input type="hidden" name="formhash" value="316f8b52" />
               <input type="hidden" name="srchtype" value="title" />
               <input type="hidden" name="srhfid" value="0" />
-              <input type="hidden" name="srhlocality" value="portal::index" />
+              <input type="hidden" name="srhlocality" value="portal::index" /> -->
               <table cellspacing="0" cellpadding="0">
                 <tr>
                   <td class="scbar_txt_td">
-                    <input type="text" style="width: 260px !important;
+                    <input style="width: 260px !important;
                                               height: 43px;
                                               font-size: 17px;
                                               color: #a09f9f;
                                               background: #fff;
                                               padding: 0 0 0 12px;
-                                              "
-                                              /></td>
+                                              " 
+                                              type="text"  name="seek" value="{{ $seek or ''}}" />
+                  </td>
                   <td class="scbar_btn_td">
                     <button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc" value="true">
                       <strong class="xi2"></strong>
@@ -281,6 +284,9 @@
                 </tr>
               </table>
             </form>
+
+
+
           </div>
           <ul id="scbar_type_menu" class="p_pop" style="display: none;">
             <li>

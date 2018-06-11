@@ -223,4 +223,19 @@ class ArticleController extends Controller
             return back()->with('error','删除失败');
         } 
     }
+
+    public function ajaxdel($id)
+    {
+         DB::beginTransaction();
+            $res1 = Articles::destroy($id);
+             if ($res1) {
+                DB::commit();
+                //删除成功
+                echo 1;
+            }else{
+                DB::rollBack();
+                //删除失败
+                echo 2;
+            }
+    }
 }
