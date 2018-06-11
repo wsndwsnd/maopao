@@ -34,6 +34,12 @@ Route::get('/admin/site','Admin\SiteController@index');
 
 //后台用户管理
 Route::resource('/admin/user','Admin\UserController');
+//用户收藏文章 帖子
+Route::get('/admin/shoucang/{id}','Admin\UserController@read');
+//用户删除收藏文章
+Route::get('/admin/del1','Admin\UserController@del1');
+//用户删除收藏帖子
+Route::get('/admin/del2','Admin\UserController@del2');
 
 //后台公告管理
 Route::resource('/admin/notice','Admin\NoticeController');
@@ -59,8 +65,15 @@ Route::get('/admin/posts/uplabel/{id}','Admin\PostsController@uplabel');
 //ajax删除
 Route::get('/admin/postsdel/{id}','Admin\PostsController@ajaxdel');
 Route::resource('/admin/posts','Admin\PostsController');
+//后台文章查看评论路由
+Route::get('/admin/pcomments/{id}','Admin\PostsController@read');
+//后台文章删除评论
+Route::get('/admin/pcomments/del/{id}','Admin\PostsController@del');
+//上线
 Route::get('/admin/posts/up/{id}','Admin\PostsController@up');
+//下线
 Route::get('/admin/posts/down/{id}','Admin\PostsController@down');
+
 Route::post('/admin/posts/sq','Admin\PostsController@sq');
 Route::get('/admin/postssqlb','Admin\PostsController@sqlb');
 
@@ -125,9 +138,18 @@ Route::post('/usertx/uploads','Home\UserController@uploads');
 
 //前台帖子
 Route::resource('/posts','Home\PostsController');
-
 //前台帖子详情
 Route::get('/home/read/{id}','Home\ReadController@index');
+//前台帖子评论
+Route::resource('/pcomment','Home\PcommentController');
+//前台帖子评论回复
+Route::resource('/preply','Home\ReplyController');
+//前台帖子评论ajax删除
+Route::get('/pcomment/del/{id}','Home\PcommentController@del');
+//前台帖子回复ajax删除
+Route::get('/preply/del/{id}','Home\ReplyController@del');
+//帖子收藏
+Route::resource('/pcollect','Home\PcollectController');
 
 //前台资讯  文章列表
 Route::resource('/zixun','Home\ZixunController');

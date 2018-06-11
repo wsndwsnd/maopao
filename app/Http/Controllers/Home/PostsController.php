@@ -56,7 +56,7 @@ class PostsController extends Controller
 
         if($res1 && $res2){
             DB::commit();
-            dd('成功');
+            
             return redirect("/posts/$res1")->with('success','成功发表');
         }else{
             DB::rollBack();

@@ -68,6 +68,7 @@ class LuntanController extends Controller
      */
     public function show($id)
     {
+
         $data1 = Category::where('id',$id)->first();
         $data2 = Category::where('id',$data1->tid)->first();
         $data3 = Posts::where('cid',$id)->get();

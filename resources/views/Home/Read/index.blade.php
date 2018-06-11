@@ -1,5 +1,9 @@
 @extends('home.layout.master') 
 @section('sidebar') 
+<!-- 配置文件 -->
+    <script type="text/javascript" src="/utf8-php/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/utf8-php/ueditor.all.js"></script>
   <div class="bottombg"> 
    <script type="text/javascript">
     go(); 
@@ -89,10 +93,10 @@
          <td class="pls ptn pbn sdad"> 
           <div class="hm ptn"> 
            <span class="xg1">查看:</span> 
-           <span class="xi1">12</span>
+           <span class="xi1">{{ $data->post_view }}</span>
            <span class="pipe">|</span>
            <span class="xg1">回复:</span> 
-           <span class="xi1">0</span> 
+           <span class="xi1">{{ $data->plhfs->count() }}</span> 
           </div> </td> 
          <td class="plc ptm pbn vwthd sdad"> 
           <div class="y"> 
@@ -113,7 +117,7 @@
             <a name="lastpost"></a>
             <div class="pi"> 
              <div class="authi">
-              <a href="/home/home.php?mod=space&amp;uid=1" target="_blank" class="xw1">admin</a> 
+              <a href="/home/home.php?mod=space&amp;uid=1" target="_blank" class="xw1">{{ $data->users->user_name }}</a> 
              </div> 
             </div> 
             <div class="p_pop blk bui card_gender_0" id="userinfo7" style="display: none; margin-top: -11px;"> 
@@ -143,15 +147,15 @@
             </div> 
             <div> 
              <div class="avatar" onmouseover="showauthor(this, 'userinfo7')">
-              <a href="/home/home.php?mod=space&amp;uid=1" class="avtm" target="_blank"><img src="/home/picture/avatar.php" /></a>
+              <a href="/home/home.php?mod=space&amp;uid=1" class="avtm" target="_blank"><img src="{{ $data->users->img }}" /></a>
              </div> 
             </div> 
             <div class="tns xg2">
              <table cellspacing="0" cellpadding="0">
               <tbody>
                <tr>
-                <th><p><a href="/home/home.php?mod=space&amp;uid=1&amp;do=thread&amp;type=thread&amp;view=me&amp;from=space" class="xi2">97</a></p>主题</th>
-                <th><p><a href="/home/home.php?mod=space&amp;uid=1&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" class="xi2">11</a></p>帖子</th>
+                <th><p><a href="/home/home.php?mod=space&amp;uid=1&amp;do=thread&amp;type=thread&amp;view=me&amp;from=space" class="xi2">{{ $data->users->userarticles->count() }}</a></p>文章</th>
+                <th><p><a href="/home/home.php?mod=space&amp;uid=1&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" class="xi2">{{ $data->users->userposts->count() }}</a></p>帖子</th>
                 <td><p><a href="/home/home.php?mod=space&amp;uid=1&amp;do=profile" class="xi2">517</a></p>积分</td>
                </tr>
               </tbody>
@@ -168,33 +172,21 @@
              </dd> 
             </dl> 
             <dl class="pil cl"></dl>
-            <ul class="xl xl2 o cl"> 
-             <li class="pm2"><a href="/home/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_1&amp;touid=1&amp;pmid=0&amp;daterange=2&amp;pid=7&amp;tid=7" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li> 
-            </ul> 
+           
            </div> </td> 
           <td class="plc"> 
            <div class="pi"> 
-            <div id="fj" class="y"> 
-             <label class="z">电梯直达</label> 
-             <input type="text" class="px p_fre z" size="2" onkeyup="$('fj_btn').href='forum.php?mod=redirect&amp;ptid=7&amp;authorid=0&amp;postno='+this.value" onkeydown="if(event.keyCode==13) {window.location=$('fj_btn').href;return false;}" title="跳转到指定楼层" /> 
-             <a href="/home/javascript:;" id="fj_btn" class="z" title="跳转到指定楼层"><img src="/home/picture/fj_btn.png" alt="跳转到指定楼层" class="vm" /></a> 
-            </div> 
-            <strong> <a href="/home/forum.php?mod=viewthread&amp;tid=7" id="postnum7" onclick="setCopy(this.href, '帖子地址复制成功');return false;"> 楼主</a> </strong> 
             <div class="pti"> 
              <div class="pdbt"> 
              </div> 
              <div class="authi"> 
               <img class="authicn vm" id="authicon7" src="/home/picture/online_admin.gif" /> 
-              <em id="authorposton7">发表于 {{ $data->postsinfo->create_at }}</em> 
-              <span class="pipe">|</span> 
-              <a href="/home/forum.php?mod=viewthread&amp;tid=7&amp;page=1&amp;authorid=1" rel="nofollow">只看该作者</a> 
-              <span class="pipe">|</span>
-              <a href="/home/forum.php?mod=viewthread&amp;tid=7&amp;from=album">只看大图</a> 
-              <span class="none"><img src="/home/picture/arw_r.gif" class="vm" alt="回帖奖励" /></span> 
-              <span class="pipe show">|</span>
-              <a href="/home/forum.php?mod=viewthread&amp;tid=7&amp;extra=page%3D1&amp;ordertype=1" class="show">倒序浏览</a> 
-              <span class="pipe show">|</span>
-              <a href="/home/javascript:;" onclick="readmode($('thread_subject').innerHTML, 7);" class="show">阅读模式</a> 
+              <em id="authorposton7">发表于 {{ $data->postsinfo->created_at }}</em> 
+            <!--   <span class="pipe">|</span> 
+              <a href="/home/forum.php?mod=viewthread&amp;tid=7&amp;page=1&amp;authorid=1" rel="nofollow">只看该作者</a> --> 
+              
+              
+              
              </div> 
             </div> 
            </div>
@@ -241,80 +233,230 @@
          <tr>
           <td class="plc plm"> 
            <div id="p_btn" class="mtw mbm hm cl"> 
-            <a href="/home/home.php?mod=spacecp&amp;ac=favorite&amp;type=thread&amp;id=7&amp;formhash=1a6a669d" id="k_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" onmouseover="this.title = $('favoritenumber').innerHTML + ' 人收藏'" title="收藏本帖"><i><img src="/home/picture/fav.gif" alt="收藏" />收藏<span id="favoritenumber" style="display:none">0</span></i></a> 
-            <a id="recommend_add" href="/home/forum.php?mod=misc&amp;action=recommend&amp;do=add&amp;tid=7&amp;hash=1a6a669d" onclick="showWindow('login', this.href)" onmouseover="this.title = $('recommendv_add').innerHTML + ' 人支持'" title="顶一下"><i><img src="/home/picture/rec_add.gif" alt="支持" />支持<span id="recommendv_add" style="display:none">0</span></i></a> 
-            <a id="recommend_subtract" href="/home/forum.php?mod=misc&amp;action=recommend&amp;do=subtract&amp;tid=7&amp;hash=1a6a669d" onclick="showWindow('login', this.href)" onmouseover="this.title = $('recommendv_subtract').innerHTML + ' 人反对'" title="踩一下"><i><img src="/home/picture/rec_subtract.gif" alt="反对" />反对<span id="recommendv_subtract" style="display:none">0</span></i></a> 
+            <a href="javascript:;" id="k_favorite" title="收藏本帖"><i><img src="/home/picture/fav.gif" alt="收藏" />收藏<span id="favoritenumber" style="display:none">0</span></i></a> 
+            <a id="recommend_add" href="javascript:;" title="顶一下"><i><img src="/home/picture/rec_add.gif" alt="支持" />顶一下<span id="recommendv_add" style="display:none">0</span></i></a> 
+            <a id="recommend_subtract" href="javascript:;" title="踩一下"><i><img src="/home/picture/rec_subtract.gif" alt="反对" />踩一下<span id="recommendv_subtract" style="display:none">0</span></i></a> 
            </div> 
-           <!-- <div class="mtw mbw"> 
-            <h3 class="pbm mbm bbda">相关帖子</h3> 
-            <ul class="xl xl2 cl">
-             <li>． <a href="/home/forum.php?mod=viewthread&amp;tid=5" title="营养丰富的【猪肝鸭蛋汤】" target="_blank">营养丰富的【猪肝鸭蛋汤】</a></li> 
-             <li>． <a href="/home/forum.php?mod=viewthread&amp;tid=6" title="妈妈的菜【河虾烩三鲜】好吃不好看" target="_blank">妈妈的菜【河虾烩三鲜】好吃不好看</a></li> 
-             <li>． <a href="/home/forum.php?mod=viewthread&amp;tid=46" title="给孩子吃这些有助长高" target="_blank">给孩子吃这些有助长高</a></li> 
-            </ul> 
-           </div>  -->
+
            <div class="sign" style="max-height:120px;maxHeightIE:120px;">
             手机版可以支持用户签名了。
             <br /> 
             <img id="aimg_yqYeo" onclick="zoom(this, this.src, 0, 0, 0)" class="zoom" src="/home/picture/sign.jpg" onmouseover="img_onmouseoverfunc(this)" onload="thumbImg(this)" border="0" alt="" />
-           </div> </td> 
-         </tr> 
-         <tr id="_postposition7"></tr> 
-         <tr> 
-          <td class="pls"></td> 
-          <td class="plc" style="overflow:visible;"> 
-           <div class="po hin"> 
-            <div class="pob cl"> 
-             <em> <a class="fastre" href="/home/forum.php?mod=post&amp;action=reply&amp;fid=2&amp;tid=7&amp;reppost=7&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)">回复</a> </em> 
-             <p> <a href="/home/javascript:;" id="mgc_post_7" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a> <a href="/home/javascript:;" onclick="showWindow('miscreport7', 'misc.php?mod=report&amp;rtype=post&amp;rid=7&amp;tid=7&amp;fid=2', 'get', -1);return false;">举报</a> </p> 
-             <ul id="mgc_post_7_menu" class="p_pop mgcmn" style="display: none;"> 
-             </ul> 
-             <script type="text/javascript" reload="1">checkmgcmn('post_7')</script> 
-            </div> 
-           </div> </td> 
-         </tr> 
-         <tr class="ad"> 
-          <td class="pls"> </td> 
-          <td class="plc"> </td> 
+           </div> 
+         </td> 
          </tr> 
         </tbody>
-       </table> 
-       <script type="text/javascript" reload="1">
-    aimgcount[7] = ['7'];
-    attachimggroup(7);
-    attachimgshow(7);
-    var aimgfid = 0;
-    </script> 
+       </table>
+       <script type="text/javascript">
+          //收藏       
+            $('#k_favorite').click(function(){
+            
+              $.ajax({
+              // 请求服务器的地址
+              url:"/pcollect?pid={{ $data->id }}&uid={{ session('user_id') }}",
+              // 请求的方式 默认get方式
+              type:'post',
+              
+              //发送到服务器的数据
+              data:{'_token':'{{csrf_token()}}'},
+              //请求成功后的回调函数。
+              success:function(msg){
+                  if(msg==1){
+                   
+                    layer.msg("收藏成功,请到个人中心查看");
+                    
+                  }else if(msg == 2){
+                    layer.msg("未收藏成功");                 
+                 }else{
+                    layer.msg("你已收藏,请到个人中心查看");                 
+
+                 }
+              },
+              // 预期服务器返回的数据类型
+              dateType:'html',
+              // (默认: true) 默认设置下，所有请求均为异步请求。
+              async:true
+            });
+      });
+       </script>
+        @foreach($data3 as $v)
+       <table id="pid120" class="plhin" summary="pid120" cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td class="pls" rowspan="2">
+                        <div id="favatar120" class="pls favatar">
+                            <div class="pi">
+                                <div class="authi">
+                                    <a href="home.php?mod=space&amp;uid=16" target="_blank" class="xw1">{{ $v->users->user_name }}</a></div>
+                            </div>
+                           
+                            <div>
+                                <div class="avatar" >
+                                    <a href="" class="avtm" target="_blank">
+                                        <img src="{{ ltrim($v->users->img,'.') }}"></a>
+                                </div>
+                            </div>
+                            <div class="tns xg2">
+                                <table cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <th>
+                                                <p>
+                                                    <a href="home.php?mod=space&amp;uid=16&amp;do=thread&amp;type=thread&amp;view=me&amp;from=space" class="xi2">{{ $v->users->userarticles->count() }}</a></p>文章</th>
+                                            <th>
+                                                <p>
+                                                    <a href="home.php?mod=space&amp;uid=16&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" class="xi2">{{ $v->users->userposts->count() }}</a></p>帖子</th>
+                                            <td>
+                                                <p>
+                                                    <a href="home.php?mod=space&amp;uid=16&amp;do=profile" class="xi2">9</a></p>积分</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p>
+                                <em>
+                                    <a href="">新手上路</a></em>
+                            </p>
+                            <p>
+                                <span id="g_up120" >
+                                    <img src="/Home/picture/star_level1.gif" alt="Rank: 1"></span>
+                            </p>                          
+                            <p>
+                                <span class="pbg2" id="upgradeprogress_120"  initialized="true">
+                                    <span class="pbr2" style="width:18%;"></span>
+                                </span>
+                            </p>                           
+                            <dl class="pil cl">
+                                <dt>积分</dt>
+                                <dd>
+                                    <a href="home.php?mod=space&amp;uid=16&amp;do=profile" target="_blank" class="xi2">9</a></dd>
+                            </dl>
+                            <dl class="pil cl"></dl>
+                            
+                        </div>
+                    </td>
+                    <td class="plc">
+                        <div class="pi">
+                           
+                            <div class="pti">
+                                <div class="pdbt"></div>
+                                <div class="authi">
+                                    <img class="authicn vm" id="authicon120" src="/Home/picture/online_member.gif">
+                                    <em id="authorposton120">发表于
+                                        <span title="2018-6-8 10:13:01">{{ $v->created_at }}</span></em>
+                                    <span class="pipe"></span>
+                                    <a href="" rel="nofollow"></a></div>
+                            </div>
+                        </div>
+                        <div class="pct">
+                            <div class="pcb">
+                                <div class="t_fsz">
+                                    <table cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                          <tr>
+                                            <td class="t_f" id="postmessage_121"> 
+                                            @if($v->touname)
+                                            <div class="quote" >
+                                                
+                                                <blockquote>
+                                                  
+                                                  <font size="2">
+                                                    <a href=""><font color="#999999"> {{ $v->touname }}发表于{{ $v->toctime }} </font></a>
+                                                  </font>
+                                                    <br>
+                                                    {!! $v->tocontent !!}
+                                                </blockquote>
+                                              </div>
+                                            @endif
+                                               <br>
+
+                                              {!! $v->content !!}
+                                              
+                                            </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                 
+                                </div>
+                                <div id="comment_120" class="cm"></div>
+                                <div id="post_rate_div_120"></div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="plc plm"></td>
+                </tr>
+                <tr id="_postposition120"></tr>
+                <tr>
+                    <td class="pls"></td>
+                    <td class="plc" style="overflow:visible;">
+                        <div class="po hin">
+                            <div class="pob cl">
+                                <em>
+                              
+                                    <a class="fastre" href="javascript:;" name="{{ $v->uid }}" value="{{ $v->id }}">回复</a>                    
+                                </em>
+                             <!--  @if(session('user_id') == $v->uid )
+                              <a href="javascript:;" value="{{ $v->id }}" class='del1' style="color: red;">删除</a>@endif -->      
+                               </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="ad">
+                    <td class="pls"></td>
+                    <td class="plc"></td>
+                </tr>
+            </tbody>
+        </table>
+        @endforeach 
       </div> 
-      <div id="postlistreply" class="pl">
-       <div id="post_new" class="viewthread_table" style="display: none"></div>
-      </div> 
-     </div> 
-     <form method="post" autocomplete="off" name="modactions" id="modactions"> 
-      <input type="hidden" name="formhash" value="1a6a669d" /> 
-      <input type="hidden" name="optgroup" /> 
-      <input type="hidden" name="operation" /> 
-      <input type="hidden" name="listextra" value="page%3D1" /> 
-      <input type="hidden" name="page" value="1" /> 
-     </form> 
-     <div class="pgs mtm mbm cl" id="pgtb"> 
-      <span class="pgb y"><a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;page=1">返回</a></span> 
-      <div class="fatie">
-       <a id="newspecialtmp" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=2')" href="/home/javascript:;" title="发新帖">发新贴</a>
-      </div> 
-     </div> 
-     <!--[diy=diyfastposttop]-->
-     <div id="diyfastposttop" class="area"></div>
-     <!--[/diy]--> 
-     <script type="text/javascript">document.onkeyup = function(e){keyPageScroll(e, 0, 0, 'forum.php?mod=viewthread&tid=7', 1);}</script> 
     </div> 
     <script type="text/javascript">
-    var postminchars = parseInt('10');
-    var postmaxchars = parseInt('10000');
-    var disablepostctrl = parseInt('0');
-    </script> 
-    <div id="f_pst" class="pl bm bmw"> 
-     <form method="post" autocomplete="off" id="fastpostform" action="forum.php?mod=post&amp;action=reply&amp;fid=2&amp;tid=7&amp;extra=page%3D1&amp;replysubmit=yes&amp;infloat=yes&amp;handlekey=fastpost" onsubmit="return fastpostvalidate(this)"> 
+              $('.fastre').click(function(){
+
+                 var uid = $(this).attr('name');
+                 var id = $(this).attr('value');
+                      layer.open({
+                      type: 2,
+                      title: '<font style="color:skyblue;font-weight:777;font-size:16px;">回复评论</font>',
+                      shadeClose: true,
+                      shade: 0.8,
+                      area: ['650px', '300px'],
+                      content: '/preply?uid='+uid+'&pid='+{{ $data->id }}+'&id='+id //iframe的url
+                    }); 
+                
+              });
+                 
+                 // // 删除评论
+                 //  $('.del1').click(function(){
+                 //      var obj =  $(this);
+                 //      layer.confirm('您确定要删除？', {
+                 //        btn: ['是','否'] //按钮
+                 //      }, function(){
+                        
+                 //            $.get('/pcomment/del/'+obj.attr('value'),function(msg){
+                 //            if(msg == 1){
+                 //              layer.msg('删除成功');
+                 //              obj.parent().parent().parent().parent().parent().parent().remove();
+                 //            }else{
+
+                 //              layer.msg('删除失败');
+
+                 //            }                      
+                 //          });
+                     
+                 //      });
+
+                 // });
+      </script>
+    
+    
+   
+    <div id="f_pst" class="pl bm bmw" style="height: 330px;"> 
+     <form method="post"  action="/pcomment?pid={{ $data->id }}" >
+      {{ csrf_field() }} 
       <table cellspacing="0" cellpadding="0"> 
        <tbody>
         <tr> 
@@ -322,45 +464,17 @@
          <td class="plc"> 
           <div class="ksftaa"> 
            <div id="fastpostreturn">
-            <span>发表回复</span>
+            <span>发表评论</span>
            </div> 
            <div class="cl"> 
-            <div id="fastsmiliesdiv" class="y">
-             <div id="fastsmiliesdiv_data">
-              <div id="fastsmilies"></div>
-             </div>
-            </div>
-            <div class="hasfsl" id="fastposteditor"> 
-             <div class="tedt mtn"> 
-              <div class="bar"> 
-               <span class="y"> <a href="/home/forum.php?mod=post&amp;action=reply&amp;fid=2&amp;tid=7" onclick="return switchAdvanceMode(this.href)">高级模式</a> </span>
-               <script src="/home/js/seditor.js" type="text/javascript"></script> 
-               <div class="fpd"> 
-                <a href="/home/javascript:;" title="文字加粗" class="fbld">B</a> 
-                <a href="/home/javascript:;" title="设置文字颜色" class="fclr" id="fastpostforecolor">Color</a> 
-                <a id="fastpostimg" href="/home/javascript:;" title="图片" class="fmg">Image</a> 
-                <a id="fastposturl" href="/home/javascript:;" title="添加链接" class="flnk">Link</a> 
-                <a id="fastpostquote" href="/home/javascript:;" title="引用" class="fqt">Quote</a> 
-                <a id="fastpostcode" href="/home/javascript:;" title="代码" class="fcd">Code</a> 
-                <a href="/home/javascript:;" class="fsml" id="fastpostsml">Smilies</a> 
-               </div>
-              </div> 
-              <div class="area"> 
-               <div class="pt hm">
-                 您需要登录后才可以回帖 
-                <a href="/home/member.php?mod=logging&amp;action=login" onclick="showWindow('login', this.href)" class="xi2">登录</a> | 
-                <a href="/home/member.php?mod=register" class="xi2">立即注册</a> 
-               </div> 
-              </div> 
-             </div> 
-            </div> 
+               <script id="container" name="content"  style="height: 120px;width: 800px;">
+                          {!! old('article_content') !!}
+                </script>
            </div> 
            <div id="seccheck_fastpost"> 
            </div> 
-           <input type="hidden" name="formhash" value="1a6a669d" /> 
-           <input type="hidden" name="usesig" value="" /> 
-           <input type="hidden" name="subject" value="  " /> 
-           <p class="ptm pnpost"> <a href="/home/home.php?mod=spacecp&amp;ac=credit&amp;op=rule&amp;fid=2" class="y" target="_blank">本版积分规则</a> <button type="button" onclick="showWindow('login', 'member.php?mod=logging&amp;action=login&amp;guestmessage=yes')" name="replysubmit" id="fastpostsubmit" class="pn pnc vm" value="replysubmit" tabindex="5"><strong>发表回复</strong></button> <label for="fastpostrefresh"><input id="fastpostrefresh" type="checkbox" class="pc" />回帖后跳转到最后一页</label> <script type="text/javascript">if(getcookie('fastpostrefresh') == 1) {$('fastpostrefresh').checked=true;}</script> </p> 
+           
+           <p class="ptm pnpost"> <a href="" class="y" target="_blank">本版积分规则</a> <button  class="pn pnc vm" ><strong>发表评论</strong></button></p> 
           </div> </td> 
         </tr> 
        </tbody>
@@ -390,6 +504,16 @@
    <span> <a href="/home/forum.php?mod=forumdisplay&amp;fid=2" hidefocus="true" class="returnlist" title="返回列表"><b>返回列表</b></a> </span> 
   </div> 
   <script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script>
+  <script type="text/javascript">
+        var ue = UE.getEditor('container',{
+           toolbars: [
+                ['fullscreen', 'source', 'undo', 'redo', 'bold','simpleupload','insertimage','italic','forecolor','backcolor','edittip' ]
+            ]
+        });
+
+
+          
+</script>
   <div></div> 
   <div></div> 
   <div></div> 

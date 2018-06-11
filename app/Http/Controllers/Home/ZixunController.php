@@ -73,7 +73,7 @@ class ZixunController extends Controller
             'article_img.image' => '封面图片格式不正确',
             
         ]);
-       
+        $article = new Articles;
         //检测是否有文件上传
         if($request -> hasFile('article_img')){
             // 创建文件上传对象
@@ -88,7 +88,7 @@ class ZixunController extends Controller
             $pic -> move($dir_name,$filename);
         }
         
-        $article = new Articles;
+
 
         $article -> article_title = $request ->input('article_title','');
         $article -> article_content = $request ->input('article_content','');
@@ -134,7 +134,7 @@ class ZixunController extends Controller
         
         //显示评论
 
-        $data5 = Comment::where('aid',$id)->get();        
+        $data5 = Comment::where('aid',$id)->orderBy('created_at','asc')->get();        
 
         
  

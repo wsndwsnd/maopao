@@ -54,7 +54,7 @@ class UserController extends Controller
         $user_name = $request -> user_name;
         $password = $request -> password;
         $user = User::where('user_name',$user_name)->first();
-        if(Hash::check($password,$user->user_password)){
+        if($user && Hash::check($password,$user->user_password)){
              //把用户数据保存到session
 
             session(['user_name'=>$user->user_name,'user_id'=>$user->id,'user_img'=>$user->img,'user_token'=>$user->token]);

@@ -6,38 +6,25 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Posts;
-use App\Models\Category;
-use App\Models\Slide;
 
+use App\Models\User;
 use App\Models\Plhf;
-class ReadController extends Controller
+
+class ReplyController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index(Request $request)
     {
-        //帖子内容
-        $data = Posts::where('id',$id)->first();
-         //阅读量
-        $i = $data->post_view;
-        $i +=1;
-        Posts::where('id',$id)->update(['post_view'=>$i]);
+        $id = $request->input('id','');
+        $pid = $request->input('pid','');
+        $uid = $request->input('uid','');
 
-        
-        $tid = $data->cates->tid;
-        //类别
-        $data1 = Category::where('id',$tid)->first();
-        //热图
-        $data2 = Slide::where('slide_status','3')->get();
-        
-        //评论回复
-        $data3 = Plhf::orderBy('created_at','asc')->get();
-        
-        return view('home.read.index',['data'=>$data,'data1'=>$data1,'data2'=>$data2,'data3'=>$data3]);
+
+        return view('Home.Read.create',['id'=>$id,'pid'=>$pid,'uid'=>$uid]);
     }
 
     /**
@@ -58,7 +45,34 @@ class ReadController extends Controller
      */
     public function store(Request $request)
     {
-        
+
+        $data = $request->only('pid','content');
+        //评论人的id
+        $uid = $request->input('uid','');
+        //被回复评论的id
+        $id = $request->input('id','');
+        //回复者的uid
+        $data['uid'] =session('user_id');
+        //回复内容
+        $data['created_at'] = date('Y-m-d H:i:s',time());
+        //被评论的人的用户名
+        $data['touname'] = User::find($uid)->user_name;
+        //被评论内容
+        $data['tocontent'] = Plhf::find($id)->content;
+        //被评论的评论时间
+        $data['toctime'] = Plhf::find($id)->created_at;
+        //被回复id
+        $data['hid'] = $id;
+
+        $res = Plhf::insert($data);
+        $pid = $data['pid'];
+
+         if ($res) {
+            return redirect("/home/read/$pid")->with('success','回复成功');
+        }else{
+            return redirect("/home/read/$pid")->with('error','回复失败');
+
+        }
     }
 
     /**
@@ -105,4 +119,5 @@ class ReadController extends Controller
     {
         //
     }
+   
 }

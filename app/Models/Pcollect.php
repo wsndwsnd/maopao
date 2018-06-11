@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Acollect extends Model
+class Pcollect extends Model
 {
-    public $table = 'a_collect';
-   
+    public $table = 'p_collect';
 }

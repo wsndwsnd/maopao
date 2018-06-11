@@ -11,6 +11,8 @@ use App\Http\Requests\UserEditRequest;
 
 use App\Models\User;
 use App\Models\Userinfo;
+use App\Models\Acollect;
+
 use Hash;
 use DB;
 class UserController extends Controller
@@ -173,6 +175,50 @@ class UserController extends Controller
             DB::rollBack();
 
             return back('')->with('error','删除失败');
+        }
+    }
+    public function read($id)
+    {
+        $data1 = User::find($id);
+
+        $data2 =$data1->acollects;
+
+        $data3 =$data1->pcollects;
+
+
+        return view('Admin.user.shoucang',['data2'=>$data2,'data3'=>$data3,'id'=>$id]);
+    }
+
+    /**
+     * 删除文章收藏
+     */
+    public function del1(Request $request)
+    {
+        $data = $request->only('aid','uid');
+        $res = DB::delete('delete from a_collect where uid = :uid and aid = :aid',$data);
+        if ($res) {
+
+            return back()->with('success','删除成功');
+        }else{
+
+
+            return back()->with('error','删除失败');
+        }
+    }
+    /**
+     * 删除帖子收藏
+     */
+    public function del2(Request $request)
+    {
+        $data = $request->only('pid','uid');
+        $res = DB::delete('delete from p_collect where uid = :uid and pid = :pid',$data);
+        if ($res) {
+
+            return back()->with('success','删除成功');
+        }else{
+
+
+            return back()->with('error','删除失败');
         }
     }
 }

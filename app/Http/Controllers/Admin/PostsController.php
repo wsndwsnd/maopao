@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Posts;
 use App\Models\Postsinfo;
+use App\Models\Plhf;
+
 use DB;
 use  App\Http\Controllers\Admin\CateController;
 class PostsController extends Controller
@@ -238,5 +240,25 @@ class PostsController extends Controller
                 //删除失败
                 echo 2;
             }
+    }
+    public function read(Request $request,$id)
+    {
+        $count = $request -> input('count','');
+        $data = Plhf::where('pid',$id)->paginate($count);
+        $num = Plhf::where('pid',$id)->count('id');
+
+        return view('Admin.posts.read',['data'=>$data,'count'=>$count,'id'=>$id,'num'=>$num]);
+    }
+     /**
+     * 删除评论
+     */
+    public function del($id)
+    {
+        $res = Plhf::destroy($id);
+         if($res){
+            return  back()->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        } 
     }
 }

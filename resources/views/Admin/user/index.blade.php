@@ -28,6 +28,7 @@
                          </form>
                          <a href="/admin/user/{{$v->id}}/edit" class="btn btn-warning">修改</a>
                          <a href="/admin/user/{{$v->id}}" class="btn btn-info" style="width: 80px;">查看详情</a>
+                         <a href="/admin/shoucang/{{$v->id}}" class="btn btn-info" style="width: 80px;">我的收藏</a>
                          
                     </td>
                 </tr>

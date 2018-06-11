@@ -78,6 +78,9 @@
 								<input type="submit" value="删除" class="btn btn-danger" onclick="return confirm('确认要删除吗?')">
 							</form>
 							<a href="/admin/posts/{{ $v->id }}" class="btn btn-info">详情</a>
+                            <a href="/admin/pcomments/{{ $v->id }}" class="btn btn-warning">评论</a>
+							
+
 							@if( $v->attr == 0)
 							<a href="/admin/posts/up/{{$v->id}}" class="btn btn-success">上线</a>
 							@else

@@ -2,11 +2,11 @@
 @section('content')
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
-    	<span><i class="icon-table"></i> 文章评论</span>
+    	<span><i class="icon-table"></i> 帖子评论</span>
     </div>
     <div class="mws-panel-body no-padding">
         <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid">
-		<form action="/admin/comments/{{$id}}" method="get">
+		<form action="/admin/pcomments/{{$id}}" method="get">
         	<div id="DataTables_Table_1_length" class="dataTables_length">
         		<label style="color: white;">显示
         			<select size="1" name="count" aria-controls="DataTables_Table_1">
@@ -51,12 +51,12 @@
 		        @foreach($data as $v)
 		        	<tr class="even " style="border:1px solid #ddd;text-align: center" >
 		                <td class=" ">{{ $v->id }}</td>
-		                <td class=" ">{{ $v->content }}</td>
+		                <td class=" ">{!! $v->content !!}</td>
 		                <td class=" ">{{ $v->users->user_name }}</td>
                         <td class=" ">{{ $v->created_at}}</td>
 		                
 		            	 <td>
-							<a href="/admin/comments/del/{{ $v->id }}" class="btn btn-danger">删除</a>
+							<a href="/admin/pcomments/del/{{ $v->id }}" class="btn btn-danger">删除</a>
 						</td>
 		            </tr>
 		        @endforeach
@@ -67,7 +67,7 @@
 		 	</div>
     	</div>
     	<div class="btn-toolbar">
-		    <a href="/admin/article"><button type="button" class="btn btn-success btn-large" style="width:200px;margin-left: 20px">返 回</button>
+		    <a href="/admin/posts"><button type="button" class="btn btn-success btn-large" style="width:200px;margin-left: 20px">返 回</button>
 		   	</a>
 		</div>
    </div>

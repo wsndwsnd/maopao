@@ -23,5 +23,10 @@ class Posts extends Model
 	    {
 	        return $this->belongsTo('App\Models\Category','cid');
 	    }
+
+	      public function plhfs()
+	    {
+	        return $this->hasMany('App\Models\Plhf','pid');
+	    }
 }
 

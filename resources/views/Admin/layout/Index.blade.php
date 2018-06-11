@@ -29,6 +29,10 @@
 <!-- jQuery-UI Stylesheet -->
 <link rel="stylesheet" type="text/css" href="/d/jui/css/jquery.ui.all.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/d/jui/jquery-ui.custom.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
+    <script src="/layui/layui.all.js" type="text/javascript"></script>
+    <script src="/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/layui/jquery-3.2.1.min.js"></script>
 
 <!-- Theme Stylesheet -->
 <link rel="stylesheet" type="text/css" href="/d/css/mws-theme.css" media="screen">

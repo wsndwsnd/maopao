@@ -6,38 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Posts;
-use App\Models\Category;
-use App\Models\Slide;
-
-use App\Models\Plhf;
-class ReadController extends Controller
+use App\Models\Pcollect;
+class PcollectController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        //帖子内容
-        $data = Posts::where('id',$id)->first();
-         //阅读量
-        $i = $data->post_view;
-        $i +=1;
-        Posts::where('id',$id)->update(['post_view'=>$i]);
-
         
-        $tid = $data->cates->tid;
-        //类别
-        $data1 = Category::where('id',$tid)->first();
-        //热图
-        $data2 = Slide::where('slide_status','3')->get();
-        
-        //评论回复
-        $data3 = Plhf::orderBy('created_at','asc')->get();
-        
-        return view('home.read.index',['data'=>$data,'data1'=>$data1,'data2'=>$data2,'data3'=>$data3]);
     }
 
     /**
@@ -58,7 +37,20 @@ class ReadController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $data = $request->only('pid','uid');
+        $data['created_at'] = date('Y-m-d H:i:s',time());
+        $res1 = Pcollect::where('pid',$data['pid'])->where('uid',$data['uid'])->first();
+        if ($res1) {
+            echo 3;
+            exit;
+        }
+
+        $res = Pcollect::insert($data);
+        if ($res) {
+            echo 1;
+        }else{
+            echo 2;
+        }
     }
 
     /**

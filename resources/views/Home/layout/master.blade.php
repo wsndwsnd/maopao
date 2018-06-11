@@ -301,7 +301,7 @@
                     <span>Portal</span></a>
                 </li>
                 <li class="xnv_2" id="mn_forum" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})">
-                  <a href="/home/luntan" hidefocus="true" title="BBS">分类
+                  <a href="/home/luntan" hidefocus="true" title="BBS">论坛
                     <span>BBS</span></a>
                 </li>
                 <li class="xnv_3" id="mn_forum_10">

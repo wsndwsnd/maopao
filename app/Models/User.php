@@ -19,4 +19,21 @@ class User extends Model
     {
     	return $this->hasMany('App\Models\Posts','uid');
     }
+     //关连文章表 一对多
+    public function userarticles()
+    {
+        return $this->hasMany('App\Models\Articles','uid');
+    }
+
+    //收藏文章  多对多
+    public function acollects()
+    {
+        return $this->belongsToMany('App\Models\Articles','a_collect','uid','aid');
+    }
+    //收藏帖子
+    public function pcollects()
+    {
+        return $this->belongsToMany('App\Models\Posts','p_collect','uid','pid');
+
+    }
 }
