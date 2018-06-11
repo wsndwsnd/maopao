@@ -11,6 +11,7 @@ use App\Models\Userinfo;
 use DB;
 use App\Http\Controllers\CodeController;
 use App\Models\Posts;
+use App\Models\Articles;
 use Hash;
 class UserController extends Controller
 {
@@ -21,8 +22,13 @@ class UserController extends Controller
      */
     public function index()
     {   
+        //用户信息
         $data = User::find(session('user_id'));
-        return view('Home.user.index',['data'=>$data]);
+        //用户发的贴子
+        $user_posts = Posts::where('uid',session('user_id'))->get();
+        //用户发的文章
+        $user_article = Articles::where('uid',session('user_id'))->get(); 
+        return view('Home.user.index',['data'=>$data,'user_posts'=>$user_posts,'user_article'=>$user_article]);
     }
 
     /**
@@ -103,7 +109,7 @@ class UserController extends Controller
     {
          DB::beginTransaction();
          $data1 = $request -> only('user_email');
-        $data2 = $request -> only('age','sex','birthday','user_tel');
+        $data2 = $request -> only('age','sex','user_tel');
         // dump($data1);dump($data2);
         $res1 = User::where('id',$id)->update($data1);
         $res2 = Userinfo::where('user_id',$id)->update($data2);
@@ -177,9 +183,9 @@ class UserController extends Controller
      * 我发的帖子
      *   
      */
-    public function posts($id)
-    {
-        $data = Posts::where('uid',$id)->get();
-        return view('Home.user.posts',['data'=>$data]);
-    }
+    // public function posts($id)
+    // {
+    //     $data = Posts::where('uid',$id)->get();
+    //     return view('Home.user.posts',['data'=>$data]);
+    // }
 }

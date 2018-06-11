@@ -12,11 +12,10 @@ class LinkController extends Controller
     /**
      * 注册友情链接
      *
-     * @return \Illuminate\Http\Response
+     * @return 注册页面
      */
     public function index()
     {
-        //
         return view('Home.link.index');
     }
 }

@@ -87,7 +87,6 @@ class ZixunController extends Controller
             $article -> article_img = $name;
             $pic -> move($dir_name,$filename);
         }
-        
 
 
         $article -> article_title = $request ->input('article_title','');

@@ -19,7 +19,7 @@ class PblController extends Controller
     public function index()
     {
         
-        $data = Articles::take(6)->get();
+        $data = Articles::take(6)->orderBy('id','desc')->get();
         return view('Home.pbl.index',['data'=>$data]);
     }
 
@@ -35,7 +35,7 @@ class PblController extends Controller
         //跳过的条数
         $start = ($p - 1) * $num;
         //拼接原生语句
-        $data = DB::select("select * from Article limit $start,$num");
+        $data = DB::select("select * from Article order by id desc limit $start,$num");
         echo json_encode($data);
     }
     /**

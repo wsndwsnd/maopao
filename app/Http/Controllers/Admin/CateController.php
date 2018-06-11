@@ -13,7 +13,6 @@ use App\Models\Posts;
 
 
 
-
 class CateController extends Controller
 {
     /**
@@ -23,7 +22,7 @@ class CateController extends Controller
      */
     public static function getPidCates($tid=0)
     {
-        $data = Cates::where('tid',$tid)->get();
+        $data = Category::where('tid',$tid)->get();
         $arr = [];
         foreach($data as $key => $value){
             $value['sub'] = self::getPidCates($value->id);

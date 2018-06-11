@@ -225,6 +225,7 @@ class PostsController extends Controller
 
     }
 
+    //ajax 删除
     public function ajaxdel(Request $request,$id)
     {
         DB::beginTransaction();

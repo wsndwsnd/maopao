@@ -65,19 +65,19 @@ go();
                                          <tbody id="normalthread_99">
                                            <tr style="font-size: 12px;">
                                             <td class="icn">
-                                              <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
+                                              <a href="/home/read/{{$v->id}}" title="投票 - 新窗口打开" target="_blank">
                                                 <img src="/Home/images/pollsmall.gif" alt="投票">
                                               </a>
                                             </td>
                                             <th class="common">
-                                             <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" target="_blank" class="xst">[热门]{{$v -> posts_title}}</a></th>
+                                             <a href="/home/read/{{$v->id}}" target="_blank" class="xst">[热门]{{$v -> posts_title}}</a></th>
                                             <td class="by" ><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                                             <td class="by" style="width: 120px;">
                                             <cite>
-                                            <a href="home.php?mod=space&amp;uid=1" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                                            <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                                             <em><span>{{$v -> created_at}}</span></em>
                                             </td>
-                                            <td class="num"><a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                                            <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
                                            
                                           </tr>
                                           </tbody>
@@ -109,19 +109,19 @@ go();
                                          <tbody id="normalthread_99">
                                            <tr style="font-size: 12px;">
                                             <td class="icn">
-                                              <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
+                                              <a href="/home/read/{{$v->id}}" title="投票 - 新窗口打开" target="_blank">
                                                 <img src="/Home/images/pollsmall.gif" alt="投票">
                                               </a>
                                             </td>
                                             <th class="common">
-                                             <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" target="_blank" class="xst">[精品]{{$v -> posts_title}}</a></th>
-                                            <td class="by" ><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                                             <a href="/home/read/{{$v->id}}" target="_blank" class="xst">[精品]{{$v -> posts_title}}</a></th>
+                                            <td class="by" ><a href="/home/read/{{$v->id}}" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                                             <td class="by" style="width: 120px;">
                                             <cite>
-                                            <a href="home.php?mod=space&amp;uid=1" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                                            <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                                             <em><span>{{$v -> created_at}}</span></em>
                                             </td>
-                                            <td class="num"><a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                                            <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
                                            
                                           </tr>
                                           </tbody>
@@ -153,19 +153,19 @@ go();
                                  <tbody id="normalthread_99">
                                    <tr style="font-size: 12px;">
                                     <td class="icn">
-                                      <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
+                                      <a href="/home/read/{{$v->id}}" title="投票 - 新窗口打开" target="_blank">
                                         <img src="/Home/images/pollsmall.gif" alt="投票">
                                       </a>
                                     </td>
                                     <th class="common">
-                                     <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" target="_blank" class="xst">[置顶]{{$v -> posts_title}}</a></th>
-                                    <td class="by" ><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                                     <a href="/home/read/{{$v->id}}" target="_blank" class="xst">[置顶]{{$v -> posts_title}}</a></th>
+                                    <td class="by" ><a href="/home/read/{{$v->id}}" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                                     <td class="by" style="width: 120px;">
                                     <cite>
-                                    <a href="home.php?mod=space&amp;uid=1" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                                    <a href="/home/read/{{$v->id}}">{{$v -> users -> user_name}}</a></cite>
                                     <em><span>{{$v -> created_at}}</span></em>
                                     </td>
-                                    <td class="num"><a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                                    <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
                                    
                                   </tr>
                                   </tbody>
@@ -197,19 +197,19 @@ go();
                                  <tbody id="normalthread_99">
                                    <tr style="font-size: 12px;">
                                     <td class="icn">
-                                      <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
+                                      <a href="/home/read/{{$v->id}}" title="投票 - 新窗口打开" target="_blank">
                                         <img src="/Home/images/pollsmall.gif" alt="投票">
                                       </a>
                                     </td>
                                     <th class="common">
-                                     <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" target="_blank" class="xst">[普通贴]{{$v -> posts_title}}</a></th>
+                                     <a href="/home/read/{{$v->id}}" target="_blank" class="xst">[普通贴]{{$v -> posts_title}}</a></th>
                                     <td class="by" ><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                                     <td class="by" style="width: 120px;">
                                     <cite>
-                                    <a href="home.php?mod=space&amp;uid=1" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                                    <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                                     <em><span>{{$v -> created_at}}</span></em>
                                     </td>
-                                    <td class="num"><a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                                    <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
                                    
                                   </tr>
                                   </tbody>

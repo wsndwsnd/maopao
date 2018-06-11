@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Notices;
 use App\Models\Link;
 use App\Models\Articles;
+use App\Models\Posts;
 class HomeController extends Controller
 {
     /**
@@ -18,11 +19,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //
-        $article = Articles::orderBy('id','desc')->get();
+        //文章
+        $article = Articles::take(6)->orderBy('id','desc')->get();
         $link = Link::where('status','<','3')->get();
         $notice = Notices::paginate(5);
-        return view('Home.index',['notice'=>$notice,'link'=>$link,'article'=>$article]);
+        //最新发帖
+        $poststime = Posts::take(5)->orderBy('created_at','desc')->get();
+        return view('Home.index',['notice'=>$notice,'link'=>$link,'article'=>$article,'poststime'=>$poststime]);
     }
 
     /**

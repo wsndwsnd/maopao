@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Site extends Model
 {
     //
-    public $table = 'site';
+    public $table = 'site_config';
 }

@@ -204,56 +204,30 @@
                 <div id="framezfmucD_right_temp" class="move-span temp"></div>
                 <div id="portal_block_65" class="syzxft block move-span">
                   <div class="blocktitle title">
-                    <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">最新发帖</span></div>
+                    <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">最新发帖</span>
+                  </div>
+
+                  <!-- 最新发帖 -->
                   <div id="portal_block_65_content" class="dxb_bc">
                     <div class="module cl xld xlda">
+                      @foreach($poststime as $v)
                       <dl class="cl">
                         <dd class="m">
-                          <a href="home.php?mod=space&uid=12" c="1" target="_blank">
-                            <img src="/Home/picture/avatar.php" width="52" height="52" alt="fff" /></a>
+                          <a href="/home/read/{{$v->id}}" c="1" target="_blank">
+                            <img src="{{$v->users->img}}" width="52" height="52" alt="fff" />
+                          </a>
                         </dd>
                         <dt style="padding-bottom: 0;">
-                          <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank">发帖测试</a></dt>
+                          <a href="/home/read/{{$v->id}}" title="发帖测试" target="_blank">{{$v->posts_title}}</a>
+                        </dt>
                         <dd style="margin-bottom: 0;">
-                          <a href="home.php?mod=space&uid=12" target="_blank">fff</a>&#160;&#160;&#160;&#160;2018-04-25 17:26</dd></dl>
-                      <dl class="cl">
-                        <dd class="m">
-                          <a href="home.php?mod=space&uid=1" c="1" target="_blank">
-                            <img src="/Home/picture/avatar.php" width="52" height="52" alt="admin" /></a>
+                         {{$v->created_at}}
                         </dd>
-                        <dt style="padding-bottom: 0;">
-                          <a href="forum.php?mod=viewthread&tid=95" title="【加田小店】新锐创想轻主题模板活动演示帖[广州市]" target="_blank">【加田小店】新锐创想轻主题模板活动演示帖</a></dt>
-                        <dd style="margin-bottom: 0;">
-                          <a href="home.php?mod=space&uid=1" target="_blank">admin</a>&#160;&#160;&#160;&#160;2017-04-27 23:14</dd></dl>
-                      <dl class="cl">
-                        <dd class="m">
-                          <a href="home.php?mod=space&uid=1" c="1" target="_blank">
-                            <img src="/Home/picture/avatar.php" width="52" height="52" alt="admin" /></a>
-                        </dd>
-                        <dt style="padding-bottom: 0;">
-                          <a href="forum.php?mod=viewthread&tid=32" title="迷人的大光圈 教你使用焦外的正确时机" target="_blank">迷人的大光圈 教你使用焦外的正确时机</a></dt>
-                        <dd style="margin-bottom: 0;">
-                          <a href="home.php?mod=space&uid=1" target="_blank">admin</a>&#160;&#160;&#160;&#160;2016-04-21 20:28</dd></dl>
-                      <dl class="cl">
-                        <dd class="m">
-                          <a href="home.php?mod=space&uid=1" c="1" target="_blank">
-                            <img src="/Home/picture/avatar.php" width="52" height="52" alt="admin" /></a>
-                        </dd>
-                        <dt style="padding-bottom: 0;">
-                          <a href="forum.php?mod=viewthread&tid=46" title="给孩子吃这些有助长高" target="_blank">给孩子吃这些有助长高</a></dt>
-                        <dd style="margin-bottom: 0;">
-                          <a href="home.php?mod=space&uid=1" target="_blank">admin</a>&#160;&#160;&#160;&#160;2016-04-23 11:48</dd></dl>
-                      <dl class="cl">
-                        <dd class="m">
-                          <a href="home.php?mod=space&uid=1" c="1" target="_blank">
-                            <img src="/Home/picture/avatar.php" width="52" height="52" alt="admin" /></a>
-                        </dd>
-                        <dt style="padding-bottom: 0;">
-                          <a href="forum.php?mod=viewthread&tid=87" title="家居别墅专业装修设计" target="_blank">家居别墅专业装修设计</a></dt>
-                        <dd style="margin-bottom: 0;">
-                          <a href="home.php?mod=space&uid=1" target="_blank">admin</a>&#160;&#160;&#160;&#160;2016-04-28 14:56</dd></dl>
+                      </dl>
+                     @endforeach
                     </div>
                   </div>
+                  <!-- 最新发帖结束 -->
                 </div>
               </div>
             </div>
@@ -308,13 +282,13 @@
                         @endforeach
                          
 
-
-                          <div class="btn">
+                        <!-- 上下页 -->
+                         <!--  <div class="btn">
                               <div class="slidebarup">
                                   <a href="javascript:void(0);" mevent="click">上一页</a></div>
                               <div class="slidebardown">
                                   <a href="javascript:void(0);" mevent="click">下一页</a></div>
-                          </div>
+                          </div> -->
                       </div>
                       <script type="text/javascript">runslideshow();</script></div>
                 </div>

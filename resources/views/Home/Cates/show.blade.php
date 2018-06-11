@@ -46,6 +46,8 @@
               </div>
               <div class="cenbor">
                 
+
+                
                 <div id="threadlist" class="tl bm bmw" style="position: relative;">
                   <div class="th">
                     <table cellspacing="0" cellpadding="0">
@@ -136,6 +138,8 @@
                       <!-- end of table "forum_G[fid]" branch 1/3 --></form>
                   </div>
                 </div>
+
+
                 <div id="filter_special_menu" class="p_pop" style="display:none" change="location.href='forum.php?mod=forumdisplay&fid=2&filter='+$('filter_special').value">
                   <ul>
                     <li>

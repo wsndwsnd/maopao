@@ -13,7 +13,6 @@
 
 
 
-
 //验证码
 Route::get('/code','CodeController@index');
 Route::get('/check','CodeController@check');
@@ -30,7 +29,8 @@ Route::get('/admin/logout','Admin\LoginController@logout');
 
 //网站配置管理
 Route::get('/admin/site','Admin\SiteController@index');
-
+Route::get('/admin/site/edit/{id}','Admin\SiteController@edit');
+Route::post('/admin/site/update/{id}','Admin\SiteController@update');
 
 //后台用户管理
 Route::resource('/admin/user','Admin\UserController');
@@ -47,8 +47,6 @@ Route::resource('/admin/notice','Admin\NoticeController');
 //轮播图
 Route::resource('/admin/slide','Admin\SlideController');
 
-//前台论坛
-Route::resource('/home/luntan','Home\LuntanController');
 
 //公告发布 
 Route::get('/admin/notice/up/{id}','Admin\NoticeController@up');
@@ -64,10 +62,11 @@ Route::resource('/admin/power','Admin\PowerController');
 Route::get('/admin/posts/uplabel/{id}','Admin\PostsController@uplabel');
 //ajax删除
 Route::get('/admin/postsdel/{id}','Admin\PostsController@ajaxdel');
+
 Route::resource('/admin/posts','Admin\PostsController');
-//后台文章查看评论路由
+//后台帖子查看评论路由
 Route::get('/admin/pcomments/{id}','Admin\PostsController@read');
-//后台文章删除评论
+//后台帖子删除评论
 Route::get('/admin/pcomments/del/{id}','Admin\PostsController@del');
 //上线
 Route::get('/admin/posts/up/{id}','Admin\PostsController@up');
@@ -76,15 +75,15 @@ Route::get('/admin/posts/down/{id}','Admin\PostsController@down');
 
 Route::post('/admin/posts/sq','Admin\PostsController@sq');
 Route::get('/admin/postssqlb','Admin\PostsController@sqlb');
-
+Route::resource('/admin/posts','Admin\PostsController');
 
 
 //后台友情链接
-Route::resource('/admin/link','Admin\LinkController');
 Route::post('/admin/link/audit','Admin\LinkController@audit');
 Route::get('/admin/links/auditindex','Admin\LinkController@auditindex');
 Route::get('/admin/link/up/{id}','Admin\LinkController@up');
 Route::get('/admin/link/down/{id}','Admin\LinkController@down');
+Route::resource('/admin/link','Admin\LinkController');
 
 //后台帖子类别
 Route::resource('/admin/cate','Admin\CateController');
@@ -99,6 +98,8 @@ Route::get('/admin/comments/del/{id}','Admin\ArticleController@del');
 //文章发布-待审路由
 Route::get('/admin/article/up/{id}','Admin\ArticleController@up');
 Route::get('/admin/article/down/{id}','Admin\ArticleController@down');
+//ajax 删除文章
+Route::get('/admin/articleajax/{id}','Admin\ArticleController@ajaxdel');
 
 
 
@@ -129,6 +130,7 @@ Route::post('/register/ajax1','Home\RegisterController@ajax1');
 Route::post('/register/ajax','Home\RegisterController@ajax');
 Route::resource('/register','Home\RegisterController');
 
+
 //前台用户
 Route::resource('/user','Home\UserController');
 Route::get('/userposts/{id}','Home\UserController@posts');
@@ -150,6 +152,9 @@ Route::get('/pcomment/del/{id}','Home\PcommentController@del');
 Route::get('/preply/del/{id}','Home\ReplyController@del');
 //帖子收藏
 Route::resource('/pcollect','Home\PcollectController');
+
+//前台论坛
+Route::resource('/home/luntan','Home\LuntanController');
 
 //前台资讯  文章列表
 Route::resource('/zixun','Home\ZixunController');
@@ -174,3 +179,9 @@ Route::resource('/daodu','Home\DaoduController');
 //瀑布流
 Route::get('/pbl','Home\PblController@index');
 Route::get('/pbl/ajax','Home\PblController@ajax');
+
+
+
+
+//全局搜索
+Route::get('/home/seek','Home\SeekController@index');
