@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Posts;
 use App\Models\Slide;
+use App\Models\Postsinfo;
 
 class LuntanController extends Controller
 {
@@ -43,7 +44,7 @@ class LuntanController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -54,7 +55,24 @@ class LuntanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $patt = "/\d+/";
+        $str = $request->input('id');
+        preg_match_all($patt,$str,$newstr);
+        $cid = $newstr[0][0];
+
+        $data['cid'] = $cid;
+        $data['uid'] = 21;
+        $data['posts_title'] = $request->input('title');
+
+        $res = Posts::insertGetId($data);
+        $data2['tid'] = $res;
+        $data2['content'] = $request->input('content');
+        $res2 = Postsinfo::insert($data2);
+        if($res2){
+            return redirect('home/luntan/'.$cid);
+        }else{
+            return redirect('home/luntan/'.$cid);
+        }
     }
 
     /**

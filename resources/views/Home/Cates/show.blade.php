@@ -248,93 +248,32 @@
             var postmaxchars = parseInt('10000');
             var disablepostctrl = parseInt('0');
             var fid = parseInt('2');</script>
+<!--快速发帖开始-->
+        <form action="/home/luntan" method="post">
+            {{ csrf_field() }}
           <div id="f_pst" class="bm">
             <div class="bm_h">
               <h2>快速发帖</h2></div>
             <div class="bm_c">
-              <form method="post" autocomplete="off" id="fastpostform" action="forum.php?mod=post&amp;action=newthread&amp;fid=2&amp;topicsubmit=yes&amp;infloat=yes&amp;handlekey=fastnewpost" onSubmit="return fastpostvalidate(this)">
-                <div id="fastpostreturn" style="margin:-5px 0 5px"></div>
-                <div class="pbt cl">
-                  <div class="ftid">
-                    <select name="typeid" id="typeid_fast" width="80">
-                      <option value="0" selected="selected">选择主题分类</option>
-                      <option value="3">粤菜</option>
-                      <option value="4">川菜</option>
-                      <option value="5">湘菜</option>
-                      <option value="6">鲁菜</option>
-                      <option value="7">苏菜</option>
-                      <option value="8">浙菜</option>
-                      <option value="9">闽菜</option>
-                      <option value="10">徽菜</option></select>
-                  </div>
+              <div class="pbt cl">
+                <script type="text/javascript" reload="1">simulateSelect('typeid_fast');</script>
+                标题：&nbsp;&nbsp;<input type="text" id="subject" name="title" class="px" value="" onkeyup="strLenCalc(this, 'checklen', 80);" tabindex="11" style="width: 25em">
+                <span>还可输入 <strong id="checklen">80</strong> 个字符</span>
+              </div>
+              <input type="hidden" name="id" value="{{ URL::current() }}">
+              <script id="container" name="content" type="text/plain" style="height:200px;
+
+              ">
                   
-                  <input type="text" id="subject" name="subject" class="px" value="" onkeyup="strLenCalc(this, 'checklen', 80);" tabindex="11" style="width: 25em" />
-                  <span>还可输入
-                    <strong id="checklen">80</strong>个字符</span></div>
-                <div class="cl">
-                  <div id="fastsmiliesdiv" class="y">
-                    <div id="fastsmiliesdiv_data">
-                      <div id="fastsmilies"></div>
-                    </div>
-                  </div>
-                  <div class="hasfsl" id="fastposteditor">
-                    <div class="tedt">
-                      <div class="bar">
-                        <span class="y">
-                          <a href="/home/forum.php?mod=post&amp;action=newthread&amp;fid=2" onclick="switchAdvanceMode(this.href);doane(event);">高级模式</a></span>
-                        <script src="/home/js/seditor.js" type="text/javascript"></script>
-                        <div class="fpd">
-                          <a href="/home/javascript:;" title="文字加粗" class="fbld" onclick="seditor_insertunit('fastpost', '[b]', '[/b]');doane(event);">B</a>
-                          <a href="/home/javascript:;" title="设置文字颜色" class="fclr" id="fastpostforecolor" onclick="showColorBox(this.id, 2, 'fastpost');doane(event);">Color</a>
-                          <a id="fastpostimg" href="/home/javascript:;" title="图片" class="fmg" onclick="seditor_menu('fastpost', 'img');doane(event);">Image</a>
-                          <a id="fastposturl" href="/home/javascript:;" title="添加链接" class="flnk" onclick="seditor_menu('fastpost', 'url');doane(event);">Link</a>
-                          <a id="fastpostquote" href="/home/javascript:;" title="引用" class="fqt" onclick="seditor_menu('fastpost', 'quote');doane(event);">Quote</a>
-                          <a id="fastpostcode" href="/home/javascript:;" title="代码" class="fcd" onclick="seditor_menu('fastpost', 'code');doane(event);">Code</a>
-                          <a href="/home/javascript:;" class="fsml" id="fastpostsml" onclick="showMenu({'ctrlid':this.id,'evt':'click','layer':2});return false;">Smilies</a>
-                          
-                          <span class="pipe z">|</span>
-                          <span id="spanButtonPlaceholder">上传</span></div>
-                      </div>
-                      <div class="area">
-                        <textarea rows="6" cols="80" name="message" id="fastpostmessage" onKeyDown="seditor_ctlent(event, '$(\'fastpostsubmit\').click()');" tabindex="12" class="pt"></textarea>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="seccheck_fastpost">
-                    <div class="mtm">
-                      <span id="seccode_cSzhQbYN"></span>
-                      </div>
-                  </div>
-                  <input type="hidden" name="formhash" value="316f8b52" />
-                  <input type="hidden" name="usesig" value="1" /></div>
-                <script type="text/javascript">var editorid = '';
-                  var ATTACHNUM = {
-                    'imageused': 0,
-                    'imageunused': 0,
-                    'attachused': 0,
-                    'attachunused': 0
-                  },
-                  ATTACHUNUSEDAID = new Array(),
-                  IMGUNUSEDAID = new Array();</script>
-                <input type="hidden" name="posttime" id="posttime" value="1527320867" />
-                <div class="upfl hasfsl">
-                  <table cellpadding="0" cellspacing="0" border="0" width="100%" id="attach_tblheader" style="display: none">
-                    <tr>
-                      <td>点击附件文件名添加到帖子内容中</td>
-                      <td class="atds">描述</td>
-                      <td class="attc"></td>
-                    </tr>
-                  </table>
-                  <div class="fieldset flash" id="attachlist"></div>
-                </div>
-                <p class="ptm pnpost">
-                  <a href="/home/home.php?mod=spacecp&amp;ac=credit&amp;op=rule&amp;fid=2" class="y" target="_blank">本版积分规则</a>
-                  <button type="submit" name="topicsubmit" id="fastpostsubmit" value="topicsubmit" tabindex="13" class="pn pnc">
-                    <strong>发表帖子</strong></button>
-                </p>
-              </form>
+              </script>
+            <p class="ptm pnpost">
+              <button type="submit" name="topicsubmit" id="fastpostsubmit" value="topicsubmit" tabindex="13" class="pn pnc"><strong>发表帖子</strong></button>
+            </p>  
             </div>
+            
           </div>
+        </form>
+<!--快速发帖结束-->
         </div>
         <ul class="p_pop" id="newspecial_menu" style="display: none">
           <li>
@@ -351,6 +290,19 @@
       
     </div>
     <!--bottombg结束-->
-    
+    <!-- 配置文件 -->
+              <script type="text/javascript" src="/utf8-php/ueditor.config.js"></script>
+              <!-- 编辑器源码文件 -->
+              <script type="text/javascript" src="/utf8-php/ueditor.all.js"></script>
+              <!-- 实例化编辑器 -->
+              <script type="text/javascript">
+                  var ue = UE.getEditor('container',{
+                    toolbars: [
+                                [
+                                   'fullscreen','undo', 'redo', 'bold','simpleupload','insertimage','italic','forecolor','backcolor','edittip'
+                                ]
+                            ]
+                  });
+              </script>
 
 @endsection

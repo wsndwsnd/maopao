@@ -194,7 +194,7 @@
         </div>
             <div class="mn" style="width:880px;padding: 0px;">
                 <div class="fl bm">
-                    @foreach($data as $value)
+@foreach($data as $value)
     <div class="bm bmw  flg cl"> 
         <div class="bm_h cl bkh1"> 
          <span class="o"> <img id="category_1_img" src="/home/picture/collapsed_no.gif" title="收起/展开" alt="收起/展开" onclick="toggle_collapse('category_1');" /> </span> 
