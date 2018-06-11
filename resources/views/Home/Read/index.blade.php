@@ -79,13 +79,7 @@
      </div> 
     </div> 
     <div id="ct" class="wp cl"> 
-     <div id="pgta" class="pgs mbm cl "> 
-      <div class="pgt"></div> 
-      <span class="y pgb"><a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;page=1">返回</a></span> 
-      <div class="fatie">
-       <a id="newspecial" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&amp;action=newthread&amp;fid=2')" href="/home/javascript:;" title="发新帖">发新贴</a>
-      </div>
-     </div> 
+     
      <div id="postlist" class="pl bm"> 
       <table cellspacing="0" cellpadding="0" class="aabbdd"> 
        <tbody>

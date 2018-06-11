@@ -55,12 +55,9 @@ class PostsController extends Controller
         $res2 = Postsinfo::insert($data2);
         if($res1 && $res2){
             DB::commit();
-<<<<<<< HEAD
-            
-            return redirect("/posts/$res1")->with('success','成功发表');
-=======
-            return redirect("/home/read/$res1")->with('success','成功发表');
->>>>>>> 2e476bb6ff9b6e766369a5185ed8e2042e6cba2d
+
+           return redirect("/home/read/$res1")->with('success','成功发表');
+
         }else{
             DB::rollBack();
             return back()->with('error','发布失败');

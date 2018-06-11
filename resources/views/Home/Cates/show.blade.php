@@ -28,27 +28,21 @@
               <div class="orde">
                 <div class="lslsls">
                   
-                  <div class="bkright">
-                    <div class="fbtiez">
-                      <a href="/home/javascript:;" id="newspecial" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&action=newthread&fid=2')" title="发新帖">
-                        <i class="bbjj"></i>
-                        <span>发表帖子</span></a>
-                    </div>
-                    <!-- <div class="qiandao"><a onclick="showWindow('nav', this.href, 'get', 0)" href="/home/plugin.php?id=dsu_paulsign:sign"><i class="qqdd"></i><span>点击签到</span></a></div> -->
-                    <!--[diy=diybkbkbkbk]-->
-                    <div id="diybkbkbkbk" class="area"></div>
-                    <!--[/diy]--></div>
+                  
                 </div>
                 <div class="drag">
                   <!--[diy=diy4]-->
                   <div id="diy4" class="area"></div>
                   <!--[/diy]--></div>
+
               </div>
+
               <div class="cenbor">
                 
 
                 
                 <div id="threadlist" class="tl bm bmw" style="position: relative;">
+                  
                   <div class="th">
                     <table cellspacing="0" cellpadding="0">
                       <tr>
