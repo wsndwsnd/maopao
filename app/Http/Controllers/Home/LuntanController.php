@@ -61,17 +61,17 @@ class LuntanController extends Controller
         $cid = $newstr[0][0];
 
         $data['cid'] = $cid;
-        $data['uid'] = 21;
+        $data['uid'] = session('user_id');
         $data['posts_title'] = $request->input('title');
-
+        $data['created_at'] = date('Y-m-d H:i:s',time());
         $res = Posts::insertGetId($data);
         $data2['tid'] = $res;
         $data2['content'] = $request->input('content');
         $res2 = Postsinfo::insert($data2);
         if($res2){
-            return redirect('home/luntan/'.$cid);
+            return redirect('home/luntan/'.$cid)->with('success','发表成功');
         }else{
-            return redirect('home/luntan/'.$cid);
+            return redirect('home/luntan/'.$cid)->with('error','发表失败');
         }
     }
 

@@ -62,7 +62,7 @@
 		                
 		               
 		                <td class=" "> @if(isset($v->users)){{ $v->users->user_name }} @endif  </td>
-		                <td class=" ">@if(isset($v->postsinfo)){{ $v->postsinfo->count }} @endif</td>
+		                <td class=" ">{{ $v->post_view }} </td>
 
 		                <td class=" ">{{ $v->created_at}}</td>
 		                @if( $v->attr == 0)

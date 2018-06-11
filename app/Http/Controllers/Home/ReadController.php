@@ -35,7 +35,7 @@ class ReadController extends Controller
         $data2 = Slide::where('slide_status','3')->get();
         
         //评论回复
-        $data3 = Plhf::orderBy('created_at','asc')->get();
+        $data3 = Plhf::where('pid',$id)->orderBy('created_at','asc')->get();
         
         return view('home.read.index',['data'=>$data,'data1'=>$data1,'data2'=>$data2,'data3'=>$data3]);
     }
