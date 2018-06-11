@@ -67,6 +67,8 @@
                                                         公告201701
                                                     </a>
                                                 </span>
+
+
                                                 <em>
                                                     (2017-12-25)
                                                 </em>
@@ -217,7 +219,7 @@
               <!--帖子标题开始-->
               
               <dd class="zyzy"> 
-               <a href="forum.php?mod=redirect&amp;tid=8&amp;goto=lastpost#lastpost" class="xi2">
+               <a href="/home/read/{{$val->posts[0]->id}}" class="xi2">
                 
                 {{$val->posts[0]->posts_title}}
                 
