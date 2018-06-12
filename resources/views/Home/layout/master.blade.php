@@ -208,7 +208,7 @@
 
               </script>
           @else
-              <a id="user_dl" href="/user/create">登录</a>
+              <a id="user_dl" href="/home/login">登录</a>
               <a href="/register">注册</a>
            @endif
         </div>

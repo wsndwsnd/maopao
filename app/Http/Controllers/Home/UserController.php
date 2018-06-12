@@ -28,22 +28,26 @@ class UserController extends Controller
         $user_posts = Posts::where('uid',session('user_id'))->get();
         //用户发的文章
         $user_article = Articles::where('uid',session('user_id'))->get(); 
-        return view('Home.user.index',['data'=>$data,'user_posts'=>$user_posts,'user_article'=>$user_article]);
+        //用户收藏的文章
+        $user_acollects = $data -> acollects;
+        //用户收藏的帖子
+        $user_pcollects = $data -> pcollects;
+
+        return view('Home.user.index',['data'=>$data,'user_posts'=>$user_posts,'user_article'=>$user_article,'user_acollects'=>$user_acollects,'user_pcollects'=>$user_pcollects]);
     }
 
     /**
-     * 登录页面
+     * 
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
         //
-        return view('Home.user.create');
     }
 
     /**
-     * 验证登录
+     * 
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -52,24 +56,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
-        $res = CodeController::check($request -> input('code'));
-        if(!$res){
-            return back()->with('error','验证码错误');
-        }
-        //获取信息
-        $user_name = $request -> user_name;
-        $password = $request -> password;
-        $user = User::where('user_name',$user_name)->first();
-        if($user && Hash::check($password,$user->user_password)){
-             //把用户数据保存到session
-
-            session(['user_name'=>$user->user_name,'user_id'=>$user->id,'user_img'=>$user->img,'user_token'=>$user->token]);
-
-            // dd(session('user_img'));
-            return redirect('/');
-        }else{
-             return back()->with('error','用户或密码错误');
-        }
+        
     }
            
 
@@ -101,9 +88,9 @@ class UserController extends Controller
     /**
      * 执行修改
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  修改信息
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return 个人中心
      */
     public function update(Request $request, $id)
     {
@@ -127,7 +114,7 @@ class UserController extends Controller
      * 退出
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return 首页
      */
     public function destroy($id)
     {
@@ -178,14 +165,4 @@ class UserController extends Controller
         //处理返回值
         echo json_encode($arr);
     }
-
-    /**
-     * 我发的帖子
-     *   
-     */
-    // public function posts($id)
-    // {
-    //     $data = Posts::where('uid',$id)->get();
-    //     return view('Home.user.posts',['data'=>$data]);
-    // }
 }

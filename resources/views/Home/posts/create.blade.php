@@ -1,5 +1,5 @@
-@extends('Home.layout.master')
-@section('sidebar')
+@extends('home.layout.master')
+@section('sidebar') 
 <!-- 配置文件 -->
     <script type="text/javascript" src="/utf8-php/ueditor.config.js"></script>
     <!-- 编辑器源码文件 -->
@@ -60,7 +60,9 @@ var pwlength = 6;
          <select size="1" name="cid" class="form-control" >
             <option value="0" >选择类别</option>
             @foreach($data as $v)
-            <option value="{{$v->id}}">{{$v->title}}</option>
+              @foreach($v->sub as $vv)
+              <option value="{{$vv->id}}">{{$vv->title}}</option>
+              @endforeach
             @endforeach
         </select>
   </td>       
@@ -175,4 +177,4 @@ var pwlength = 6;
               
           });
     </script>
-@stop
+@endsection
