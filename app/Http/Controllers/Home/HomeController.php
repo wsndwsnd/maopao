@@ -22,7 +22,7 @@ class HomeController extends Controller
         //文章
         $article = Articles::take(6)->orderBy('id','desc')->get();
         $link = Link::where('status','<','3')->get();
-        $notice = Notices::paginate(5);
+        $notice = Notices::where('notice_status',1)->paginate(5);
         //最新发帖
         $poststime = Posts::take(5)->orderBy('created_at','desc')->get();
         return view('Home.index',['notice'=>$notice,'link'=>$link,'article'=>$article,'poststime'=>$poststime]);

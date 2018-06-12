@@ -152,6 +152,10 @@ Route::get('/pcomment/del/{id}','Home\PcommentController@del');
 Route::get('/preply/del/{id}','Home\ReplyController@del');
 //帖子收藏
 Route::resource('/pcollect','Home\PcollectController');
+//顶一下
+Route::get('/ding/{id}','Home\ReadController@ding');
+//踩一下
+Route::get('/cai/{id}','Home\ReadController@cai');
 
 //前台论坛
 Route::resource('/home/luntan','Home\LuntanController');

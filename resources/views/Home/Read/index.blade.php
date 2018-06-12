@@ -93,11 +93,7 @@
            <span class="xi1">{{ $data->plhfs->count() }}</span> 
           </div> </td> 
          <td class="plc ptm pbn vwthd sdad"> 
-          <div class="y"> 
-           <a href="/home/forum.php?mod=viewthread&amp;action=printable&amp;tid=7" title="打印" target="_blank"><img src="/home/picture/print.png" alt="打印" class="vm" /></a> 
-           <a href="/home/forum.php?mod=redirect&amp;goto=nextoldset&amp;tid=7" title="上一主题"><img src="/home/picture/thread-prev.png" alt="上一主题" class="vm" /></a> 
-           <a href="/home/forum.php?mod=redirect&amp;goto=nextnewset&amp;tid=7" title="下一主题"><img src="/home/picture/thread-next.png" alt="下一主题" class="vm" /></a> 
-          </div> <h1 class="ts"> <span id="thread_subject">{{$data->posts_title}}</span> </h1> </td> 
+           <h1 class="ts"> <span id="thread_subject">{{$data->posts_title}}</span> </h1> </td> 
         </tr> 
        </tbody>
       </table> 
@@ -128,7 +124,7 @@
                 积分
                </dt>
                <dd>
-                <a href="/home/home.php?mod=space&amp;uid=1&amp;do=profile" target="_blank" class="xi2">517</a>
+                <a href="/home/home.php?mod=space&amp;uid=1&amp;do=profile" target="_blank" class="xi2">{{ $data->users->score }}</a>
                </dd> 
               </dl>
               <div class="imicn"> 
@@ -141,7 +137,7 @@
             </div> 
             <div> 
              <div class="avatar" onmouseover="showauthor(this, 'userinfo7')">
-              <a href="/home/home.php?mod=space&amp;uid=1" class="avtm" target="_blank"><img src="{{ $data->users->img }}" /></a>
+              <a href="/home/home.php?mod=space&amp;uid=1" class="avtm" target="_blank"><img src="{{ ltrim($data->users->img,'.') }}" /></a>
              </div> 
             </div> 
             <div class="tns xg2">
@@ -150,7 +146,7 @@
                <tr>
                 <th><p><a href="/home/home.php?mod=space&amp;uid=1&amp;do=thread&amp;type=thread&amp;view=me&amp;from=space" class="xi2">{{ $data->users->userarticles->count() }}</a></p>文章</th>
                 <th><p><a href="/home/home.php?mod=space&amp;uid=1&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" class="xi2">{{ $data->users->userposts->count() }}</a></p>帖子</th>
-                <td><p><a href="/home/home.php?mod=space&amp;uid=1&amp;do=profile" class="xi2">517</a></p>积分</td>
+                <td><p><a href="/home/home.php?mod=space&amp;uid=1&amp;do=profile" class="xi2">{{ $data->users->score }}</a></p>积分</td>
                </tr>
               </tbody>
              </table>
@@ -162,7 +158,7 @@
               积分
              </dt>
              <dd>
-              <a href="/home/home.php?mod=space&amp;uid=1&amp;do=profile" target="_blank" class="xi2">517</a>
+              <a href="/home/home.php?mod=space&amp;uid=1&amp;do=profile" target="_blank" class="xi2">{{ $data->users->score }}</a>
              </dd> 
             </dl> 
             <dl class="pil cl"></dl>
@@ -175,7 +171,7 @@
              </div> 
              <div class="authi"> 
               <img class="authicn vm" id="authicon7" src="/home/picture/online_admin.gif" /> 
-              <em id="authorposton7">发表于 {{ $data->postsinfo->created_at }}</em> 
+              <em id="authorposton7">发表于 {{ $data->created_at }}</em> 
             <!--   <span class="pipe">|</span> 
               <a href="/home/forum.php?mod=viewthread&amp;tid=7&amp;page=1&amp;authorid=1" rel="nofollow">只看该作者</a> --> 
               
@@ -196,27 +192,7 @@
                </tbody>
               </table> 
               
-              <div class="pattl"> 
-               <ignore_js_op> 
-                <dl class="tattl attm"> 
-                 <dt></dt> 
-                 <dd> 
-                  <p class="mbn"> <a href="/home/forum.php?mod=attachment&amp;aid=N3w1MzY0NDFmYnwxNTI4MjcyNjY1fDB8Nw%3D%3D&amp;nothumb=yes" onmouseover="showMenu({'ctrlid':this.id,'pos':'12'})" id="aid7" class="xw1" target="_blank">7.jpg</a> <em class="xg1">(88.92 KB, 下载次数: 0)</em> </p> 
-                  <div class="tip tip_4" id="aid7_menu" style="display: none" disautofocus="true"> 
-                   <div> 
-                    <p> <a href="/home/forum.php?mod=attachment&amp;aid=N3w1MzY0NDFmYnwxNTI4MjcyNjY1fDB8Nw%3D%3D&amp;nothumb=yes" target="_blank">下载附件</a> </p> 
-                    <p> <span class="y">2016-4-14 14:36 上传</span> <a href="/home/javascript:;" onclick="imageRotate('aimg_7', 1)"><img src="/home/picture/rleft.gif" class="vm" /></a> <a href="/home/javascript:;" onclick="imageRotate('aimg_7', 2)"><img src="/home/picture/rright.gif" class="vm" /></a> </p> 
-                   </div> 
-                   <div class="tip_horn"></div> 
-                  </div> 
-                  <p class="mbn"> </p> 
-                  <div class="mbn savephotop"> 
-                   <img id="aimg_7" aid="7" src="/home/picture/none.gif" zoomfile="data/attachment/forum/201604/14/143604hixg2y4dwu4vcgvb.jpg" file="data/attachment/forum/201604/14/143604hixg2y4dwu4vcgvb.jpg" class="zoom" onclick="zoom(this, this.src, 0, 0, 0)" width="600" alt="7.jpg" title="7.jpg" w="600" /> 
-                  </div> 
-                 </dd> 
-                </dl> 
-               </ignore_js_op> 
-              </div> 
+             
              </div> 
              <div id="comment_7" class="cm"> 
              </div> 
@@ -228,11 +204,45 @@
           <td class="plc plm"> 
            <div id="p_btn" class="mtw mbm hm cl"> 
             <a href="javascript:;" id="k_favorite" title="收藏本帖"><i><img src="/home/picture/fav.gif" alt="收藏" />收藏<span id="favoritenumber" style="display:none">0</span></i></a> 
-            <a id="recommend_add" href="javascript:;" title="顶一下"><i><img src="/home/picture/rec_add.gif" alt="支持" />顶一下<span id="recommendv_add" style="display:none">0</span></i></a> 
-            <a id="recommend_subtract" href="javascript:;" title="踩一下"><i><img src="/home/picture/rec_subtract.gif" alt="反对" />踩一下<span id="recommendv_subtract" style="display:none">0</span></i></a> 
+            <a id="recommend_add" href="javascript:;" title="顶一下"><i><img src="/home/picture/rec_add.gif" alt="支持" />顶一下<span id="recommendv_add" style="display:none">{{ $data->ding }}</span></i></a> 
+            <a id="recommend_subtract" href="javascript:;" title="踩一下"><i><img src="/home/picture/rec_subtract.gif" alt="反对" />踩一下<span id="recommendv_subtract" style="display:none">{{ $data->cai }}</span></i></a> 
            </div> 
+           <script type="text/javascript">
+              $('#recommend_add').one('click',function(){
+                   var ding = parseFloat($('#recommendv_add').html())+1
+                   $.get('/ding/{{ $data->id }}?ding='+ding,function(msg){
+                       if(msg==1){
+                   
+                          layer.msg("谢谢你的支持");
+                         $('#recommendv_add').html(parseFloat($('#recommendv_add').html())+1);
+                         $('#recommendv_add').css('display','block');
+                        }else if(msg == 2){
+                          layer.msg("未成功发表意见");                 
+                       }else{
+                          layer.msg("你已表达了自己的态度");                 
 
-           <div class="sign" style="max-height:120px;maxHeightIE:120px;">
+                       }
+                   });
+              });
+               $('#recommend_subtract').one('click',function(){
+                  var cai = parseFloat($('#recommendv_subtract').html())+1
+                  console.log(cai);
+                   $.get('/cai/{{ $data->id }}?cai='+cai,function(msg){
+                       if(msg==1){
+                   
+                          layer.msg("谢谢你的鞭挞");
+                   $('#recommendv_subtract').html(parseFloat($('#recommendv_subtract').html())+1);
+                   $('#recommendv_subtract').css('display','block');
+                        }else if(msg == 2){
+                          layer.msg("未成功发表意见");                 
+                       }else{
+                          layer.msg("你已表达了自己的态度");                 
+
+                       }
+                   });
+              });
+           </script>
+           <div class="sign" style="max-height:120px;maxHeightIE:120px;"> 
             手机版可以支持用户签名了。
             <br /> 
             <img id="aimg_yqYeo" onclick="zoom(this, this.src, 0, 0, 0)" class="zoom" src="/home/picture/sign.jpg" onmouseover="img_onmouseoverfunc(this)" onload="thumbImg(this)" border="0" alt="" />
@@ -302,7 +312,7 @@
                                                     <a href="home.php?mod=space&amp;uid=16&amp;do=thread&amp;type=reply&amp;view=me&amp;from=space" class="xi2">{{ $v->users->userposts->count() }}</a></p>帖子</th>
                                             <td>
                                                 <p>
-                                                    <a href="home.php?mod=space&amp;uid=16&amp;do=profile" class="xi2">9</a></p>积分</td>
+                                                    <a href="home.php?mod=space&amp;uid=16&amp;do=profile" class="xi2">{{ $v->users->score }}</a></p>积分</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -323,7 +333,7 @@
                             <dl class="pil cl">
                                 <dt>积分</dt>
                                 <dd>
-                                    <a href="home.php?mod=space&amp;uid=16&amp;do=profile" target="_blank" class="xi2">9</a></dd>
+                                    <a href="home.php?mod=space&amp;uid=16&amp;do=profile" target="_blank" class="xi2">{{ $v->users->score }}</a></dd>
                             </dl>
                             <dl class="pil cl"></dl>
                             
@@ -468,13 +478,25 @@
            <div id="seccheck_fastpost"> 
            </div> 
            
-           <p class="ptm pnpost"> <a href="" class="y" target="_blank">本版积分规则</a> <button  class="pn pnc vm" ><strong>发表评论</strong></button></p> 
+           <p class="ptm pnpost"> <a href="javascript:;" class="y" id="y">本版积分规则</a> <button  class="pn pnc vm" ><strong>发表评论</strong></button></p> 
           </div> </td> 
         </tr> 
        </tbody>
       </table> 
      </form> 
     </div> 
+
+    <script type="text/javascript">
+        $('#y').click(function(){
+            layer.open({
+            type: 0,
+            skin: 'layui-layer-rim', //加上边框
+            area: ['420px', '240px'], //宽高
+            content: '<div id="" class="layui-layer-content"><ul class="layer_notice layui-layer-wrap"><li><a href="">1. 发帖一篇得10积分</a></li><li><a href="">2. 发表评论得2积分</a></li><li><a href="" >3. 关注 layui 微信公众号，随时随地获取最新动态</a></li></ul></div>'
+          });
+            
+        });
+    </script>
     <script type="text/javascript">
     function succeedhandle_followmod(url, msg, values) {
     var fObj = $('followmod_'+values['fuid']);

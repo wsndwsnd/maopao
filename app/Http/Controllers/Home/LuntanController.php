@@ -10,7 +10,10 @@ use App\Models\Category;
 use App\Models\Posts;
 use App\Models\Slide;
 use App\Models\Postsinfo;
+use App\Models\User;
+use App\Models\Notices;
 
+use DB;
 class LuntanController extends Controller
 {
     public static function getPidCates($tid)
@@ -31,10 +34,12 @@ class LuntanController extends Controller
      */
     public function index()
     {
-        // dd(self::getPidCates(0));
-        // $ddd = Category::get()->posts;
+       
         $data2 = Slide::where('slide_status','0')->get();
-        return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2]);
+        //公告
+        $notice = Notices::where('notice_status',1)->paginate(5);
+        
+        return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2,'notice'=>$notice]);
     }
 
     /**
@@ -55,6 +60,7 @@ class LuntanController extends Controller
      */
     public function store(Request $request)
     {
+        DB::beginTransaction();
         $patt = "/\d+/";
         $str = $request->input('id');
         preg_match_all($patt,$str,$newstr);
@@ -67,10 +73,20 @@ class LuntanController extends Controller
         $res = Posts::insertGetId($data);
         $data2['tid'] = $res;
         $data2['content'] = $request->input('content');
+        $data2['created_at'] = date('Y-m-d H:i:s',time());
         $res2 = Postsinfo::insert($data2);
-        if($res2){
+
+        //发帖增加积分 
+        $score = User::find(session('user_id'))->score;
+        $score += 10;
+        $res1 = User::where('id',session('user_id'))->update(['score'=>$score]);
+
+        if($res2 && $res1){
+            DB::commit();
             return redirect('home/luntan/'.$cid)->with('success','发表成功');
         }else{
+            DB::rollBack();
+
             return redirect('home/luntan/'.$cid)->with('error','发表失败');
         }
     }

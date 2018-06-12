@@ -19,62 +19,30 @@
                                 <dt class="z xw1">
                                 </dt>
                                 <dd>
-                                    <div id="anc">
-                                        <ul id="ancl">
-                                            <li>
+                                    <div id="anc" >
+                                        <ul id="ancl" >
+                                            @foreach($notice as $v)
+                                            <li id="li">
                                                 <span>
-                                                    <a href="forum.php?mod=announcement&id=13" target="_blank" class="xi2">
-                                                        公告201705
+                                                    <a href="/notice" class="xi2" >
+                                                       {{$v->notice_title}}
                                                     </a>
                                                 </span>
                                                 <em>
-                                                    (2017-12-25)
+                                                       {{$v->created_at}}                                                   
                                                 </em>
                                             </li>
-                                            <li>
-                                                <span>
-                                                    <a href="forum.php?mod=announcement&id=12" target="_blank" class="xi2">
-                                                        公告201704
-                                                    </a>
-                                                </span>
-                                                <em>
-                                                    (2017-12-25)
-                                                </em>
-                                            </li>
-                                            <li>
-                                                <span>
-                                                    <a href="forum.php?mod=announcement&id=11" target="_blank" class="xi2">
-                                                        公告201703
-                                                    </a>
-                                                </span>
-                                                <em>
-                                                    (2017-12-25)
-                                                </em>
-                                            </li>
-                                            <li>
-                                                <span>
-                                                    <a href="forum.php?mod=announcement&id=10" target="_blank" class="xi2">
-                                                        公告201702
-                                                    </a>
-                                                </span>
-                                                <em>
-                                                    (2017-12-25)
-                                                </em>
-                                            </li>
-                                            <li>
-                                                <span>
-                                                    <a href="forum.php?mod=announcement&id=9" target="_blank" class="xi2">
-                                                        公告201701
-                                                    </a>
-                                                </span>
-
-
-                                                <em>
-                                                    (2017-12-25)
-                                                </em>
-                                            </li>
+                                            @endforeach
                                         </ul>
                                     </div>
+                                    <script type="text/javascript">
+                                        setInterval(function(){
+                                            $('#li').first().slideUp('slow',function(){
+                                                // 追加并且显示li标签
+                                                $('#ancl').append($(this).show());//display:none
+                                            });
+                                        },2000);
+                                    </script>
                                 </dd>
                             </dl>
                         </div>
@@ -189,9 +157,7 @@
                 </em>
             </p>
             <div class="y">
-                <a href="forum.php?mod=guide&amp;view=new" title="最新回复" class="xi2">
-                    最新回复
-                </a>
+               
             </div>
         </div>
             <div class="mn" style="width:880px;padding: 0px;">
@@ -230,7 +196,7 @@
              
               <!--帖子标题结束-->
               <dd>
-               <cite>{{ $val->created_at }} &nbsp;&nbsp;<a href="#">admin</a></cite>
+               <cite>{{ $val->created_at }} &nbsp;&nbsp;<a href="#">{{ $val->posts[0]->users->user_name }}</a></cite>
               </dd> 
              </dl> 
            </div> 

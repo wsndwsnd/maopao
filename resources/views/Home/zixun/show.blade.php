@@ -32,7 +32,7 @@
                   <p class="xg1">发布时间：{{ $data->created_at }}
                     <a class="zz jl" href="">作者：{{ $data->article_author }}</a>
                     <span class="yd">阅读：
-                      <em id="_viewnum">{{ $data->article_pview }}</em></span >评论:<font id="font">{{ $data->article_comments }}</font></p>
+                      <em id="_viewnum">{{ $data->article_pview }}</em></span >评论:<font id="font">{{ $data->comments->count() }}</font></p>
                     
                 </div>
                 <!--[diy=diysummarytop]-->
@@ -61,7 +61,7 @@
                     <div id="diycontentbottom" class="area"></div>
                     <!--[/diy]-->
                     <script src="/home/js/home.js" type="text/javascript"></script>
-                    <div id="click_div">
+                   <!--  <div id="click_div">
                       <table cellpadding="0" cellspacing="0" class="atd">
                         <tr>
                           <td>
@@ -92,7 +92,7 @@
                             show_click(values['idtype'], values['id'], values['clickid']);
                           }
                         }</script>
-                    </div>
+                    </div> -->
                     <!--[diy=diycontentclickbottom]-->
                     <div id="diycontentclickbottom" class="area"></div>
                     <!--[/diy]--></div>
