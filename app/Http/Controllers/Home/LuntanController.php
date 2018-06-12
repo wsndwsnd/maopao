@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Posts;
 use App\Models\Slide;
 use App\Models\Postsinfo;
+use App\Models\Articles;
 
 class LuntanController extends Controller
 {
@@ -34,7 +35,8 @@ class LuntanController extends Controller
         // dd(self::getPidCates(0));
         // $ddd = Category::get()->posts;
         $data2 = Slide::where('slide_status','0')->get();
-        return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2]);
+        $data3 = Articles::where('article_status',1)->orderBy('article_comments','desc')->paginate(6);
+        return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2,'data3'=>$data3]);
     }
 
     /**

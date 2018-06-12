@@ -24,7 +24,7 @@
           <!--[/diy]--></div>
         <div class="boardnav">
           <div id="ct" class="wp cl ct2">
-            <div class="mn" style="width:880px;">
+            <div class="mn" style="width:955px;">
               <div class="orde">
                 <div class="lslsls">
                   

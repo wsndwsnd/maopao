@@ -28,12 +28,6 @@ class ZixunController extends Controller
         // 推荐阅读
         $data2 = Articles::where('article_status',1)->orderBy('article_comments','desc')->paginate(3);
         return view('Home.zixun.index',['data'=>$data,'data1'=>$data1,'data2'=>$data2]);
-
-        //推荐阅读
-        $data1 = Articles::where('article_status',1)->orderBy('article_pview','desc')->paginate(3);
-
-        return view('Home.zixun.index',['data'=>$data,'data1'=>$data1]);
-
     }
 
     /**

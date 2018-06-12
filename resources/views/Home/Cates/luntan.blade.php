@@ -19,62 +19,7 @@
                                 <dt class="z xw1">
                                 </dt>
                                 <dd>
-                                    <div id="anc">
-                                        <ul id="ancl">
-                                            <li>
-                                                <span>
-                                                    <a href="forum.php?mod=announcement&id=13" target="_blank" class="xi2">
-                                                        公告201705
-                                                    </a>
-                                                </span>
-                                                <em>
-                                                    (2017-12-25)
-                                                </em>
-                                            </li>
-                                            <li>
-                                                <span>
-                                                    <a href="forum.php?mod=announcement&id=12" target="_blank" class="xi2">
-                                                        公告201704
-                                                    </a>
-                                                </span>
-                                                <em>
-                                                    (2017-12-25)
-                                                </em>
-                                            </li>
-                                            <li>
-                                                <span>
-                                                    <a href="forum.php?mod=announcement&id=11" target="_blank" class="xi2">
-                                                        公告201703
-                                                    </a>
-                                                </span>
-                                                <em>
-                                                    (2017-12-25)
-                                                </em>
-                                            </li>
-                                            <li>
-                                                <span>
-                                                    <a href="forum.php?mod=announcement&id=10" target="_blank" class="xi2">
-                                                        公告201702
-                                                    </a>
-                                                </span>
-                                                <em>
-                                                    (2017-12-25)
-                                                </em>
-                                            </li>
-                                            <li>
-                                                <span>
-                                                    <a href="forum.php?mod=announcement&id=9" target="_blank" class="xi2">
-                                                        公告201701
-                                                    </a>
-                                                </span>
-
-
-                                                <em>
-                                                    (2017-12-25)
-                                                </em>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    
                                 </dd>
                             </dl>
                         </div>
@@ -477,102 +422,24 @@
                                     </div>
                                     <div id="portal_block_86_content" class="dxb_bc">
                                         <div class="module cl xld">
+                                            @foreach($data3 as $vv)
                                             <dl class="cl">
                                                 <dd class="m">
-                                                    <a href="forum.php?mod=viewthread&tid=100" target="_blank">
-                                                        <img src="picture/f0591ec2d660409098738fd9d4ae1ee9.jpg" width="90" height="66"
-                                                        alt="发帖测试" />
+                                                    <a href="/zixun/{{$vv->id}}" target="_blank">
+                                                        <img src="{{ltrim($vv->article_img,'.')}}" width="90" height="66"
+                                                        alt="{{$vv->article_title}}" />
                                                     </a>
                                                 </dd>
                                                 <dt>
-                                                    <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank">
-                                                        发帖测试
+                                                    <a href="/zixun/{{$vv->id}}" title="{{$vv->article_title}}" target="_blank">
+                                                        {{$vv->article_title}}
                                                     </a>
                                                 </dt>
-                                                <dd class="sumr">
-                                                    这是一条测试{:3_42
+                                                <dd class="sumr" style="width:166px;height:43px;overflow: hidden;font-style: normal;font-size: 12px;color: #5f5e5e;">
+                                                    {{$vv->article_dec}}
                                                 </dd>
                                             </dl>
-                                            <dl class="cl">
-                                                <dd class="m">
-                                                    <a href="forum.php?mod=viewthread&tid=32" target="_blank">
-                                                        <img src="picture/26b549be0a851e00c23ae725ad82991f.jpg" width="90" height="66"
-                                                        alt="迷人的大光圈 教你使用焦外的正确时机" />
-                                                    </a>
-                                                </dd>
-                                                <dt>
-                                                    <a href="forum.php?mod=viewthread&tid=32" title="迷人的大光圈 教你使用焦外的正确时机" target="_blank">
-                                                        迷人的大光圈 教你使用焦外的正确时机
-                                                    </a>
-                                                </dt>
-                                                <dd class="sumr">
-                                                    一、焦外的用途 大光圈镜头下的焦外，很多人都被它
-                                                </dd>
-                                            </dl>
-                                            <dl class="cl">
-                                                <dd class="m">
-                                                    <a href="forum.php?mod=viewthread&tid=46" target="_blank">
-                                                        <img src="picture/51ffa43026ed4d6752ad12baa620ffbb.jpg" width="90" height="66"
-                                                        alt="给孩子吃这些有助长高" />
-                                                    </a>
-                                                </dd>
-                                                <dt>
-                                                    <a href="forum.php?mod=viewthread&tid=46" title="给孩子吃这些有助长高" target="_blank">
-                                                        给孩子吃这些有助长高
-                                                    </a>
-                                                </dt>
-                                                <dd class="sumr">
-                                                    春天的脚步已经悄然走来。这个季节，人体新陈代谢旺盛
-                                                </dd>
-                                            </dl>
-                                            <dl class="cl">
-                                                <dd class="m">
-                                                    <a href="forum.php?mod=viewthread&tid=87" target="_blank">
-                                                        <img src="picture/8ea9865628056d53a55b1aef9eb15498.jpg" width="90" height="66"
-                                                        alt="家居别墅专业装修设计" />
-                                                    </a>
-                                                </dd>
-                                                <dt>
-                                                    <a href="forum.php?mod=viewthread&tid=87" title="家居别墅专业装修设计" target="_blank">
-                                                        家居别墅专业装修设计
-                                                    </a>
-                                                </dt>
-                                                <dd class="sumr">
-                                                    　　别墅、别墅装修设计已经不再是新鲜的话题了。 随
-                                                </dd>
-                                            </dl>
-                                            <dl class="cl">
-                                                <dd class="m">
-                                                    <a href="forum.php?mod=viewthread&tid=89" target="_blank">
-                                                        <img src="picture/4d1a53c1e2e9844d96af9495023d8bfd.jpg" width="90" height="66"
-                                                        alt="欧式别墅设计 欧式别墅室内装修效果图" />
-                                                    </a>
-                                                </dd>
-                                                <dt>
-                                                    <a href="forum.php?mod=viewthread&tid=89" title="欧式别墅设计 欧式别墅室内装修效果图" target="_blank">
-                                                        欧式别墅设计 欧式别墅室内装修效果图
-                                                    </a>
-                                                </dt>
-                                                <dd class="sumr">
-                                                    这是一个清新的欧式别墅设计，颜色和光线都令人觉
-                                                </dd>
-                                            </dl>
-                                            <dl class="cl">
-                                                <dd class="m">
-                                                    <a href="forum.php?mod=viewthread&tid=88" target="_blank">
-                                                        <img src="picture/7ae49a2fe1a1a22237e62ae4b64784eb.jpg" width="90" height="66"
-                                                        alt="别墅室内装修软装设计需要注意哪些" />
-                                                    </a>
-                                                </dd>
-                                                <dt>
-                                                    <a href="forum.php?mod=viewthread&tid=88" title="别墅室内装修软装设计需要注意哪些" target="_blank">
-                                                        别墅室内装修软装设计需要注意哪些
-                                                    </a>
-                                                </dt>
-                                                <dd class="sumr">
-                                                    随着人们生活水平的提高，人们在追求品质生活
-                                                </dd>
-                                            </dl>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
