@@ -130,12 +130,22 @@ Route::post('/register/ajax1','Home\RegisterController@ajax1');
 Route::post('/register/ajax','Home\RegisterController@ajax');
 Route::resource('/register','Home\RegisterController');
 
+//登录页面
+Route::get('/home/login','Home\LoginController@dl');
+//验证登录
+Route::post('/home/login','Home\LoginController@yzdl');
+//忘记密码
+Route::get('/home/wjmm','Home\LoginController@wjmm');
+Route::post('home/wjmm','Home\LoginController@yzwjmm');
 
-//前台用户
-Route::resource('/user','Home\UserController');
-Route::get('/userposts/{id}','Home\UserController@posts');
-//修改头像
-Route::post('/usertx/uploads','Home\UserController@uploads');
+//前台用户   中间件是否登录
+Route::group(['middleware'=>'login'],function(){
+	Route::resource('/user','Home\UserController');
+	Route::get('/userposts/{id}','Home\UserController@posts');
+	//修改头像
+	Route::post('/usertx/uploads','Home\UserController@uploads');
+
+});
 
 
 //前台帖子
@@ -150,7 +160,7 @@ Route::resource('/preply','Home\ReplyController');
 Route::get('/pcomment/del/{id}','Home\PcommentController@del');
 //前台帖子回复ajax删除
 Route::get('/preply/del/{id}','Home\ReplyController@del');
-//帖子收藏
+//帖子收藏												
 Route::resource('/pcollect','Home\PcollectController');
 //顶一下
 Route::get('/ding/{id}','Home\ReadController@ding');

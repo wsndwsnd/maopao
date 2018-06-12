@@ -92,7 +92,9 @@ var pwlength = 6;
                                   <span class="rq">*</span>
                                   <label for="">验证码:</label></th>
                                 <td>
-                                  <input type="text" style="height:27px" class="px" name="phone_code" id=""></td>
+                                  <input type="text" style="height:27px" class="px" name="phone_code" id="phone_code"></td>
+                                  <td class="tipcol">
+                                  <span id="xxoo4"></span></td>
                               </tr>
                             </tbody>
                           </table>
@@ -192,7 +194,7 @@ var pwlength = 6;
             var isPassword = false;
             var isRepassword = false;
             var isPhone = false;
-
+            var isCode = false;
             //验证手机
             $('#user_tel').blur(function() {
               var phone = $(this).val();
@@ -303,9 +305,21 @@ var pwlength = 6;
                 }
             });
             
+             $('#phone_code').blur(function() {
+              var phone_code = $(this).val();
+              //从session中拿取数据（jq 不能直接拿取session中的拿取值）
+              var sessioncode = '{{session("phone_code")}}';
+              if(phone_code == sessioncode){
+                 isCode = true;
+                  $('#xxoo4').html('1111');
+              }else{
+                  isCode = false;
+                 $('#xxoo4').html('<font color="#CA7D7D">验证码错误</font>'); 
+              }
+            });
 
             $('#form').submit(function() {
-              if (isUname && isPassword && isRepassword && isPhone) {
+              if (isUname && isPassword && isRepassword && isPhone && isCode) {
                 return true; //提交
               }
 

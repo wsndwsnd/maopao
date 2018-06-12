@@ -40,7 +40,7 @@ var pwlength = 6;
 
 <p id="returnmessage4"></p>
 
-<form method="post" " action="/user">
+<form method="post"  action="/home/login">
   {{ csrf_field() }}
   
 <div id="layer_reg" class="bm_c">
@@ -89,7 +89,25 @@ var pwlength = 6;
 <th>&nbsp;</th>
 <td>
 <span id="reginfo_a_btn">
-<em>&nbsp;</em><button class="pn pnc" id="registerformsubmit" type="submit" name="regsubmit" value="true" tabindex="1"><strong>登录</strong></button>
+<button class="layui-btn layui-btn-danger postsdel wjmm" type="button">忘记密码</button>
+    <script type="text/javascript">
+              $('.wjmm').click(function(){
+
+                
+                      layer.open({
+                      type: 2,
+                      title: '<font style="color:skyblue;font-weight:777;font-size:16px;">忘记密码</font>',
+                      shadeClose: true,
+                      shade: 0.8,
+                      area: ['650px', '380px'],
+                      content: '/home/wjmm'
+                    }); 
+                
+              });
+      </script>
+<em>&nbsp;</em><button class="layui-btn" id="registerformsubmit" type="submit" name="regsubmit" value="true" tabindex="1"><strong>登录</strong></button>
+
+
 </span>
 </td>
 <td></td>

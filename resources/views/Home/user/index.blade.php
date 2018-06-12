@@ -118,8 +118,8 @@
             <li>我关注的人</li>
             <li>我发的贴</li>
             <li>我发的文章</li>
-            <li>我关注的贴子</li>
-            <li>我关注的文章</li>
+            <li>我收藏的贴子</li>
+            <li>我收藏的文章</li>
         </ul>
           <div class="layui-tab-content">
             <!-- 我的信息 -->
@@ -363,8 +363,151 @@
                 </script>
               <!-- 我发的文章结束 -->
             </div>
-            <div class="layui-tab-item">我关注的帖子</div>
-            <div class="layui-tab-item">我关注的文章</div>
+
+            <!-- 我收藏的帖子 -->
+            <div class="layui-tab-item">
+              <!-- 模板 -->
+               <div id="threadlist" class="tl bm bmw"> 
+                            <div class="th"> 
+                             <table cellspacing="0" cellpadding="0"> 
+                              <tbody>
+                               <tr> 
+                                <th style="width: 80px;"></th>
+                                <th colspan="2"> 标题 </th> 
+                                <td class="by">版块/群组</td> 
+                                <td class="by" style="width: 80px">作者</td> 
+                                <td class="num" >评论</td>
+                                <td class="by" style="width: 125px">操作</td>
+                               </tr> 
+                              </tbody>
+                             </table> 
+                            </div>
+                 @foreach($user_pcollects as $v)
+                  <div class="bm_c"> 
+                     <div id="forumnew" style="display:none"></div> 
+                     <table cellspacing="0" cellpadding="0"> 
+                     <tbody id="normalthread_99">
+                       <tr style="font-size: 12px;">
+                        <td class="icn" style="width: 100px">
+                          <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
+                            <img src="/Home/images/pollsmall.gif" alt="投票">
+                          </a>
+                        </td>
+                        <th class="common">
+                         <a href="/home/read/{{$v->id}}" target="_blank" class="xst">[@if($v->label == 1) 热门 @elseif($v->label == 2) 精品 @elseif($v->label == 3) 置顶 @elseif($v->label == 4) 普通贴 @endif]{{$v -> posts_title}}</a>
+                       </th>
+                        <td class="by" style="width: 126px"><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                        <td class="by" style="width: 80px">
+                        <cite>
+                        <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                        <em><span>{{$v -> created_at}}</span></em>
+                        </td>
+                        <td class="num" style="width: 190px"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                        <td class="by" style="width: 140px">
+                         <form method="post" action="/admin/posts/sq">
+                              {{ csrf_field() }} 
+                                <input type="hidden" name="pid" value="{{$v->id}}">
+                                  <button type="button" value="{{$v->id}}" class="layui-btn layui-btn-danger layui-btn-xs postsdel">取消收藏</button>
+
+                         </form>
+                        </td>
+                      </tr>
+                      </tbody>
+                     </table> 
+                    </div> 
+                    @endforeach
+               </div>
+                <!-- ajax 删除我收藏的帖子 -->
+                <script type="text/javascript">
+                     $('.postsdel').click(function(){
+                      var obj =  $(this);
+
+                      $.get('/admin/postsdel/'+obj.attr('value'),function(msg){
+                          if(msg == 1){
+                            layer.msg('成功');
+                            obj.parent().parent().parent().remove();
+                          }else{
+                            layer.msg('失败');
+                          }                      
+                        });
+                     });
+                </script>
+              <!-- 我收藏的帖子结束 -->
+            </div>
+
+            <!-- 我收藏的文章 -->
+            <div class="layui-tab-item">
+              <!-- 模板 -->
+               <div id="threadlist" class="tl bm bmw"> 
+                            <div class="th"> 
+                             <table cellspacing="0" cellpadding="0"> 
+                              <tbody>
+                               <tr> 
+                                <th style="width: 80px;"></th>
+                                <th colspan="2"> 标题 </th> 
+                                <td class="by" style="width: 80px">作者</td> 
+                                <td class="num" >取消收藏</td>
+                               </tr> 
+                              </tbody>
+                             </table> 
+                            </div>
+                 @foreach($user_acollects as $v)
+                  <div class="bm_c"> 
+                     <div id="forumnew" style="display:none"></div> 
+                     <table cellspacing="0" cellpadding="0"> 
+                     <tbody id="normalthread_99">
+                       <tr style="font-size: 12px;">
+                        <td class="icn" style="width: 100px">
+                          <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
+                            <img src="/Home/images/pollsmall.gif" alt="投票">
+                          </a>
+                        </td>
+                        <th class="common">
+                          {{$v ->article_title}} 
+                       </th>
+                        
+                        <td class="by" style="width: 160px">
+                          <cite>
+                            <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{session('user_name')}}</a>
+                          </cite>
+                            <em><span>{{$v -> created_at}}</span></em>
+                        </td>
+                        
+                        <td class="by" style="width: 100px">
+                         <form method="post" action="/admin/posts/sq">
+                              {{ csrf_field() }} 
+                                
+                                <input type="hidden" name="aid" value="{{$v->id}}">
+                                  <button type="button" value="{{$v->id}}" class="layui-btn layui-btn-danger layui-btn-xs postsdel1">取消收藏</button>
+
+                         </form>
+                        </td>
+                      </th>
+                      </tr>
+                      </tbody>
+                     </table> 
+                    </div> 
+                    @endforeach
+               </div>
+                <!-- ajax 删除我收藏的文章 -->
+                <script type="text/javascript">
+                     $('.postsdel1').click(function(){
+                      var obj =  $(this);
+
+                      $.get('/admin/articleajax/'+obj.attr('value'),function(msg){
+                          if(msg == 1){
+                            layer.msg('成功');
+                            obj.parent().parent().parent().remove();
+                          }else{
+                            layer.msg('失败');
+                          }                      
+                        });
+                     });
+                </script>
+
+            </div>
+            <!-- 我收藏的文章结束 -->
+
           </div>
         </div>
         </div>

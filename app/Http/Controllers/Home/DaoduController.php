@@ -13,18 +13,22 @@ use App\Models\Posts;
 class DaoduController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * 导读页
      *
-     * @return \Illuminate\Http\Response
+     * @return 热门，精品，置顶，普通贴
      */
     public function index()
     {
 
 
         $daodu = Daodu::get();
+        //热门
         $posts1 = Posts::where('label',1)->get();
+        //精品        
         $posts2 = Posts::where('label',2)->get();
+        //置顶
         $posts3 = Posts::where('label',3)->get();
+        //普通贴
         $posts4 = Posts::where('label',4)->get();
         return view('Home.daodu.index',['daodu'=>$daodu,'posts1'=>$posts1,'posts2'=>$posts2,'posts3'=>$posts3,'posts4'=>$posts4]);
 

@@ -42,14 +42,21 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         if($request -> input('phone_type') == 1){
-
             $phone = $request -> input('user_tel');
             $code = $request -> input('phone_code','');
+             //判断验证码是否正确
+            if($code != session('phone_code')){
+                return back()->with('error','验证码错误');
+            }
+            
             $username = $request -> input('user_name'); 
             $pass = Hash::make($request -> input('password','123'));
             $token = str_random(50);
             $created_at = date('Y-m-d H:i:s',time());
-            $id = User::insertGetId(['user_tel'=>$phone,'user_name'=>$username,'created_at'=>$created_at,'user_password'=>$pass,'token'=>$token]);
+            $img = './uploads/yh.jpg';
+            $id = User::insertGetId(['user_tel'=>$phone,'user_name'=>$username,'created_at'=>$created_at,'user_password'=>$pass,'token'=>$token,'img'=>$img]);
+
+           
             $userinfo = new Userinfo;
             $userinfo -> user_id = $id;
             $uid = $userinfo -> save();
@@ -57,11 +64,9 @@ class RegisterController extends Controller
             // dump($code);
              if($id > 0 && $uid > 0){
                 //注册成功
-                // dd('注册成功');
                 return redirect('/user/create')->with('success','注册成功,请登录!');
             }else{
                 //注册失败
-                // dd('注册失败');
                 return back()->with('error','注册失败');
             }
         }
@@ -146,7 +151,7 @@ class RegisterController extends Controller
         $phone = $request -> input('phone');
         $pcode = rand(1000,9999);
         session(['phone_code'=>$pcode]);
-        $url = 'http://106.ihuyi.com/webservice/sms.php?method=Submit&format=json&account=C53003163&password=84845b395381dfabed0ec56edfd3caa7&mobile='.$phone.'&content=您的验证码是：'.$pcode.'。请不要把验证码泄露给其他人。';
+        $url = 'http://106.ihuyi.com/webservice/sms.php?method=Submit&format=json&account=C94735578&password=598a6a89fa5a24db51ee099d66a6b592&mobile='.$phone.'&content=您的验证码是：'.$pcode.'。请不要把验证码泄露给其他人。';
         $curlHandler = curl_init(); //curl  模拟http请求
         curl_setopt($curlHandler, CURLOPT_URL, $url);
         curl_setopt($curlHandler, CURLOPT_RETURNTRANSFER, 1);
