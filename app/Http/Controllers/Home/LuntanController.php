@@ -11,6 +11,7 @@ use App\Models\Posts;
 use App\Models\Slide;
 use App\Models\Postsinfo;
 use App\Models\Articles;
+use App\Models\User;
 
 class LuntanController extends Controller
 {
@@ -28,6 +29,8 @@ class LuntanController extends Controller
      * Display a listing of the resource.
      *
      * @param  $data2   轮播图
+     * @param  $data3   推荐阅读
+     * @param  $data4   会员排行
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -36,7 +39,8 @@ class LuntanController extends Controller
         // $ddd = Category::get()->posts;
         $data2 = Slide::where('slide_status','0')->get();
         $data3 = Articles::where('article_status',1)->orderBy('article_comments','desc')->paginate(6);
-        return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2,'data3'=>$data3]);
+        $data4 = User::where('status',1)->orderBy('score','desc')->paginate(9);
+        return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2,'data3'=>$data3,'data4'=>$data4]);
     }
 
     /**

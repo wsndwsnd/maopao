@@ -209,211 +209,40 @@
                                             会员排行
                                         </span>
                                     </div>
+                                <!--会员排行开始-->
                                     <div id="portal_block_85_content" class="dxb_bc">
                                         <div class="module cl">
                                             <ul>
+                                                @foreach($data4 as $user)
                                                 <li class="cc1">
                                                     <div class="xuhao">
                                                         1
                                                     </div>
                                                     <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=1" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="admin" />
+                                                        <a href="#" c="1" target="_blank">
+                                                            <img src="{{ltrim($user->img,'.')}}" width="65" height="65" alt="admin" />
                                                         </a>
                                                     </div>
                                                     <div class="hyright">
                                                         <p class="hyname">
                                                             <a href="home.php?mod=space&uid=1" title="admin" target="_blank">
-                                                                admin
+                                                                {{$user->user_name}}
                                                             </a>
                                                         </p>
                                                         <p class="jies">
                                                         </p>
                                                         <p class="jifen">
-                                                            积分：517
+                                                            积分：{{$user->score}}
                                                         </p>
                                                     </div>
                                                 </li>
-                                                <li class="cc2">
-                                                    <div class="xuhao">
-                                                        2
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=4" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="踢你一脚" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=4" title="踢你一脚" target="_blank">
-                                                                踢你一脚
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：83
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc3">
-                                                    <div class="xuhao">
-                                                        3
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=14" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="123456" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=14" title="123456" target="_blank">
-                                                                123456
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：24
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc4">
-                                                    <div class="xuhao">
-                                                        4
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=2" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="天意" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=2" title="天意" target="_blank">
-                                                                天意
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：12
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc5">
-                                                    <div class="xuhao">
-                                                        5
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=12" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="fff" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=12" title="fff" target="_blank">
-                                                                fff
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：7
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc6">
-                                                    <div class="xuhao">
-                                                        6
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=11" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="test" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=11" title="test" target="_blank">
-                                                                test
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：6
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc7">
-                                                    <div class="xuhao">
-                                                        7
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=3" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="一心一亿" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=3" title="一心一亿" target="_blank">
-                                                                一心一亿
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：4
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc8">
-                                                    <div class="xuhao">
-                                                        8
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=13" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="gxje" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=13" title="gxje" target="_blank">
-                                                                gxje
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：2
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc9">
-                                                    <div class="xuhao">
-                                                        9
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=15" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="完美的男人" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=15" title="完美的男人" target="_blank">
-                                                                完美的男人
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：2
-                                                        </p>
-                                                    </div>
-                                                </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
+                                <!--会员排行结束-->
                                 </div>
+                                <!--推荐阅读开始-->
                                 <div id="portal_block_86" class="ltsytjyd block move-span">
                                     <div class="blocktitle title">
                                         <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">
@@ -443,6 +272,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--推荐阅读结束-->
                             </div>
                         </div>
                     </div>
