@@ -52,24 +52,62 @@
               <a href="javascript:void(0);" mevent="click">></a>
              </div> 
             </div> 
-            <div class="module cl"> 
+            <div class="module cl" style="height:166px;overflow:hidden;"> 
         <ul class="slideshow">
           @foreach($data2 as $val)
             <li style="width: 224px; height: 150px;" class="cc1">
-                <a href="#" target="_blank">
+                <a href="javascript:void(0);" target="_blank">
                     <img src="{{ $val->slide_url }}" width="224" height="150"/>
                 </a>
-                <span class="title"><a id="ttitle" href="#">发帖测试
+                <!-- <span class="title">
+                  <a id="ttitle" href="#">发帖测试
                 </a>
-                </span>
+                </span> -->
             </li>
           @endforeach
              </ul> 
             </div> 
            </div> 
-           <script type="text/javascript">
-    runslideshow();
-    </script>
+          <script type="text/javascript">
+            var timer = null;
+            run();
+              $('.slidebarup').click(function(){
+                  clearInterval(timer);
+                  timer = null;
+                  $('.slideshow li').eq(4).fadeToggle('slow',function(){
+                  $('.slideshow').prepend($(this).show());
+                  });
+                  
+              });
+              $('.slidebardown').click(function(){
+                  clearInterval(timer);
+                  timer = null;
+                  $('.slideshow li').first().stop(true).fadeToggle('slow',function(){
+                  $('.slideshow').append($(this).show());
+                  });
+                  
+              });
+              function run(){
+                if(timer == null){
+                  timer = setInterval(function(){
+                    $('.slideshow li').first().fadeToggle('slow',function(){
+                      $('.slideshow').append($(this).show());
+                    });
+                  },3000);
+                }
+                  
+              };
+              $('.btn,.slideshow li').mouseover(function(){
+                clearInterval(timer);
+                timer = null;
+              });
+              $('.btn,.slideshow li').mouseout(function(){
+                if(timer == null){
+                  run();
+                }
+              });
+
+          </script>
           </div>
          </div>
         </div>

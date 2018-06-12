@@ -19,6 +19,7 @@
                                 <dt class="z xw1">
                                 </dt>
                                 <dd>
+
                                     <div id="anc" >
                                         <ul id="ancl" >
                                             @foreach($notice as $v)
@@ -43,6 +44,9 @@
                                             });
                                         },2000);
                                     </script>
+
+                                    
+
                                 </dd>
                             </dl>
                         </div>
@@ -230,211 +234,40 @@
                                             会员排行
                                         </span>
                                     </div>
+                                <!--会员排行开始-->
                                     <div id="portal_block_85_content" class="dxb_bc">
                                         <div class="module cl">
                                             <ul>
+                                                @foreach($data4 as $user)
                                                 <li class="cc1">
                                                     <div class="xuhao">
                                                         1
                                                     </div>
                                                     <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=1" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="admin" />
+                                                        <a href="#" c="1" target="_blank">
+                                                            <img src="{{ltrim($user->img,'.')}}" width="65" height="65" alt="admin" />
                                                         </a>
                                                     </div>
                                                     <div class="hyright">
                                                         <p class="hyname">
                                                             <a href="home.php?mod=space&uid=1" title="admin" target="_blank">
-                                                                admin
+                                                                {{$user->user_name}}
                                                             </a>
                                                         </p>
                                                         <p class="jies">
                                                         </p>
                                                         <p class="jifen">
-                                                            积分：517
+                                                            积分：{{$user->score}}
                                                         </p>
                                                     </div>
                                                 </li>
-                                                <li class="cc2">
-                                                    <div class="xuhao">
-                                                        2
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=4" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="踢你一脚" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=4" title="踢你一脚" target="_blank">
-                                                                踢你一脚
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：83
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc3">
-                                                    <div class="xuhao">
-                                                        3
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=14" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="123456" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=14" title="123456" target="_blank">
-                                                                123456
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：24
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc4">
-                                                    <div class="xuhao">
-                                                        4
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=2" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="天意" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=2" title="天意" target="_blank">
-                                                                天意
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：12
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc5">
-                                                    <div class="xuhao">
-                                                        5
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=12" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="fff" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=12" title="fff" target="_blank">
-                                                                fff
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：7
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc6">
-                                                    <div class="xuhao">
-                                                        6
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=11" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="test" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=11" title="test" target="_blank">
-                                                                test
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：6
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc7">
-                                                    <div class="xuhao">
-                                                        7
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=3" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="一心一亿" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=3" title="一心一亿" target="_blank">
-                                                                一心一亿
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：4
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc8">
-                                                    <div class="xuhao">
-                                                        8
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=13" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="gxje" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=13" title="gxje" target="_blank">
-                                                                gxje
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：2
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="cc9">
-                                                    <div class="xuhao">
-                                                        9
-                                                    </div>
-                                                    <div class="hyleft">
-                                                        <a href="home.php?mod=space&uid=15" c="1" target="_blank">
-                                                            <img src="picture/avatar.php" width="65" height="65" alt="完美的男人" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="hyright">
-                                                        <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=15" title="完美的男人" target="_blank">
-                                                                完美的男人
-                                                            </a>
-                                                        </p>
-                                                        <p class="jies">
-                                                        </p>
-                                                        <p class="jifen">
-                                                            积分：2
-                                                        </p>
-                                                    </div>
-                                                </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
+                                <!--会员排行结束-->
                                 </div>
+                                <!--推荐阅读开始-->
                                 <div id="portal_block_86" class="ltsytjyd block move-span">
                                     <div class="blocktitle title">
                                         <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">
@@ -443,105 +276,28 @@
                                     </div>
                                     <div id="portal_block_86_content" class="dxb_bc">
                                         <div class="module cl xld">
+                                            @foreach($data3 as $vv)
                                             <dl class="cl">
                                                 <dd class="m">
-                                                    <a href="forum.php?mod=viewthread&tid=100" target="_blank">
-                                                        <img src="picture/f0591ec2d660409098738fd9d4ae1ee9.jpg" width="90" height="66"
-                                                        alt="发帖测试" />
+                                                    <a href="/zixun/{{$vv->id}}" target="_blank">
+                                                        <img src="{{ltrim($vv->article_img,'.')}}" width="90" height="66"
+                                                        alt="{{$vv->article_title}}" />
                                                     </a>
                                                 </dd>
                                                 <dt>
-                                                    <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank">
-                                                        发帖测试
+                                                    <a href="/zixun/{{$vv->id}}" title="{{$vv->article_title}}" target="_blank">
+                                                        {{$vv->article_title}}
                                                     </a>
                                                 </dt>
-                                                <dd class="sumr">
-                                                    这是一条测试{:3_42
+                                                <dd class="sumr" style="width:166px;height:43px;overflow: hidden;font-style: normal;font-size: 12px;color: #5f5e5e;">
+                                                    {{$vv->article_dec}}
                                                 </dd>
                                             </dl>
-                                            <dl class="cl">
-                                                <dd class="m">
-                                                    <a href="forum.php?mod=viewthread&tid=32" target="_blank">
-                                                        <img src="picture/26b549be0a851e00c23ae725ad82991f.jpg" width="90" height="66"
-                                                        alt="迷人的大光圈 教你使用焦外的正确时机" />
-                                                    </a>
-                                                </dd>
-                                                <dt>
-                                                    <a href="forum.php?mod=viewthread&tid=32" title="迷人的大光圈 教你使用焦外的正确时机" target="_blank">
-                                                        迷人的大光圈 教你使用焦外的正确时机
-                                                    </a>
-                                                </dt>
-                                                <dd class="sumr">
-                                                    一、焦外的用途 大光圈镜头下的焦外，很多人都被它
-                                                </dd>
-                                            </dl>
-                                            <dl class="cl">
-                                                <dd class="m">
-                                                    <a href="forum.php?mod=viewthread&tid=46" target="_blank">
-                                                        <img src="picture/51ffa43026ed4d6752ad12baa620ffbb.jpg" width="90" height="66"
-                                                        alt="给孩子吃这些有助长高" />
-                                                    </a>
-                                                </dd>
-                                                <dt>
-                                                    <a href="forum.php?mod=viewthread&tid=46" title="给孩子吃这些有助长高" target="_blank">
-                                                        给孩子吃这些有助长高
-                                                    </a>
-                                                </dt>
-                                                <dd class="sumr">
-                                                    春天的脚步已经悄然走来。这个季节，人体新陈代谢旺盛
-                                                </dd>
-                                            </dl>
-                                            <dl class="cl">
-                                                <dd class="m">
-                                                    <a href="forum.php?mod=viewthread&tid=87" target="_blank">
-                                                        <img src="picture/8ea9865628056d53a55b1aef9eb15498.jpg" width="90" height="66"
-                                                        alt="家居别墅专业装修设计" />
-                                                    </a>
-                                                </dd>
-                                                <dt>
-                                                    <a href="forum.php?mod=viewthread&tid=87" title="家居别墅专业装修设计" target="_blank">
-                                                        家居别墅专业装修设计
-                                                    </a>
-                                                </dt>
-                                                <dd class="sumr">
-                                                    　　别墅、别墅装修设计已经不再是新鲜的话题了。 随
-                                                </dd>
-                                            </dl>
-                                            <dl class="cl">
-                                                <dd class="m">
-                                                    <a href="forum.php?mod=viewthread&tid=89" target="_blank">
-                                                        <img src="picture/4d1a53c1e2e9844d96af9495023d8bfd.jpg" width="90" height="66"
-                                                        alt="欧式别墅设计 欧式别墅室内装修效果图" />
-                                                    </a>
-                                                </dd>
-                                                <dt>
-                                                    <a href="forum.php?mod=viewthread&tid=89" title="欧式别墅设计 欧式别墅室内装修效果图" target="_blank">
-                                                        欧式别墅设计 欧式别墅室内装修效果图
-                                                    </a>
-                                                </dt>
-                                                <dd class="sumr">
-                                                    这是一个清新的欧式别墅设计，颜色和光线都令人觉
-                                                </dd>
-                                            </dl>
-                                            <dl class="cl">
-                                                <dd class="m">
-                                                    <a href="forum.php?mod=viewthread&tid=88" target="_blank">
-                                                        <img src="picture/7ae49a2fe1a1a22237e62ae4b64784eb.jpg" width="90" height="66"
-                                                        alt="别墅室内装修软装设计需要注意哪些" />
-                                                    </a>
-                                                </dd>
-                                                <dt>
-                                                    <a href="forum.php?mod=viewthread&tid=88" title="别墅室内装修软装设计需要注意哪些" target="_blank">
-                                                        别墅室内装修软装设计需要注意哪些
-                                                    </a>
-                                                </dt>
-                                                <dd class="sumr">
-                                                    随着人们生活水平的提高，人们在追求品质生活
-                                                </dd>
-                                            </dl>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
+                                <!--推荐阅读结束-->
                             </div>
                         </div>
                     </div>

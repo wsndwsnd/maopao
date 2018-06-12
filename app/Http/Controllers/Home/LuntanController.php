@@ -10,8 +10,12 @@ use App\Models\Category;
 use App\Models\Posts;
 use App\Models\Slide;
 use App\Models\Postsinfo;
+
 use App\Models\User;
 use App\Models\Notices;
+
+use App\Models\Articles;
+
 
 use DB;
 class LuntanController extends Controller
@@ -30,16 +34,24 @@ class LuntanController extends Controller
      * Display a listing of the resource.
      *
      * @param  $data2   轮播图
+     * @param  $data3   推荐阅读
+     * @param  $data4   会员排行
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
        
         $data2 = Slide::where('slide_status','0')->get();
+
         //公告
         $notice = Notices::where('notice_status',1)->paginate(5);
         
-        return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2,'notice'=>$notice]);
+
+
+        $data3 = Articles::where('article_status',1)->orderBy('article_comments','desc')->paginate(6);
+        $data4 = User::where('status',1)->orderBy('score','desc')->paginate(9);
+        return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2,'data3'=>$data3,'data4'=>$data4,'notice'=>$notice]);
+
     }
 
     /**
