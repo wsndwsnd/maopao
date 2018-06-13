@@ -61,9 +61,6 @@ class SiteController extends Controller
      */
     public function edit($id)
     {
-        //
-         $data = Site::find($id);
-        return view('Admin/site/edit',['data'=>$data]);
     }
 
     /**
@@ -77,42 +74,7 @@ class SiteController extends Controller
     {
          DB::beginTransaction();
         $data1 = $request -> only('site_email','site_copyright');
-        //判断是否上传logo
-        if($request->hasFile("site_logo")){
-            //获取上传信息
-            $file = $request->file("site_logo");
-            //确认上传的文件是否成功
-            if($file->isValid()){
-              
-                $ext = $file->getClientOriginalExtension(); //获取上传文件名的后缀名
-                //执行移动上传文件
-                $filename = time().rand(1000,9999).".".$ext;
-                $dir_name = 'uploads/'.date('Ymd',time());//拼接路径便于存储
-                $name = '/'.$dir_name.'/'.$filename;          
-                $data1['site_logo']=$name;
-                $file ->move($dir_name,$filename);
-            }
-        }
-
-        //判断是否上传二维码
-        if($request->hasFile("site_ewm")){
-            //获取上传信息
-            $file = $request->file("site_ewm");
-            //确认上传的文件是否成功
-            if($file->isValid()){
-              
-                $ext = $file->getClientOriginalExtension(); //获取上传文件名的后缀名
-                //执行移动上传文件
-                $filename = time().rand(1000,9999).".".$ext;
-                $dir_name = 'uploads/'.date('Ymd',time());//拼接路径便于存储
-                $name = '/'.$dir_name.'/'.$filename;          
-                $data1['site_ewm']=$name;
-                $file ->move($dir_name,$filename);
-            }
-        }
         $res1 = Site::where('id',$id)->update($data1);
-    
-
         if ($res1) {
             DB::commit();
             return redirect('/admin/site')->with('success','修改成功');
@@ -132,4 +94,113 @@ class SiteController extends Controller
     {
         //
     }
+
+    //修改logo
+    public function logo(Request $request)
+    {
+        DB::beginTransaction();
+        if($request -> hasFile('profile')){
+            $profile = $request -> file('profile');
+            $dir_name = './uploads/'.date('Ymd');
+            $file_name = str_random(20);
+            $hz = $profile->getClientOriginalExtension();
+            $name = '/'.$file_name.'.'.$hz;
+            $res = $profile -> move($dir_name,$name);
+            $userimg = $dir_name.$name; 
+            if($res){
+                $arr = [
+                    'code' => 1,
+                    'msg' => '上传成功',
+                    'data' => [
+                        'src' => ltrim($dir_name.$name,'.')
+                    ],
+                ];
+            $data1['site_logo']=$userimg;
+
+            Site::where('id','1')->update($data1);
+            DB::commit();
+            }else{
+                $arr = [
+                    'code' => 0,
+                    'msg' => '上传失败',
+                    'data' => [
+                        'src' => ''
+                    ],
+                ];
+            DB::rollBack();
+
+            }
+        }
+
+        //处理返回值
+        echo json_encode($arr);
+    }
+
+
+    //修改logo
+    public function ewm(Request $request)
+    {
+        DB::beginTransaction();
+        if($request -> hasFile('profile')){
+            $profile = $request -> file('profile');
+            $dir_name = './uploads/'.date('Ymd');
+            $file_name = str_random(20);
+            $hz = $profile->getClientOriginalExtension();
+            $name = '/'.$file_name.'.'.$hz;
+            $res = $profile -> move($dir_name,$name);
+            $userimg = $dir_name.$name; 
+            if($res){
+                $arr = [
+                    'code' => 1,
+                    'msg' => '上传成功',
+                    'data' => [
+                        'src' => ltrim($dir_name.$name,'.')
+                    ],
+                ];
+            $data1['site_ewm']=$userimg;
+
+            Site::where('id','1')->update($data1);
+            DB::commit();
+            }else{
+                $arr = [
+                    'code' => 0,
+                    'msg' => '上传失败',
+                    'data' => [
+                        'src' => ''
+                    ],
+                ];
+            DB::rollBack();
+
+            }
+        }
+
+        //处理返回值
+        echo json_encode($arr);
+    }
+
+    //网站配置
+    public function status(Request $request)
+    {
+        
+        DB::beginTransaction();
+        //获取网站状态
+        $data = $request->status;
+        //进行判断
+        if($data == '1'){
+            $site_status = '2';
+        }elseif($data == '2'){
+            $site_status = '1';
+        }
+        //修改数据库
+        $res = Site::where('id','1')->update(['site_status'=>$site_status]);
+
+        if($res){
+            echo $site_status;
+            DB::commit();
+        }else{
+            echo 0;
+            DB::rollBack();
+        }
+    }
+
 }

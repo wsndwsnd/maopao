@@ -241,13 +241,17 @@
                                     <div id="portal_block_85_content" class="dxb_bc">
                                         <div class="module cl">
                                             <ul>
+
                                                 @foreach($data4 as $k=>$user)
+
                                                 <li class="cc1">
                                                     <div class="xuhao">
                                                         {{ $k+1}}
                                                     </div>
                                                     <div class="hyleft">
+
                                                         <a href="javascript:;" c="1" target="_blank">
+
                                                             <img src="{{ltrim($user->img,'.')}}" width="65" height="65" alt="admin" />
                                                         </a>
                                                     </div>

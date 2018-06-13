@@ -31,5 +31,7 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         //验证登录
         'login'=>\App\Http\Middleware\LoginMiddleware::class,
+        //网站状体
+        'SiteStatus'=>\App\Http\Middleware\SiteStatus::class,
     ];
 }

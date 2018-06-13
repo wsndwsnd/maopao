@@ -596,6 +596,7 @@
             skin: 'layui-layer-rim', //加上边框
             area: ['420px', '240px'], //宽高
             content: '<div id="" class="layui-layer-content"><ul class="layer_notice layui-layer-wrap"><li><a href="">1. 发帖一篇得10积分</a></li><li><a href="">2. 发表评论得2积分</a></li><li><a href="" >3. 发表文章或者评论得2积分</a></li></ul></div>'
+
           });
             
         });

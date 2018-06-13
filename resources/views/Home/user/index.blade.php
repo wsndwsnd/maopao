@@ -155,7 +155,7 @@
                       //执行实例
                       var uploadInst = upload.render({
                         elem: '#test1' //绑定元素
-                        ,url: '/usertx/uploads' //上传接口
+                        ,url: '/admin/site/logo' //上传接口
                         ,method:'POST'
                         ,data:{'_token':'{{csrf_token()}}'}
                         ,field:'profile'
@@ -217,11 +217,12 @@
                                 <td class="by">版块/群组</td> 
                                 <td class="by" style="width: 80px">作者</td> 
                                 <td class="num" >评论</td>
-                                <td class="by" style="width: 125px">申请</td>
+                                <td class="by" >申请</td>
                                </tr> 
                               </tbody>
                              </table> 
                             </div>
+                 <div style="height:300px;overflow-y:auto;">          
                  @foreach($user_posts as $v)
                   <div class="bm_c"> 
                      <div id="forumnew" style="display:none"></div> 
@@ -242,8 +243,8 @@
                         <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                         <em><span>{{$v -> created_at}}</span></em>
                         </td>
-                        <td class="num" ><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
-                        <td class="by" style="width: 160px">
+                        <td class="num" style="width: 120px"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                        <td class="by" style="width: 150px">
                          <form method="post" action="/admin/posts/sq">
                               {{ csrf_field() }} 
                                 <select class="form-control" name="label" style="width:60px;float:left;">
@@ -273,6 +274,7 @@
                      </table> 
                     </div> 
                     @endforeach
+                    </div> 
                </div>
                 <!-- ajax 删除我的帖子 -->
                 <script type="text/javascript">
@@ -308,6 +310,7 @@
                               </tbody>
                              </table> 
                             </div>
+                 <div style="height:300px;overflow-y:auto;">           
                  @foreach($user_article as $v)
                   <div class="bm_c"> 
                      <div id="forumnew" style="display:none"></div> 
@@ -345,6 +348,7 @@
                      </table> 
                     </div> 
                     @endforeach
+                  </div>
                </div>
                 <!-- ajax 删除我的文章 -->
                 <script type="text/javascript">
@@ -382,6 +386,7 @@
                               </tbody>
                              </table> 
                             </div>
+                 <div style="height:300px;overflow-y:auto;">           
                  @foreach($user_pcollects as $v)
                   <div class="bm_c"> 
                      <div id="forumnew" style="display:none"></div> 
@@ -416,6 +421,7 @@
                      </table> 
                     </div> 
                     @endforeach
+                  </div>
                </div>
                 <!-- ajax 删除我收藏的帖子 -->
                 <script type="text/javascript">
@@ -451,6 +457,7 @@
                               </tbody>
                              </table> 
                             </div>
+                 <div style="height:300px;overflow-y:auto;">           
                  @foreach($user_acollects as $v)
                   <div class="bm_c"> 
                      <div id="forumnew" style="display:none"></div> 
@@ -488,6 +495,7 @@
                      </table> 
                     </div> 
                     @endforeach
+                  </div>
                </div>
                 <!-- ajax 删除我收藏的文章 -->
                 <script type="text/javascript">

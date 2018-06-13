@@ -45,6 +45,7 @@ class LuntanController extends Controller
 
         //公告
         $notice = Notices::where('notice_status',1)->paginate(5);
+
         $data3 = Articles::where('article_status',1)->orderBy('article_comments','desc')->paginate(6);
         $data4 = User::where('status',1)->orderBy('score','desc')->paginate(9);
         //今日数量
@@ -61,6 +62,11 @@ class LuntanController extends Controller
         //新用户
         $data9 = User::orderBy('id','desc')->first();
         return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2,'data3'=>$data3,'data4'=>$data4,'notice'=>$notice,'data5'=>$data5,'data6'=>$data6,'data7'=>$data7,'data8'=>$data8,'data9'=>$data9]);
+
+        
+
+
+
 
     }
 
@@ -121,21 +127,36 @@ class LuntanController extends Controller
      * @param  $data    帖子标题
      * @param  $data3   帖子内容标题
      * @param  $data4   所有分类
+     * @param  $data3   分类下所有帖子
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-
         $data1 = Category::where('id',$id)->first();
         $data2 = Category::where('id',$data1->tid)->first();
         $data3 = Posts::where('cid',$id)->get();
+
         $data4 = Category::where('tid',$data1->tid)->get();
         // dump($data2);
+
+        //热门
+        $rm = Posts::where('cid',$id)->where('label','1')->get();
+        //精品
+        $jp = Posts::where('cid',$id)->where('label','2')->get();
+        //置顶
+        $zd = Posts::where('cid',$id)->where('label','3')->get();
+
         return view('home.cates.show',[
             'data'=>self::getPidCates($id),
             'data1'=>$data1,'data2'=>$data2,
             'data3'=>$data3,
-            'data4'=>$data4
+
+            'data4'=>$data4,
+
+            'rm'=>$rm,
+            'jp'=>$jp,
+            'zd'=>$zd
+
         ]);
     }
 
