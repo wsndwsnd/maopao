@@ -56,6 +56,8 @@ Route::get('/admin/notice/down/{id}','Admin\NoticeController@down');
 
 //后台管理员
 Route::resource('/admin/power','Admin\PowerController');
+//黄金广告位
+Route::resource('/admin/advertise','Admin\AdvertiseController');
 
 //后台帖子管理
 //申请标签

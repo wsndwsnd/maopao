@@ -170,7 +170,7 @@
     <div class="bm bmw  flg cl"> 
         <div class="bm_h cl bkh1"> 
          <span class="o"> <img id="category_1_img" src="/home/picture/collapsed_no.gif" title="收起/展开" alt="收起/展开" onclick="toggle_collapse('category_1');" /> </span> 
-         <h2><a href="forum.php?gid=1" style="">{{$value->title}}</a></h2> 
+         <h2><a href="javascript:;" style="">{{$value->title}}</a></h2> 
         </div> 
         <div id="category_1" class="bm_c" style=""> 
          

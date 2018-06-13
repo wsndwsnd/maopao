@@ -27,7 +27,12 @@
             <div class="mn" style="width:955px;">
               <div class="orde">
                 <div class="lslsls">
-                  
+                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
+                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
+                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
+                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
+                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
+                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
                   
                 </div>
                 <div class="drag">
@@ -191,7 +196,7 @@
                 <div class="bm bw0 pgs cl">
                   <span id="fd_page_bottom"></span>
                   <span class="pgb y">
-                    <a href="/home/forum.php">返&nbsp;回</a></span>
+                    <a href="javascript:history.go(-1);">返&nbsp;回</a></span>
                 </div>
                 <!--[diy=diyfastposttop]-->
                 <div id="diyfastposttop" class="area"></div>
@@ -203,27 +208,21 @@
             <div class="sd">
               <div class="bm">
                 <div class="bm_h">
-                  
-                  <h2 style="font-size:1em;font-weight: bold;">所属分类: 论坛分区一</h2></div>
+                 
+                  <h2 style="font-size:1em;font-weight: bold;">所属分类: {{$data2->title}}</h2></div>
                 <div class="bm_c">
                   <ul class="xl xl2 cl">
+                    @foreach($data4 as $val)
                     <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=37">旅游休闲</a></li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=2">美食天下</a></li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=36">特殊主题</a></li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=38">母婴亲子</a></li>
+                      <a href="/home/luntan/{{$val->id}}">{{$val->title}}</a>
+                    </li>
+                    @endforeach
                   </ul>
                 </div>
               </div>
               <div class="bm">
                 <div class="bm_h cl">
-                  <span class="o y">
-                    <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;page=1&amp;showoldetails=no#online">
-                      <img src="/home/picture/collapsed_no.gif" alt="" /></a>
-                  </span>
+                  
                   <h2 style="font-size:1em;font-weight: bold;">正在浏览此版块的会员 (1)</h2></div>
                 <div class="bm_c">
                   <ul class="ml mls cl">
