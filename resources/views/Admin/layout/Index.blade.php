@@ -396,6 +396,13 @@
                             <li><a href="/admin/slide/create">轮播图添加</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#"><i class="icon-list"></i>广告管理</a>
+                        <ul class="closed"> 
+                            <li><a href="/admin/advertise">广告列表</a></li>
+                            <li><a href="/admin/advertise/create">广告添加</a></li>
+                        </ul>
+                    </li>
 
                     <li>
                         <a href="#"><i class="icon-list"></i>友情链接管理</a>

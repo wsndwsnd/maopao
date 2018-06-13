@@ -120,6 +120,7 @@ class LuntanController extends Controller
      * @param  $data2   论坛分区  
      * @param  $data    帖子标题
      * @param  $data3   帖子内容标题
+     * @param  $data4   所有分类
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -128,11 +129,13 @@ class LuntanController extends Controller
         $data1 = Category::where('id',$id)->first();
         $data2 = Category::where('id',$data1->tid)->first();
         $data3 = Posts::where('cid',$id)->get();
+        $data4 = Category::where('tid',$data1->tid)->get();
         // dump($data2);
         return view('home.cates.show',[
             'data'=>self::getPidCates($id),
             'data1'=>$data1,'data2'=>$data2,
-            'data3'=>$data3
+            'data3'=>$data3,
+            'data4'=>$data4
         ]);
     }
 
