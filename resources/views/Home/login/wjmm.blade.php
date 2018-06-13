@@ -71,7 +71,7 @@
 	 <div class="layui-form-item">
 	    <label class="layui-form-label">确认密码</label>
 	    <div class="layui-input-inline">
-	      <input type="password" name="repassword" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" id="user_repassword">
+	      <input type="password" name="repassword" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" id="repassword">
 	    </div>
 	     <div class="layui-form-mid layui-word-aux"><span id="xxoo3">请输入确认密码</span></div>
 	  </div>
@@ -206,7 +206,7 @@
               if(phone_code == sessioncode){
                   isCode = true;
                   // 成功
-                  $('#xxoo4').html('');
+                  $('#xxoo4').html('<font color="green">验证码正确</font>');
                 } else {
                   isCode = false;
                   //失败
@@ -216,9 +216,8 @@
 
             $('#form').submit(function() {
               if (isUname && isPassword && isRepassword && isPhone && isCode) {
-                return true; //提交
+                    return true; //提交
               }
-
               return false; //阻止form表单提交
             });
           </script>

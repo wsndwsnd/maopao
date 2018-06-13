@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <div class="title">[本网站正在升级中] <br> 给您带来的不便请您谅解</div>
             </div>
         </div>
     </body>

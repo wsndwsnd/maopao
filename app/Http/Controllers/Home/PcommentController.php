@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Models\Plhf;
+use App\Models\User;
 
 use DB;
 class PcommentController extends Controller
@@ -40,13 +41,22 @@ class PcommentController extends Controller
      */
     public function store(Request $request)
     {
+        DB::beginTransaction();
         $data = $request->only('pid','content');
         $data['uid'] = session('user_id');
         $data['created_at'] = date('Y-m-d H:i:s',time());
+        //评论加积分
+        $score = User::find(session('user_id'))->score;
+        $score += 2;
+        $res1 = User::where('id',session('user_id'))->update(['score'=>$score]);
+
         $res = Plhf::insert($data);
-        if ($res) {
+        if ($res && $res1) {
+            DB::commit();
             return back()->with('success','评论成功');
         }else{
+            DB::rollBack();
+
             return back()->with('error','评论失败');
         }
     }

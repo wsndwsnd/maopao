@@ -11,6 +11,13 @@ use App\Models\Posts;
 use App\Models\Slide;
 use App\Models\Postsinfo;
 
+use App\Models\User;
+use App\Models\Notices;
+
+use App\Models\Articles;
+
+
+use DB;
 class LuntanController extends Controller
 {
     public static function getPidCates($tid)
@@ -27,14 +34,24 @@ class LuntanController extends Controller
      * Display a listing of the resource.
      *
      * @param  $data2   轮播图
+     * @param  $data3   推荐阅读
+     * @param  $data4   会员排行
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        // dd(self::getPidCates(0));
-        // $ddd = Category::get()->posts;
+       
         $data2 = Slide::where('slide_status','0')->get();
-        return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2]);
+
+        //公告
+        $notice = Notices::where('notice_status',1)->paginate(5);
+        
+
+
+        $data3 = Articles::where('article_status',1)->orderBy('article_comments','desc')->paginate(6);
+        $data4 = User::where('status',1)->orderBy('score','desc')->paginate(9);
+        return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2,'data3'=>$data3,'data4'=>$data4,'notice'=>$notice]);
+
     }
 
     /**
@@ -55,6 +72,7 @@ class LuntanController extends Controller
      */
     public function store(Request $request)
     {
+        DB::beginTransaction();
         $patt = "/\d+/";
         $str = $request->input('id');
         preg_match_all($patt,$str,$newstr);
@@ -67,10 +85,20 @@ class LuntanController extends Controller
         $res = Posts::insertGetId($data);
         $data2['tid'] = $res;
         $data2['content'] = $request->input('content');
+        $data2['created_at'] = date('Y-m-d H:i:s',time());
         $res2 = Postsinfo::insert($data2);
-        if($res2){
+
+        //发帖增加积分 
+        $score = User::find(session('user_id'))->score;
+        $score += 10;
+        $res1 = User::where('id',session('user_id'))->update(['score'=>$score]);
+
+        if($res2 && $res1){
+            DB::commit();
             return redirect('home/luntan/'.$cid)->with('success','发表成功');
         }else{
+            DB::rollBack();
+
             return redirect('home/luntan/'.$cid)->with('error','发表失败');
         }
     }
@@ -81,20 +109,27 @@ class LuntanController extends Controller
      * @param  $data1   分类标题
      * @param  $data2   论坛分区  
      * @param  $data    帖子标题
-     * @param  $data3   帖子内容标题
+     * @param  $data3   分类下所有帖子
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-
         $data1 = Category::where('id',$id)->first();
         $data2 = Category::where('id',$data1->tid)->first();
         $data3 = Posts::where('cid',$id)->get();
-        // dump($data2);
+        //热门
+        $rm = Posts::where('cid',$id)->where('label','1')->get();
+        //精品
+        $jp = Posts::where('cid',$id)->where('label','2')->get();
+        //置顶
+        $zd = Posts::where('cid',$id)->where('label','3')->get();
         return view('home.cates.show',[
             'data'=>self::getPidCates($id),
             'data1'=>$data1,'data2'=>$data2,
-            'data3'=>$data3
+            'data3'=>$data3,
+            'rm'=>$rm,
+            'jp'=>$jp,
+            'zd'=>$zd
         ]);
     }
 

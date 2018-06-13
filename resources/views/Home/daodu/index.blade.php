@@ -16,7 +16,7 @@ go();
 .xl2 .xl2_r i { padding-left: 10px; }
 </style> 
     <div id="pt" class="bm cl" style="margin-left: 150px;"> 
-     <div class="z"> 
+     <div class="z" style="margin-left: -150px;"> 
       <a href="/" class="nvhm" title="首页">Discuz! Board</a>
       <em>&raquo;</em>
       <a href="">导读</a> 

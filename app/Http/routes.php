@@ -29,8 +29,16 @@ Route::get('/admin/logout','Admin\LoginController@logout');
 
 //网站配置管理
 Route::get('/admin/site','Admin\SiteController@index');
-Route::get('/admin/site/edit/{id}','Admin\SiteController@edit');
+//修改页面
 Route::post('/admin/site/update/{id}','Admin\SiteController@update');
+//修改logo
+Route::post('/admin/site/logo','Admin\SiteController@logo');
+//修改二维码
+Route::post('/admin/site/ewm','Admin\SiteController@ewm');
+//网站状态
+Route::get('/admin/site/status','Admin\SiteController@status');
+
+
 
 //后台用户管理
 Route::resource('/admin/user','Admin\UserController');
@@ -116,6 +124,9 @@ Route::get('/admin/articleajax/{id}','Admin\ArticleController@ajaxdel');
 
 
 
+Route::group(['middleware'=>'SiteStatus'],function(){
+
+
 
 
 //前台
@@ -162,6 +173,10 @@ Route::get('/pcomment/del/{id}','Home\PcommentController@del');
 Route::get('/preply/del/{id}','Home\ReplyController@del');
 //帖子收藏												
 Route::resource('/pcollect','Home\PcollectController');
+//顶一下
+Route::get('/ding/{id}','Home\ReadController@ding');
+//踩一下
+Route::get('/cai/{id}','Home\ReadController@cai');
 
 //前台论坛
 Route::resource('/home/luntan','Home\LuntanController');
@@ -195,3 +210,4 @@ Route::get('/pbl/ajax','Home\PblController@ajax');
 
 //全局搜索
 Route::get('/home/seek','Home\SeekController@index');
+});

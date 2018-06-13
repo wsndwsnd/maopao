@@ -63,6 +63,11 @@ class ReplyController extends Controller
         $data['toctime'] = Plhf::find($id)->created_at;
         //被回复id
         $data['hid'] = $id;
+        
+         //评论加积分
+        $score = User::find(session('user_id'))->score;
+        $score += 2;
+        $res1 = User::where('id',session('user_id'))->update(['score'=>$score]);
 
         $res = Plhf::insert($data);
         $pid = $data['pid'];

@@ -24,7 +24,7 @@
           <!--[/diy]--></div>
         <div class="boardnav">
           <div id="ct" class="wp cl ct2">
-            <div class="mn" style="width:880px;">
+            <div class="mn" style="width:955px;">
               <div class="orde">
                 <div class="lslsls">
                   
@@ -37,13 +37,144 @@
 
               </div>
 
-              <div class="cenbor">
+              <div class="cenbor" style="height:500px">
                 
 
                 
+
+                <!-- 模板开始 -->
                 <div id="threadlist" class="tl bm bmw" style="position: relative;">
-                  
-                  <div class="th">
+                  <div class="layui-tab layui-tab-card">
+                    <ul class="layui-tab-title">
+                      <li class="layui-this">所有帖子</li>
+                      <li>热门贴</li>
+                      <li>精品贴</li>
+                      <li>置顶</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                      <!-- 所有 -->
+                      <div class="layui-tab-item layui-show">
+                         <table>
+                           <tr style="background: #EBEAEA">
+                             <th width="70px"></th>
+                             <th width="300px">标题</th>
+                             <th width="200px">作者</th>
+                             <th >发帖时间</th>
+                             <th width="60px">浏览量</th>
+                           </tr>
+                         </table>   
+                         <!-- div 滚动条 -->
+                         <!-- <div style="height:300px;overflow-y:auto;"> -->
+                        <table>
+                        @foreach($data3 as $v)
+                        <tr >
+                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;" src="{{ $v->users->img }}"></td>
+                          <td width="300px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
+                          <td width="250px">{{ $v->users->user_name }}</td>
+                          <td style="font-size:10px;">{{ $v->created_at }}</td>
+                          <td width="50px">{{ $v->post_view }}</td>
+
+                        </tr>
+                        @endforeach
+                        </table>
+                        <!-- </div> -->
+                      </div>
+                      <!-- 所有结束 -->
+                      <!-- 热门 -->
+                      <div class="layui-tab-item">
+                        <table>
+                           <tr style="background: #EBEAEA">
+                             <th width="70px"></th>
+                             <th width="300px">标题</th>
+                             <th width="200px">作者</th>
+                             <th >发帖时间</th>
+                             <th width="60px">浏览量</th>
+                           </tr>
+                         </table>   
+                         <!-- div 滚动条 -->
+                         <!-- <div style="height:300px;overflow-y:auto;"> -->
+                        <table>
+                        @foreach($rm as $v)
+                        <tr >
+                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;" src="{{ $v->users->img }}"></td>
+                          <td width="300px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
+                          <td width="250px">{{ $v->users->user_name }}</td>
+                          <td style="font-size:10px;">{{ $v->created_at }}</td>
+                          <td width="50px">{{ $v->post_view }}</td>
+
+                        </tr>
+                        @endforeach
+                        </table>
+                        <!-- </div> -->
+                      </div>
+                      <!-- 热门结束 -->
+                      <!-- 精品 -->
+                      <div class="layui-tab-item">
+                        <table>
+                           <tr style="background: #EBEAEA">
+                             <th width="70px"></th>
+                             <th width="300px">标题</th>
+                             <th width="200px">作者</th>
+                             <th >发帖时间</th>
+                             <th width="60px">浏览量</th>
+                           </tr>
+                         </table>   
+                         <!-- div 滚动条 -->
+                         <!-- <div style="height:300px;overflow-y:auto;"> -->
+                        <table>
+                        @foreach($jp as $v)
+                        <tr >
+                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;" src="{{ $v->users->img }}"></td>
+                          <td width="300px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
+                          <td width="250px">{{ $v->users->user_name }}</td>
+                          <td style="font-size:10px;">{{ $v->created_at }}</td>
+                          <td width="50px">{{ $v->post_view }}</td>
+
+                        </tr>
+                        @endforeach
+                        </table>
+                        <!-- </div> -->
+                      </div>
+                      <!-- 精品结束 -->
+                      <!-- 置顶 -->
+                      <div class="layui-tab-item">
+                        <table>
+                           <tr style="background: #EBEAEA">
+                             <th width="70px"></th>
+                             <th width="300px">标题</th>
+                             <th width="200px">作者</th>
+                             <th >发帖时间</th>
+                             <th width="60px">浏览量</th>
+                           </tr>
+                         </table>   
+                         <!-- div 滚动条 -->
+                         <!-- <div style="height:300px;overflow-y:auto;"> -->
+                        <table>
+                        @foreach($zd as $v)
+                        <tr >
+                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;" src="{{ $v->users->img }}"></td>
+                          <td width="300px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
+                          <td width="250px">{{ $v->users->user_name }}</td>
+                          <td style="font-size:10px;">{{ $v->created_at }}</td>
+                          <td width="50px">{{ $v->post_view }}</td>
+
+                        </tr>
+                        @endforeach
+                        </table>
+                        <!-- </div> -->
+                      </div>
+                      <!-- 置顶结束 -->
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+
+                  <!--<div class="th">
                     <table cellspacing="0" cellpadding="0">
                       <tr>
                         <th colspan="2">
@@ -89,50 +220,50 @@
                             <td class="by">&nbsp;</td></tr>
                         </tbody>
 
-<!--帖子开始-->
+                        <!--帖子开始-->
 
-                        @foreach($data3 as $v)
-                        <tbody id="stickthread_46">
-                          <tr>
-                            <td class="icn">
-                              <a href="/home/forum.php?mod=viewthread&amp;tid=46&amp;extra=page%3D1" title="全局置顶主题 - 新窗口打开" target="_blank">
-                                <img src="/home/picture/pin_3.gif" alt="全局置顶" /></a>
-                            </td>
-                            <th class="common">
-                              <a id="toux" href="/home/home.php?mod=space&amp;uid=1" target="_blank" title="进入admin的空间" class="">
-                                <img src="/home/picture/avatar.php" width="52" height="52"></a>
-                              <a href="/home/javascript:;" id="content_46" class="showcontent y" title="更多操作" onclick="CONTENT_TID='46';CONTENT_ID='stickthread_46';showMenu({'ctrlid':this.id,'menuid':'content_menu'})"></a>
-                              <a href="/home/javascript:void(0);" style="display: none;" class="" title="隐藏置顶帖">隐藏置顶帖</a>
-                              <a href="/home/read/{{ $v->id }}" onclick="atarget(this)" class="s xst">{{ $v->posts_title }}</a>
-                              <img src="/home/picture/011.small.gif" alt="新人帖" align="absmiddle" />
-                              <img src="/home/picture/image_s.gif" alt="attach_img" title="图片附件" align="absmiddle" />
-                              <img src="/home/picture/digest_2.gif" align="absmiddle" alt="digest" title="精华 2" /></th>
-                            <td class="by">
-                              <cite>
-                                <a href="/home/home.php?mod=space&amp;uid=1" c="1">admin</a></cite>
-                              <em>
-                                <span>2016-4-23</span></em>
-                            </td>
-                            <td class="num">
-                              <a href="/home/forum.php?mod=viewthread&amp;tid=46&amp;extra=page%3D1" class="xi2">1</a>
-                              <em>39</em></td>
-                            <td class="by">
-                              <cite>
-                                <a href="/home/home.php?mod=space&username=%CC%DF%C4%E3%D2%BB%BD%C5" c="1">踢你一脚</a></cite>
-                              <em>
-                                <a href="/home/forum.php?mod=redirect&tid=46&goto=lastpost#lastpost">2016-5-1 18:04</a></em>
-                            </td>
-                          </tr>
-                        </tbody>
-                      @endforeach
-<!--帖子结束-->             
+                         <!--  @foreach($data3 as $v)
+                          <tbody id="stickthread_46">
+                            <tr>
+                              <td class="icn">
+                                <a href="/home/forum.php?mod=viewthread&amp;tid=46&amp;extra=page%3D1" title="全局置顶主题 - 新窗口打开" target="_blank">
+                                  <img src="/home/picture/pin_3.gif" alt="全局置顶" /></a>
+                              </td>
+                              <th class="common">
+                                <a id="toux" href="/home/home.php?mod=space&amp;uid=1" target="_blank" title="进入admin的空间" class="">
+                                  <img src="/home/picture/avatar.php" width="52" height="52"></a>
+                                <a href="/home/javascript:;" id="content_46" class="showcontent y" title="更多操作" onclick="CONTENT_TID='46';CONTENT_ID='stickthread_46';showMenu({'ctrlid':this.id,'menuid':'content_menu'})"></a>
+                                <a href="/home/javascript:void(0);" style="display: none;" class="" title="隐藏置顶帖">隐藏置顶帖</a>
+                                <a href="/home/read/{{ $v->id }}" onclick="atarget(this)" class="s xst">{{ $v->posts_title }}</a>
+                                <img src="/home/picture/011.small.gif" alt="新人帖" align="absmiddle" />
+                                <img src="/home/picture/image_s.gif" alt="attach_img" title="图片附件" align="absmiddle" />
+                                <img src="/home/picture/digest_2.gif" align="absmiddle" alt="digest" title="精华 2" /></th>
+                              <td class="by">
+                                <cite>
+                                  <a href="/home/home.php?mod=space&amp;uid=1" c="1">admin</a></cite>
+                                <em>
+                                  <span>2016-4-23</span></em>
+                              </td>
+                              <td class="num">
+                                <a href="/home/forum.php?mod=viewthread&amp;tid=46&amp;extra=page%3D1" class="xi2">1</a>
+                                <em>39</em></td>
+                              <td class="by">
+                                <cite>
+                                  <a href="/home/home.php?mod=space&username=%CC%DF%C4%E3%D2%BB%BD%C5" c="1">踢你一脚</a></cite>
+                                <em>
+                                  <a href="/home/forum.php?mod=redirect&tid=46&goto=lastpost#lastpost">2016-5-1 18:04</a></em>
+                              </td>
+                            </tr>
+                          </tbody>
+                        @endforeach -->
+                      <!--帖子结束-->             
                         
 
-                      </table>
-                      <!-- end of table "forum_G[fid]" branch 1/3 --></form>
-                  </div>
+                     <!--  </table>
+                      </form>
+                  </div> -->
                 </div>
-
+                <!-- 模板结束 -->
 
                 <div id="filter_special_menu" class="p_pop" style="display:none" change="location.href='forum.php?mod=forumdisplay&fid=2&filter='+$('filter_special').value">
                   <ul>
@@ -188,11 +319,7 @@
                       <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=heat&amp;orderby=heats">热门</a></li>
                   </ul>
                 </div>
-                <div class="bm bw0 pgs cl">
-                  <span id="fd_page_bottom"></span>
-                  <span class="pgb y">
-                    <a href="/home/forum.php">返&nbsp;回</a></span>
-                </div>
+                
                 <!--[diy=diyfastposttop]-->
                 <div id="diyfastposttop" class="area"></div>
                 <!--[/diy]-->
@@ -245,7 +372,12 @@
           <script type="text/javascript">var postminchars = parseInt('10');
             var postmaxchars = parseInt('10000');
             var disablepostctrl = parseInt('0');
-            var fid = parseInt('2');</script>
+            var fid = parseInt('2');
+          </script>
+
+
+
+
 <!--快速发帖开始-->
         <form action="/home/luntan" method="post">
             {{ csrf_field() }}
