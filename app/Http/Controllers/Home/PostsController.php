@@ -22,8 +22,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
-        echo '帖子 index';
+        
     }
 
     /**
@@ -33,7 +32,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('Home.posts.create',['data'=>CateController::getPidCates(0)]);
+        return view('Home.posts.create',['data'=>LuntanController::getPidCates(0)]);
     }
 
     /**

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 
 use App\Models\Comment;
 use App\Models\Articles;
@@ -48,8 +49,12 @@ class CommentController extends Controller
         $data['created_at']= date('Y-m-d H:i:s',time());
        
         $res = Comment::insertGetId($data); 
+         //评论加积分
+        $score = User::find(session('user_id'))->score;
+        $score += 2;
+        $res1 = User::where('id',session('user_id'))->update(['score'=>$score]);
 
-        if ($res) {
+        if ($res && $res1) {
             //添加评论量
            $article = Articles::where('id',$data['aid'])->first();
            $num = $article ->article_comments;

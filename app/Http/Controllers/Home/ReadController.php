@@ -9,8 +9,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Posts;
 use App\Models\Category;
 use App\Models\Slide;
-
+use DB;
 use App\Models\Plhf;
+use App\Models\Ding;
+
 class ReadController extends Controller
 {
     /**
@@ -104,5 +106,50 @@ class ReadController extends Controller
     public function destroy($id)
     {
         //
+    }
+    /**
+     * 顶一下
+     */
+    public function ding(Request $request,$id)
+    {
+        if(Ding::where('uid',session('user_id'))->where('pid',$id)->first()){
+            echo 3;
+            exit;
+        }
+
+        $data1 = $request->only('ding');
+
+        $res1 = Posts::where('id',$id)->update($data1);
+
+        $res2 = Ding::insert(['pid'=>$id,'uid'=>session('user_id')]);
+
+
+        if ($res1 && $res2) {
+            echo 1;
+        }else{
+            echo 2;
+        }
+    }
+     /**
+     * 踩一下
+     */
+    public function cai(Request $request,$id)
+    {
+        if(Ding::where('uid',session('user_id'))->where('pid',$id)->first()){
+            echo 3;
+            exit;
+        }
+
+        $data1 = $request->only('cai');
+        $res1 = Posts::where('id',$id)->update($data1);
+
+        $res2 = Ding::insert(['pid'=>$id,'uid'=>session('user_id')]);
+
+
+        if ($res1 && $res2) {
+            echo 1;
+        }else{
+            echo 2;
+        }
     }
 }

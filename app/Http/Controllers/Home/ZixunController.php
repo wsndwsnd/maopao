@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Articles;
 use DB;
 use App\Models\Comment;
+use App\Models\User;
+
 
 
 class ZixunController extends Controller
@@ -28,6 +30,7 @@ class ZixunController extends Controller
         // 推荐阅读
         $data2 = Articles::where('article_status',1)->orderBy('article_comments','desc')->paginate(3);
         return view('Home.zixun.index',['data'=>$data,'data1'=>$data1,'data2'=>$data2]);
+
     }
 
     /**
@@ -91,6 +94,10 @@ class ZixunController extends Controller
         $article -> uid = session('user_id');
       
         $res = $article -> save();
+         //发表文章加积分
+        $score = User::find(session('user_id'))->score;
+        $score += 15;
+        $res1 = User::where('id',session('user_id'))->update(['score'=>$score]);
 
         if($res){
              return back()->with('success','发表成功,请等待审核');
@@ -123,15 +130,10 @@ class ZixunController extends Controller
         //推荐阅读
 
         $data4 =Articles::where('article_status',1)->orderBy('article_comments','desc')->paginate(3);
-
         
         //显示评论
 
         $data5 = Comment::where('aid',$id)->orderBy('created_at','asc')->get();        
-
-        
- 
-    
 
         return view('Home.zixun.show',['data'=>$data,'data1'=>$data1,'data2'=>$data2,'data3'=>$data3,'data4'=>$data4,'data5'=>$data5]);
 

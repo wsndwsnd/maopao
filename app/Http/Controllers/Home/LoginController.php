@@ -8,121 +8,63 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Userinfo;
 use DB;
+use Hash;
+use App\Http\Controllers\CodeController;
 class LoginController extends Controller
 {
-    /**
-     * 注册页面
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    //登录页面
+    public function dl()
     {
-        //
-        return view('Home.login');
+        return view('Home.login.create');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    //验证登录
+    public function yzdl(Request $request)
     {
-        //
+        $res = CodeController::check($request -> input('code'));
+        if(!$res){
+            return back()->with('error','验证码错误');
+        }
+        //获取信息
+        $user_name = $request -> user_name;
+        $password = $request -> password;
+        $user = User::where('user_name',$user_name)->first();
+        if($user && Hash::check($password,$user->user_password)){
+             //把用户数据保存到session
+
+            session(['user_name'=>$user->user_name,'user_id'=>$user->id,'user_img'=>$user->img,'user_token'=>$user->token]);
+
+            // dd(session('user_img'));
+            return redirect('/');
+        }else{
+             return back()->with('error','用户或密码错误');
+        }
     }
 
-    /**
-     * 验证注册
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    //忘记密码页面
+    public function wjmm()
     {
-       DB::beginTransaction();
-       // $this -> validate($request,[
-       //      'user_name' => 'required|unique:users|regex:/[\w]{1,12}/',
-       //      'password' => 'required|regex:/[\w]{6,18}/',
-       //      'repassword' => 'required|same:password',
-       //      'email' => 'required|email',
-       //     ],[
-       //      'user_name.required' => '用户名不能为空',
-       //      'user_name.unique' => '用户名已存在',
-       //      'email.required' => '邮箱不能为空',
-       //      'email.email' => '邮箱格式不合法',
-       //      'password.required' => '密码不能为空',
-       //      'password.regex' => '请输入6-8位合法密码',
-       //      'repassword.required' => '确认密码不能为空',
-       //      'repassword.same' => '两次密码不一致',
-       //     ]
-       // );
+        return view('Home.login.wjmm');
+    }
 
-        $data = $request;
-        $users = new User;
-        $user_name= $data->user_name;
-        $password = $data->password;
-        $email = $data->email;
-        $res1 = $users->insertGetId(['user_name'=>$user_name,'user_password'=>$password,'user_email'=>$email]);
-       //用户详情
-        $userinfo = new Userinfo;
-        $userinfo -> user_id = $res1;
+    //验证忘记密码
+    public function yzwjmm(Request $request)
+    {
+        $code = $request -> input('phone_code','');
+         //判断验证码是否正确
+        if($code != session('phone_code')){
+            return back()->with('error','验证码错误');
+        }
+        $username = $request -> input('user_name'); 
+        $data['user_password'] = Hash::make($request -> input('password','123'));
         
-        $res2 = $userinfo->save();
-       if($res1 && $res2){
-        //成功
-             DB::commit();
-             return redirect('/user/create');
-
-       }else{
-        //失败
-        DB::rollBack();
-            return back()->with('error','请输入合法信息');
-       }
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+         $res = User::where('user_name',$username)->update($data);
+         if($res){
+            //修改成功
+            return redirect('/user/create')->with('success','成功,请登录!');
+        }else{
+            //失败
+            return back()->with('error','失败');
+        }
     }
 }
