@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Models\User;
+use App\Models\Posts;
+use App\Models\Articles;
 class IndexController extends Controller
 {
     /**
@@ -16,7 +18,10 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('Admin.Index');
+        $user = User::get();
+        $posts = Posts::get();
+        $articles = Articles::get();
+        return view('Admin.Index',['user'=>$user,'posts'=>$posts,'articles'=>$articles]);
     }
 
     /**

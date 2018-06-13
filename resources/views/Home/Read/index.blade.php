@@ -28,7 +28,7 @@
         <em>›</em> 
         <a href="/home/luntan">{{ $data1->title }}</a> 
         <em>›</em> 
-        <a href="javascript:history.back(-1)">{{$data->cates->title}}</a> 
+        <a href="/home/luntan/{{ $data->cates->id }}">{{$data->cates->title}}</a> 
         <em>›</em> 
         <a href="#">{{$data->posts_title}}</a> 
        </div> 
@@ -189,8 +189,41 @@
               </tbody>
              </table>
             </div> 
-            <p><em><a href="/home/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=1" target="_blank">管理员</a></em></p> 
-            <p><span><img src="/home/picture/star_level3.gif" alt="Rank: 9" /><img src="/home/picture/star_level3.gif" alt="Rank: 9" /><img src="/home/picture/star_level1.gif" alt="Rank: 9" /></span></p> 
+             
+            <p><span>@if( $data->users->score <= 50 && $data->users->score >= 0 )
+                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" /> 
+                     @elseif( $data->users->score <= 150 && $data->users->score > 51 )
+                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                     @elseif( $data->users->score <= 300 && $data->users->score >= 151 )
+                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                     @elseif( $data->users->score <= 500 && $data->users->score >= 301 )
+                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                     @elseif( $data->users->score <= 750 && $data->users->score >= 501 )
+                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                     @elseif( $data->users->score <= 1050 && $data->users->score >= 751 )
+                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                     @elseif( $data->users->score <= 1400 && $data->users->score >= 1051 )
+                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                     @elseif( $data->users->score <= 1800 && $data->users->score >= 1401 )
+                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                     @elseif( $data->users->score <= 2250 && $data->users->score >= 1801 )
+                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" />  
+                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                     @elseif(  $data->users->score >= 2251 )
+                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                     @endif
+              </span></p> 
             <dl class="pil cl"> 
              <dt>
               积分
@@ -356,12 +389,44 @@
                                 </table>
                             </div>
                             <p>
-                                <em>
-                                    <a href="">新手上路</a></em>
+                                
                             </p>
                             <p>
                                 <span id="g_up120" >
-                                    <img src="/Home/picture/star_level1.gif" alt="Rank: 1"></span>
+                                     @if( $v->users->score <= 50 && $v->users->score >= 0 )
+                                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" /> 
+                                     @elseif( $v->users->score <= 150 && $v->users->score > 51 )
+                                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                                     @elseif( $v->users->score <= 300 && $v->users->score >= 151 )
+                                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                                     @elseif( $v->users->score <= 500 && $v->users->score >= 301 )
+                                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                                     @elseif( $v->users->score <= 750 && $v->users->score >= 501 )
+                                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                                     @elseif( $v->users->score <= 1050 && $v->users->score >= 751 )
+                                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                                     @elseif( $v->users->score <= 1400 && $v->users->score >= 1051 )
+                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                     @elseif( $v->users->score <= 1800 && $v->users->score >= 1401 )
+                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                     @elseif( $v->users->score <= 2250 && $v->users->score >= 1801 )
+                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" />  
+                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                     @elseif( $v->users->score >= 2251 )
+                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                     @endif
+                                  </span>
                             </p>                          
                             <p>
                                 <span class="pbg2" id="upgradeprogress_120"  initialized="true">
@@ -530,7 +595,7 @@
             type: 0,
             skin: 'layui-layer-rim', //加上边框
             area: ['420px', '240px'], //宽高
-            content: '<div id="" class="layui-layer-content"><ul class="layer_notice layui-layer-wrap"><li><a href="">1. 发帖一篇得10积分</a></li><li><a href="">2. 发表评论得2积分</a></li><li><a href="" >3. 关注 layui 微信公众号，随时随地获取最新动态</a></li></ul></div>'
+            content: '<div id="" class="layui-layer-content"><ul class="layer_notice layui-layer-wrap"><li><a href="">1. 发帖一篇得10积分</a></li><li><a href="">2. 发表评论得2积分</a></li><li><a href="" >3. 发表文章或者评论得2积分</a></li></ul></div>'
           });
             
         });

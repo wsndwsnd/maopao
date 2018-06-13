@@ -126,28 +126,29 @@
             <p class="chart z">
                 今日:
                 <em>
-                    0
+                    {{ $data5->count() }}
                 </em>
                 <span class="pipe">
                     |
                 </span>
                 昨日:
                 <em>
-                    1
+                    {{ $data6->count() }}
+                    
                 </em>
                 <span class="pipe">
                     |
                 </span>
                 帖子:
                 <em>
-                    113
+                    {{ $data7->count() }}
                 </em>
                 <span class="pipe">
                     |
                 </span>
                 会员:
                 <em>
-                    15
+                    {{ $data8->count() }}
                 </em>
                 <span class="pipe">
                     |
@@ -156,7 +157,7 @@
                 <em>
                     <a href="home.php?mod=space&amp;username=%CD%EA%C3%C0%B5%C4%C4%D0%C8%CB"
                     target="_blank" class="xi2">
-                        完美的男人
+                        {{ $data9->user_name }}
                     </a>
                 </em>
             </p>
@@ -169,7 +170,7 @@
 @foreach($data as $value)
     <div class="bm bmw  flg cl"> 
         <div class="bm_h cl bkh1"> 
-         <span class="o"> <img id="category_1_img" src="/home/picture/collapsed_no.gif" title="收起/展开" alt="收起/展开" onclick="toggle_collapse('category_1');" /> </span> 
+        
          <h2><a href="forum.php?gid=1" style="">{{$value->title}}</a></h2> 
         </div> 
         <div id="category_1" class="bm_c" style=""> 
@@ -238,10 +239,10 @@
                                     <div id="portal_block_85_content" class="dxb_bc">
                                         <div class="module cl">
                                             <ul>
-                                                @foreach($data4 as $user)
+                                                @foreach($data4 as $k=>$user)
                                                 <li class="cc1">
                                                     <div class="xuhao">
-                                                        1
+                                                        {{ $k+1}}
                                                     </div>
                                                     <div class="hyleft">
                                                         <a href="#" c="1" target="_blank">
@@ -305,67 +306,7 @@
                 </div>
             </div>
         </div>
-        <div id="online" class="bm oll">
-            <div class="bm_h">
-                <span class="o">
-                    <a href="forum.php?showoldetails=no#online" title="收起/展开">
-                        <img src="picture/collapsed_no.gif" alt="收起/展开" />
-                    </a>
-                </span>
-                <h3>
-                    <strong class="biti">
-                        <a href="home.php?mod=space&amp;do=friend&amp;view=online&amp;type=member">
-                            在线会员
-                        </a>
-                    </strong>
-                    <span class="xs1">
-                        <strong>
-                            1
-                        </strong>
-                        人在线 -
-                        <strong>
-                            0
-                        </strong>
-                        会员(
-                        <strong>
-                            0
-                        </strong>
-                        隐身),
-                        <strong>
-                            1
-                        </strong>
-                        位游客 - 最高记录是
-                        <strong>
-                            21
-                        </strong>
-                        于
-                        <strong>
-                            2018-5-2
-                        </strong>
-                        .
-                    </span>
-                </h3>
-            </div>
-            <dl id="onlinelist" class="bm_c">
-                <dt class="ptm pbm bbda">
-                    <img src="picture/online_admin.gif" />
-                    管理员 &nbsp; &nbsp; &nbsp;
-                    <img src="picture/online_supermod.gif" />
-                    超级版主 &nbsp; &nbsp; &nbsp;
-                    <img src="picture/online_moderator.gif" />
-                    版主 &nbsp; &nbsp; &nbsp;
-                    <img src="picture/online_member.gif" />
-                    会员 &nbsp; &nbsp; &nbsp;
-                </dt>
-                <dd class="ptm pbm">
-                    <ul class="cl">
-                        <li style="width: auto">
-                            当前只有游客或隐身会员在线
-                        </li>
-                    </ul>
-                </dd>
-            </dl>
-        </div>
+     
     </div>
     
 </div>

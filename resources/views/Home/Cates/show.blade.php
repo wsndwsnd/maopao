@@ -191,7 +191,8 @@
                 <div class="bm bw0 pgs cl">
                   <span id="fd_page_bottom"></span>
                   <span class="pgb y">
-                    <a href="/home/forum.php">返&nbsp;回</a></span>
+
+                    <a href="javascript:history.back(-1)">返&nbsp;回</a></span>
                 </div>
                 <!--[diy=diyfastposttop]-->
                 <div id="diyfastposttop" class="area"></div>
@@ -218,24 +219,7 @@
                   </ul>
                 </div>
               </div>
-              <div class="bm">
-                <div class="bm_h cl">
-                  <span class="o y">
-                    <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;page=1&amp;showoldetails=no#online">
-                      <img src="/home/picture/collapsed_no.gif" alt="" /></a>
-                  </span>
-                  <h2 style="font-size:1em;font-weight: bold;">正在浏览此版块的会员 (1)</h2></div>
-                <div class="bm_c">
-                  <ul class="ml mls cl">
-                    <li>
-                      <a href="/home/home.php?mod=space&amp;uid=14" class="avt">
-                        <img src="/home/picture/avatar.php" /></a>
-                      <p>
-                        <a href="/home/home.php?mod=space&amp;uid=14">123456</a></p>
-                      <span>15:45</span></li>
-                  </ul>
-                </div>
-              </div>
+              
               <div class="drag">
                 <!--[diy=diy2]-->
                 <div id="diy2" class="area"></div>

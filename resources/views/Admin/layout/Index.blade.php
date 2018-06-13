@@ -13,7 +13,11 @@
 <!-- Plugin Stylesheets first to ease overrides -->
 <link rel="stylesheet" type="text/css" href="/d/plugins/colorpicker/colorpicker.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/d/custom-plugins/wizard/wizard.css" media="screen">
+<!-- <link href="/d/css/bootstrap.min.css" rel="stylesheet"> -->
+<link href="/d/css/font-awesome.min.css" rel="stylesheet">
 
+<!--可无视-->
+<!-- <link rel="stylesheet" type="text/css" href="/d/css/demo1.css"> -->
 <!-- Required Stylesheets -->
 <link rel="stylesheet" type="text/css" href="/d/bootstrap/css/bootstrap.min.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/d/css/fonts/ptsans/stylesheet.css" media="screen">
@@ -58,6 +62,92 @@
         list-style: none;
        
     }
+
+</style>
+<style type="text/css">
+.demo{ padding: 2em 0;}
+.counter{
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+}
+.counter .counter-content{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 30px 0;
+    margin: 0 auto 30px;
+    z-index: 1;
+    position: relative;
+    transition: all 0.3s ease 0s;
+}
+.counter .counter-content:before{
+    content: "";
+    width: 122%;
+    height: 122%;
+    border-radius: 50%;
+    border: 20px solid #f19f48;
+    border-bottom: 20px solid transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.counter .counter-content:after{
+    content: "";
+    border-top: 16px solid #f19f48;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.counter .counter-icon{
+    display: block;
+    font-size: 50px;
+    color: #f19f48;
+    line-height: 50px;
+}
+.counter .counter-value{
+    font-size: 50px;
+    font-weight: 700;
+    color: rgba(0,0,0,0.7);
+    line-height: 70px;
+}
+.counter .title{
+    display: inline-block;
+    padding: 5px 25px;
+    background: #f19f48;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: capitalize;
+    margin: 0;
+}
+.counter.red .counter-content:before{
+    border-color: #ef5f61;
+    border-bottom-color: transparent;
+}
+.counter.red .counter-content:after{ border-top-color: #ef5f61; }
+.counter.red .counter-icon{ color: #ef5f61; }
+.counter.red .title{ background: #ef5f61; }
+.counter.blue .counter-content:before{
+    border-color: #4d9fcf;
+    border-bottom-color: transparent;
+}
+.counter.blue .counter-content:after{ border-top-color: #4d9fcf; }
+.counter.blue .counter-icon{ color: #4d9fcf; }
+.counter.blue .title{ background: #4d9fcf; }
+.counter.purple .counter-content:before{
+    border-color: #a98ceb;
+    border-bottom-color: transparent;
+}
+.counter.purple .counter-content:after{ border-top-color: #a98ceb; }
+.counter.purple .counter-icon{ color: #a98ceb; }
+.counter.purple .title{ background: #a98ceb; }
 </style>
 </head>
 
@@ -73,7 +163,7 @@
         
         	<!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
         	<div id="mws-logo-wrap">
-            	<img src="/d/images/1.png" alt="mws admin">
+            	<a href="/admin" title="点击首页"><img src="/d/images/1.png" alt="mws admin"></a>
 			</div>
         </div>
         

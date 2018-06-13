@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function index()
     {
         //文章
-        $article = Articles::take(6)->orderBy('id','desc')->get();
+        $article = Articles::take(6)->where('article_status','1')->orderBy('id','desc')->get();
         $link = Link::where('status','<','3')->get();
         $notice = Notices::where('notice_status',1)->paginate(5);
         //最新发帖
