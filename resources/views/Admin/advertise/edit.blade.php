@@ -27,12 +27,25 @@
                         <input type="text" name="title" class="required small" value="{{ $data->title }}">
                     </div>
                 </div>
-                <div class="mws-form-row">
-                    <label class="mws-form-label">广告内容 <span class="required">*</span></label>
-                    <div class="mws-form-item">
-                        <input type="text" name="content" class="required email small" value="{{ $data->content }}">
-                    </div>
-                </div> 
+                <div class="mws-form-row" >
+                    <label class="mws-form-label">状态:</label>
+                        <div class="mws-form-item">
+                            <select class="small" name="status">
+                                <option value="0" @if($data->status == 0) selected @endif>隐藏</option>
+                                <option value="1" @if($data->status == 1) selected @endif>显示</option>
+                            </select>
+                        </div>
+                </div>
+                <div class="mws-form-row" >
+                    <label class="mws-form-label">广告位置:</label>
+                        <div class="mws-form-item">
+                            <select class="small" name="position">
+                                <option value="0" @if($data->position == 0) selected @endif>待分配</option>
+                                <option value="1" @if($data->position == 1) selected @endif>黄金广告位</option>
+                                <option value="2" @if($data->position == 2) selected @endif>长条广告</option>
+                            </select>
+                        </div>
+                </div>
                 <div class="mws-form-row">
                     <label class="mws-form-label">预览图<span class="required">*</span></label>
                     <div class="mws-form-item" style="width:350px;height: 50px; "> 

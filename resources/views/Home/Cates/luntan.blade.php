@@ -16,20 +16,18 @@
                     <div class="y">
                         <div id="an">
                             <dl class="cl">
-                                <dt class="z xw1">
-                                </dt>
                                 <dd>
 
-                                    <div id="anc" >
+                                    <div id="anc">
                                         <ul id="ancl" >
                                             @foreach($notice as $v)
                                             <li id="li">
-                                                <span>
+                                                <span style="width: 425px;">
                                                     <a href="/notice" class="xi2" >
                                                        {{$v->notice_title}}
                                                     </a>
                                                 </span>
-                                                <em>
+                                                <em style="width: 95px;">
                                                        {{$v->created_at}}                                                   
                                                 </em>
                                             </li>
@@ -42,7 +40,7 @@
                                                 // 追加并且显示li标签
                                                 $('#ancl').append($(this).show());//display:none
                                             });
-                                        },2000);
+                                        },3000);
                                     </script>
 
                                     
@@ -106,7 +104,7 @@
                             <div id="portal_block_84" class="ltsyad block move-span">
                                 <div id="portal_block_84_content" class="dxb_bc">
                                     <div class="portal_block_summary">
-                                        <img src="picture/ad1.jpg" width="100%" />
+                                        <img src="{{ $advertise->img or 'picture/ad1.jpg' }}" width="278" height="299" />
                                     </div>
                                 </div>
                             </div>
@@ -309,6 +307,7 @@
                         </div>
                     </div>
                     <!--[/diy]-->
+                    
                 </div>
             </div>
         </div>

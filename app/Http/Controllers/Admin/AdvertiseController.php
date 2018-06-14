@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Advertise;
+use App\Http\Requests\AdvertiseRequest;
 
 class AdvertiseController extends Controller
 {
@@ -45,7 +46,7 @@ class AdvertiseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdvertiseRequest $request)
     {
         if($request->hasFile("img")){
             //获取上传信息
@@ -64,6 +65,8 @@ class AdvertiseController extends Controller
         }
         $data['title'] = $request->input('title');
         $data['content'] = $request->input('content');
+        $data['status'] = $request->input('status');
+        $data['position'] = $request->input('position');
 
         $res = Advertise::insert($data);
 
@@ -124,6 +127,8 @@ class AdvertiseController extends Controller
         }
         $data['title'] = $request->input('title');
         $data['content'] = $request->input('content');
+        $data['status'] = $request->input('status');
+        $data['position'] = $request->input('position');
         $res = Advertise::where('id',$id)->update($data);
         if ($res) {
             return redirect('/admin/advertise')->with('success','修改成功');

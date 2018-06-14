@@ -1,0 +1,41 @@
+#bm_h{ 
+       padding: 0 10px;
+       height: 31px;
+       border-top: 1px solid #FFF;
+       border-bottom: 1px solid #C2D5E3;
+       background: #F2F2F2;
+       line-height: 31px;
+       white-space: nowrap;
+       overflow: hidden;
+       font-size: 微软雅黑;
+     }
+
+#topic_flag_hot{
+    background: #FF7F42;
+    color: #FFF;
+    padding: 1px 4px;
+    margin-right: 7px;
+    margin-left: 0px;
+}
+
+#topic_flag_hot+a{
+    font-size:12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    width: 60%;
+    vertical-align: middle;
+    color: #666;
+}
+
+#topic_num{
+    font-size:12px;
+    color: #999;
+    float: right;
+}
+
+.bm_c ul li{
+    padding:5px;
+}

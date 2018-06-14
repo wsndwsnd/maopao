@@ -26,18 +26,33 @@
                         <input type="text" name="title" class="required small" value="{{ old('title') }}" id="title"><span style="margin-left:5px;font-size:12px;"></span>
                     </div>
                 </div>
+                <div id="" class="mws-form-row">
+                    <label class="mws-form-label">广告状态 <span class="required">*</span></label>
+                    <div class="mws-form-item">
+                        <select name="status" id="">
+                            <option value="0">隐藏</option>
+                            <option value="1">显示</option>
+                        </select>
+                        
+                    </div>
+                </div>
+                <div id="" class="mws-form-row">
+                    <label class="mws-form-label">广告位置 <span class="required">*</span></label>
+                    <div class="mws-form-item">
+                        <select name="position" id="">
+                            <option value="0">待分配</option>
+                            <option value="1">黄金广告位</option>
+                            <option value="2">长条广告</option>
+                        </select>
+                        
+                    </div>
+                </div>
                 <div class="mws-form-row" style="width:350px;">
                     <label class="mws-form-label">图片<span class="required">*</span></label>
                     <div class="mws-form-item">
                         <input type="file" name="img" class="required email large" >
                     </div>
                 </div>
-                <div class="mws-form-row">
-                    <label class="mws-form-label">广告内容 <span class="required">*</span></label>
-                    <div class="mws-form-item">
-                        <input type="text" name="content" class="required email small" id="content"><span style="margin-left:5px;"></span>
-                    </div>
-                </div> 
             </fieldset>
             
             

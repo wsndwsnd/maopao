@@ -24,15 +24,10 @@
           <!--[/diy]--></div>
         <div class="boardnav">
           <div id="ct" class="wp cl ct2">
-            <div class="mn" style="width:955px;">
+            <div class="mn" style="width:920px;">
               <div class="orde">
                 <div class="lslsls">
-                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
-                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
-                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
-                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
-                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
-                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
+                  <img src="{{ $advertise->img }}" alt="" width="920px" height="137px">
                   
                 </div>
                 <div class="drag">
@@ -181,15 +176,6 @@
                       <!-- 置顶结束 -->
                     </div>
                   </div>
-
-
-
-
-
-
-
-
-                 
                 </div>
                 <!-- 模板结束 -->
 
@@ -263,15 +249,16 @@
                 <div id="diyforumdisplaybottom" class="area"></div>
                 <!--[/diy]--></div>
             </div>
-            <div class="sd">
+            <div class="sd" style="width: 260px;">
               <div class="bm">
-                <div class="bm_h">
+                <div id="bm_h">
                  
-                  <h2 style="font-size:1em;font-weight: bold;">所属分类: {{$data2->title}}</h2></div>
+                  <h2 style="font-size:1em;font-weight: bold;">所属分类: {{$data2->title}}</h2>
+                </div>
                 <div class="bm_c">
-                  <ul class="xl xl2 cl">
+                  <ul class="xl xl2 cl" >
                     @foreach($data4 as $val)
-                    <li>
+                    <li style="padding: 0px;">
                       <a href="/home/luntan/{{$val->id}}">{{$val->title}}</a>
                     </li>
                     @endforeach
@@ -279,10 +266,40 @@
                 </div>
               </div>
 
-              <div class="drag">
-                <!--[diy=diy2]-->
-                <div id="diy2" class="area"></div>
-                <!--[/diy]--></div>
+              <div class="bm">
+                <div id="bm_h">
+                 
+                  <span style="font-size:1em;font-weight: bold;">贴吧热议榜</span>
+                  <span style="font-size:1em;float: right;">热度</span>
+                </div>
+                <div class="bm_c">
+                  <ul>
+                    <?php $i=1; ?>
+                    @foreach($rm2 as $val)
+                    <li>
+                      <span id="topic_flag_hot"><?php echo $i++; ?></span>
+                      <a href="/home/read/{{$val->id}}" title="{{ $val->posts_title }}">{{ $val->posts_title }}</a>
+                      <span id="topic_num">2007244</span>
+                    </li>
+                    @endforeach
+                  </ul>
+                </div>
+              </div>
+              <div class="bm">
+                <div id="bm_h">
+                 
+                  <span style="font-size:1em;font-weight: bold;">公告板</span>
+                </div>
+                <div class="bm_c">
+                  <ul>
+                    <li>
+                      <a href="/notice" title="">
+                        <img src="https://tb1.bdstatic.com/tb/111%E5%85%AC%E5%91%8A%E6%9D%BF.png" alt="" width="">
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
           <script type="text/javascript">var postminchars = parseInt('10');

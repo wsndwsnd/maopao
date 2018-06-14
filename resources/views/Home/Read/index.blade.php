@@ -569,7 +569,14 @@
                           content: '/preply?uid='+uid+'&pid='+{{ $data->id }}+'&id='+id //iframe的url
                         });  
                   @else
-                      layer.msg('请登录后回复');
+                      layer.open({
+                              type: 2,
+                              title: '<font style="color:skyblue;font-weight:777;font-size:16px;">请登录</font>',
+                              shadeClose: true,
+                              shade: 0.8,
+                              area: ['650px', '500px'],
+                              content: '/denglu?path='+location.pathname //iframe的url
+                          }); 
                   @endif
               });
            
