@@ -29,7 +29,7 @@ class DaoduController extends Controller
         //置顶
         $posts3 = Posts::where('label',3)->get();
         //普通贴
-        $posts4 = Posts::where('label',4)->get();
+        $posts4 = Posts::where('label',0)->get();
         return view('Home.daodu.index',['daodu'=>$daodu,'posts1'=>$posts1,'posts2'=>$posts2,'posts3'=>$posts3,'posts4'=>$posts4]);
 
     }

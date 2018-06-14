@@ -12,6 +12,8 @@ use App\Models\Plhf;
 
 use DB;
 use  App\Http\Controllers\Admin\CateController;
+use  App\Http\Controllers\Home\LuntanController;
+
 class PostsController extends Controller
 {
     /**
@@ -39,7 +41,7 @@ class PostsController extends Controller
     public function create()
     {
         //CateController::getCategory()  遍历类别   
-        return view('Admin.posts.create',['data'=>CateController::getCategory()]);
+        return view('Admin.posts.create',['data'=>LuntanController::getPidCates(0)]);
     }
 
     /**

@@ -74,7 +74,16 @@
                         @foreach($data3 as $v)
                         <tr >
                           <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;height: 80px;" src="{{ ltrim($v->users->img,'.') }}"></td>
-                          <td width="300px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
+                          <td width="300px">
+                            @if($v->label ==1)
+                            <img src="/Home/picture/huo.jpg" alt="热门">
+                            @elseif($v->label ==2)
+                            <img src="/Home/picture/digest_3.gif" alt="精品">
+                            @elseif($v->label ==3)
+                            <img src="/Home/picture/zhiding.jpg" alt="置顶" width="25px">
+                            @endif
+                            <a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a>
+                          </td>
                           <td width="250px">{{ $v->users->user_name }}</td>
                           <td style="font-size:10px;">{{ $v->created_at }}</td>
                           <td width="50px">{{ $v->post_view }}</td>
@@ -102,7 +111,7 @@
                         @foreach($rm as $v)
                         <tr >
                           <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;height: 80px;" src="{{ ltrim($v->users->img,'.') }}"></td>
-                          <td width="300px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
+                          <td width="300px"> <img src="/Home/picture/huo.jpg" alt="热门"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
                           <td width="250px">{{ $v->users->user_name }}</td>
                           <td style="font-size:10px;">{{ $v->created_at }}</td>
                           <td width="50px">{{ $v->post_view }}</td>
@@ -129,8 +138,8 @@
                         <table>
                         @foreach($jp as $v)
                         <tr >
-                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;" src="{{ ltrim($v->users->img,'.') }}"></td>
-                          <td width="300px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
+                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;height: 80px;" src="{{ ltrim($v->users->img,'.') }}"></td>
+                          <td width="300px"><img src="/Home/picture/digest_3.gif" alt="精品"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
                           <td width="250px">{{ $v->users->user_name }}</td>
                           <td style="font-size:10px;">{{ $v->created_at }}</td>
                           <td width="50px">{{ $v->post_view }}</td>
@@ -158,7 +167,8 @@
                         @foreach($zd as $v)
                         <tr >
                           <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;height: 80px;" src="{{ ltrim($v->users->img,'.') }}"></td>
-                          <td width="300px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
+                          <td width="300px">
+                            <img src="/Home/picture/zhiding.jpg" alt="置顶" width="25px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
                           <td width="250px">{{ $v->users->user_name }}</td>
                           <td style="font-size:10px;">{{ $v->created_at }}</td>
                           <td width="50px">{{ $v->post_view }}</td>
@@ -179,94 +189,7 @@
 
 
 
-                  <!--<div class="th">
-                    <table cellspacing="0" cellpadding="0">
-                      <tr>
-                        <th colspan="2">
-                          <div class="tf">
-                            <span id="atarget" onclick="setatarget(1)" class="y" title="在新窗口中打开帖子">新窗</span>
-                            <a id="filter_special" href="/home/javascript:;" class="showmenu xi2" onclick="showMenu(this.id)">全部主题</a>&nbsp;
-                            <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=lastpost&amp;orderby=lastpost" class="xi2">最新</a>&nbsp;
-                            <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=heat&amp;orderby=heats" class="xi2">热门</a>&nbsp;
-                            <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=hot" class="xi2">热帖</a>&nbsp;
-                            <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=digest&amp;digest=1" class="xi2">精华</a>&nbsp;
-                            <a id="filter_dateline" href="/home/javascript:;" class="showmenu xi2" onclick="showMenu(this.id)">更多</a>&nbsp;
-                            <span id="clearstickthread" style="display: none;">
-                              <span class="pipe">|</span>
-                              <a href="/home/javascript:;" onclick="clearStickThread()" class="xi2" title="显示置顶">显示置顶</a></span>
-                          </div>
-                        </th>
-                        <td class="by">作者</td>
-                        <td class="num">回复/查看</td>
-                        <td class="by">最后发表</td></tr>
-                    </table>
-                  </div>
-                  <div class="bm_c">
-                    <script type="text/javascript">var lasttime = 1527320867;
-                      var listcolspan = '5';</script>
-                    <div id="forumnew" style="display:none"></div>
-                    <form method="post" autocomplete="off" name="moderate" id="moderate" action="forum.php?mod=topicadmin&amp;action=moderate&amp;fid=2&amp;infloat=yes&amp;nopost=yes">
-                      <input type="hidden" name="formhash" value="316f8b52" />
-                      <input type="hidden" name="listextra" value="page%3D1" />
-                      <table summary="forum_2" cellspacing="0" cellpadding="0" id="threadlisttableid">
-                        <tbody>
-                          <tr>
-                            <td class="icn">
-                              <img src="/home/picture/ann_icon.gif" alt="公告" /></td>
-                            <th>
-                              <strong class="xst">公告:
-                                <a href="/home/forum.php?mod=announcement&amp;id=13#13" target="_blank">公告201705</a></strong>
-                            </th>
-                            <td class="by">
-                              <cite>
-                                <a href="/home/home.php?mod=space&amp;uid=1" c="1">admin</a></cite>
-                              <em>2017-12-25</em></td>
-                            <td class="num">&nbsp;</td>
-                            <td class="by">&nbsp;</td></tr>
-                        </tbody>
-
-                        <!--帖子开始-->
-
-                         <!--  @foreach($data3 as $v)
-                          <tbody id="stickthread_46">
-                            <tr>
-                              <td class="icn">
-                                <a href="/home/forum.php?mod=viewthread&amp;tid=46&amp;extra=page%3D1" title="全局置顶主题 - 新窗口打开" target="_blank">
-                                  <img src="/home/picture/pin_3.gif" alt="全局置顶" /></a>
-                              </td>
-                              <th class="common">
-                                <a id="toux" href="/home/home.php?mod=space&amp;uid=1" target="_blank" title="进入admin的空间" class="">
-                                  <img src="/home/picture/avatar.php" width="52" height="52"></a>
-                                <a href="/home/javascript:;" id="content_46" class="showcontent y" title="更多操作" onclick="CONTENT_TID='46';CONTENT_ID='stickthread_46';showMenu({'ctrlid':this.id,'menuid':'content_menu'})"></a>
-                                <a href="/home/javascript:void(0);" style="display: none;" class="" title="隐藏置顶帖">隐藏置顶帖</a>
-                                <a href="/home/read/{{ $v->id }}" onclick="atarget(this)" class="s xst">{{ $v->posts_title }}</a>
-                                <img src="/home/picture/011.small.gif" alt="新人帖" align="absmiddle" />
-                                <img src="/home/picture/image_s.gif" alt="attach_img" title="图片附件" align="absmiddle" />
-                                <img src="/home/picture/digest_2.gif" align="absmiddle" alt="digest" title="精华 2" /></th>
-                              <td class="by">
-                                <cite>
-                                  <a href="/home/home.php?mod=space&amp;uid=1" c="1">admin</a></cite>
-                                <em>
-                                  <span>2016-4-23</span></em>
-                              </td>
-                              <td class="num">
-                                <a href="/home/forum.php?mod=viewthread&amp;tid=46&amp;extra=page%3D1" class="xi2">1</a>
-                                <em>39</em></td>
-                              <td class="by">
-                                <cite>
-                                  <a href="/home/home.php?mod=space&username=%CC%DF%C4%E3%D2%BB%BD%C5" c="1">踢你一脚</a></cite>
-                                <em>
-                                  <a href="/home/forum.php?mod=redirect&tid=46&goto=lastpost#lastpost">2016-5-1 18:04</a></em>
-                              </td>
-                            </tr>
-                          </tbody>
-                        @endforeach -->
-                      <!--帖子结束-->             
-                        
-
-                     <!--  </table>
-                      </form>
-                  </div> -->
+                 
                 </div>
                 <!-- 模板结束 -->
 
@@ -372,30 +295,49 @@
 
 
 <!--快速发帖开始-->
-        <form action="/home/luntan" method="post">
-            {{ csrf_field() }}
+          
+
+
+       
           <div id="f_pst" class="bm">
             <div class="bm_h">
               <h2>快速发帖</h2></div>
-            <div class="bm_c">
-              <div class="pbt cl">
-                <script type="text/javascript" reload="1">simulateSelect('typeid_fast');</script>
-                标题：&nbsp;&nbsp;<input type="text" id="subject" name="title" class="px" value="" onkeyup="strLenCalc(this, 'checklen', 80);" tabindex="11" style="width: 25em">
-                <span>还可输入 <strong id="checklen">80</strong> 个字符</span>
-              </div>
-              <input type="hidden" name="id" value="{{ URL::current() }}">
-              <script id="container" name="content" type="text/plain" style="height:200px;
-
-              ">
-                  
-              </script>
-            <p class="ptm pnpost">
-              <button type="submit" name="topicsubmit" id="fastpostsubmit" value="topicsubmit" tabindex="13" class="pn pnc"><strong>发表帖子</strong></button>
-            </p>  
-            </div>
+          <form action="/home/luntan" method="post">
+            {{ csrf_field() }}
+              @if(session('user_id'))
+                  <div class="bm_c">
+                    <div class="pbt cl">
+                      <script type="text/javascript" reload="1">simulateSelect('typeid_fast');</script>
+                      标题：&nbsp;&nbsp;<input type="text" id="subject" name="title" class="px" value="" onkeyup="strLenCalc(this, 'checklen', 80);" tabindex="11" style="width: 25em">
+                      <span>还可输入 <strong id="checklen">80</strong> 个字符</span>
+                    </div>
+                    <input type="hidden" name="id" value="{{ URL::current() }}">
+                    <script id="container" name="content" type="text/plain" style="height:200px;"></script>
+                    <p class="ptm pnpost">
+                      <button type="submit" name="topicsubmit" id="fastpostsubmit" value="topicsubmit" tabindex="13" class="pn pnc"><strong>发表帖子</strong></button>
+                    </p>  
+                 </div>
+                  @else
+                  <div class="pt hm">
+                  您需要登录后才可以发帖 <a href="javascript:;" class="xi2 denglu">登录</a> | <a href="/register" class="xi2">立即注册</a>
+                  </div>
+              @endif
             
+          </form>
           </div>
-        </form>
+        <script type="text/javascript">
+             $('.denglu').click(function(){
+                          layer.open({
+                              type: 2,
+                              title: '<font style="color:skyblue;font-weight:777;font-size:16px;">请登录</font>',
+                              shadeClose: true,
+                              shade: 0.8,
+                              area: ['650px', '500px'],
+                              content: '/denglu?path='+location.pathname //iframe的url
+                          }); 
+                    });
+
+        </script>
 <!--快速发帖结束-->
         </div>
         <ul class="p_pop" id="newspecial_menu" style="display: none">

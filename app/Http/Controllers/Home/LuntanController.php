@@ -134,7 +134,7 @@ class LuntanController extends Controller
     {
         $data1 = Category::where('id',$id)->first();
         $data2 = Category::where('id',$data1->tid)->first();
-        $data3 = Posts::where('cid',$id)->get();
+        $data3 = Posts::where('cid',$id)->orderBy('label','desc')->get();
 
         $data4 = Category::where('tid',$data1->tid)->get();
         // dump($data2);

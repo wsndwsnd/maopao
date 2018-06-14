@@ -230,20 +230,27 @@
                      <tbody id="normalthread_99">
                        <tr style="font-size: 12px;">
                         <td class="icn" style="width: 100px">
-                          <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
-                            <img src="/Home/images/pollsmall.gif" alt="投票">
-                          </a>
+                         
                         </td>
                         <th class="common">
-                         <a href="/home/read/{{$v->id}}" target="_blank" class="xst">[@if($v->label == 1) 热门 @elseif($v->label == 2) 精品 @elseif($v->label == 3) 置顶 @elseif($v->label == 4) 普通贴 @endif]{{$v -> posts_title}}</a>
+                           @if($v->label ==1)
+                            <img src="/Home/picture/huo.jpg" alt="热门">
+                            @elseif($v->label ==2)
+                            <img src="/Home/picture/digest_3.gif" alt="精品">
+                            @elseif($v->label ==3)
+                            <img src="/Home/picture/zhiding.jpg" alt="置顶" width="25px">
+                            @endif
+                         <a href="/home/read/{{$v->id}}" target="_blank" class="xst">@if($v->label == 1) <font style="color
+                                             :orange;">[热门]</font> @elseif($v->label == 2) <font style="color:#02E8EF">[精品]</font> @elseif($v->label == 3) <font style="color: #679EFF">[置顶]</font> @elseif($v->label == 0) [普通贴] @endif{{$v -> posts_title}}</a>
                        </th>
-                        <td class="by" style="width: 130px"><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                        <td class="by" style="width: 130px">
+                          <a href="/home/luntan/{{ $v->cates->id }}" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                         <td class="by" style="width: 100px">
                         <cite>
                         <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                         <em><span>{{$v -> created_at}}</span></em>
                         </td>
-                        <td class="num" style="width: 120px"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                        <td class="num" style="width: 120px">{{ $v->plhfs->count() }}</td>
                         <td class="by" style="width: 150px">
                          <form method="post" action="/admin/posts/sq">
                               {{ csrf_field() }} 
@@ -257,7 +264,7 @@
                                   @elseif($v -> label == 3)
                                     <option name="label" value="1">热门</option>
                                     <option name="label" value="2">精华</option>
-                                  @elseif($v -> label == 4)
+                                  @elseif($v -> label == 0)
                                     <option name="label" value="1">热门</option>
                                     <option name="label" value="2">精华</option>
                                     <option name="label" value="3">置顶</option>
@@ -318,12 +325,11 @@
                      <tbody id="normalthread_99">
                        <tr style="font-size: 12px;">
                         <td class="icn" style="width: 100px">
-                          <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
-                            <img src="/Home/images/pollsmall.gif" alt="投票">
-                          </a>
+                         
                         </td>
-                        <th class="common">
-                          {{$v ->article_title}} 
+                        <th class="common" style="color: skyblue;">
+                          <a href="/zixun/{{ $v->id }}" target="_blank" style="padding-left: 10px;">{{$v ->article_title}}</a>
+
                        </th>
                         
                         <td class="by" style="width: 160px">
@@ -394,20 +400,26 @@
                      <tbody id="normalthread_99">
                        <tr style="font-size: 12px;">
                         <td class="icn" style="width: 100px">
-                          <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
-                            <img src="/Home/images/pollsmall.gif" alt="投票">
-                          </a>
+                         
                         </td>
                         <th class="common">
-                         <a href="/home/read/{{$v->id}}" target="_blank" class="xst">[@if($v->label == 1) 热门 @elseif($v->label == 2) 精品 @elseif($v->label == 3) 置顶 @elseif($v->label == 4) 普通贴 @endif]{{$v -> posts_title}}</a>
+                            @if($v->label ==1)
+                            <img src="/Home/picture/huo.jpg" alt="热门">
+                            @elseif($v->label ==2)
+                            <img src="/Home/picture/digest_3.gif" alt="精品">
+                            @elseif($v->label ==3)
+                            <img src="/Home/picture/zhiding.jpg" alt="置顶" width="25px">
+                            @endif
+                         <a href="/home/read/{{$v->id}}" target="_blank" class="xst">@if($v->label == 1) <font style="color
+                                             :orange;">[热门]</font> @elseif($v->label == 2) <font style="color:#02E8EF">[精品]</font> @elseif($v->label == 3) <font style="color: #679EFF">[置顶]</font> @elseif($v->label == 0) [普通贴] @endif{{$v -> posts_title}}</a>
                        </th>
-                        <td class="by" style="width: 126px"><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                        <td class="by" style="width: 126px"><a href="/home/luntan/{{ $v->cates->id }}" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                         <td class="by" style="width: 80px">
                         <cite>
                         <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                         <em><span>{{$v -> created_at}}</span></em>
                         </td>
-                        <td class="num" style="width: 190px"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                        <td class="num" style="width: 190px">{{ $v->plhfs->count() }}</td>
                         <td class="by" style="width: 140px">
                          <form method="post" action="/admin/posts/sq">
                               {{ csrf_field() }} 
@@ -465,9 +477,7 @@
                      <tbody id="normalthread_99">
                        <tr style="font-size: 12px;">
                         <td class="icn" style="width: 100px">
-                          <a href="forum.php?mod=viewthread&amp;tid=99&amp;extra=" title="投票 - 新窗口打开" target="_blank">
-                            <img src="/Home/images/pollsmall.gif" alt="投票">
-                          </a>
+                         
                         </td>
                         <th class="common">
                           {{$v ->article_title}} 
@@ -528,167 +538,5 @@
 </div>
 </center>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div id="wp" class="wp xuxian">
-        <div id="pt" class="bm cl">
-        </div>
-        <div id="ct" class="ct2_a wp cl">
-          <div class="mn">
-            <div class="bm bw0">
-              <h1 class="mt">个人资料</h1>
-              <ul class="tb cl">
-                <li class="a">
-                  <a href="home.php?mod=spacecp&amp;ac=profile&amp;op=base">基本资料</a></li>
-                <li>
-                  <a href="home.php?mod=spacecp&amp;ac=profile&amp;op=contact">联系方式</a></li>
-                <li>
-                  <a href="home.php?mod=spacecp&amp;ac=profile&amp;op=edu">教育情况</a></li>
-                <li>
-                  <a href="home.php?mod=spacecp&amp;ac=profile&amp;op=work">工作情况</a></li>
-                <li>
-                  <a href="home.php?mod=spacecp&amp;ac=profile&amp;op=info">个人信息</a></li>
-                  <li>
-                  <a href="/userposts/{{session('user_id')}}">我发的贴子</a></li>
-              </ul>
-              <iframe id="frame_profile" name="frame_profile" style="display: none"></iframe>
-              <form action="/user/{{$data->id}}/edit" method="get" >
-                <input type="hidden" value="316f8b52" name="formhash" />
-                <table cellspacing="0" cellpadding="0" class="tfm" id="profilelist">
-	                <tr>
-
-	                    <th>用户名</th>
-	                    <td>{{$data->user_name}}</td>
-	                    <td>&nbsp;</td>
-	                </tr>
-	                <tr>
-	                	<th>头像</th>
-	                    <td><img width="100px"  src="{{ $data->img }}"></td>
-	                    <td>&nbsp;</td>
-	                </tr>
-	                <tr>
-	                    <th>性别</th>
-	                    @if($data -> userinfo -> sex == 'x') <td>保密</td> @endif
-	                    @if($data -> userinfo -> sex == 'w') <td>女</td> @endif
-	                    @if($data -> userinfo -> sex == 'm') <td>男</td> @endif
-	                    @if($data -> userinfo -> sex = null) <td>未填写</td> @endif
-	                    <td>&nbsp;</td>
-	                </tr>
-                  	<tr>
-	                    <th>年龄</th>
-	                    @if($data -> userinfo -> age) <td>{{$data -> userinfo -> age}}</td> @else <td>未填写</td> @endif
-	                    
-	                    <td>&nbsp;</td>
-	                </tr>
-                  	<tr>
-	                    <th>电话</th>
-	                    @if($data -> userinfo -> user_tel) <td>{{$data -> userinfo -> user_tel}}</td> @else <td>未填写</td> @endif
-	                    <td>&nbsp;</td>
-	                </tr>
-	                <tr>
-	                    <th>邮箱</th>
-	                    <td>{{$data->user_email}}</td>
-	                    <td>&nbsp;</td>
-	                </tr>
-	                <tr>
-	                	<th>生日</th>
-	                     @if($data -> userinfo -> birthday) <td>{{$data -> userinfo -> birthday}}</td> @else <td>未填写</td> @endif
-	                    <td>&nbsp;</td>
-	                </tr>
-
-                  <tr>
-                    <th>&nbsp;</th>
-                    <td colspan="2">
-                      <input type="hidden" name="profilesubmit" value="true" />
-                      <button type="submit" name="profilesubmitbtn"  value="true" class="pn pnc" />
-                      <strong>点击修改</strong></button>
-                      <span id="submit_result" class="rq"></span>
-                    </td>
-                  </tr>
-                </table>
-              </form>
-              <script type="text/javascript">function show_error(fieldid, extrainfo) {
-                  var elem = $('th_' + fieldid);
-                  if (elem) {
-                    elem.className = "rq";
-                    fieldname = elem.innerHTML;
-                    extrainfo = (typeof extrainfo == "string") ? extrainfo: "";
-                    $('showerror_' + fieldid).innerHTML = "请检查该资料项 " + extrainfo;
-                    $(fieldid).focus();
-                  }
-                }
-                function show_success(message) {
-                  message = message == '' ? '资料更新成功': message;
-                  showDialog(message, 'right', '提示信息',
-                  function() {
-                    top.window.location.href = top.window.location.href;
-                  },
-                  0, null, '', '', '', '', 3);
-                }
-                function clearErrorInfo() {
-                  var spanObj = $('profilelist').getElementsByTagName("div");
-                  for (var i in spanObj) {
-                    if (typeof spanObj[i].id != "undefined" && spanObj[i].id.indexOf("_")) {
-                      var ids = explode('_', spanObj[i].id);
-                      if (ids[0] == "showerror") {
-                        spanObj[i].innerHTML = '';
-                        $('th_' + ids[1]).className = '';
-                      }
-                    }
-                  }
-                }</script>
-            </div>
-          </div>
-          <div class="appl">
-            <div class="tbn">
-              <h2 class="mt bbda">设置</h2>
-              <ul>
-              	 <li class="a">
-	                  <a href="/user">个人资料</a>
-	              </li>
-	              <li>
-	                  	<a href="/user/{{$data->id}}/edit">修改个人资料</a>
-	              </li>
-	              <li>
-	                  <a href="home.php?mod=spacecp&amp;ac=credit">修改密码</a>
-	              </li>
-	                <li>
-	                  <a href="home.php?mod=spacecp&amp;ac=credit">关注的人</a>
-	              </li>
-	              <li>
-	                  <a href="home.php?mod=spacecp&amp;ac=credit">关注的帖子</a>
-	              </li>
-               
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div> -->
 
 @stop

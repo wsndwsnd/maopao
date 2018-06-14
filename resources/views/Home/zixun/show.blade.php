@@ -61,38 +61,7 @@
                     <div id="diycontentbottom" class="area"></div>
                     <!--[/diy]-->
                     <script src="/home/js/home.js" type="text/javascript"></script>
-                   <!--  <div id="click_div">
-                      <table cellpadding="0" cellspacing="0" class="atd">
-                        <tr>
-                          <td>
-                            <a href="home.php?mod=spacecp&amp;ac=click&amp;op=add&amp;clickid=1&amp;idtype=aid&amp;id=12&amp;hash=67fa25d37f88e9a82f9997b0aa8cb3ad&amp;handlekey=clickhandle" id="click_aid_12_1" onclick="ajaxmenu(this);doane(event);">
-                              <img  src="/home/picture/xianhua.gif" alt="" />
-                              <br />鲜花</a></td>
-                          <td>
-                            <a href="home.php?mod=spacecp&amp;ac=click&amp;op=add&amp;clickid=2&amp;idtype=aid&amp;id=12&amp;hash=67fa25d37f88e9a82f9997b0aa8cb3ad&amp;handlekey=clickhandle" id="click_aid_12_2" onclick="ajaxmenu(this);doane(event);">
-                              <img  src="/home/picture/woshou.gif" alt="" />
-                              <br />握手</a></td>
-                          <td>
-                            <a href="home.php?mod=spacecp&amp;ac=click&amp;op=add&amp;clickid=3&amp;idtype=aid&amp;id=12&amp;hash=67fa25d37f88e9a82f9997b0aa8cb3ad&amp;handlekey=clickhandle" id="click_aid_12_3" onclick="ajaxmenu(this);doane(event);">
-                              <img  src="/home/picture/leiren.gif" alt="" />
-                              <br />雷人</a></td>
-                          <td>
-                            <a href="home.php?mod=spacecp&amp;ac=click&amp;op=add&amp;clickid=4&amp;idtype=aid&amp;id=12&amp;hash=67fa25d37f88e9a82f9997b0aa8cb3ad&amp;handlekey=clickhandle" id="click_aid_12_4" onclick="ajaxmenu(this);doane(event);">
-                              <img  src="/home/picture/luguo.gif" alt="" />
-                              <br />路过</a></td>
-                          <td>
-                            <a href="home.php?mod=spacecp&amp;ac=click&amp;op=add&amp;clickid=5&amp;idtype=aid&amp;id=12&amp;hash=67fa25d37f88e9a82f9997b0aa8cb3ad&amp;handlekey=clickhandle" id="click_aid_12_5" onclick="ajaxmenu(this);doane(event);">
-                              <img  src="/home/picture/jidan.gif" alt="" />
-                              <br />鸡蛋</a></td>
-                        </tr>
-                      </table>
-                      <script type="text/javascript">function errorhandle_clickhandle(message, values) {
-                          if (values['id']) {
-                            showCreditPrompt();
-                            show_click(values['idtype'], values['id'], values['clickid']);
-                          }
-                        }</script>
-                    </div> -->
+                  
                     <!--[diy=diycontentclickbottom]-->
                     <div id="diycontentclickbottom" class="area"></div>
                     <!--[/diy]--></div>
@@ -164,8 +133,14 @@
                   {{ csrf_field() }}
                   <div class="tedt">
                     <div class="area">
+                      @if(session('user_id'))
                       <textarea name="content" rows="7" class="pt message" id="message" style="background: #eee"></textarea>
-                    </div>
+                      @else
+                      <div class="pt hm">
+                      您需要登录后才可以回帖 <a href="javascript:;" class="xi2 denglu">登录</a> | <a href="/register" class="xi2">立即注册</a>
+                      </div>
+                      @endif
+                    </div> 
                   </div>
                   <div class="mtm">
                     <span id="seccode_cSzhQbYN"></span>
@@ -181,6 +156,19 @@
             <!--[diy=diycontentcomment]-->
             <div id="diycontentcomment" class="area"></div>
             <!--[/diy]--></div>
+            <script type="text/javascript">
+                    $('.denglu').click(function(){
+                          layer.open({
+                              type: 2,
+                              title: '<font style="color:skyblue;font-weight:777;font-size:16px;">请登录</font>',
+                              shadeClose: true,
+                              shade: 0.8,
+                              area: ['650px', '500px'],
+                              content: '/denglu?path='+location.pathname   //iframe的url
+                          }); 
+                    });
+                         
+            </script>
           
         </div>
         <div class="sd pph" style="width: 300px;">
@@ -344,6 +332,7 @@
            //收藏       
             $('#a_favorite').click(function(){
             
+             @if(session('user_id')) 
               $.ajax({
               // 请求服务器的地址
               url:"/acollect?aid={{ $data->id }}&uid={{ session('user_id') }}",
@@ -370,8 +359,19 @@
               // (默认: true) 默认设置下，所有请求均为异步请求。
               async:true
             });
-      });
+           @else
+             layer.open({
+                    type: 2,
+                    title: '<font style="color:skyblue;font-weight:777;font-size:16px;">请登录</font>',
+                    shadeClose: true,
+                    shade: 0.8,
+                    area: ['650px', '500px'],
+                    content: '/denglu?path='+location.pathname //iframe的url
+                }); 
 
+
+           @endif
+      });
       </script>
 
 @endsection

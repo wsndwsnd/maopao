@@ -25,7 +25,7 @@ class UserController extends Controller
         //用户信息
         $data = User::find(session('user_id'));
         //用户发的贴子
-        $user_posts = Posts::where('uid',session('user_id'))->get();
+        $user_posts = Posts::where('uid',session('user_id'))->orderBy('label','desc')->get();
         //用户发的文章
         $user_article = Articles::where('uid',session('user_id'))->get(); 
         //用户收藏的文章

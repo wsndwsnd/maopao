@@ -34,8 +34,9 @@ class LoginController extends Controller
 
             session(['user_name'=>$user->user_name,'user_id'=>$user->id,'user_img'=>$user->img,'user_token'=>$user->token]);
 
-            // dd(session('user_img'));
-            return redirect('/');
+             $path = $request->input('path','');
+            
+             return redirect($path)->with('success','登录成功');
         }else{
              return back()->with('error','用户或密码错误');
         }
@@ -66,5 +67,13 @@ class LoginController extends Controller
             //失败
             return back()->with('error','失败');
         }
+    }
+
+    //登录窗口
+    public function denglu(Request $request)
+    {
+
+        $path = $request->input('path','');
+        return view('Home.login.login',['path'=>$path]);
     }
 }

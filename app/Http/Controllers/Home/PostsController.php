@@ -11,7 +11,6 @@ use App\Models\Posts;
 use App\Models\Postsinfo;
 
 use  App\Http\Controllers\Admin\CateController;
-
 use DB;
 class PostsController extends Controller
 {

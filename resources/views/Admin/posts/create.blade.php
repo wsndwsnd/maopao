@@ -20,8 +20,11 @@
                             <select size="1" name="cid" aria-controls="DataTables_Table_1">
                                 <option value="0" >选择类别</option>
                                 @foreach($data as $v)
-                                <option value="{{$v->id}}">{{$v->title}}</option>
+                                     @foreach($v->sub as $vv)
+                                <option value="{{$v->id}}">{{$vv->title}}</option>
+                                     @endforeach
                                 @endforeach
+
                             </select>
                       </div>
                 </div>

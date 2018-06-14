@@ -19,7 +19,7 @@
     <!--[/diy]--> 
     <div class="wp bgcc"> 
      <div class="aacd"> 
-      <div id="pt" class="bm cl"> 
+      <div id="pt" class="bm cl">
        <div class="z"> 
         <a href="/" class="nvhm" title="首页">Discuz! Board</a> 
         <a href="/" style="margin-left:5px;">首页</a>
@@ -280,6 +280,8 @@
            </div> 
            <script type="text/javascript">
               $('#recommend_add').one('click',function(){
+                    @if(session('user_id'))
+
                    var ding = parseFloat($('#recommendv_add').html())+1
                    $.get('/ding/{{ $data->id }}?ding='+ding,function(msg){
                        if(msg==1){
@@ -294,23 +296,45 @@
 
                        }
                    });
+                    @else
+                         layer.open({
+                              type: 2,
+                              title: '<font style="color:skyblue;font-weight:777;font-size:16px;">请登录</font>',
+                              shadeClose: true,
+                              shade: 0.8,
+                              area: ['650px', '500px'],
+                              content: '/denglu?path='+location.pathname //iframe的url
+                          }); 
+                     @endif
               });
                $('#recommend_subtract').one('click',function(){
-                  var cai = parseFloat($('#recommendv_subtract').html())+1
-                  console.log(cai);
-                   $.get('/cai/{{ $data->id }}?cai='+cai,function(msg){
-                       if(msg==1){
-                   
-                          layer.msg("谢谢你的鞭挞");
-                   $('#recommendv_subtract').html(parseFloat($('#recommendv_subtract').html())+1);
-                   $('#recommendv_subtract').css('display','block');
-                        }else if(msg == 2){
-                          layer.msg("未成功发表意见");                 
-                       }else{
-                          layer.msg("你已表达了自己的态度");                 
+                    @if(session('user_id'))
 
-                       }
-                   });
+                          var cai = parseFloat($('#recommendv_subtract').html())+1
+                          console.log(cai);
+                           $.get('/cai/{{ $data->id }}?cai='+cai,function(msg){
+                               if(msg==1){
+                           
+                                  layer.msg("谢谢你的鞭挞");
+                           $('#recommendv_subtract').html(parseFloat($('#recommendv_subtract').html())+1);
+                           $('#recommendv_subtract').css('display','block');
+                                }else if(msg == 2){
+                                  layer.msg("未成功发表意见");                 
+                               }else{
+                                  layer.msg("你已表达了自己的态度");                 
+
+                               }
+                           });
+                      @else
+                         layer.open({
+                              type: 2,
+                              title: '<font style="color:skyblue;font-weight:777;font-size:16px;">请登录</font>',
+                              shadeClose: true,
+                              shade: 0.8,
+                              area: ['650px', '500px'],
+                              content: '/denglu?path='+location.pathname //iframe的url
+                          }); 
+                     @endif
               });
            </script>
            <div class="sign" style="max-height:120px;maxHeightIE:120px;"> 
@@ -325,7 +349,7 @@
        <script type="text/javascript">
           //收藏       
             $('#k_favorite').click(function(){
-            
+            @if(session('user_id'))
               $.ajax({
               // 请求服务器的地址
               url:"/pcollect?pid={{ $data->id }}&uid={{ session('user_id') }}",
@@ -352,6 +376,16 @@
               // (默认: true) 默认设置下，所有请求均为异步请求。
               async:true
             });
+           @else
+            layer.open({
+                              type: 2,
+                              title: '<font style="color:skyblue;font-weight:777;font-size:16px;">请登录</font>',
+                              shadeClose: true,
+                              shade: 0.8,
+                              area: ['650px', '500px'],
+                              content: '/denglu?path='+location.pathname //iframe的url
+                          }); 
+           @endif
       });
        </script>
         @foreach($data3 as $v)
@@ -521,20 +555,24 @@
       </div> 
     </div> 
     <script type="text/javascript">
+         
               $('.fastre').click(function(){
-
-                 var uid = $(this).attr('name');
-                 var id = $(this).attr('value');
-                      layer.open({
-                      type: 2,
-                      title: '<font style="color:skyblue;font-weight:777;font-size:16px;">回复评论</font>',
-                      shadeClose: true,
-                      shade: 0.8,
-                      area: ['650px', '300px'],
-                      content: '/preply?uid='+uid+'&pid='+{{ $data->id }}+'&id='+id //iframe的url
-                    }); 
-                
+                @if(session('user_id'))
+                     var uid = $(this).attr('name');
+                     var id = $(this).attr('value');
+                          layer.open({
+                          type: 2,
+                          title: '<font style="color:skyblue;font-weight:777;font-size:16px;">回复评论</font>',
+                          shadeClose: true,
+                          shade: 0.8,
+                          area: ['650px', '300px'],
+                          content: '/preply?uid='+uid+'&pid='+{{ $data->id }}+'&id='+id //iframe的url
+                        });  
+                  @else
+                      layer.msg('请登录后回复');
+                  @endif
               });
+           
                  
                  // // 删除评论
                  //  $('.del1').click(function(){
@@ -574,9 +612,16 @@
             <span>发表评论</span>
            </div> 
            <div class="cl"> 
-               <script id="container" name="content"  style="height: 120px;width: 800px;">
+             @if(session('user_id'))
+                       <script id="container" name="content"  style="height: 120px;width: 800px;">
                           {!! old('article_content') !!}
-                </script>
+                       </script>
+                      @else
+                      <div class="pt hm">
+                      您需要登录后才可以回帖 <a href="javascript:;" class="xi2 denglu">登录</a> | <a href="/register" class="xi2">立即注册</a>
+                      </div>
+            @endif
+              
            </div> 
            <div id="seccheck_fastpost"> 
            </div> 
@@ -588,7 +633,23 @@
       </table> 
      </form> 
     </div> 
-
+     <script type="text/javascript">
+                    $('.denglu').click(function(){
+                          layer.open({
+                              type: 2,
+                              title: '<font style="color:skyblue;font-weight:777;font-size:16px;">请登录</font>',
+                              shadeClose: true,
+                              shade: 0.8,
+                              area: ['650px', '500px'],
+                              content: '/denglu?path='+location.pathname //iframe的url
+                          }); 
+                    });
+                    $('.pnc').click(function(){
+                           @if(!session('user_id'))
+                              return false;
+                           @endif
+                    });     
+            </script>
     <script type="text/javascript">
         $('#y').click(function(){
             layer.open({

@@ -133,9 +133,11 @@ class ZixunController extends Controller
         
         //显示评论
 
-        $data5 = Comment::where('aid',$id)->orderBy('created_at','asc')->get();        
+        $data5 = Comment::where('aid',$id)->orderBy('created_at','asc')->get();    
+        //url路径    
+        $path = $request -> path();
 
-        return view('Home.zixun.show',['data'=>$data,'data1'=>$data1,'data2'=>$data2,'data3'=>$data3,'data4'=>$data4,'data5'=>$data5]);
+        return view('Home.zixun.show',['data'=>$data,'data1'=>$data1,'data2'=>$data2,'data3'=>$data3,'data4'=>$data4,'data5'=>$data5,'path'=>$path]);
 
     }
 

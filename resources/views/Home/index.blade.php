@@ -97,17 +97,7 @@
                         @endforeach
   
                       </ul>
-                      <script type="text/javascript">
-
-                          // layer.open({
-                          //     type: 0,
-                          //     skin: 'layui-layer-rim', //加上边框
-                          //     area: ['420px', '300px'], //宽高
-                          //     content: '<form class="layui-form" action=""><div class="layui-form-item"><label class="layui-form-label">用户名</label><div class="layui-input-block"><input type="text" name="user_name" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input"></div></div><div class="layui-form-item"><label class="layui-form-label">密码</label><div class="layui-input-block"><input type="text" name="user_name" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input"></div></div><div class="layui-form-item"><label class="layui-form-label">验证码</label><div class="layui-input-block"><img src="/code"></div></div></form>'
-                          //   });
-
-                        
-                      </script>
+                      
                     </div>
                   </div>
                 </div>
