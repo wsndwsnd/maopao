@@ -24,15 +24,10 @@
           <!--[/diy]--></div>
         <div class="boardnav">
           <div id="ct" class="wp cl ct2">
-            <div class="mn" style="width:955px;">
+            <div class="mn" style="width:920px;">
               <div class="orde">
                 <div class="lslsls">
-                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
-                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
-                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
-                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
-                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
-                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
+                  <img src="{{ $advertise->img }}" alt="" width="920px" height="137px">
                   
                 </div>
                 <div class="drag">
@@ -173,100 +168,6 @@
                   </div>
 
 
-
-
-
-
-
-
-                  <!--<div class="th">
-                    <table cellspacing="0" cellpadding="0">
-                      <tr>
-                        <th colspan="2">
-                          <div class="tf">
-                            <span id="atarget" onclick="setatarget(1)" class="y" title="在新窗口中打开帖子">新窗</span>
-                            <a id="filter_special" href="/home/javascript:;" class="showmenu xi2" onclick="showMenu(this.id)">全部主题</a>&nbsp;
-                            <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=lastpost&amp;orderby=lastpost" class="xi2">最新</a>&nbsp;
-                            <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=heat&amp;orderby=heats" class="xi2">热门</a>&nbsp;
-                            <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=hot" class="xi2">热帖</a>&nbsp;
-                            <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=digest&amp;digest=1" class="xi2">精华</a>&nbsp;
-                            <a id="filter_dateline" href="/home/javascript:;" class="showmenu xi2" onclick="showMenu(this.id)">更多</a>&nbsp;
-                            <span id="clearstickthread" style="display: none;">
-                              <span class="pipe">|</span>
-                              <a href="/home/javascript:;" onclick="clearStickThread()" class="xi2" title="显示置顶">显示置顶</a></span>
-                          </div>
-                        </th>
-                        <td class="by">作者</td>
-                        <td class="num">回复/查看</td>
-                        <td class="by">最后发表</td></tr>
-                    </table>
-                  </div>
-                  <div class="bm_c">
-                    <script type="text/javascript">var lasttime = 1527320867;
-                      var listcolspan = '5';</script>
-                    <div id="forumnew" style="display:none"></div>
-                    <form method="post" autocomplete="off" name="moderate" id="moderate" action="forum.php?mod=topicadmin&amp;action=moderate&amp;fid=2&amp;infloat=yes&amp;nopost=yes">
-                      <input type="hidden" name="formhash" value="316f8b52" />
-                      <input type="hidden" name="listextra" value="page%3D1" />
-                      <table summary="forum_2" cellspacing="0" cellpadding="0" id="threadlisttableid">
-                        <tbody>
-                          <tr>
-                            <td class="icn">
-                              <img src="/home/picture/ann_icon.gif" alt="公告" /></td>
-                            <th>
-                              <strong class="xst">公告:
-                                <a href="/home/forum.php?mod=announcement&amp;id=13#13" target="_blank">公告201705</a></strong>
-                            </th>
-                            <td class="by">
-                              <cite>
-                                <a href="/home/home.php?mod=space&amp;uid=1" c="1">admin</a></cite>
-                              <em>2017-12-25</em></td>
-                            <td class="num">&nbsp;</td>
-                            <td class="by">&nbsp;</td></tr>
-                        </tbody>
-
-                        <!--帖子开始-->
-
-                         <!--  @foreach($data3 as $v)
-                          <tbody id="stickthread_46">
-                            <tr>
-                              <td class="icn">
-                                <a href="/home/forum.php?mod=viewthread&amp;tid=46&amp;extra=page%3D1" title="全局置顶主题 - 新窗口打开" target="_blank">
-                                  <img src="/home/picture/pin_3.gif" alt="全局置顶" /></a>
-                              </td>
-                              <th class="common">
-                                <a id="toux" href="/home/home.php?mod=space&amp;uid=1" target="_blank" title="进入admin的空间" class="">
-                                  <img src="/home/picture/avatar.php" width="52" height="52"></a>
-                                <a href="/home/javascript:;" id="content_46" class="showcontent y" title="更多操作" onclick="CONTENT_TID='46';CONTENT_ID='stickthread_46';showMenu({'ctrlid':this.id,'menuid':'content_menu'})"></a>
-                                <a href="/home/javascript:void(0);" style="display: none;" class="" title="隐藏置顶帖">隐藏置顶帖</a>
-                                <a href="/home/read/{{ $v->id }}" onclick="atarget(this)" class="s xst">{{ $v->posts_title }}</a>
-                                <img src="/home/picture/011.small.gif" alt="新人帖" align="absmiddle" />
-                                <img src="/home/picture/image_s.gif" alt="attach_img" title="图片附件" align="absmiddle" />
-                                <img src="/home/picture/digest_2.gif" align="absmiddle" alt="digest" title="精华 2" /></th>
-                              <td class="by">
-                                <cite>
-                                  <a href="/home/home.php?mod=space&amp;uid=1" c="1">admin</a></cite>
-                                <em>
-                                  <span>2016-4-23</span></em>
-                              </td>
-                              <td class="num">
-                                <a href="/home/forum.php?mod=viewthread&amp;tid=46&amp;extra=page%3D1" class="xi2">1</a>
-                                <em>39</em></td>
-                              <td class="by">
-                                <cite>
-                                  <a href="/home/home.php?mod=space&username=%CC%DF%C4%E3%D2%BB%BD%C5" c="1">踢你一脚</a></cite>
-                                <em>
-                                  <a href="/home/forum.php?mod=redirect&tid=46&goto=lastpost#lastpost">2016-5-1 18:04</a></em>
-                              </td>
-                            </tr>
-                          </tbody>
-                        @endforeach -->
-                      <!--帖子结束-->             
-                        
-
-                     <!--  </table>
-                      </form>
-                  </div> -->
                 </div>
                 <!-- 模板结束 -->
 
@@ -340,15 +241,16 @@
                 <div id="diyforumdisplaybottom" class="area"></div>
                 <!--[/diy]--></div>
             </div>
-            <div class="sd">
+            <div class="sd" style="width: 260px;">
               <div class="bm">
-                <div class="bm_h">
+                <div id="bm_h">
                  
-                  <h2 style="font-size:1em;font-weight: bold;">所属分类: {{$data2->title}}</h2></div>
+                  <h2 style="font-size:1em;font-weight: bold;">所属分类: {{$data2->title}}</h2>
+                </div>
                 <div class="bm_c">
-                  <ul class="xl xl2 cl">
+                  <ul class="xl xl2 cl" >
                     @foreach($data4 as $val)
-                    <li>
+                    <li style="padding: 0px;">
                       <a href="/home/luntan/{{$val->id}}">{{$val->title}}</a>
                     </li>
                     @endforeach
@@ -356,10 +258,40 @@
                 </div>
               </div>
 
-              <div class="drag">
-                <!--[diy=diy2]-->
-                <div id="diy2" class="area"></div>
-                <!--[/diy]--></div>
+              <div class="bm">
+                <div id="bm_h">
+                 
+                  <span style="font-size:1em;font-weight: bold;">贴吧热议榜</span>
+                  <span style="font-size:1em;float: right;">热度</span>
+                </div>
+                <div class="bm_c">
+                  <ul>
+                    <?php $i=1; ?>
+                    @foreach($rm2 as $val)
+                    <li>
+                      <span id="topic_flag_hot"><?php echo $i++; ?></span>
+                      <a href="/home/read/{{$val->id}}" title="{{ $val->posts_title }}">{{ $val->posts_title }}</a>
+                      <span id="topic_num">2007244</span>
+                    </li>
+                    @endforeach
+                  </ul>
+                </div>
+              </div>
+              <div class="bm">
+                <div id="bm_h">
+                 
+                  <span style="font-size:1em;font-weight: bold;">公告板</span>
+                </div>
+                <div class="bm_c">
+                  <ul>
+                    <li>
+                      <a href="/notice" title="">
+                        <img src="https://tb1.bdstatic.com/tb/111%E5%85%AC%E5%91%8A%E6%9D%BF.png" alt="" width="">
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
           <script type="text/javascript">var postminchars = parseInt('10');

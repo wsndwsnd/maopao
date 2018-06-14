@@ -10,11 +10,10 @@ use App\Models\Category;
 use App\Models\Posts;
 use App\Models\Slide;
 use App\Models\Postsinfo;
-
 use App\Models\User;
 use App\Models\Notices;
-
 use App\Models\Articles;
+use App\Models\Advertise;
 
 
 use DB;
@@ -61,12 +60,9 @@ class LuntanController extends Controller
         $data8 = User::get();
         //新用户
         $data9 = User::orderBy('id','desc')->first();
-        return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2,'data3'=>$data3,'data4'=>$data4,'notice'=>$notice,'data5'=>$data5,'data6'=>$data6,'data7'=>$data7,'data8'=>$data8,'data9'=>$data9]);
-
-        
-
-
-
+        //黄金广告位
+        $advertise = Advertise::where('position',1)->where('status',1)->first();
+        return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2,'data3'=>$data3,'data4'=>$data4,'notice'=>$notice,'data5'=>$data5,'data6'=>$data6,'data7'=>$data7,'data8'=>$data8,'data9'=>$data9,'advertise'=>$advertise]);
 
     }
 
@@ -138,24 +134,27 @@ class LuntanController extends Controller
 
         $data4 = Category::where('tid',$data1->tid)->get();
         // dump($data2);
-
+        
         //热门
-        $rm = Posts::where('cid',$id)->where('label','1')->get();
+        $rm =  Posts::where('cid',$id)->where('label','1')->get();
+        $rm2 = Posts::where('label','1')->paginate(12);
         //精品
         $jp = Posts::where('cid',$id)->where('label','2')->get();
         //置顶
         $zd = Posts::where('cid',$id)->where('label','3')->get();
-
+        //长条广告
+        $advertise = Advertise::where('status',1)->where('position',2)->first();
         return view('home.cates.show',[
             'data'=>self::getPidCates($id),
             'data1'=>$data1,'data2'=>$data2,
             'data3'=>$data3,
 
             'data4'=>$data4,
-
+            'rm2'=>$rm2,
             'rm'=>$rm,
             'jp'=>$jp,
-            'zd'=>$zd
+            'zd'=>$zd,
+            'advertise'=>$advertise
 
         ]);
     }
