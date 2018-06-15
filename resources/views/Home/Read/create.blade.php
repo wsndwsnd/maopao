@@ -74,6 +74,7 @@
                 ['fullscreen', 'source', 'undo', 'redo', 'bold','simpleupload','insertimage','italic','forecolor','backcolor','edittip' ]
             ]
         });
+
 </script>
 <script type="text/javascript">
 		function guanbi(){
@@ -82,4 +83,5 @@
 	    }
 </script>
 @endif
+
 </html>

@@ -30,9 +30,13 @@
                 </th>
                 <th  role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 247px;">广告标题
                 </th>
+
                 <th  role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 247px;">广告状态
                 </th>
                 <th  role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 247px;">广告位置
+
+                <th  role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 227px;">广告链接
+
                 </th>
                 <th role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 163px;">预览图
                 </th>
@@ -46,6 +50,7 @@
             <tr class="even " >
                     <td class="sorting_1" style="text-align: center;">{{ $val->id }}</td>
                     <td class=" " style="text-align: center;">{{ $val->title }}</td>
+
                     <td class=" " style="text-align: center;">
                         @if($val->status ==0)隐藏@endif
                         @if($val->status ==1)显示@endif
@@ -54,7 +59,8 @@
                         @if($val->position ==0)待分配@endif
                         @if($val->position ==1)黄金广告位@endif
                         @if($val->position ==2)长条广告@endif
-                    </td>
+                    </td>  
+                    <td class=" " style="text-align: center;">{{ $val->content }}</td>
                     <td class=" " style="text-align: center;width: 500px;"><img src="{{ $val->img }}" alt="" width="150px">
                     </td>
                     <td class=" " style="text-align: center;width: 150px;">
@@ -68,7 +74,10 @@
                                     {{ csrf_field() }}
                                     <input type="submit" value="修改" class="btn btn-info">          
                         </form>
-                    </td>
+
+                 
+                    
+                 
                 </tr>
             @endforeach
             </tbody>

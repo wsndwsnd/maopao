@@ -153,7 +153,7 @@
                 </span>
                 欢迎新会员:
                 <em>
-                    <a href="home.php?mod=space&amp;username=%CD%EA%C3%C0%B5%C4%C4%D0%C8%CB"
+                    <a href="/home/other/{{ $data9->id }}"
                     target="_blank" class="xi2">
                         {{ $data9->user_name }}
                     </a>
@@ -201,7 +201,7 @@
              
               <!--帖子标题结束-->
               <dd>
-               <cite>{{ $val->created_at }} &nbsp;&nbsp;<a href="#">{{ $val->posts[0]->users->user_name }}</a></cite>
+               <cite>{{ $val->created_at }} &nbsp;&nbsp;<a href="/home/other/{{$val->posts[0]->users->id}}">{{ $val->posts[0]->users->user_name }}</a></cite>
               </dd> 
              </dl> 
            </div> 
@@ -248,14 +248,14 @@
                                                     </div>
                                                     <div class="hyleft">
 
-                                                        <a href="javascript:;" c="1" target="_blank">
+                                                        <a href="/home/other/{{ $user->id }}" c="1" target="_blank">
 
                                                             <img src="{{ltrim($user->img,'.')}}" width="65" height="65" alt="admin" />
                                                         </a>
                                                     </div>
                                                     <div class="hyright">
                                                         <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=1" title="admin" target="_blank">
+                                                            <a href="/home/other/{{ $user->id }}" title="admin" target="_blank">
                                                                 {{$user->user_name}}
                                                             </a>
                                                         </p>

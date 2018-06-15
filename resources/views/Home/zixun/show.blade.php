@@ -120,7 +120,7 @@
                             @endif
                            </span>
                         <img src="{{ ltrim($v->users->img,'.') }}" width="100px;">
-                        <a href="" class="xi2 xw1" c="1" mid="card_463" id="ajaxid_0.3901175271303092" initialized="true">{{ $v->users->user_name }}</a>&nbsp;&nbsp;&nbsp;
+                        <a href="/home/other/{{ $v->users->id }}" class="xi2 xw1" c="1" mid="card_463" id="ajaxid_0.3901175271303092" initialized="true">{{ $v->users->user_name }}</a>&nbsp;&nbsp;&nbsp;
                         <span class="xg1 xw0">{{ $v->created_at }}</span>
                         </dt>
                         <dd><div class="quote"><blockquote>{{  $v->content  }} </blockquote></div></dd>                    

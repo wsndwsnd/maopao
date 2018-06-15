@@ -203,7 +203,7 @@
                       @foreach($poststime as $v)
                       <dl class="cl">
                         <dd class="m">
-                          <a href="/home/read/{{$v->id}}" c="1" target="_blank">
+                          <a href="/home/other/{{$v->users->id}}" c="1" target="_blank">
                             <img src="{{$v->users->img}}" width="52" height="52" alt="fff" />
                           </a>
                         </dd>

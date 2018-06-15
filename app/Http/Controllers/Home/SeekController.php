@@ -20,6 +20,9 @@ class SeekController extends Controller
     {
         //接收查询条件
         $seek = $request->seek;
+        // if(empty($seek)){
+        //     return back()->with('error','搜索内容不能为空');
+        // }
         //查询用户
         $users = User::where('user_name','like','%'.$seek.'%')->get();
         //查询文章

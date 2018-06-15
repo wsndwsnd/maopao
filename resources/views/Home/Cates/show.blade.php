@@ -27,7 +27,9 @@
             <div class="mn" style="width:920px;">
               <div class="orde">
                 <div class="lslsls">
+
                   <img src="{{ $advertise->img }}" alt="" width="920px" height="137px">
+
                   
                 </div>
                 <div class="drag">
@@ -69,6 +71,7 @@
                         @foreach($data3 as $v)
                         <tr >
                           <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;height: 80px;" src="{{ ltrim($v->users->img,'.') }}"></td>
+
                           <td width="300px">
                             @if($v->label ==1)
                             <img src="/Home/picture/huo.jpg" alt="热门">
@@ -80,6 +83,7 @@
                             <a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a>
                           </td>
                           <td width="250px">{{ $v->users->user_name }}</td>
+
                           <td style="font-size:10px;">{{ $v->created_at }}</td>
                           <td width="50px">{{ $v->post_view }}</td>
 
@@ -106,8 +110,10 @@
                         @foreach($rm as $v)
                         <tr >
                           <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;height: 80px;" src="{{ ltrim($v->users->img,'.') }}"></td>
+
                           <td width="300px"> <img src="/Home/picture/huo.jpg" alt="热门"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
                           <td width="250px">{{ $v->users->user_name }}</td>
+
                           <td style="font-size:10px;">{{ $v->created_at }}</td>
                           <td width="50px">{{ $v->post_view }}</td>
 
@@ -134,8 +140,11 @@
                         @foreach($jp as $v)
                         <tr >
                           <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;height: 80px;" src="{{ ltrim($v->users->img,'.') }}"></td>
+
                           <td width="300px"><img src="/Home/picture/digest_3.gif" alt="精品"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
                           <td width="250px">{{ $v->users->user_name }}</td>
+
+
                           <td style="font-size:10px;">{{ $v->created_at }}</td>
                           <td width="50px">{{ $v->post_view }}</td>
 
@@ -162,9 +171,12 @@
                         @foreach($zd as $v)
                         <tr >
                           <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;height: 80px;" src="{{ ltrim($v->users->img,'.') }}"></td>
+
                           <td width="300px">
                             <img src="/Home/picture/zhiding.jpg" alt="置顶" width="25px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
                           <td width="250px">{{ $v->users->user_name }}</td>
+
+
                           <td style="font-size:10px;">{{ $v->created_at }}</td>
                           <td width="50px">{{ $v->post_view }}</td>
 
@@ -251,6 +263,7 @@
             </div>
             <div class="sd" style="width: 260px;">
               <div class="bm">
+
                 <div id="bm_h">
                  
                   <h2 style="font-size:1em;font-weight: bold;">所属分类: {{$data2->title}}</h2>
@@ -279,7 +292,7 @@
                     <li>
                       <span id="topic_flag_hot"><?php echo $i++; ?></span>
                       <a href="/home/read/{{$val->id}}" title="{{ $val->posts_title }}">{{ $val->posts_title }}</a>
-                      <span id="topic_num">2007244</span>
+                      <span id="topic_num">{{ $val->post_view *10}} </span>
                     </li>
                     @endforeach
                   </ul>
@@ -300,6 +313,7 @@
                   </ul>
                 </div>
               </div>
+
             </div>
           </div>
           <script type="text/javascript">var postminchars = parseInt('10');

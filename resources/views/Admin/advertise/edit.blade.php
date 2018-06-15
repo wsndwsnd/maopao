@@ -27,6 +27,7 @@
                         <input type="text" name="title" class="required small" value="{{ $data->title }}">
                     </div>
                 </div>
+
                 <div class="mws-form-row" >
                     <label class="mws-form-label">状态:</label>
                         <div class="mws-form-item">
@@ -46,6 +47,14 @@
                             </select>
                         </div>
                 </div>
+
+                <div class="mws-form-row">
+                    <label class="mws-form-label">广告链接 <span class="required">*</span></label>
+                    <div class="mws-form-item">
+                        <input type="text" name="content" class="required email small" value="{{ $data->content }}">
+                    </div>
+                </div> 
+
                 <div class="mws-form-row">
                     <label class="mws-form-label">预览图<span class="required">*</span></label>
                     <div class="mws-form-item" style="width:350px;height: 50px; "> 

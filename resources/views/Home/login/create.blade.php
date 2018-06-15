@@ -92,8 +92,6 @@ var pwlength = 6;
 <button class="layui-btn layui-btn-danger postsdel wjmm" type="button">忘记密码</button>
     <script type="text/javascript">
               $('.wjmm').click(function(){
-
-                
                       layer.open({
                       type: 2,
                       title: '<font style="color:skyblue;font-weight:777;font-size:16px;">忘记密码</font>',

@@ -76,7 +76,7 @@ go();
                                             <td class="by" ><a href="home/luntan/{{ $v -> cates -> id }}" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                                             <td class="by" style="width: 120px;">
                                             <cite>
-                                            <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                                            <a href="/home/other/{{ $v->users->id }}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                                             <em><span>{{$v -> created_at}}</span></em>
                                             </td>
                                             <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">{{ $v->plhfs->count() }}</a></td>
@@ -120,7 +120,7 @@ go();
                                             <td class="by" ><a href="home/luntan/{{ $v -> cates -> id }}" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                                             <td class="by" style="width: 120px;">
                                             <cite>
-                                            <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                                            <a href="/home/other/{{ $v->users->id }}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                                             <em><span>{{$v -> created_at}}</span></em>
                                             </td>
                                             <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">{{ $v->plhfs->count() }}</a></em></td>
@@ -206,7 +206,7 @@ go();
                                     <td class="by" ><a href="home/luntan/{{ $v -> cates -> id }}" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                                     <td class="by" style="width: 120px;">
                                     <cite>
-                                    <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                                    <a href="/home/other/{{ $v->users->id }}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                                     <em><span>{{$v -> created_at}}</span></em>
                                     </td>
                                     <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">{{ $v->plhfs->count() }}</a></td>

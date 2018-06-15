@@ -197,8 +197,20 @@
                 <img src="{{ ltrim(session('user_img'),'.') }}" /></a>
               <a href="/user" class="top_gly" target="_blank" title="访问我的空间">{{session('user_name')}}</a>
               <a href="/posts/create" class="u31">发贴</a>
-              <a href="">收藏</a>
-              <a href="/Home/javascript:;" id="wmn" class="showmenu " onMouseOver="showMenu({'ctrlid':'wmn','pos':'34!','ctrlclass':'a','duration':2});">消息</a>
+              <a href="javascript:;" class="uppassword">修改密码</a>
+                  <script type="text/javascript">
+                        $('.uppassword').click(function(){
+                                layer.open({
+                                type: 2,
+                                title: '<font style="color:skyblue;font-weight:777;font-size:16px;">修改密码</font>',
+                                shadeClose: true,
+                                shade: 0.8,
+                                area: ['650px', '380px'],
+                                content: '/home/uppassword'
+                              }); 
+                          
+                        });
+                </script>
               <span id="myprompt_check"></span>
               <a onclick="document:usertc.submit();">退出</a>
               <form method="post" id="usertc" action="/user/{{session('user_id')}}">
@@ -275,7 +287,7 @@
                                               background: #fff;
                                               padding: 0 0 0 12px;
                                               " 
-                                              type="text"  name="seek" value="{{ $seek or ''}}" />
+                                              type="text"  name="seek" id="seek" value="{{ $seek or ''}}" />
                   </td>
                   <td class="scbar_btn_td">
                     <button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc" value="true">
@@ -284,8 +296,15 @@
                   </td>
                 </tr>
               </table>
-            </form>
 
+            </form>
+            <script type="text/javascript">
+                 $('#scbar_form').submit(function(){
+                      if(!$('#seek').val()){
+                        return false;
+                      }
+                 });
+            </script>
 
 
           </div>

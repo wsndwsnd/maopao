@@ -397,7 +397,10 @@
                         </ul>
                     </li>
                     <li>
+
                         <a href="#"><i class="icon-list"></i>图片广告</a>
+
+
                         <ul class="closed"> 
                             <li><a href="/admin/advertise">广告列表</a></li>
                             <li><a href="/admin/advertise/create">广告添加</a></li>

@@ -26,6 +26,7 @@
                         <input type="text" name="title" class="required small" value="{{ old('title') }}" id="title"><span style="margin-left:5px;font-size:12px;"></span>
                     </div>
                 </div>
+
                 <div id="" class="mws-form-row">
                     <label class="mws-form-label">广告状态 <span class="required">*</span></label>
                     <div class="mws-form-item">
@@ -47,12 +48,21 @@
                         
                     </div>
                 </div>
+
                 <div class="mws-form-row" style="width:350px;">
                     <label class="mws-form-label">图片<span class="required">*</span></label>
                     <div class="mws-form-item">
                         <input type="file" name="img" class="required email large" >
                     </div>
                 </div>
+
+                <div class="mws-form-row">
+                    <label class="mws-form-label">广告链接 <span class="required">*</span></label>
+                    <div class="mws-form-item">
+                        <input type="text" name="content" class="required email small" id="content"><span style="margin-left:5px;"></span>
+                    </div>
+                </div> 
+
             </fieldset>
             
             

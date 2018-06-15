@@ -165,4 +165,58 @@ class UserController extends Controller
         //处理返回值
         echo json_encode($arr);
     }
+
+    //修改密码页面 
+    public function password()
+    {
+        return view('Home.user.uppassword');
+
+    }
+    //执行修改密码
+    public function uppassword(Request $request)
+    {
+        DB::beginTransaction();
+        $name = $request -> input('user_name');
+        $password = Hash::make($request -> input('password','123'));
+        $res1 = User::where('user_name',$name)->update(['user_password'=>$password]);
+        // dump($res1);dd($res2);
+        if ($res1) {
+            DB::commit();
+            return redirect('/user')->with('success','修改成功');
+        }else{
+            DB::rollBack();
+            return back()->with('error','修改失败');
+        }
+    }
+    //ajax 验证密码
+    public function passwordajax(Request $request)
+    {
+        $id = $request -> id;
+        $opassword = $request -> opassword;
+        $res = User::select(['user_password'])->where('id',$id)->first();
+        if( Hash::check($opassword, $res->user_password) ){
+            //成功
+            echo '0';
+        }else{
+            //失败
+            echo '1';
+        }
+    }
+
+
+    //访问别人的主页
+    public function other(Request $request,$id)
+    {
+        $data = User::find($id);
+        //他发的贴子
+        $user_posts = Posts::where('uid',$id)->get();
+        //他发的文章
+        $user_article = Articles::where('uid',$id)->get(); 
+        //ta收藏的文章
+        $user_acollects = $data -> acollects;
+        //ta收藏的帖子
+        $user_pcollects = $data -> pcollects;
+
+        return view('Home.user.other',['data'=>$data,'user_posts'=>$user_posts,'user_article'=>$user_article,'user_acollects'=>$user_acollects,'user_pcollects'=>$user_pcollects]);
+    }
 }
