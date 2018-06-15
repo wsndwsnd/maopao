@@ -64,6 +64,8 @@ Route::get('/admin/notice/down/{id}','Admin\NoticeController@down');
 
 //后台管理员
 Route::resource('/admin/power','Admin\PowerController');
+//黄金广告位
+Route::resource('/admin/advertise','Admin\AdvertiseController');
 
 //后台帖子管理
 //申请标签
@@ -123,91 +125,98 @@ Route::get('/admin/articleajax/{id}','Admin\ArticleController@ajaxdel');
 
 
 
-
+//网站状态
 Route::group(['middleware'=>'SiteStatus'],function(){
+	//前台
+	//前台首页
+	Route::get('/','Home\HomeController@index');
 
 
 
+	//注册
+	//发送验证码
+	Route::get('/register/phone','Home\RegisterController@phone_code');
+	//验证手机号
+	Route::post('/register/ajax1','Home\RegisterController@ajax1');
+	//验证用户名是否存在
+	Route::post('/register/ajax','Home\RegisterController@ajax');
+	Route::resource('/register','Home\RegisterController');
 
-//前台
-//前台首页
-Route::get('/','Home\HomeController@index');
-//注册
-//发送验证码
-Route::get('/register/phone','Home\RegisterController@phone_code');
-//验证手机号
-Route::post('/register/ajax1','Home\RegisterController@ajax1');
-//验证用户名是否存在
-Route::post('/register/ajax','Home\RegisterController@ajax');
-Route::resource('/register','Home\RegisterController');
-
-//登录页面
-Route::get('/home/login','Home\LoginController@dl');
-//验证登录
-Route::post('/home/login','Home\LoginController@yzdl');
-//忘记密码
-Route::get('/home/wjmm','Home\LoginController@wjmm');
-Route::post('home/wjmm','Home\LoginController@yzwjmm');
-
-//前台用户   中间件是否登录
-Route::group(['middleware'=>'login'],function(){
-	Route::resource('/user','Home\UserController');
-	Route::get('/userposts/{id}','Home\UserController@posts');
-	//修改头像
-	Route::post('/usertx/uploads','Home\UserController@uploads');
-
-});
+	//登录页面
+	Route::get('/home/login','Home\LoginController@dl');
+	//验证登录
+	Route::post('/home/login','Home\LoginController@yzdl');
+	//忘记密码
+	Route::get('/home/wjmm','Home\LoginController@wjmm');
+	Route::post('home/wjmm','Home\LoginController@yzwjmm');
 
 
-//前台帖子
-Route::resource('/posts','Home\PostsController');
-//前台帖子详情
-Route::get('/home/read/{id}','Home\ReadController@index');
-//前台帖子评论
-Route::resource('/pcomment','Home\PcommentController');
-//前台帖子评论回复
-Route::resource('/preply','Home\ReplyController');
-//前台帖子评论ajax删除
-Route::get('/pcomment/del/{id}','Home\PcommentController@del');
-//前台帖子回复ajax删除
-Route::get('/preply/del/{id}','Home\ReplyController@del');
-//帖子收藏												
-Route::resource('/pcollect','Home\PcollectController');
-//顶一下
-Route::get('/ding/{id}','Home\ReadController@ding');
-//踩一下
-Route::get('/cai/{id}','Home\ReadController@cai');
+	//前台用户   中间件是否登录
+	Route::group(['middleware'=>'login'],function(){
+		//个人中心
+		Route::resource('/user','Home\UserController');
+		Route::get('/userposts/{id}','Home\UserController@posts');
+		//修改头像
+		Route::post('/usertx/uploads','Home\UserController@uploads');
+		//修改密码
+		Route::get('/home/uppassword','Home\UserController@password');
+		Route::post('/home/uppassword','Home\UserController@uppassword');
+		//ajax验证密码
+		Route::post('/home/passwordajax','Home\UserController@passwordajax');
+	});
+	//查看别人的主页
+	Route::get('/home/other/{id}','Home\UserController@other');
 
-//前台论坛
-Route::resource('/home/luntan','Home\LuntanController');
+	//前台帖子
+	Route::resource('/posts','Home\PostsController');
+	//前台帖子详情
+	Route::get('/home/read/{id}','Home\ReadController@index');
+	//前台帖子评论
+	Route::resource('/pcomment','Home\PcommentController');
+	//前台帖子评论回复
+	Route::resource('/preply','Home\ReplyController');
+	//前台帖子评论ajax删除
+	Route::get('/pcomment/del/{id}','Home\PcommentController@del');
+	//前台帖子回复ajax删除
+	Route::get('/preply/del/{id}','Home\ReplyController@del');
+	//帖子收藏												
+	Route::resource('/pcollect','Home\PcollectController');
+	//顶一下
+	Route::get('/ding/{id}','Home\ReadController@ding');
+	//踩一下
+	Route::get('/cai/{id}','Home\ReadController@cai');
 
-//前台资讯  文章列表
-Route::resource('/zixun','Home\ZixunController');
-//前台文章评论
-Route::resource('/comment','Home\CommentController');
-//前台文章评论删除
-Route::get('/comment/del/{id}','Home\CommentController@del');
-//文章收藏
-Route::resource('/acollect','Home\AcollectController');
-//文章评论 懒加载
-Route::get('/commentajax','Home\ZixunController@ajax');
+	//前台论坛
+	Route::resource('/home/luntan','Home\LuntanController');
 
-//前台公告
-Route::resource('/notice','Home\NoticeController');
+	//前台资讯  文章列表
+	Route::resource('/zixun','Home\ZixunController');
+	//前台文章评论
+	Route::resource('/comment','Home\CommentController');
+	//前台文章评论删除
+	Route::get('/comment/del/{id}','Home\CommentController@del');
+	//文章收藏
+	Route::resource('/acollect','Home\AcollectController');
+	//文章评论 懒加载
+	Route::get('/commentajax','Home\ZixunController@ajax');
 
-//申请友情链接
-Route::get('/link','Home\LinkController@index');
+	//前台公告
+	Route::resource('/notice','Home\NoticeController');
 
-//前台导读
-Route::resource('/daodu','Home\DaoduController');
+	//申请友情链接
+	Route::get('/link','Home\LinkController@index');
 
-//瀑布流
-Route::get('/pbl','Home\PblController@index');
-Route::get('/pbl/ajax','Home\PblController@ajax');
+	//前台导读
+	Route::resource('/daodu','Home\DaoduController');
+
+	//瀑布流
+	Route::get('/pbl','Home\PblController@index');
+	Route::get('/pbl/ajax','Home\PblController@ajax');
+
+	
 
 
 
-
-//全局搜索
-Route::get('/home/seek','Home\SeekController@index');
+	//全局搜索
+	Route::get('/home/seek','Home\SeekController@index');
 });

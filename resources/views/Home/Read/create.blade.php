@@ -61,6 +61,7 @@
                 ['fullscreen', 'source', 'undo', 'redo', 'bold','simpleupload','insertimage','italic','forecolor','backcolor','edittip' ]
             ]
         });
-          
+       
 </script>
+
 </html>

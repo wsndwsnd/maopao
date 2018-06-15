@@ -11,4 +11,8 @@ class Articles extends Model
 	    {
 	        return $this->hasMany('App\Models\Comment','aid');
 	    }
+	 public function users()
+	    {
+	        return $this->belongsTo('App\Models\User','uid');
+	    }
 }

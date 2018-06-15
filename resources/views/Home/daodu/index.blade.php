@@ -66,18 +66,20 @@ go();
                                            <tr style="font-size: 12px;">
                                             <td class="icn">
                                               <a href="/home/read/{{$v->id}}" title="投票 - 新窗口打开" target="_blank">
-                                                <img src="/Home/images/pollsmall.gif" alt="投票">
+                                                <img src="/Home/picture/huo.jpg" alt="热门">
+
                                               </a>
                                             </td>
                                             <th class="common">
-                                             <a href="/home/read/{{$v->id}}" target="_blank" class="xst">[热门]{{$v -> posts_title}}</a></th>
-                                            <td class="by" ><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                                             <a href="/home/read/{{$v->id}}" target="_blank" class="xst"><font style="color
+                                             :orange;">[热门]</font>{{$v -> posts_title}}</a></th>
+                                            <td class="by" ><a href="home/luntan/{{ $v -> cates -> id }}" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                                             <td class="by" style="width: 120px;">
                                             <cite>
-                                            <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                                            <a href="/home/other/{{ $v->users->id }}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                                             <em><span>{{$v -> created_at}}</span></em>
                                             </td>
-                                            <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                                            <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">{{ $v->plhfs->count() }}</a></td>
                                            
                                           </tr>
                                           </tbody>
@@ -110,18 +112,18 @@ go();
                                            <tr style="font-size: 12px;">
                                             <td class="icn">
                                               <a href="/home/read/{{$v->id}}" title="投票 - 新窗口打开" target="_blank">
-                                                <img src="/Home/images/pollsmall.gif" alt="投票">
+                                                <img src="/Home/picture/digest_3.gif" alt="精品">
                                               </a>
                                             </td>
                                             <th class="common">
-                                             <a href="/home/read/{{$v->id}}" target="_blank" class="xst">[精品]{{$v -> posts_title}}</a></th>
-                                            <td class="by" ><a href="/home/read/{{$v->id}}" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                                             <a href="/home/read/{{$v->id}}" target="_blank" class="xst"><font style="color:#02E8EF">[精品]</font>{{$v -> posts_title}}</a></th>
+                                            <td class="by" ><a href="home/luntan/{{ $v -> cates -> id }}" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                                             <td class="by" style="width: 120px;">
                                             <cite>
-                                            <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                                            <a href="/home/other/{{ $v->users->id }}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                                             <em><span>{{$v -> created_at}}</span></em>
                                             </td>
-                                            <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                                            <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">{{ $v->plhfs->count() }}</a></em></td>
                                            
                                           </tr>
                                           </tbody>
@@ -154,18 +156,18 @@ go();
                                    <tr style="font-size: 12px;">
                                     <td class="icn">
                                       <a href="/home/read/{{$v->id}}" title="投票 - 新窗口打开" target="_blank">
-                                        <img src="/Home/images/pollsmall.gif" alt="投票">
+                                        <img src="/Home/picture/zhiding.jpg" alt="置顶" width="25px">
                                       </a>
                                     </td>
                                     <th class="common">
-                                     <a href="/home/read/{{$v->id}}" target="_blank" class="xst">[置顶]{{$v -> posts_title}}</a></th>
-                                    <td class="by" ><a href="/home/read/{{$v->id}}" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                                     <a href="/home/read/{{$v->id}}" target="_blank" class="xst"><font style="color: #679EFF">[置顶]</font>{{$v -> posts_title}}</a></th>
+                                    <td class="by" ><a href="home/luntan/{{ $v -> cates -> id }}" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                                     <td class="by" style="width: 120px;">
                                     <cite>
                                     <a href="/home/read/{{$v->id}}">{{$v -> users -> user_name}}</a></cite>
                                     <em><span>{{$v -> created_at}}</span></em>
                                     </td>
-                                    <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                                    <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">{{ $v->plhfs->count() }}</a>`</td>
                                    
                                   </tr>
                                   </tbody>
@@ -197,19 +199,17 @@ go();
                                  <tbody id="normalthread_99">
                                    <tr style="font-size: 12px;">
                                     <td class="icn">
-                                      <a href="/home/read/{{$v->id}}" title="投票 - 新窗口打开" target="_blank">
-                                        <img src="/Home/images/pollsmall.gif" alt="投票">
-                                      </a>
+                                     
                                     </td>
                                     <th class="common">
                                      <a href="/home/read/{{$v->id}}" target="_blank" class="xst">[普通贴]{{$v -> posts_title}}</a></th>
-                                    <td class="by" ><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
+                                    <td class="by" ><a href="home/luntan/{{ $v -> cates -> id }}" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                                     <td class="by" style="width: 120px;">
                                     <cite>
-                                    <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                                    <a href="/home/other/{{ $v->users->id }}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                                     <em><span>{{$v -> created_at}}</span></em>
                                     </td>
-                                    <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
+                                    <td class="num"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">{{ $v->plhfs->count() }}</a></td>
                                    
                                   </tr>
                                   </tbody>

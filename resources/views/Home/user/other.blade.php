@@ -104,10 +104,10 @@
  <!--  <div class="lib_Menubox_sx ">
   <ul>
      <li id="one1" onclick="setTab('one',1,5)" class="hover">个人资料</li>
-     <li id="one2" onclick="setTab('one',2,5)" >我的积分</li>
-     <li id="one3" onclick="setTab('one',3,5)">我的帖子</li>   
-     <li id="one4" onclick="setTab('one',4,5)">我的文章</li>
-     <li id="one5" onclick="setTab('one',5,5)">我的收藏</li>
+     <li id="one2" onclick="setTab('one',2,5)" >Ta的积分</li>
+     <li id="one3" onclick="setTab('one',3,5)">Ta的帖子</li>   
+     <li id="one4" onclick="setTab('one',4,5)">Ta的文章</li>
+     <li id="one5" onclick="setTab('one',5,5)">Ta的收藏</li>
   </ul>
   </div> -->
     <div class="lib_Contentbox_sx " style="margin-top: -20px;">  
@@ -115,26 +115,20 @@
         <div class="layui-tab layui-tab-card">
           <ul class="layui-tab-title">
             <li class="layui-this">基本资料</li>
-            <li>我关注的人</li>
-            <li>我发的贴</li>
-            <li>我发的文章</li>
-            <li>我收藏的贴子</li>
-            <li>我收藏的文章</li>
+            <li>Ta关注的人</li>
+            <li>Ta发的贴</li>
+            <li>Ta发的文章</li>
+            <li>Ta收藏的贴子</li>
+            <li>Ta收藏的文章</li>
         </ul>
           <div class="layui-tab-content">
-            <!-- 我的信息 -->
+            <!-- Ta的信息 -->
             <div class="layui-tab-item layui-show" style="height: 415px;">
-              <form action="/user/{{$data->id}}" method="post" enctype="multipart/form-data" name="reg_testdate">
-                {{ csrf_field() }}
-                {{ method_field('PUT') }}
+             
               <table style="margin-left: 100px">
                 <tr>
-                  <td width="150x;" height="50px;">用户昵称(不可更改)</td>
+                  <td width="150x;" height="50px;">用户昵称</td>
                   <td><span> {{$data->user_name}} </span></td>
-                </tr>
-                <tr>
-                  <td width="150x;" height="50px;">注册电话(不可更改)</td>
-                  <td><span> {{$data->user_tel}} </span></td>
                 </tr>
                 <tr>
                   <tr>
@@ -176,72 +170,27 @@
                 <tr>
                       <th>头像</th>
                         <td>
-                          <label for="test1">
                           <img width="60px" height="60px" style="border-radius: 10px;" id="pic"  src="{{ ltrim($data->img,'.') }}"> 
-                          </label>
-                          <button type="button" class="layui-btn" id="test1" style="display: none">
-                      <i class="layui-icon">&#xe67c;</i>上传头像
-                    </button>
-                    
                         </td>
                 </tr>
-                <!-- 修改头像 -->
-                <script>
-                    layui.use('upload', function(){
-                      var upload = layui.upload;
-                      //执行实例
-                      var uploadInst = upload.render({
-                        elem: '#test1' //绑定元素
-                        ,url: '/admin/site/logo' //上传接口
-                        ,method:'POST'
-                        ,data:{'_token':'{{csrf_token()}}'}
-                        ,field:'profile'
-                        ,done: function(res){
-                          //上传完毕回调
-                          if(res.code == 1){
-                            layer.msg(res.msg);
-                            $("#pic").attr('src',res.data.src);
-                          }else{
-                            layer.msg(res.msg);
-                          }
-                        }
-                        ,error: function(){
-                          //请求异常回调
-                        }
-                      });
-                    });
-                    </script>
+               
                 <tr>
                   <td width="150px;" height="50px;">性别</td>
                   <td>
-                    <input type="radio" name="sex" value="m"  @if($data->userinfo->sex == 'm') checked @endif>男
-                    <input type="radio" name="sex" value="w"  @if($data->userinfo->sex == 'w') checked @endif>女
-                    <input type="radio" name="sex" value=""  @if($data->userinfo->sex == 'x') checked @endif>保密
+                     @if($data->userinfo->sex == 'm') 男 @endif
+                     @if($data->userinfo->sex == 'w') 女 @endif
+                     @if($data->userinfo->sex == 'x') 保密 @endif
                   </td>
                 </tr>
                 <tr>
                   <td width="150x;" height="50px;">年龄</td>
-                  <td><input type="text" name="age" value="{{$data->userinfo->age}}"></td>
-                </tr>
-                <tr>
-                  <td width="150x;" height="50px;">常用邮箱</td>
-                  <td><input type="text" name="user_email" value="{{$data->user_email}}"></td>
-                </tr>
-                
-                <tr>
-                  <td width="150px;" height="50px;"></td>
-                  <td>
-                    <button style="border-radius: 5px;" class="layui-btn">保存</button>
-                  </td>
+                  <td>{{$data->userinfo->age}}</td>
                 </tr>
               </table>
-            </form>
             </div>
-            <!-- 我的信息结束 -->
-
+            <!-- Ta的信息结束 -->
             <div class="layui-tab-item">3</div>
-
-            <!-- 我发的帖子 -->
+            <!-- Ta发的帖子 -->
             <div class="layui-tab-item">
               <!-- 模板 -->
                <div id="threadlist" class="tl bm bmw"> 
@@ -252,9 +201,8 @@
                                 <th style="width: 80px;"></th>
                                 <th colspan="2"> 标题 </th> 
                                 <td class="by">版块/群组</td> 
-                                <td class="by" style="width: 80px">作者</td> 
-                                <td class="num" >评论</td>
-                                <td class="by" >申请</td>
+                                <td class="by" style="width: 50px">作者</td> 
+                                <td class="num" >浏览量</td>
                                </tr> 
                               </tbody>
                              </table> 
@@ -277,35 +225,11 @@
                         <td class="by" style="width: 130px"><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                         <td class="by" style="width: 100px">
                         <cite>
-                        <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                        <a href="/home/other/{{ $v->users->id }}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                         <em><span>{{$v -> created_at}}</span></em>
                         </td>
-                        <td class="num" style="width: 120px"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
-                        <td class="by" style="width: 150px">
-                         <form method="post" action="/admin/posts/sq">
-                              {{ csrf_field() }} 
-                                <select class="form-control" name="label" style="width:60px;float:left;">
-                                  @if($v -> label == 1)
-                                    <option name="label" value="2">精华</option>
-                                    <option name="label" value="3">置顶</option>
-                                  @elseif($v -> label == 2)
-                                    <option name="label" value="1">热门</option>
-                                    <option name="label" value="3">置顶</option>
-                                  @elseif($v -> label == 3)
-                                    <option name="label" value="1">热门</option>
-                                    <option name="label" value="2">精华</option>
-                                  @elseif($v -> label == 4)
-                                    <option name="label" value="1">热门</option>
-                                    <option name="label" value="2">精华</option>
-                                    <option name="label" value="3">置顶</option>
-                                  @endif
-                                </select>
-                                <input type="hidden" name="pid" value="{{$v->id}}">
-                                  <button type="submit" class="layui-btn layui-btn-xs" >申请</button>
-                                  <button type="button" value="{{$v->id}}" class="layui-btn layui-btn-danger layui-btn-xs postsdel">删除</button>
-
-                         </form>
-                        </td>
+                        <td class="num" style="width: 120px">{{ $v -> post_view }}</td>
+                       
                       </tr>
                       </tbody>
                      </table> 
@@ -313,25 +237,10 @@
                     @endforeach
                     </div> 
                </div>
-                <!-- ajax 删除我的帖子 -->
-                <script type="text/javascript">
-                     $('.postsdel').click(function(){
-                      var obj =  $(this);
-
-                      $.get('/admin/postsdel/'+obj.attr('value'),function(msg){
-                          if(msg == 1){
-                            layer.msg('删除成功');
-                            obj.parent().parent().parent().remove();
-                          }else{
-                            layer.msg('删除失败');
-                          }                      
-                        });
-                     });
-                </script>
-              <!-- 我发的帖子结束 -->
+               
             </div>
 
-            <!-- 我发的文章 -->
+            <!-- Ta发的文章 -->
             <div class="layui-tab-item">
                <!-- 模板 -->
                <div id="threadlist" class="tl bm bmw"> 
@@ -341,8 +250,8 @@
                                <tr> 
                                 <th style="width: 80px;"></th>
                                 <th colspan="2"> 标题 </th> 
-                                <td class="by" style="width: 80px">作者</td> 
-                                <td class="num" >删除</td>
+                                <td class="by" style="width: 150px">作者</td> 
+                                <td class="by">浏览量</td>
                                </tr> 
                               </tbody>
                              </table> 
@@ -365,20 +274,14 @@
                         
                         <td class="by" style="width: 160px">
                           <cite>
-                            <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{session('user_name')}}</a>
+                            <a href="/home/other/{{ $v->users->id }}" c="1" mid="card_6457">{{$v->users->user_name}}</a>
                           </cite>
                             <em><span>{{$v -> created_at}}</span></em>
                         </td>
-                        
-                        <td class="by" style="width: 100px">
-                         <form method="post" action="/admin/posts/sq">
-                              {{ csrf_field() }} 
-                                
-                                <input type="hidden" name="aid" value="{{$v->id}}">
-                                  <button type="button" value="{{$v->id}}" class="layui-btn layui-btn-danger layui-btn-xs postsdel1">删除</button>
-
-                         </form>
+                         <td class="by" style="width: 120px">
+                          {{$v -> article_pview }}
                         </td>
+                        
                       </th>
                       </tr>
                       </tbody>
@@ -387,25 +290,10 @@
                     @endforeach
                   </div>
                </div>
-                <!-- ajax 删除我的文章 -->
-                <script type="text/javascript">
-                     $('.postsdel1').click(function(){
-                      var obj =  $(this);
-
-                      $.get('/admin/articleajax/'+obj.attr('value'),function(msg){
-                          if(msg == 1){
-                            layer.msg('删除成功');
-                            obj.parent().parent().parent().remove();
-                          }else{
-                            layer.msg('删除失败');
-                          }                      
-                        });
-                     });
-                </script>
-              <!-- 我发的文章结束 -->
+              <!-- Ta发的文章结束 -->
             </div>
 
-            <!-- 我收藏的帖子 -->
+            <!-- Ta收藏的帖子 -->
             <div class="layui-tab-item">
               <!-- 模板 -->
                <div id="threadlist" class="tl bm bmw"> 
@@ -417,8 +305,7 @@
                                 <th colspan="2"> 标题 </th> 
                                 <td class="by">版块/群组</td> 
                                 <td class="by" style="width: 80px">作者</td> 
-                                <td class="num" >评论</td>
-                                <td class="by" style="width: 125px">操作</td>
+                                <td class="num" >浏览</td>
                                </tr> 
                               </tbody>
                              </table> 
@@ -441,18 +328,13 @@
                         <td class="by" style="width: 126px"><a href="forum.php?mod=forumdisplay&amp;fid=36" target="_blank" style="padding-left: 10px;">{{$v -> cates -> title}}</a></td>
                         <td class="by" style="width: 80px">
                         <cite>
-                        <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
+                        <a href="/home/other/{{ $v->users->id }}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a></cite>
                         <em><span>{{$v -> created_at}}</span></em>
                         </td>
-                        <td class="num" style="width: 190px"><a href="/home/read/{{$v->id}}" class="xi2" style="padding-left: 15px;">1</a><em style="padding-left: 15px;">5</em></td>
-                        <td class="by" style="width: 140px">
-                         <form method="post" action="/admin/posts/sq">
-                              {{ csrf_field() }} 
-                                <input type="hidden" name="pid" value="{{$v->id}}">
-                                  <button type="button" value="{{$v->id}}" class="layui-btn layui-btn-danger layui-btn-xs postsdel">取消收藏</button>
-
-                         </form>
+                        <td class="num" style="width: 190px">
+                          {{$v->post_view}}
                         </td>
+                        
                       </tr>
                       </tbody>
                      </table> 
@@ -460,25 +342,10 @@
                     @endforeach
                   </div>
                </div>
-                <!-- ajax 删除我收藏的帖子 -->
-                <script type="text/javascript">
-                     $('.postsdel').click(function(){
-                      var obj =  $(this);
-
-                      $.get('/admin/postsdel/'+obj.attr('value'),function(msg){
-                          if(msg == 1){
-                            layer.msg('成功');
-                            obj.parent().parent().parent().remove();
-                          }else{
-                            layer.msg('失败');
-                          }                      
-                        });
-                     });
-                </script>
-              <!-- 我收藏的帖子结束 -->
+              <!-- Ta收藏的帖子结束 -->
             </div>
 
-            <!-- 我收藏的文章 -->
+            <!-- Ta收藏的文章 -->
             <div class="layui-tab-item">
               <!-- 模板 -->
                <div id="threadlist" class="tl bm bmw"> 
@@ -488,8 +355,8 @@
                                <tr> 
                                 <th style="width: 80px;"></th>
                                 <th colspan="2"> 标题 </th> 
-                                <td class="by" style="width: 80px">作者</td> 
-                                <td class="num" >取消收藏</td>
+                                <td class="by" style="width: 150px">作者</td>
+                                <td class="by" style="width: 80px">浏览</td>
                                </tr> 
                               </tbody>
                              </table> 
@@ -510,21 +377,14 @@
                           {{$v ->article_title}} 
                        </th>
                         
-                        <td class="by" style="width: 160px">
+                        <td class="by" style="width: 200px">
                           <cite>
-                            <a href="/home/read/{{$v->id}}" c="1" mid="card_6457">{{session('user_name')}}</a>
+                            <a href="/home/other/{{ $v->users->id }}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a>
                           </cite>
                             <em><span>{{$v -> created_at}}</span></em>
                         </td>
-                        
-                        <td class="by" style="width: 100px">
-                         <form method="post" action="/admin/posts/sq">
-                              {{ csrf_field() }} 
-                                
-                                <input type="hidden" name="aid" value="{{$v->id}}">
-                                  <button type="button" value="{{$v->id}}" class="layui-btn layui-btn-danger layui-btn-xs postsdel1">取消收藏</button>
-
-                         </form>
+                        <td class="by" style="width: 80px">
+                          {{$v -> article_pview}}
                         </td>
                       </th>
                       </tr>
@@ -534,24 +394,7 @@
                     @endforeach
                   </div>
                </div>
-                <!-- ajax 删除我收藏的文章 -->
-                <script type="text/javascript">
-                     $('.postsdel1').click(function(){
-                      var obj =  $(this);
-
-                      $.get('/admin/articleajax/'+obj.attr('value'),function(msg){
-                          if(msg == 1){
-                            layer.msg('成功');
-                            obj.parent().parent().parent().remove();
-                          }else{
-                            layer.msg('失败');
-                          }                      
-                        });
-                     });
-                </script>
-
-            </div>
-            <!-- 我收藏的文章结束 -->
+            <!-- Ta收藏的文章结束 -->
 
           </div>
         </div>
@@ -612,7 +455,7 @@
                 <li>
                   <a href="home.php?mod=spacecp&amp;ac=profile&amp;op=info">个人信息</a></li>
                   <li>
-                  <a href="/userposts/{{session('user_id')}}">我发的贴子</a></li>
+                  <a href="/userposts/{{session('user_id')}}">Ta发的贴子</a></li>
               </ul>
               <iframe id="frame_profile" name="frame_profile" style="display: none"></iframe>
               <form action="/user/{{$data->id}}/edit" method="get" >

@@ -27,7 +27,12 @@
             <div class="mn" style="width:955px;">
               <div class="orde">
                 <div class="lslsls">
-                  
+                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
+                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
+                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
+                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
+                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
+                  <img src="/Home/picture/huahua.jpg" alt="" width="200px" height="200px">
                   
                 </div>
                 <div class="drag">
@@ -64,20 +69,20 @@
                            </tr>
                          </table>   
                          <!-- div 滚动条 -->
-                         <!-- <div style="height:300px;overflow-y:auto;"> -->
+                         <div style="height:300px;overflow-y:auto;">
                         <table>
                         @foreach($data3 as $v)
                         <tr >
-                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;" src="{{ $v->users->img }}"></td>
+                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;height: 80px;" src="{{ ltrim($v->users->img,'.') }}"></td>
                           <td width="300px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
-                          <td width="250px">{{ $v->users->user_name }}</td>
+                          <td width="250px"><a href="/home/other/{{ $v->users->id }}">{{ $v->users->user_name }}</a></td>
                           <td style="font-size:10px;">{{ $v->created_at }}</td>
                           <td width="50px">{{ $v->post_view }}</td>
 
                         </tr>
                         @endforeach
                         </table>
-                        <!-- </div> -->
+                        </div>
                       </div>
                       <!-- 所有结束 -->
                       <!-- 热门 -->
@@ -92,20 +97,20 @@
                            </tr>
                          </table>   
                          <!-- div 滚动条 -->
-                         <!-- <div style="height:300px;overflow-y:auto;"> -->
+                         <div style="height:300px;overflow-y:auto;">
                         <table>
                         @foreach($rm as $v)
                         <tr >
-                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;" src="{{ $v->users->img }}"></td>
+                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;height: 80px;" src="{{ ltrim($v->users->img,'.') }}"></td>
                           <td width="300px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
-                          <td width="250px">{{ $v->users->user_name }}</td>
+                          <td width="250px"><a href="/home/other/{{ $v->users->id }}">{{ $v->users->user_name }}</a></td>
                           <td style="font-size:10px;">{{ $v->created_at }}</td>
                           <td width="50px">{{ $v->post_view }}</td>
 
                         </tr>
                         @endforeach
                         </table>
-                        <!-- </div> -->
+                        </div>
                       </div>
                       <!-- 热门结束 -->
                       <!-- 精品 -->
@@ -120,20 +125,20 @@
                            </tr>
                          </table>   
                          <!-- div 滚动条 -->
-                         <!-- <div style="height:300px;overflow-y:auto;"> -->
+                         <div style="height:300px;overflow-y:auto;">
                         <table>
                         @foreach($jp as $v)
                         <tr >
-                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;" src="{{ $v->users->img }}"></td>
+                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;height: 80px;" src="{{ ltrim($v->users->img,'.') }}"></td>
                           <td width="300px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
-                          <td width="250px">{{ $v->users->user_name }}</td>
+                          <td width="250px"><a href="/home/other/{{ $v->users->id }}">{{ $v->users->user_name }}</a></td>
                           <td style="font-size:10px;">{{ $v->created_at }}</td>
                           <td width="50px">{{ $v->post_view }}</td>
 
                         </tr>
                         @endforeach
                         </table>
-                        <!-- </div> -->
+                        </div>
                       </div>
                       <!-- 精品结束 -->
                       <!-- 置顶 -->
@@ -148,20 +153,20 @@
                            </tr>
                          </table>   
                          <!-- div 滚动条 -->
-                         <!-- <div style="height:300px;overflow-y:auto;"> -->
+                         <div style="height:300px;overflow-y:auto;">
                         <table>
                         @foreach($zd as $v)
                         <tr >
-                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;" src="{{ $v->users->img }}"></td>
+                          <td width="100px"><img  style="display: block; border-radius: 800px;width: 80px;height: 80px;" src="{{ ltrim($v->users->img,'.') }}"></td>
                           <td width="300px"><a href="/home/read/{{ $v->id }}">{{$v->posts_title}}</a></td>
-                          <td width="250px">{{ $v->users->user_name }}</td>
+                          <td width="250px"><a href="/home/other/{{ $v->users->id }}">{{ $v->users->user_name }}</a></td>
                           <td style="font-size:10px;">{{ $v->created_at }}</td>
                           <td width="50px">{{ $v->post_view }}</td>
 
                         </tr>
                         @endforeach
                         </table>
-                        <!-- </div> -->
+                        </div>
                       </div>
                       <!-- 置顶结束 -->
                     </div>
@@ -319,7 +324,15 @@
                       <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;filter=heat&amp;orderby=heats">热门</a></li>
                   </ul>
                 </div>
-                
+
+                <div class="bm bw0 pgs cl">
+                  <span id="fd_page_bottom"></span>
+                  <span class="pgb y">
+
+                    <a href="javascript:history.go(-1);">返&nbsp;回</a></span>
+
+                </div>
+
                 <!--[diy=diyfastposttop]-->
                 <div id="diyfastposttop" class="area"></div>
                 <!--[/diy]-->
@@ -330,39 +343,19 @@
             <div class="sd">
               <div class="bm">
                 <div class="bm_h">
-                  
-                  <h2 style="font-size:1em;font-weight: bold;">所属分类: 论坛分区一</h2></div>
+                 
+                  <h2 style="font-size:1em;font-weight: bold;">所属分类: {{$data2->title}}</h2></div>
                 <div class="bm_c">
                   <ul class="xl xl2 cl">
+                    @foreach($data4 as $val)
                     <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=37">旅游休闲</a></li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=2">美食天下</a></li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=36">特殊主题</a></li>
-                    <li>
-                      <a href="/home/forum.php?mod=forumdisplay&amp;fid=38">母婴亲子</a></li>
+                      <a href="/home/luntan/{{$val->id}}">{{$val->title}}</a>
+                    </li>
+                    @endforeach
                   </ul>
                 </div>
               </div>
-              <div class="bm">
-                <div class="bm_h cl">
-                  <span class="o y">
-                    <a href="/home/forum.php?mod=forumdisplay&amp;fid=2&amp;page=1&amp;showoldetails=no#online">
-                      <img src="/home/picture/collapsed_no.gif" alt="" /></a>
-                  </span>
-                  <h2 style="font-size:1em;font-weight: bold;">正在浏览此版块的会员 (1)</h2></div>
-                <div class="bm_c">
-                  <ul class="ml mls cl">
-                    <li>
-                      <a href="/home/home.php?mod=space&amp;uid=14" class="avt">
-                        <img src="/home/picture/avatar.php" /></a>
-                      <p>
-                        <a href="/home/home.php?mod=space&amp;uid=14">123456</a></p>
-                      <span>15:45</span></li>
-                  </ul>
-                </div>
-              </div>
+
               <div class="drag">
                 <!--[diy=diy2]-->
                 <div id="diy2" class="area"></div>
