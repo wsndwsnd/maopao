@@ -222,7 +222,7 @@ var pwlength = 6;
                 async: true
               });
 
-              var preg_phone = /^1[3|4|5|7|8][0-9]{9}$/;
+              var preg_phone = /^1[3|4|6|5|7|8][0-9]{9}$/;
               if (preg_phone.test(phone)) {
                 isPhone = true;
                 // 成功

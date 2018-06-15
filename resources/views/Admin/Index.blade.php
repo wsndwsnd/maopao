@@ -9,7 +9,7 @@
 			<div class="col-md-3 col-sm-6" style='float: left;margin-left: 150px;' >
 				<div class="counter">
 					<div class="counter-content">
-						<div class="counter-icon fa fa-globe"></div>
+						<div ><i class="layui-icon layui-icon-friends" style="font-size: 30px; color: orange;">&#xe612;</i> </div>
 						<span class="counter-value">{{ $user->count() }}</span>
 					</div>
 					<h3 class="title">注册人数</h3>
@@ -19,7 +19,8 @@
 			<div class="col-md-3 col-sm-6" style='float: left;margin-left: 150px;'>
 				<div class="counter red">
 					<div class="counter-content">
-						<div class="counter-icon fa fa-rocket"></div>
+						<div ><i class="layui-icon layui-icon-read" style="font-size: 30px; color: pink;"></i> </div>
+						
 						<span class="counter-value">{{ $posts->count() }}</span>
 					</div>
 					<h3 class="title">帖子数量</h3>
@@ -29,7 +30,8 @@
 			<div class="col-md-3 col-sm-6" style='float: left;margin-left: 150px;'>
 				<div class="counter blue">
 					<div class="counter-content">
-						<div class="counter-icon fa fa-briefcase"></div>
+						<div ><i class="layui-icon layui-icon-read" style="font-size: 30px; color: skyblue;"></i> </div>
+						
 						<span class="counter-value">{{ $articles->count() }}</span>
 					</div>
 					<h3 class="title">文章数量</h3>

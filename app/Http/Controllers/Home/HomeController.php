@@ -10,6 +10,7 @@ use App\Models\Notices;
 use App\Models\Link;
 use App\Models\Articles;
 use App\Models\Posts;
+use App\Models\User;
 class HomeController extends Controller
 {
     /**
@@ -24,8 +25,16 @@ class HomeController extends Controller
         $link = Link::where('status','<','3')->get();
         $notice = Notices::where('notice_status',1)->paginate(5);
         //最新发帖
-        $poststime = Posts::take(5)->orderBy('created_at','desc')->get();
-        return view('Home.index',['notice'=>$notice,'link'=>$link,'article'=>$article,'poststime'=>$poststime]);
+        $poststime = Posts::take(6)->orderBy('created_at','desc')->get();
+        //浏览量排行8条
+        $posts_view = Posts::take(8)->orderBy('post_view','desc')->get();
+
+        //阅读排行
+        $article_view = Articles::take(6)->orderBy('article_pview','desc')->get();
+        //会员排行
+        $data4 = User::where('status',1)->orderBy('score','desc')->paginate(7);
+
+        return view('Home.index',['notice'=>$notice,'link'=>$link,'article'=>$article,'poststime'=>$poststime,'posts_view'=>$posts_view,'article_view'=>$article_view,'data4'=>$data4]);
     }
 
     /**

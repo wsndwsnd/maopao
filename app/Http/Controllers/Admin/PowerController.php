@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Models\Power;
+use App\Http\Requests\PowerInsertRequest;
 
 use Hash;
 
@@ -23,11 +24,11 @@ class PowerController extends Controller
     public function index(Request $request)
     {
         
-        $count = $request->input('count','5');
+        $count = $request->input('count','10');
         $username = $request -> input('username','');
-        
+        $num  = Power::count('id');
         $power = Power::where('username','like','%'.$username.'%')->paginate($count);
-        return view('Admin.powers.index',['power'=>$power,'username'=>$username,'count'=>$count]);
+        return view('Admin.powers.index',['power'=>$power,'username'=>$username,'count'=>$count,'num'=>$num]);
     }
 
     /**
@@ -47,7 +48,7 @@ class PowerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return 执行修改
      */
-    public function store(Request $request)
+    public function store(PowerInsertRequest $request)
     {
         //实例化 power 类
         $power = new Power;

@@ -127,6 +127,10 @@ Route::get('/admin/articleajax/{id}','Admin\ArticleController@ajaxdel');
 
 //网站状态
 Route::group(['middleware'=>'SiteStatus'],function(){
+
+
+
+
 	//前台
 	//前台首页
 	Route::get('/','Home\HomeController@index');
@@ -144,6 +148,8 @@ Route::group(['middleware'=>'SiteStatus'],function(){
 
 	//登录页面
 	Route::get('/home/login','Home\LoginController@dl');
+	//登录窗口
+Route::get('/denglu','Home\LoginController@denglu');
 	//验证登录
 	Route::post('/home/login','Home\LoginController@yzdl');
 	//忘记密码

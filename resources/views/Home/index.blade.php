@@ -43,38 +43,16 @@
                             <a href="forum.php?mod=viewthread&tid=100" target="_blank" title="发帖测试"></a>
                           </div>
                         </li>
+
+                        <!-- 遍历帖子 -->
+                        @foreach($posts_view as $v)
                         <li>
                           <em>
-                            <a href="home.php?mod=space&uid=1" target="_blank">admin</a></em>
-                          <a href="forum.php?mod=viewthread&tid=95" title="【加田小店】新锐创想轻主题模板活动演示帖[广州市]" target="_blank">【加田小店】新锐创想轻主题模板活动演示帖</a></li>
-                        <li>
-                          <em>
-                            <a href="home.php?mod=space&uid=1" target="_blank">admin</a></em>
-                          <a href="forum.php?mod=viewthread&tid=32" title="迷人的大光圈 教你使用焦外的正确时机" target="_blank">迷人的大光圈 教你使用焦外的正确时机</a></li>
-                        <li>
-                          <em>
-                            <a href="home.php?mod=space&uid=1" target="_blank">admin</a></em>
-                          <a href="forum.php?mod=viewthread&tid=46" title="给孩子吃这些有助长高" target="_blank">给孩子吃这些有助长高</a></li>
-                        <li>
-                          <em>
-                            <a href="home.php?mod=space&uid=1" target="_blank">admin</a></em>
-                          <a href="forum.php?mod=viewthread&tid=87" title="家居别墅专业装修设计" target="_blank">家居别墅专业装修设计</a></li>
-                        <li>
-                          <em>
-                            <a href="home.php?mod=space&uid=1" target="_blank">admin</a></em>
-                          <a href="forum.php?mod=viewthread&tid=89" title="欧式别墅设计 欧式别墅室内装修效果图" target="_blank">欧式别墅设计 欧式别墅室内装修效果图</a></li>
-                        <li>
-                          <em>
-                            <a href="home.php?mod=space&uid=1" target="_blank">admin</a></em>
-                          <a href="forum.php?mod=viewthread&tid=88" title="别墅室内装修软装设计需要注意哪些" target="_blank">别墅室内装修软装设计需要注意哪些</a></li>
-                        <li>
-                          <em>
-                            <a href="home.php?mod=space&uid=1" target="_blank">admin</a></em>
-                          <a href="forum.php?mod=viewthread&tid=86" title="如何设计单层别墅与多层别墅" target="_blank">如何设计单层别墅与多层别墅</a></li>
-                        <li>
-                          <em>
-                            <a href="home.php?mod=space&uid=1" target="_blank">admin</a></em>
-                          <a href="forum.php?mod=viewthread&tid=85" title="别墅多种错层装修设计" target="_blank">别墅多种错层装修设计</a></li>
+                            <a href="/home/other/{{$v->users->id}}" target="_blank">{{$v -> users -> user_name}}</a></em>
+                          <a href="/home/read/{{$v->id}}" title="" target="_blank">{{$v->posts_title}}</a>
+                        </li>
+                        @endforeach
+                        <!-- 结束遍历 -->
                       </ul>
                     </div>
                   </div>
@@ -97,17 +75,7 @@
                         @endforeach
   
                       </ul>
-                      <script type="text/javascript">
-
-                          // layer.open({
-                          //     type: 0,
-                          //     skin: 'layui-layer-rim', //加上边框
-                          //     area: ['420px', '300px'], //宽高
-                          //     content: '<form class="layui-form" action=""><div class="layui-form-item"><label class="layui-form-label">用户名</label><div class="layui-input-block"><input type="text" name="user_name" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input"></div></div><div class="layui-form-item"><label class="layui-form-label">密码</label><div class="layui-input-block"><input type="text" name="user_name" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input"></div></div><div class="layui-form-item"><label class="layui-form-label">验证码</label><div class="layui-input-block"><img src="/code"></div></div></form>'
-                          //   });
-
-                        
-                      </script>
+                      
                     </div>
                   </div>
                 </div>
@@ -115,124 +83,7 @@
             </div>
           </div>
           <!--[/diy]-->
-          <!--[diy=diy3]-->
-          <div id="diy3" class="area">
-            <div id="framezfmucD" class="sysange frame move-span cl frame-1-1-1">
-              <div id="framezfmucD_left" class="column frame-1-1-1-l">
-                <div id="framezfmucD_left_temp" class="move-span temp"></div>
-                <div id="portal_block_63" class="syjhzt block move-span">
-                  <div class="blocktitle title">
-                    <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">精华主题</span></div>
-                  <div id="portal_block_63_content" class="dxb_bc">
-                    <div class="module cl xld">
-                      <dl class="cl cc1">
-                        <dd class="m">
-                          <a href="forum.php?mod=viewthread&tid=100" target="_blank" title="发帖测试">
-                            <img src="/Home/picture/aa3a58d29310c5eaee91d2d230828482.jpg" width="100" height="94" alt="发帖测试" /></a>
-                        </dd>
-                        <dt>
-                          <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank">发帖测试</a></dt>
-                        <dd class="sumr">这是一条测试 ...</dd></dl>
-                      <dl class="cl cc2">
-                        <dd class="m">
-                          <a href="forum.php?mod=viewthread&tid=89" target="_blank" title="欧式别墅设计 欧式别墅室内装修效果图">
-                            <img src="/Home/picture/21076109b602ad8227eece63c2e34327.jpg" width="100" height="94" alt="欧式别墅设计 欧式别墅室内装修效果图" /></a>
-                        </dd>
-                        <dt>
-                          <a href="forum.php?mod=viewthread&tid=89" title="欧式别墅设计 欧式别墅室内装修效果图" target="_blank">欧式别墅设计 欧式别墅室内装修效果图</a></dt>
-                        <dd class="sumr">这是一个清新的欧式别墅设计，颜色和光线都令人觉得心情愉悦 ...</dd></dl>
-                      <dl class="cl cc3">
-                        <dd class="m">
-                          <a href="forum.php?mod=viewthread&tid=88" target="_blank" title="别墅室内装修软装设计需要注意哪些">
-                            <img src="/Home/picture/16f89160772fbcc92adc863a5e3f8d1a.jpg" width="100" height="94" alt="别墅室内装修软装设计需要注意哪些" /></a>
-                        </dd>
-                        <dt>
-                          <a href="forum.php?mod=viewthread&tid=88" title="别墅室内装修软装设计需要注意哪些" target="_blank">别墅室内装修软装设计需要注意哪些</a></dt>
-                        <dd class="sumr">随着人们生活水平的提高，人们在追求品质生活的同时更是 ...</dd></dl>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="framezfmucD_center" class="column frame-1-1-1-c">
-                <div id="framezfmucD_center_temp" class="move-span temp"></div>
-                <div id="portal_block_64" class="suzxhd block move-span">
-                  <div class="blocktitle title">
-                    <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">最新活动</span></div>
-                  <div id="portal_block_64_content" class="dxb_bc">
-                    <div class="module cl xld">
-                      <dl class="cl cc1">
-                        <dd class="m">
-                          <p class="bmtext">报名截至</p>
-                          <p class="bmzhi">2017-4-30 23:11
-                            <p></dd>
-                        <dt>
-                          <a href="forum.php?mod=viewthread&tid=95" title="【加田小店】新锐创想轻主题模板活动演示帖[广州市]" target="_blank">【加田小店】新锐创想轻主题模板活动演示帖</a></dt>
-                        <dd>已报名：
-                          <em>0人</em></dd>
-                        <dd>活动地点：
-                          <em>广州</em></dd>
-                      </dl>
-                      <dl class="cl cc2">
-                        <dd class="m">
-                          <p class="bmtext">报名截至</p>
-                          <p class="bmzhi">2016-4-30 15:08
-                            <p></dd>
-                        <dt>
-                          <a href="forum.php?mod=viewthread&tid=21" title="东航直飞布里斯班吃喝玩乐八件事[布里斯班]" target="_blank">东航直飞布里斯班吃喝玩乐八件事[布里斯班]</a></dt>
-                        <dd>已报名：
-                          <em>0人</em></dd>
-                        <dd>活动地点：
-                          <em>布里斯班</em></dd>
-                      </dl>
-                      <dl class="cl cc3">
-                        <dd class="m">
-                          <p class="bmtext">报名截至</p>
-                          <p class="bmzhi">2016-4-30 15:06
-                            <p></dd>
-                        <dt>
-                          <a href="forum.php?mod=viewthread&tid=20" title="不负春光！最适合3月旅行目的地，走起！[广州]" target="_blank">不负春光！最适合3月旅行目的地，走起！[广</a></dt>
-                        <dd>已报名：
-                          <em>0人</em></dd>
-                        <dd>活动地点：
-                          <em>广州</em></dd>
-                      </dl>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="framezfmucD_right" class="column frame-1-1-1-r">
-                <div id="framezfmucD_right_temp" class="move-span temp"></div>
-                <div id="portal_block_65" class="syzxft block move-span">
-                  <div class="blocktitle title">
-                    <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">最新发帖</span>
-                  </div>
 
-                  <!-- 最新发帖 -->
-                  <div id="portal_block_65_content" class="dxb_bc">
-                    <div class="module cl xld xlda">
-                      @foreach($poststime as $v)
-                      <dl class="cl">
-                        <dd class="m">
-                          <a href="/home/other/{{$v->users->id}}" c="1" target="_blank">
-                            <img src="{{$v->users->img}}" width="52" height="52" alt="fff" />
-                          </a>
-                        </dd>
-                        <dt style="padding-bottom: 0;">
-                          <a href="/home/read/{{$v->id}}" title="发帖测试" target="_blank">{{$v->posts_title}}</a>
-                        </dt>
-                        <dd style="margin-bottom: 0;">
-                         {{$v->created_at}}
-                        </dd>
-                      </dl>
-                     @endforeach
-                    </div>
-                  </div>
-                  <!-- 最新发帖结束 -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--[/diy]-->
           <!--[diy=diy4]-->
           <div id="diy4" class="area">
             <div id="frameFMd872" class="sybtgg frame move-span cl frame-2-1">
@@ -294,100 +145,95 @@
                 </div>
                 </div>
 
-              <!-- 阅读排行 -->
               <div id="frameFMd872_center" class="column frame-2-1-r">
                 <div id="frameFMd872_center_temp" class="move-span temp"></div>
                 <div id="portal_block_67" class="syydph block move-span">
+                    <!-- 最新发贴 -->
+                <div id="portal_block_65" class="syzxft block move-span">
+                  <div class="blocktitle title">
+                    <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">最新发帖</span>
+                  </div>
+
+                  <!-- 最新发帖 -->
+                  <div id="portal_block_65_content" class="dxb_bc">
+                    <div class="module cl xld xlda">
+                      @foreach($poststime as $v)
+                      <dl class="cl">
+                        <dd class="m">
+                          <a href="/home/other/{{$v->users->id}}" c="1" target="_blank">
+                            <img src="{{$v->users->img}}" width="52" height="52" alt="fff" />
+                          </a>
+                        </dd>
+                        <dt style="padding-bottom: 0;">
+                          <a href="/home/read/{{$v->id}}" title="发帖测试" target="_blank">{{$v->posts_title}}</a>
+                        </dt>
+                        <dd style="margin-bottom: 0;">
+                         {{$v->created_at}}
+                        </dd>
+                      </dl>
+                     @endforeach
+                    </div>
+                  </div>
+                  <!-- 最新发帖结束 -->
+                </div>
+                <!-- 最新发帖结束 -->
+              </div>
+            </div>
+            <!-- 阅读排行 -->
+            <div id="frameFMd872_center" class="column frame-2-1-r">
+                <div id="frameFMd872_center_temp" class="move-span temp"></div>
+                <div id="portal_block_67" class="syydph block move-span">
+                  <!-- 阅读排行 -->
+
                   <div class="blocktitle title">
                     <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">阅读排行</span></div>
                   <div id="portal_block_67_content" class="dxb_bc">
                     <div class="module cl xl xl1">
                       <ul>
-                        <li class="cc1">
-                          <span>No-1</span>
-                          <a href="forum.php?mod=viewthread&tid=100" title="发帖测试" target="_blank">发帖测试...</a></li>
-                        <li class="cc2">
-                          <span>No-2</span>
-                          <a href="forum.php?mod=viewthread&tid=99" title="[图片类]投票：您觉得里面哪位妹纸好看？" target="_blank">[图片类]投票：您觉得里面哪位妹纸好看？...</a></li>
-                        <li class="cc3">
-                          <span>No-3</span>
-                          <a href="forum.php?mod=viewthread&tid=98" title="您觉得加田小店的模板好看吗" target="_blank">您觉得加田小店的模板好看吗...</a></li>
-                        <li class="cc4">
-                          <span>No-4</span>
-                          <a href="forum.php?mod=viewthread&tid=97" title="悬赏100万求个美女老婆" target="_blank">悬赏100万求个美女老婆...</a></li>
-                        <li class="cc5">
-                          <span>No-5</span>
-                          <a href="forum.php?mod=viewthread&tid=96" title="【加田小店】您觉得X3.3和X3.2哪个好用" target="_blank">【加田小店】您觉得X3.3和X3.2哪个好用...</a></li>
-                        <li class="cc6">
-                          <span>No-6</span>
-                          <a href="forum.php?mod=viewthread&tid=95" title="【加田小店】新锐创想轻主题模板活动演示帖[广州市]" target="_blank">【加田小店】新锐创想轻主题模板活动演示帖[广州市]...</a></li>
+
+                       @foreach($article_view as $k => $v)
+                        <li class="cc{{$k+1}}">
+                          <span>No-{{$k+1}}</span>
+                          <a href="/zixun/{{$v->id}}" title="发帖测试" target="_blank">{{$v -> article_title}}</a></li>
+                        @endforeach
                       </ul>
                     </div>
+                    <!-- 结束 -->
+
                   </div>
                 </div>
-                <div id="portal_block_68" class="sytjyd block move-span">
+
+                <!--  -->
+
+                 <!-- 阅读排行 -->
+            <div id="frameFMd872_center" class="column frame-2-1-r">
+                <div id="frameFMd872_center_temp" class="move-span temp"></div>
+                <div id="portal_block_67" class="syydph block move-span">
+                  <!-- 阅读排行 -->
+                  <!-- 会员排行 -->
                   <div class="blocktitle title">
-                    <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">推荐阅读</span></div>
-                  <div id="portal_block_68_content" class="dxb_bc">
-                    <div class="module cl xl">
+                    <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">会员排行</span></div>
+                  <div id="portal_block_67_content" class="dxb_bc">
+                    <div class="module cl xl xl1">
                       <ul>
-                        <li class="tupian">
-                          <div class="tutu">
-                            <a href="forum.php?mod=viewthread&tid=101" target="_blank" title="123123123">
-                              <img src="/Home/picture/nophoto.gif" width="290" height="194" alt="123123123" /></a>
-                            <div class="sbover">
-                              <a href="forum.php?mod=viewthread&tid=101" target="_blank" title="123123123"></a>
-                            </div>
-                          </div>
-                          <p>作者：
-                            <a href="home.php?mod=space&uid=14" target="_blank">123456</a>&#160;&#160;发表：2018-05-25</p>
-                          <a class="biaot" href="forum.php?mod=viewthread&tid=101" title="123123123" target="_blank">123123123...</a></li>
-                        <li>
-                          <p>作者：
-                            <a href="home.php?mod=space&uid=1" target="_blank">admin</a>&#160;&#160;发表：2016-04-21</p>
-                          <a class="biaot" href="forum.php?mod=viewthread&tid=32" title="迷人的大光圈 教你使用焦外的正确时机" target="_blank">迷人的大光圈 教你使用焦外的正确时机...</a></li>
-                        <li>
-                          <p>作者：
-                            <a href="home.php?mod=space&uid=1" target="_blank">admin</a>&#160;&#160;发表：2016-04-28</p>
-                          <a class="biaot" href="forum.php?mod=viewthread&tid=87" title="家居别墅专业装修设计" target="_blank">家居别墅专业装修设计...</a></li>
-                        <li>
-                          <p>作者：
-                            <a href="home.php?mod=space&uid=1" target="_blank">admin</a>&#160;&#160;发表：2016-04-28</p>
-                          <a class="biaot" href="forum.php?mod=viewthread&tid=89" title="欧式别墅设计 欧式别墅室内装修效果图" target="_blank">欧式别墅设计 欧式别墅室内装修效果图...</a></li>
+
+                       @foreach($data4 as $k => $v)
+                        <li class="cc{{$k+1}}">
+                          <span>No-{{$k+1}}</span>  <img width="45" height="45" alt="fff" src="{{ ltrim($v->img,'.') }}"><a style="text-align:right;" href="/home/other/{{$v->id}}">{{$v -> user_name}}</a> <br><p style="text-align:right;"> 积分：{{$v->score}}</p> </li>
+                        @endforeach
                       </ul>
                     </div>
+                    <!-- 结束 -->
+
                   </div>
                 </div>
-                <div id="portal_block_69" class="syzttj block move-span">
-                  <div class="blocktitle title">
-                    <span class="titletext" style="float:;margin-left:px;font-size:;color: !important;">专题推荐</span></div>
-                  <div id="portal_block_69_content" class="dxb_bc">
-                    <div class="module cl ml">
-                      <ul>
-                        <li style="width: 292px;">
-                          <p>狗狗吹泡泡，像个小孩一样去玩</p>
-                          <a class="tupian" href="forum.php?mod=viewthread&tid=65" target="_blank" title="狗狗吹泡泡，像个小孩一样去玩耍">
-                            <img src="/Home/picture/be77bef5a40880366ec994b603e7400d.jpg" width="292" height="180" alt="狗狗吹泡泡，像个小孩一样去玩耍" /></a>
-                        </li>
-                        <li style="width: 292px;">
-                          <p>别用这种眼神盯着我看，给你秀</p>
-                          <a class="tupian" href="forum.php?mod=viewthread&tid=64" target="_blank" title="别用这种眼神盯着我看，给你秀秀就是了！">
-                            <img src="/Home/picture/564b0ec04e980650d9acb8284626a0aa.jpg" width="292" height="180" alt="别用这种眼神盯着我看，给你秀秀就是了！" /></a>
-                        </li>
-                        <li style="width: 292px;">
-                          <p>如何阻止喜马拉雅猫在家里搞破</p>
-                          <a class="tupian" href="forum.php?mod=viewthread&tid=63" target="_blank" title="如何阻止喜马拉雅猫在家里搞破坏?">
-                            <img src="/Home/picture/f7162616e6147225e51fd9715df5c392.jpg" width="292" height="180" alt="如何阻止喜马拉雅猫在家里搞破坏?" /></a>
-                        </li>
-                        <li style="width: 292px;">
-                          <p>怎样正确的调教美国短毛猫?</p>
-                          <a class="tupian" href="forum.php?mod=viewthread&tid=62" target="_blank" title="怎样正确的调教美国短毛猫?">
-                            <img src="/Home/picture/22d5806bfaf311cfe5ea4c1332293a55.jpg" width="292" height="180" alt="怎样正确的调教美国短毛猫?" /></a>
-                        </li>
-                      </ul>
-                    </div>
+                 <!--会员排行结束-->
+
                   </div>
                 </div>
+              
+
+
               </div>
             </div>
           </div>

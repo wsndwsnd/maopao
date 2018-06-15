@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_home_spacecp.css" />
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_portal_list.css" />
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_portal_view.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/resou.css" />
     
 
     <link rel="stylesheet" type="text/css" href="/home/css/index.css" />

@@ -16,20 +16,18 @@
                     <div class="y">
                         <div id="an">
                             <dl class="cl">
-                                <dt class="z xw1">
-                                </dt>
                                 <dd>
 
-                                    <div id="anc" >
+                                    <div id="anc">
                                         <ul id="ancl" >
                                             @foreach($notice as $v)
                                             <li id="li">
-                                                <span>
+                                                <span style="width: 425px;">
                                                     <a href="/notice" class="xi2" >
                                                        {{$v->notice_title}}
                                                     </a>
                                                 </span>
-                                                <em>
+                                                <em style="width: 95px;">
                                                        {{$v->created_at}}                                                   
                                                 </em>
                                             </li>
@@ -42,7 +40,7 @@
                                                 // 追加并且显示li标签
                                                 $('#ancl').append($(this).show());//display:none
                                             });
-                                        },2000);
+                                        },3000);
                                     </script>
 
                                     
@@ -106,7 +104,7 @@
                             <div id="portal_block_84" class="ltsyad block move-span">
                                 <div id="portal_block_84_content" class="dxb_bc">
                                     <div class="portal_block_summary">
-                                        <img src="picture/ad1.jpg" width="100%" />
+                                        <img src="{{ $advertise->img or 'picture/ad1.jpg' }}" width="278" height="299" />
                                     </div>
                                 </div>
                             </div>
@@ -155,7 +153,7 @@
                 </span>
                 欢迎新会员:
                 <em>
-                    <a href="home.php?mod=space&amp;username=%CD%EA%C3%C0%B5%C4%C4%D0%C8%CB"
+                    <a href="/home/other/{{ $data9->id }}"
                     target="_blank" class="xi2">
                         {{ $data9->user_name }}
                     </a>
@@ -203,7 +201,7 @@
              
               <!--帖子标题结束-->
               <dd>
-               <cite>{{ $val->created_at }} &nbsp;&nbsp;<a href="#">{{ $val->posts[0]->users->user_name }}</a></cite>
+               <cite>{{ $val->created_at }} &nbsp;&nbsp;<a href="/home/other/{{$val->posts[0]->users->id}}">{{ $val->posts[0]->users->user_name }}</a></cite>
               </dd> 
              </dl> 
            </div> 
@@ -250,14 +248,14 @@
                                                     </div>
                                                     <div class="hyleft">
 
-                                                        <a href="javascript:;" c="1" target="_blank">
+                                                        <a href="/home/other/{{ $user->id }}" c="1" target="_blank">
 
                                                             <img src="{{ltrim($user->img,'.')}}" width="65" height="65" alt="admin" />
                                                         </a>
                                                     </div>
                                                     <div class="hyright">
                                                         <p class="hyname">
-                                                            <a href="home.php?mod=space&uid=1" title="admin" target="_blank">
+                                                            <a href="/home/other/{{ $user->id }}" title="admin" target="_blank">
                                                                 {{$user->user_name}}
                                                             </a>
                                                         </p>
@@ -309,6 +307,7 @@
                         </div>
                     </div>
                     <!--[/diy]-->
+                    
                 </div>
             </div>
         </div>
