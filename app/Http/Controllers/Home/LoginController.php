@@ -37,6 +37,8 @@ class LoginController extends Controller
              $path = $request->input('path','');
             
              return redirect($path)->with('success','登录成功');
+             // return back()->with('success','登录成功');
+             
         }else{
              return back()->with('error','用户或密码错误');
         }

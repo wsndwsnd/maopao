@@ -31,6 +31,19 @@
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
 </head>
 <body>
+	@if(session('success'))
+        <script type="text/javascript">
+            layer.msg('{{ session("success")}}');
+            function guanbi(){
+			var index = parent.layer.getFrameIndex(window.name);
+			parent.layer.close(index);//关闭当前页
+			window.parent.location.replace('http://www.maopao.com/home/read/'+'{{ session("pid")}}');//刷新父级页面
+	    }
+            function dsq(){setTimeout("guanbi();",3000);}
+            dsq();
+        </script>
+        <button type="button" class="layui-btn layui-btn-primary layui-btn-xs" onclick="guanbi()" style="margin-left: 270px;margin-top:160px;background-color:skyblue; ">关闭当前页面</button>
+ 	@else
 	<form method="post" action="/preply">
 		{{ csrf_field() }} 
 		<table style="width:600px;><tbody><tr> <td class="pls"> 
@@ -62,5 +75,11 @@
             ]
         });
 </script>
-
+<script type="text/javascript">
+		function guanbi(){
+			var index = parent.layer.getFrameIndex(window.name);
+			parent.layer.close(index);//关闭当前页
+	    }
+</script>
+@endif
 </html>

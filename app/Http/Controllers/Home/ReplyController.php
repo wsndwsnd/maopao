@@ -73,7 +73,8 @@ class ReplyController extends Controller
         $pid = $data['pid'];
 
          if ($res) {
-            return redirect("/home/read/$pid")->with('success','回复成功');
+            // return redirect("/home/read/$pid")->with('success','回复成功');
+            return back()->with('success','回复成功')->with('pid', $pid);;
         }else{
             return redirect("/home/read/$pid")->with('error','回复失败');
 
