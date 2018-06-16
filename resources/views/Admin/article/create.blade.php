@@ -1,16 +1,7 @@
 @extends('admin.layout.index')
 
 @section('content')
-<!-- 显示错误信息 -->
-@if (count($errors) > 0)
-    <div class="mws-form-message error">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
     <!-- 配置文件 -->
     <script type="text/javascript" src="/utf8-php/ueditor.config.js"></script>
     <!-- 编辑器源码文件 -->

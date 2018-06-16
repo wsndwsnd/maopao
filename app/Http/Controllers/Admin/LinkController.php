@@ -45,7 +45,17 @@ class LinkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         // 设置报错信息
+        $this->validate($request,[
+            'Link_text' => 'required',
+            'Link_url' => 'required',
+            'tel' => 'required',
+           
+        ],[
+             'Link_text.required' => '链接地址必填', 
+            'Link_url.required' => '链接名称必填', 
+            'tel.required' => '联系电话必填', 
+        ]);
         DB::beginTransaction();
         $link = new Link;
 
@@ -162,7 +172,16 @@ class LinkController extends Controller
     //前台申请
     public function audit(Request $request)
     {
-        
+         $this->validate($request,[
+            'Link_text' => 'required',
+            'Link_url' => 'required',
+            'tel' => 'required',
+           
+        ],[
+            'Link_text.required' => '链接地址必填', 
+            'Link_url.required' => '链接名称必填', 
+            'tel.required' => '联系电话必填', 
+        ]);
          DB::beginTransaction();
         $link = new Link;
         //接收申请信息

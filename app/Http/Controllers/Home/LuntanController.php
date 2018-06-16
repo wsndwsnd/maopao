@@ -92,6 +92,15 @@ class LuntanController extends Controller
      */
     public function store(Request $request)
     {
+         $this->validate($request,[
+            'content' => 'required',
+            'title' => 'required',
+
+        ],[
+            'content.required' => '内容必填', 
+            'title.required' => '标题必填', 
+
+        ]);
         DB::beginTransaction();
         $patt = "/\d+/";
         $str = $request->input('id');

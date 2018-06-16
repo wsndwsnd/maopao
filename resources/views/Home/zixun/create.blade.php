@@ -13,6 +13,7 @@
    <div id="wp" class="wp xuxian"> 
    
     <script src="Home/forum_files/forum_post.js?Bak" type="text/javascript"></script> 
+   
     <div id="pt" class="bm cl"  > 
      <div class="z">
       <a href="/" class="nvhm" title="首页">Discuz! Board</a> 
@@ -29,13 +30,13 @@
 			<div class="layui-form-item">
 			    <label class="layui-form-label">文章标题:</label>
 			    <div class="layui-input-block">
-			      <input type="text" name="article_title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+			      <input type="text" name="article_title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" value="{{ old('article_title') }} " id="article_title">
 			    </div>
 		    </div>
 			<div class="layui-form-item">
 			    <label class="layui-form-label">作者/笔名:</label>
 			    <div class="layui-input-block">
-			      <input type="text" name="article_author" lay-verify="title" autocomplete="off" placeholder="请输入作者/笔名" class="layui-input">
+			      <input type="text" name="article_author" lay-verify="title" autocomplete="off" placeholder="请输入作者/笔名" class="layui-input" value="{{ old('article_author') }} ">
 			    </div>
 		    </div>
 
@@ -47,7 +48,7 @@
 			<div class="layui-form-item layui-form-text">
 			    <label class="layui-form-label">内容简介</label>
 			    <div class="layui-input-block">
-			      <textarea placeholder="请输入内容" class="layui-textarea" name="article_dec"></textarea>
+			      <textarea placeholder="请输入内容" class="layui-textarea" name="article_dec">{{ old('article_dec') }}</textarea>
 			    </div>
 			 </div>
 			 <div class="layui-form-item layui-form-text">
@@ -77,9 +78,8 @@
                 ['fullscreen', 'source', 'undo', 'redo', 'bold','simpleupload','insertimage','italic','forecolor','backcolor','edittip' ]
             ]
         });
-
-
-        	
+       
+       
 </script>
 </html>
 

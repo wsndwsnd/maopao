@@ -144,6 +144,17 @@
     <script type="text/javascript" src="/layui/jquery-3.2.1.min.js"></script>
 
   <body id="nv_portal" class="pg_index" onkeydown="if(event.keyCode==27) return false;">
+     @if (count($errors) > 0)
+      <div class="alert alert-danger">
+          <ul>
+            <script type="text/javascript">
+              @foreach ($errors->all() as $error)
+                 layer.msg('{{ $error }}');
+              @endforeach
+          </script>
+          </ul>
+      </div>
+  @endif
 <script>
 //由于模块都一次性加载，因此不用执行 layui.use() 来加载对应模块，直接使用即可：
 ;!function(){
@@ -213,7 +224,7 @@
                 </script>
               <span id="myprompt_check"></span>
               <a onclick="document:usertc.submit();">退出</a>
-              <form method="post" id="usertc" action="/user/{{session('user_id')}}">
+              <form method="post" id="usertc" action="/user/{{session('user_id')}}?url={{URL::current()}}">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
               </form>
@@ -335,11 +346,10 @@
                     <span>Guide</span></a>
                 </li>
                 <li class="xnv_4" id="mn_P1" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})">
-                  <a href="/zixun" hidefocus="true">资讯</a></li>
+                  <a href="/zixun" hidefocus="true">资讯<span>Article</span></a></li>
                 <li class="xnv_5" id="mn_N326f">
-                  <a href="/pbl" hidefocus="true">瀑布流</a></li>
-                <li class="xnv_6" id="mn_Nb2c4">
-                  <a href="/Home/https://item.taobao.com/item.htm?id=549841050832" hidefocus="true" style="color: yellow">进入购买</a></li>
+                  <a href="/pbl" hidefocus="true">瀑布流<span>Waterfall</span></a></li>
+               
               </ul>
               <script src="/Home/js/nv.js" type="text/javascript"></script>
             </div>

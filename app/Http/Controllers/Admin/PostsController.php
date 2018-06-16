@@ -52,6 +52,15 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+         // 设置报错信息
+        $this->validate($request,[
+            'posts_title' => 'required',
+            'content' => 'required',
+        ],[
+            'posts_title.required' => '帖子标题必填', 
+            'content.required' => '帖子内容必填', 
+
+        ]);
         //开启事务
         DB::beginTransaction();
         

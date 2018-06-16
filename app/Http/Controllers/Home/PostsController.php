@@ -42,6 +42,15 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+         $this->validate($request,[
+            'content' => 'required',
+            'posts_title' => 'required',
+
+        ],[
+            'content.required' => '内容必填', 
+            'posts_title.required' => '标题必填', 
+
+        ]);
         DB::beginTransaction();
         $data1 = $request -> only('posts_title','cid');
         $data1['uid'] = session('user_id');

@@ -116,11 +116,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return 首页
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
         //清空session
-        Session()->flush();
-        return redirect('/');
+        $request->session()->forget('user_name');
+        $request->session()->forget('user_id');
+        $request->session()->forget('user_img');
+        $request->session()->forget('user_token');
+        
+        $url =   substr($request->input('url','/'),21);
+        return redirect($url);
     }
 
 

@@ -94,7 +94,16 @@ class CateController extends Controller
      */
     public function store(Request $request)
     {
-
+        // 设置报错信息
+        $this->validate($request,[
+            'title' => 'required',
+            'picture' => 'required|image',
+        ],[
+            'title.required' => '类别必填', 
+            'picture.required' => '类别图片必须上传', 
+            'picture.image' => '类别格式不正确',
+            
+        ]);
     if($request->hasFile("picture")){
             //获取上传信息
             $file = $request->file("picture");

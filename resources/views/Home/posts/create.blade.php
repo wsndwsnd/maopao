@@ -77,7 +77,7 @@ var pwlength = 6;
 <tbody>
   <tr>
 <th><span class="rq">*</span><label for="">帖子标题:</label></th>
-<td><input type="text"  class="form-control" name="posts_title"></td>
+<td><input type="text"  class="form-control" name="posts_title" value="{{ old('posts_title') }}"></td>
 </tr>
 </tbody>
 </table>
@@ -99,8 +99,9 @@ var pwlength = 6;
 <tr>
 <th><span class="rq">*</span><label for="">帖子内容:</label></th>
 <td style="width:630px;">
-  <script id="container" name="content" type="text/plain" style="height: 300px">
+  <script id="container" name="content" type="text/plain" style="height: 300px">{!! old('content') !!}
     </script>
+  
 </td>
 </tr>
 </tbody></table>

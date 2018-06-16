@@ -2,16 +2,6 @@
 
 @section('content')
 
-@if (count($errors) > 0)
-    <div class="mws-form-message error">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
 <div class="mws-panel grid_8">
 	<div class="mws-panel-header">
     	<span><i class="icon-magic"></i>添加友情链接</span>
