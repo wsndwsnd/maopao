@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
 </head>
 <body>
+
     <script type="text/javascript">
      @if(session('error'))
         layer.msg("{{ session('error') }}");
@@ -58,6 +59,7 @@
         </script>
         <button type="button" class="layui-btn layui-btn-primary layui-btn-xs" onclick="guanbi()" style="margin-left: 270px;margin-top:160px;background-color:skyblue; ">关闭当前页面</button>
     @else
+
 	<form method="post"  action="/home/login">
   {{ csrf_field() }}
   
@@ -128,6 +130,8 @@
 	  function rand(obj){
 	    obj.src = '/code?a='+Math.random();
 	  }
+
      
 </script>
 @endif
+

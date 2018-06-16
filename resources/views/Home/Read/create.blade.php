@@ -31,6 +31,7 @@
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
 </head>
 <body>
+
      @if(count($errors) > 0)
       <div class="alert alert-danger">
           <ul>
@@ -42,19 +43,21 @@
           </ul>
       </div>
     @endif
+
 	@if(session('success'))
         <script type="text/javascript">
             layer.msg('{{ session("success")}}');
             function guanbi(){
-    		var index = parent.layer.getFrameIndex(window.name);
-    		parent.layer.close(index);//关闭当前页
-    		window.parent.location.replace('http://www.maopao.com/home/read/'+'{{ session("pid")}}');//刷新父级页面
-        }
+          		var index = parent.layer.getFrameIndex(window.name);
+          		parent.layer.close(index);//关闭当前页
+          		window.parent.location.replace('http://www.maopao.com/home/read/'+'{{ session("pid")}}');//刷新父级页面
+            }
             function dsq(){setTimeout("guanbi();",1000);}
+
             dsq();
         </script>
         <button type="button" class="layui-btn layui-btn-primary layui-btn-xs" onclick="guanbi()" style="margin-left: 270px;margin-top:160px;background-color:skyblue; ">关闭当前页面</button>
- 	@else
+ 	  @else
 	<form method="post" action="/preply">
 		{{ csrf_field() }} 
 		<table style="width:600px;><tbody><tr> <td class="pls"> 
@@ -84,8 +87,10 @@
                 ['fullscreen', 'source', 'undo', 'redo', 'bold','simpleupload','insertimage','italic','forecolor','backcolor','edittip' ]
             ]
         });
-</script>
 
+</script>
 @endif
+
+
 
 </html>

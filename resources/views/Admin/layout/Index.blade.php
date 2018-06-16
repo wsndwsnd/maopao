@@ -336,10 +336,12 @@
             <div id="mws-navigation">
                 <ul >
                    <li>
+
                         <a href="/admin/site" style="color: #C5D52B;"><i class="layui-icon layui-icon-set-fill">&#xe614;</i>网站管理</a>
                     </li>
                     <li>
                         <a href="#" style="color: #C5D52B;"><i class="layui-icon layui-icon-friends">&#xe612;</i> 用户管理</a>
+
                         <ul class="closed">
                             <li><a href="/admin/user">用户列表</a></li>
                             <li><a href="/admin/user/create">用户添加</a></li>
@@ -355,7 +357,9 @@
                         </ul>
                     </li>
                     <li>
+
                         <a href="#" style="color: #C5D52B;"><i class="layui-icon layui-icon-user"></i>管理员管理</a>
+
                         <ul class="closed">
                             <li><a href="/admin/power">管理员列表</a></li>
                             <li><a href="/admin/power/create">管理员添加</a></li>
@@ -372,6 +376,7 @@
 
                      <li>
                         <a href="#" style="color: #C5D52B;"><i class="layui-icon layui-icon-read"></i>帖子管理</a>
+
                         <ul class="closed"> 
                             <li><a href="/admin/posts">帖子列表</a></li>
                             <li><a href="/admin/posts/create">帖子添加</a></li>
@@ -382,7 +387,9 @@
 
                     
                      <li>
+
                         <a href="#" style="color: #C5D52B;"><i class="layui-icon layui-icon-read"></i>文章管理</a>
+
                         <ul class="closed"> 
                             <li><a href="/admin/article">文章列表</a></li>
                             <li><a href="/admin/article/create">文章添加</a></li>
@@ -390,7 +397,9 @@
                     </li>
 
                     <li>
+
                         <a href="#" style="color: #C5D52B;"><i class="layui-icon layui-icon-picture">&#xe64a;</i>轮播图管理</a>
+
                         <ul class="closed"> 
                             <li><a href="/admin/slide">轮播图列表</a></li>
                             <li><a href="/admin/slide/create">轮播图添加</a></li>
@@ -400,7 +409,6 @@
 
                         <a href="#" style="color: #C5D52B;"><i class="layui-icon layui-icon-screen">&#xe629;</i>图片广告</a>
 
-
                         <ul class="closed"> 
                             <li><a href="/admin/advertise">广告列表</a></li>
                             <li><a href="/admin/advertise/create">广告添加</a></li>
@@ -408,6 +416,7 @@
                     </li>
 
                     <li>
+
                         <a href="#" style="color: #C5D52B;"><i class="layui-icon layui-icon-engine">&#xe628;</i>友情链接管理</a>
                         <ul class="closed"> 
                             <li><a href="/admin/link">友情链接列表</a></li>
