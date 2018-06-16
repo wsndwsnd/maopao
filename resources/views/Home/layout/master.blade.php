@@ -266,7 +266,7 @@
         <div class="hdc cl">
           <h2>
             <a href="/" title="Discuz! Board">
-              <img src="/Home/picture/logo.png" alt="Discuz! Board" border="0" /></a>
+              <img src="{{session('site_logo')}}" alt="Discuz! Board" border="0" style="height:70px" /></a>
           </h2>
           <div id="scbar" class="cl">
 
@@ -322,7 +322,7 @@
           <div id="wi_wrap">
             <div id="nv_a" class="wp">
               <ul>
-                <li class="xnv_1 a xnv_a1" id="mn_portal">
+                <li class="xnv_1" id="mn_portal">
                   <a href="/" hidefocus="true" title="Portal">首页
                     <span>Portal</span></a>
                 </li>
@@ -460,6 +460,7 @@
               </div>
               <div id="erwm">
                 <p>
+                <img src="{{session('site_ewm')}}" style="width: 150px">
                 </p>
               </div>
             </div>

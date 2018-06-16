@@ -11,6 +11,7 @@ use App\Models\Link;
 use App\Models\Articles;
 use App\Models\Posts;
 use App\Models\User;
+use App\Models\Site;
 class HomeController extends Controller
 {
     /**
@@ -33,73 +34,14 @@ class HomeController extends Controller
         $article_view = Articles::take(6)->orderBy('article_pview','desc')->get();
         //会员排行
         $data4 = User::where('status',1)->orderBy('score','desc')->paginate(7);
+        //网站配置
+        $site = Site::find('1');
+        //把网站配置放入session中
+        $site_logo = ltrim($site->site_logo,'.');
+        $site_ewm = ltrim($site->site_ewm,'.');
+        session(['site_ewm'=>$site_ewm,'site_logo'=>$site_logo]);
 
         return view('Home.index',['notice'=>$notice,'link'=>$link,'article'=>$article,'poststime'=>$poststime,'posts_view'=>$posts_view,'article_view'=>$article_view,'data4'=>$data4]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
