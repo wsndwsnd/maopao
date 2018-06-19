@@ -68,7 +68,7 @@ class AdvertiseController extends Controller
             }
         }
         $data['title'] = $request->input('title');
-        $data['content'] = $request->input('content');
+        $data['url'] = $request->input('url');
 
         $data['status'] = $request->input('status');
         $data['position'] = $request->input('position');
@@ -132,7 +132,7 @@ class AdvertiseController extends Controller
             }
         }
         $data['title'] = $request->input('title');
-        $data['content'] = $request->input('content');
+        $data['url'] = $request->input('url');
 
         $data['status'] = $request->input('status');
         $data['position'] = $request->input('position');

@@ -51,7 +51,7 @@
                 <div class="mws-form-row">
                     <label class="mws-form-label">广告链接 <span class="required">*</span></label>
                     <div class="mws-form-item">
-                        <input type="text" name="content" class="required email small" id="content"><span style="margin-left:5px;"></span>
+                        <input type="text" name="url" class="required email small" id="content"><span style="margin-left:5px;"></span>
                     </div>
                 </div> 
 
