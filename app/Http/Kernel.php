@@ -33,5 +33,7 @@ class Kernel extends HttpKernel
         'login'=>\App\Http\Middleware\LoginMiddleware::class,
         //网站状体
         'SiteStatus'=>\App\Http\Middleware\SiteStatus::class,
+        //后台登录验证
+        'ALogin'=>\App\Http\Middleware\ALoginMiddleware::class,
     ];
 }

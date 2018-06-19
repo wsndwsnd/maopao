@@ -1,9 +1,9 @@
-@extends('home.layout.master')
+@extends('Home.layout.master')
 @section('sidebar') 
 <div id="wq" class="wp xuxian">
   <div class="bottombg">
     <div id="wp" class="wp xuxian">
-        <link rel="stylesheet" type="text/css" href="/home/css/index.css" />
+        <link rel="stylesheet" type="text/css" href="/Home/css/index.css" />
         <!--[diy=diy1]-->
         <div id="diy1" class="area">
         </div>

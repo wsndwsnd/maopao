@@ -2,7 +2,7 @@
 @section('sidebar')   
       <div id="wp" class="wp xuxian">
         <link rel="stylesheet" type="text/css" href="/home/css/index.css">
-        <script src="/home/js/forum_viewthread.js" type="text/javascript"></script>
+        <script src="/Home/js/forum_viewthread.js" type="text/javascript"></script>
         <script type="text/javascript">zoomstatus = parseInt(1),
           imagemaxwidth = '957',
           aimgcount = new Array();</script>
@@ -60,7 +60,7 @@
                     <!--[diy=diycontentbottom]-->
                     <div id="diycontentbottom" class="area"></div>
                     <!--[/diy]-->
-                    <script src="/home/js/home.js" type="text/javascript"></script>
+                    <script src="/Home/js/home.js" type="text/javascript"></script>
                   
                     <!--[diy=diycontentclickbottom]-->
                     <div id="diycontentclickbottom" class="area"></div>
@@ -181,7 +181,7 @@
                     <div id="portal_block_75" class="zxlbyad block move-span">
                       <div id="portal_block_75_content" class="dxb_bc">
                         <div class="portal_block_summary">
-                          <img  src="/home/picture/ad2.jpg" width="100%" /></div>
+                          <img  src="/Home/picture/ad2.jpg" width="100%" /></div>
                       </div>
                     </div>
                     <div id="portal_block_69" class="syzttj block move-span">

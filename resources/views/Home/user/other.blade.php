@@ -115,7 +115,6 @@
         <div class="layui-tab layui-tab-card">
           <ul class="layui-tab-title">
             <li class="layui-this">基本资料</li>
-            <li>Ta关注的人</li>
             <li>Ta发的贴</li>
             <li>Ta发的文章</li>
             <li>Ta收藏的贴子</li>
@@ -134,37 +133,37 @@
                   <tr>
                   <td width="150x;" height="50px;">用户等级</td>
                   <td><span>@if( $data->score <= 50 && $data->score >= 0 )
-                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" /> 
                      @elseif( $data->score <= 150 && $data->score >= 51 )
-                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
-                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
                      @elseif( $data->score <= 300 && $data->score >= 151 )
-                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
-                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
-                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
                      @elseif( $data->score <= 500 && $data->score >= 301 )
-                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
                      @elseif( $data->score <= 750 && $data->score >= 501 )
-                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
-                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
                      @elseif( $data->score <= 1050 && $data->score >= 751 )
-                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
-                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
-                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
                      @elseif( $data->score <= 1400 && $data->score >= 1051 )
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
                      @elseif( $data->score <= 1800 && $data->score >= 1401 )
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
                      @elseif( $data->score <= 2250 && $data->score >= 1801 )
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" />  
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" />  
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
                      @elseif(  $data->score >= 2251 )
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
                      @endif</span></td>
                 </tr>
                 <tr>
@@ -189,7 +188,7 @@
               </table>
             </div>
             <!-- Ta的信息结束 -->
-            <div class="layui-tab-item">3</div>
+           
             <!-- Ta发的帖子 -->
             <div class="layui-tab-item">
               <!-- 模板 -->

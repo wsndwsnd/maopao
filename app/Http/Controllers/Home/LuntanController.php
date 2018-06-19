@@ -63,7 +63,7 @@ class LuntanController extends Controller
 
         //黄金广告位
         $advertise = Advertise::where('position',1)->where('status',1)->first();
-        return view('home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2,'data3'=>$data3,'data4'=>$data4,'notice'=>$notice,'data5'=>$data5,'data6'=>$data6,'data7'=>$data7,'data8'=>$data8,'data9'=>$data9,'advertise'=>$advertise]);
+        return view('Home.cates.luntan',['data'=>self::getPidCates(0),'data2'=>$data2,'data3'=>$data3,'data4'=>$data4,'notice'=>$notice,'data5'=>$data5,'data6'=>$data6,'data7'=>$data7,'data8'=>$data8,'data9'=>$data9,'advertise'=>$advertise]);
 
 
         
@@ -166,7 +166,7 @@ class LuntanController extends Controller
         //长条广告
         $advertise = Advertise::where('status',1)->where('position',2)->get();
 
-        return view('home.cates.show',[
+        return view('Home.cates.show',[
             'data'=>self::getPidCates($id),
             'data1'=>$data1,'data2'=>$data2,
             'data3'=>$data3,

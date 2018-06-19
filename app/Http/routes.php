@@ -18,100 +18,99 @@ Route::get('/code','CodeController@index');
 Route::get('/check','CodeController@check');
 
 
-
-//后台首页
-Route::get('/admin','Admin\IndexController@index');
-
 //后台登录
 Route::resource('/admin/login','Admin\LoginController');
-//后台退出
-Route::get('/admin/logout','Admin\LoginController@logout');
+//后台台用户   中间件是否登录
+Route::group(['middleware'=>'ALogin'],function(){
 
-//网站配置管理
-Route::get('/admin/site','Admin\SiteController@index');
-//修改页面
-Route::post('/admin/site/update/{id}','Admin\SiteController@update');
-//修改logo
-Route::post('/admin/site/logo','Admin\SiteController@logo');
-//修改二维码
-Route::post('/admin/site/ewm','Admin\SiteController@ewm');
-//网站状态
-Route::get('/admin/site/status','Admin\SiteController@status');
+	//后台首页
+	Route::get('/admin','Admin\IndexController@index');
 
+	//后台退出
+	Route::get('/admin/logout','Admin\LoginController@logout');
 
+	//网站配置管理
+	Route::get('/admin/site','Admin\SiteController@index');
+	//修改页面
+	Route::post('/admin/site/update/{id}','Admin\SiteController@update');
+	//修改logo
+	Route::post('/admin/site/logo','Admin\SiteController@logo');
+	//修改二维码
+	Route::post('/admin/site/ewm','Admin\SiteController@ewm');
+	//网站状态
+	Route::get('/admin/site/status','Admin\SiteController@status');
 
-//后台用户管理
-Route::resource('/admin/user','Admin\UserController');
-//用户收藏文章 帖子
-Route::get('/admin/shoucang/{id}','Admin\UserController@read');
-//用户删除收藏文章
-Route::get('/admin/del1','Admin\UserController@del1');
-//用户删除收藏帖子
-Route::get('/admin/del2','Admin\UserController@del2');
+	//后台用户管理
+	Route::resource('/admin/user','Admin\UserController');
+	//用户收藏文章 帖子
+	Route::get('/admin/shoucang/{id}','Admin\UserController@read');
+	//用户删除收藏文章
+	Route::get('/admin/del1','Admin\UserController@del1');
+	//用户删除收藏帖子
+	Route::get('/admin/del2','Admin\UserController@del2');
 
-//后台公告管理
-Route::resource('/admin/notice','Admin\NoticeController');
+	//后台公告管理
+	Route::resource('/admin/notice','Admin\NoticeController');
 
-//轮播图
-Route::resource('/admin/slide','Admin\SlideController');
+	//轮播图
+	Route::resource('/admin/slide','Admin\SlideController');
 
+	//公告发布 
+	Route::get('/admin/notice/up/{id}','Admin\NoticeController@up');
 
-//公告发布 
-Route::get('/admin/notice/up/{id}','Admin\NoticeController@up');
+	// 后台公告下架
+	Route::get('/admin/notice/down/{id}','Admin\NoticeController@down');
 
-// 后台公告下架
-Route::get('/admin/notice/down/{id}','Admin\NoticeController@down');
+	//后台管理员
+	Route::resource('/admin/power','Admin\PowerController');
+	//黄金广告位
+	Route::resource('/admin/advertise','Admin\AdvertiseController');
 
-//后台管理员
-Route::resource('/admin/power','Admin\PowerController');
-//黄金广告位
-Route::resource('/admin/advertise','Admin\AdvertiseController');
+	//后台帖子管理
+	//申请标签
+	Route::get('/admin/posts/uplabel/{id}','Admin\PostsController@uplabel');
+	//ajax删除
+	Route::get('/admin/postsdel/{id}','Admin\PostsController@ajaxdel');
 
-//后台帖子管理
-//申请标签
-Route::get('/admin/posts/uplabel/{id}','Admin\PostsController@uplabel');
-//ajax删除
-Route::get('/admin/postsdel/{id}','Admin\PostsController@ajaxdel');
+	Route::resource('/admin/posts','Admin\PostsController');
+	//后台帖子查看评论路由
+	Route::get('/admin/pcomments/{id}','Admin\PostsController@read');
+	//后台帖子删除评论
+	Route::get('/admin/pcomments/del/{id}','Admin\PostsController@del');
+	//上线
+	Route::get('/admin/posts/up/{id}','Admin\PostsController@up');
+	//下线
+	Route::get('/admin/posts/down/{id}','Admin\PostsController@down');
 
-Route::resource('/admin/posts','Admin\PostsController');
-//后台帖子查看评论路由
-Route::get('/admin/pcomments/{id}','Admin\PostsController@read');
-//后台帖子删除评论
-Route::get('/admin/pcomments/del/{id}','Admin\PostsController@del');
-//上线
-Route::get('/admin/posts/up/{id}','Admin\PostsController@up');
-//下线
-Route::get('/admin/posts/down/{id}','Admin\PostsController@down');
-
-Route::post('/admin/posts/sq','Admin\PostsController@sq');
-Route::get('/admin/postssqlb','Admin\PostsController@sqlb');
-Route::resource('/admin/posts','Admin\PostsController');
-
-
-//后台友情链接
-Route::post('/admin/link/audit','Admin\LinkController@audit');
-Route::get('/admin/links/auditindex','Admin\LinkController@auditindex');
-Route::get('/admin/link/up/{id}','Admin\LinkController@up');
-Route::get('/admin/link/down/{id}','Admin\LinkController@down');
-Route::resource('/admin/link','Admin\LinkController');
-
-//后台帖子类别
-Route::resource('/admin/cate','Admin\CateController');
-
-//后台文章管理路由
-Route::resource('/admin/article','Admin\ArticleController');
-//后台文章查看评论路由
-Route::get('/admin/comments/{id}','Admin\ArticleController@read');
-//后台文章删除评论
-Route::get('/admin/comments/del/{id}','Admin\ArticleController@del');
-
-//文章发布-待审路由
-Route::get('/admin/article/up/{id}','Admin\ArticleController@up');
-Route::get('/admin/article/down/{id}','Admin\ArticleController@down');
-//ajax 删除文章
-Route::get('/admin/articleajax/{id}','Admin\ArticleController@ajaxdel');
+	Route::post('/admin/posts/sq','Admin\PostsController@sq');
+	Route::get('/admin/postssqlb','Admin\PostsController@sqlb');
+	Route::resource('/admin/posts','Admin\PostsController');
 
 
+	//后台友情链接
+	Route::post('/admin/link/audit','Admin\LinkController@audit');
+	Route::get('/admin/links/auditindex','Admin\LinkController@auditindex');
+	Route::get('/admin/link/up/{id}','Admin\LinkController@up');
+	Route::get('/admin/link/down/{id}','Admin\LinkController@down');
+	Route::resource('/admin/link','Admin\LinkController');
+
+	//后台帖子类别
+	Route::resource('/admin/cate','Admin\CateController');
+
+	//后台文章管理路由
+	Route::resource('/admin/article','Admin\ArticleController');
+	//后台文章查看评论路由
+	Route::get('/admin/comments/{id}','Admin\ArticleController@read');
+	//后台文章删除评论
+	Route::get('/admin/comments/del/{id}','Admin\ArticleController@del');
+
+	//文章发布-待审路由
+	Route::get('/admin/article/up/{id}','Admin\ArticleController@up');
+	Route::get('/admin/article/down/{id}','Admin\ArticleController@down');
+	//ajax 删除文章
+	Route::get('/admin/articleajax/{id}','Admin\ArticleController@ajaxdel');
+
+});
 
 
 

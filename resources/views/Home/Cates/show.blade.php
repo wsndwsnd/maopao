@@ -1,4 +1,4 @@
-@extends('home.layout.master')
+@extends('Home.layout.master')
 @section('sidebar') 
     <div class="bottombg">
       <div id="wp" class="wp xuxian">
