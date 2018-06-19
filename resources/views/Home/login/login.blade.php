@@ -31,12 +31,35 @@
 
     <script src="/Home/jquery-1.8.3.min.js" type="text/javascript"></script>
 
-    <link rel="stylesheet" type="text/css" href="/home/css/index.css" />
-    <link rel="stylesheet" type="text/css" href="/home/css/style_16_common.css" />
-    <link rel="stylesheet" type="text/css" href="/home/css/style_16_forum_forumdisplay.css"/>
+    <link rel="stylesheet" type="text/css" href="/Home/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/style_16_common.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_forumdisplay.css"/>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
 </head>
 <body>
+
+    <script type="text/javascript">
+     @if(session('error'))
+        layer.msg("{{ session('error') }}");
+      @endif
+       @if(session('success'))
+        layer.msg("{{ session('success') }}");
+      @endif
+    </script>
+    @if(session('success'))
+        <script type="text/javascript">
+            layer.msg('{{ session("success")}}');
+            function guanbi(){
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(index);//关闭当前页
+            window.parent.location.replace('http://www.maopao.com'+'{{ session("path")}}');//刷新父级页面
+        }
+            function dsq(){setTimeout("guanbi();",1000);}
+            dsq();
+        </script>
+        <button type="button" class="layui-btn layui-btn-primary layui-btn-xs" onclick="guanbi()" style="margin-left: 270px;margin-top:160px;background-color:skyblue; ">关闭当前页面</button>
+    @else
+
 	<form method="post"  action="/home/login">
   {{ csrf_field() }}
   
@@ -100,16 +123,15 @@
 </div>
 </div>
 </form>
+
 </body>
 </html>	
 <script type="text/javascript">
 	  function rand(obj){
 	    obj.src = '/code?a='+Math.random();
 	  }
-      @if(session('error'))
-        layer.msg("{{ session('error') }}");
-      @endif
-       @if(session('success'))
-        layer.msg("{{ session('success') }}");
-      @endif
+
+     
 </script>
+@endif
+

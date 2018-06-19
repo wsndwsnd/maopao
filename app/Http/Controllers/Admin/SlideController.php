@@ -42,6 +42,19 @@ class SlideController extends Controller
      */
     public function store(Request $request)
     {
+         // 设置报错信息
+        $this->validate($request,[
+            'slide_img' => 'required',
+
+
+            'slide_url' => 'required|image',
+        ],[
+            'slide_img.required' => '图片名称必填', 
+            'slide_url.required' => '图片必须上传', 
+            'slide_url.image' => '图片格式不正确',
+            
+        ]);
+
             if($request->hasFile("slide_url")){
             //获取上传信息
             $file = $request->file("slide_url");

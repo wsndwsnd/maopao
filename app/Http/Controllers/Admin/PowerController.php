@@ -50,6 +50,7 @@ class PowerController extends Controller
      */
     public function store(PowerInsertRequest $request)
     {
+        
         //实例化 power 类
         $power = new Power;
         $power -> username = $request->input('username');

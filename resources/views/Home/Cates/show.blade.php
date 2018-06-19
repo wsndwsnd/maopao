@@ -1,4 +1,4 @@
-@extends('home.layout.master')
+@extends('Home.layout.master')
 @section('sidebar') 
 
     <div class="bottombg">
@@ -339,11 +339,13 @@
                   <div class="bm_c">
                     <div class="pbt cl">
                       <script type="text/javascript" reload="1">simulateSelect('typeid_fast');</script>
-                      标题：&nbsp;&nbsp;<input type="text" id="subject" name="title" class="px" value="" onkeyup="strLenCalc(this, 'checklen', 80);" tabindex="11" style="width: 25em">
+
+                      标题：&nbsp;&nbsp;<input type="text" id="subject" name="title" class="px" value="{{ old('title') }}" onkeyup="strLenCalc(this, 'checklen', 80);" tabindex="11" style="width: 25em">
                       <span>还可输入 <strong id="checklen">80</strong> 个字符</span>
                     </div>
                     <input type="hidden" name="id" value="{{ URL::current() }}">
-                    <script id="container" name="content" type="text/plain" style="height:200px;"></script>
+                    <script id="container" name="content" type="text/plain" style="height:200px;">{!! old('content') !!}</script>
+
                     <p class="ptm pnpost">
                       <button type="submit" name="topicsubmit" id="fastpostsubmit" value="topicsubmit" tabindex="13" class="pn pnc"><strong>发表帖子</strong></button>
                     </p>  

@@ -1,4 +1,4 @@
-@extends('home.layout.master') 
+@extends('Home.layout.master') 
 @section('sidebar') 
 <!-- 配置文件 -->
     <script type="text/javascript" src="/utf8-php/ueditor.config.js"></script>
@@ -9,9 +9,9 @@
     go(); 
     </script> 
    <div id="wp" class="wp xuxian"> 
-    <link rel="stylesheet" type="text/css" href="/home/css/index.css" /> 
+    <link rel="stylesheet" type="text/css" href="/Home/css/index.css" /> 
     <script type="text/javascript">var fid = parseInt('2'), tid = parseInt('7');</script> 
-    <script src="/home/js/forum_viewthread.js" type="text/javascript"></script> 
+    <script src="/Home/js/forum_viewthread.js" type="text/javascript"></script> 
     <script type="text/javascript">zoomstatus = parseInt(1);var imagemaxwidth = '957';var aimgcount = new Array();</script> 
     <style id="diy_style" type="text/css"></style> 
     <!--[diy=diy1]-->
@@ -166,7 +166,7 @@
                </dd> 
               </dl>
               <div class="imicn"> 
-               <a href="/home/home.php?mod=space&amp;uid=1&amp;do=profile" target="_blank" title="查看详细资料"><img src="/home/picture/userinfo.gif" alt="查看详细资料" /></a> 
+               <a href="/home/home.php?mod=space&amp;uid=1&amp;do=profile" target="_blank" title="查看详细资料"><img src="/Home/picture/userinfo.gif" alt="查看详细资料" /></a> 
               </div> 
               <div id="avatarfeed">
                <span id="threadsortswait"></span>
@@ -191,37 +191,37 @@
             </div> 
              
             <p><span>@if( $data->users->score <= 50 && $data->users->score >= 0 )
-                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" /> 
                      @elseif( $data->users->score <= 150 && $data->users->score > 51 )
-                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
-                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
                      @elseif( $data->users->score <= 300 && $data->users->score >= 151 )
-                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
-                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
-                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
                      @elseif( $data->users->score <= 500 && $data->users->score >= 301 )
-                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
                      @elseif( $data->users->score <= 750 && $data->users->score >= 501 )
-                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
-                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
                      @elseif( $data->users->score <= 1050 && $data->users->score >= 751 )
-                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
-                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
-                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
+                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
                      @elseif( $data->users->score <= 1400 && $data->users->score >= 1051 )
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
                      @elseif( $data->users->score <= 1800 && $data->users->score >= 1401 )
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
                      @elseif( $data->users->score <= 2250 && $data->users->score >= 1801 )
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" />  
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" />  
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
                      @elseif(  $data->users->score >= 2251 )
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
                      @endif
               </span></p> 
             <dl class="pil cl"> 
@@ -241,7 +241,7 @@
              <div class="pdbt"> 
              </div> 
              <div class="authi"> 
-              <img class="authicn vm" id="authicon7" src="/home/picture/online_admin.gif" /> 
+              <img class="authicn vm" id="authicon7" src="/Home/picture/online_admin.gif" /> 
               <em id="authorposton7">发表于 {{ $data->created_at }}</em> 
             <!--   <span class="pipe">|</span> 
               <a href="/home/forum.php?mod=viewthread&amp;tid=7&amp;page=1&amp;authorid=1" rel="nofollow">只看该作者</a> --> 
@@ -274,9 +274,9 @@
          <tr>
           <td class="plc plm"> 
            <div id="p_btn" class="mtw mbm hm cl"> 
-            <a href="javascript:;" id="k_favorite" title="收藏本帖"><i><img src="/home/picture/fav.gif" alt="收藏" />收藏<span id="favoritenumber" style="display:none">0</span></i></a> 
-            <a id="recommend_add" href="javascript:;" title="顶一下"><i><img src="/home/picture/rec_add.gif" alt="支持" />顶一下<span id="recommendv_add" style="display:none">{{ $data->ding }}</span></i></a> 
-            <a id="recommend_subtract" href="javascript:;" title="踩一下"><i><img src="/home/picture/rec_subtract.gif" alt="反对" />踩一下<span id="recommendv_subtract" style="display:none">{{ $data->cai }}</span></i></a> 
+            <a href="javascript:;" id="k_favorite" title="收藏本帖"><i><img src="/Home/picture/fav.gif" alt="收藏" />收藏<span id="favoritenumber" style="display:none">0</span></i></a> 
+            <a id="recommend_add" href="javascript:;" title="顶一下"><i><img src="/Home/picture/rec_add.gif" alt="支持" />顶一下<span id="recommendv_add" style="display:none">{{ $data->ding }}</span></i></a> 
+            <a id="recommend_subtract" href="javascript:;" title="踩一下"><i><img src="/Home/picture/rec_subtract.gif" alt="反对" />踩一下<span id="recommendv_subtract" style="display:none">{{ $data->cai }}</span></i></a> 
            </div> 
            <script type="text/javascript">
               $('#recommend_add').one('click',function(){
@@ -340,7 +340,7 @@
            <div class="sign" style="max-height:120px;maxHeightIE:120px;"> 
             手机版可以支持用户签名了。
             <br /> 
-            <img id="aimg_yqYeo" onclick="zoom(this, this.src, 0, 0, 0)" class="zoom" src="/home/picture/sign.jpg" onmouseover="img_onmouseoverfunc(this)" onload="thumbImg(this)" border="0" alt="" />
+            <img id="aimg_yqYeo" onclick="zoom(this, this.src, 0, 0, 0)" class="zoom" src="/Home/picture/sign.jpg" onmouseover="img_onmouseoverfunc(this)" onload="thumbImg(this)" border="0" alt="" />
            </div> 
          </td> 
          </tr> 
@@ -428,37 +428,37 @@
                             <p>
                                 <span id="g_up120" >
                                      @if( $v->users->score <= 50 && $v->users->score >= 0 )
-                                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" /> 
+                                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" /> 
                                      @elseif( $v->users->score <= 150 && $v->users->score > 51 )
-                                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
-                                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
+                                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
                                      @elseif( $v->users->score <= 300 && $v->users->score >= 151 )
-                                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
-                                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
-                                         <img src="/home/picture/star_level1.gif" alt="Rank: 9" />
+                                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
+                                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
+                                         <img src="/Home/picture/star_level1.gif" alt="Rank: 9" />
                                      @elseif( $v->users->score <= 500 && $v->users->score >= 301 )
-                                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
                                      @elseif( $v->users->score <= 750 && $v->users->score >= 501 )
-                                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
-                                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
+                                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
                                      @elseif( $v->users->score <= 1050 && $v->users->score >= 751 )
-                                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
-                                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
-                                         <img src="/home/picture/star_level2.jpg" alt="Rank: 9" />
+                                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
+                                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
+                                         <img src="/Home/picture/star_level2.jpg" alt="Rank: 9" />
                                      @elseif( $v->users->score <= 1400 && $v->users->score >= 1051 )
-                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
                                      @elseif( $v->users->score <= 1800 && $v->users->score >= 1401 )
-                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
                                      @elseif( $v->users->score <= 2250 && $v->users->score >= 1801 )
-                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" />  
-                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" />  
+                                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
                                      @elseif( $v->users->score >= 2251 )
-                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
-                                         <img src="/home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
+                                         <img src="/Home/picture/star_level3.gif" alt="Rank: 9" /> 
                                      @endif
                                   </span>
                             </p>                          
@@ -663,8 +663,7 @@
             type: 0,
             skin: 'layui-layer-rim', //加上边框
             area: ['420px', '240px'], //宽高
-            content: '<div id="" class="layui-layer-content"><ul class="layer_notice layui-layer-wrap"><li><a href="">1. 发帖一篇得10积分</a></li><li><a href="">2. 发表评论得2积分</a></li><li><a href="" >3. 发表文章或者评论得2积分</a></li></ul></div>'
-
+            content: '<div id="" class="layui-layer-content"><ul class="layer_notice layui-layer-wrap"><li><a href="">1. 成功发帖一篇得10积分</a></li><li><a href="">2. 发表帖子或文章的评论得2积分</a></li><li><a href="" >3. 成功发表一篇文章得15积分</a></li></ul></div>'
           });
             
         });
@@ -685,7 +684,7 @@
    </div> 
   </div> 
   <!--bottombg结束--> 
-  <script src="/home/js/home.js" type="text/javascript"></script> 
+  <script src="/Home/js/home.js" type="text/javascript"></script> 
   <div id="scrolltop"> 
    <span><a href="/home/forum.php?mod=post&amp;action=reply&amp;fid=2&amp;tid=7&amp;extra=page%3D1&amp;page=1" onclick="showWindow('reply', this.href)" class="replyfast" title="快速回复"><b>快速回复</b></a></span> 
    <span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')" class="scrolltopa"><b>返回顶部</b></a></span> 

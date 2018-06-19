@@ -42,6 +42,11 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+         $this->validate($request,[
+            'content' => 'required',
+        ],[
+            'content.required' => '评论内容必填', 
+        ]);
         DB::beginTransaction();
 
         $data = $request->only('content','uid','aid');

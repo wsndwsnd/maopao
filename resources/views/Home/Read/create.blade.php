@@ -25,25 +25,39 @@
     <link rel="stylesheet" type="text/css" href="/Home/css/style_16_portal_view.css" />
     
 
-    <link rel="stylesheet" type="text/css" href="/home/css/index.css" />
-    <link rel="stylesheet" type="text/css" href="/home/css/style_16_common.css" />
-    <link rel="stylesheet" type="text/css" href="/home/css/style_16_forum_forumdisplay.css"/>
+    <link rel="stylesheet" type="text/css" href="/Home/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/style_16_common.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/style_16_forum_forumdisplay.css"/>
     <link rel="stylesheet" type="text/css" href="/layui/css/layui.css">
 </head>
 <body>
+
+     @if(count($errors) > 0)
+      <div class="alert alert-danger">
+          <ul>
+            <script type="text/javascript">
+              @foreach($errors->all() as $error)
+                 layer.msg('{{ $error }}');
+              @endforeach
+          </script>
+          </ul>
+      </div>
+    @endif
+
 	@if(session('success'))
         <script type="text/javascript">
             layer.msg('{{ session("success")}}');
             function guanbi(){
-			var index = parent.layer.getFrameIndex(window.name);
-			parent.layer.close(index);//关闭当前页
-			window.parent.location.replace('http://www.maopao.com/home/read/'+'{{ session("pid")}}');//刷新父级页面
-	    }
-            function dsq(){setTimeout("guanbi();",3000);}
+          		var index = parent.layer.getFrameIndex(window.name);
+          		parent.layer.close(index);//关闭当前页
+          		window.parent.location.replace('http://www.maopao.com/home/read/'+'{{ session("pid")}}');//刷新父级页面
+            }
+            function dsq(){setTimeout("guanbi();",1000);}
+
             dsq();
         </script>
         <button type="button" class="layui-btn layui-btn-primary layui-btn-xs" onclick="guanbi()" style="margin-left: 270px;margin-top:160px;background-color:skyblue; ">关闭当前页面</button>
- 	@else
+ 	  @else
 	<form method="post" action="/preply">
 		{{ csrf_field() }} 
 		<table style="width:600px;><tbody><tr> <td class="pls"> 
@@ -55,8 +69,7 @@
 					<script  id="container" name="content"  style="height: 120px;width: 600px;"></script>
 					<input type="hidden" name="uid" value="{{ $uid }}">
 					<input type="hidden" name="pid" value="{{ $pid }}">
-					<input type="hidden" name="id" value="{{ $id }}">
-					
+					<input type="hidden" name="id" value="{{ $id }}">					
 				</div>
 				<div id="seccheck_fastpost"></div> 
 				<p class="ptm pnpost">
@@ -76,12 +89,8 @@
         });
 
 </script>
-<script type="text/javascript">
-		function guanbi(){
-			var index = parent.layer.getFrameIndex(window.name);
-			parent.layer.close(index);//关闭当前页
-	    }
-</script>
 @endif
+
+
 
 </html>

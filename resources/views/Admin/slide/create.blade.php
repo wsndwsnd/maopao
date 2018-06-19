@@ -1,19 +1,11 @@
 @extends('Admin.layout.Index')
 
 @section('content')
-@if (count($errors) > 0)
-    <div class="mws-form-message error">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
 
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
-        <span><i class="icon-magic"></i>用户添加</span>
+        <span><i class="icon-magic"></i>图片添加</span>
     </div>
     <div class="mws-panel-body no-padding">
        <form class="mws-form wzd-default wizard-form wizard-form-horizontal" action="/admin/slide" method="post" enctype="multipart/form-data">

@@ -45,7 +45,12 @@ class ReplyController extends Controller
      */
     public function store(Request $request)
     {
-
+         $this->validate($request,[
+            'content' => 'required',
+        ],[
+            'content.required' => '回复内容必填', 
+        ]);
+         
         $data = $request->only('pid','content');
         //评论人的id
         $uid = $request->input('uid','');

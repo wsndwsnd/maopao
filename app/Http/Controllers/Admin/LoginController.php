@@ -54,7 +54,7 @@ class LoginController extends Controller
         
       
         if ($data &&  Hash::check($password,$data->password)) {
-                $request->session()->put('admin_username', $username);
+                session(['admin_username'=>$username]);
                 // dd(session('admin_username'));
                 return redirect('/admin')->with('success','登陆成功');
          }else{
@@ -67,7 +67,6 @@ class LoginController extends Controller
     {
 
         $res = $request->session()->forget('admin_username');
-        
 
         if (!$res) {
              return redirect('/admin/login')->with('success','已退出,请重新登录');

@@ -35,10 +35,13 @@ class LoginController extends Controller
             session(['user_name'=>$user->user_name,'user_id'=>$user->id,'user_img'=>$user->img,'user_token'=>$user->token]);
 
              $path = $request->input('path','');
-            
-             return redirect($path)->with('success','登录成功');
-             // return back()->with('success','登录成功');
-             
+             if($path){
+                return back()->with('success','登录成功')->with('path',$path);
+             }else{
+                return redirect('/')->with('success','登录成功');
+
+             }      
+                         
         }else{
              return back()->with('error','用户或密码错误');
         }

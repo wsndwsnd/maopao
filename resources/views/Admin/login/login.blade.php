@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="mws-form-row">
-                       <<img src="/code" alt="" onclick="rand(this)" title="点击换下一张">
+                       <<img src="/code" alt="" onclick="rand(this)" title="点击换下一张" style="margin-left: -10px;">
                        <input type="text" class="px" name="code" style="width: 150px;" placeholder="验证码">
                     </div>
                     <div class="mws-form-row">

@@ -50,8 +50,8 @@ class AdvertiseController extends Controller
      */
 
     public function store(AdvertiseRequest $request)
-
     {
+
         if($request->hasFile("img")){
             //获取上传信息
             $file = $request->file("img");
