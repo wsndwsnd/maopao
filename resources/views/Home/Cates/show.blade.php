@@ -1,6 +1,5 @@
 @extends('home.layout.master')
 @section('sidebar') 
-
     <div class="bottombg">
       <div id="wp" class="wp xuxian">
         <style id="diy_style" type="text/css"></style>
@@ -25,21 +24,34 @@
         <div class="boardnav">
           <div id="ct" class="wp cl ct2">
             <div class="mn" style="width:920px;">
-              <div class="orde">
+              <!-- <div class="orde"> -->
                 <div class="lslsls">
-
-                  <img src="{{ $advertise->img }}" alt="" width="920px" height="137px">
-
-                  
+                  <ul id="ancl" style="width: 920px;height:137px;overflow: hidden;">
+                    <?php $i=1; ?>
+                      @foreach($advertise as $val)
+                      <li id="li" style="border: 3px white solid;">
+                          
+                        <a href="{{ $val->url }}" target="view_window">
+                          <img src="{{ $val->img }}" alt="" width="910px" height="130px">
+                        </a>
+                          
+                      </li>
+                      @endforeach
+                  </ul>
                 </div>
-                <div class="drag">
-                  <!--[diy=diy4]-->
-                  <div id="diy4" class="area"></div>
-                  <!--[/diy]--></div>
+              <!-- </div> -->
+              <script type="text/javascript">
+                    setInterval(function(){
+                        $('#li').first().slideUp('slow',function(){
+                            // 追加并且显示li标签
+                            $('#ancl').append($(this).show());//display:none
+                        });
+                    },3000);
 
-              </div>
+                </script>
+               
 
-              <div class="cenbor" style="height:500px">
+              <div class="cenbor" style="height:500px;">
                 
 
                 
@@ -315,6 +327,9 @@
               </div>
 
             </div>
+
+        
+
           </div>
           <script type="text/javascript">var postminchars = parseInt('10');
             var postmaxchars = parseInt('10000');

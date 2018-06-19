@@ -25,7 +25,8 @@ class AdvertiseRequest extends Request
     {
         return [
             'title' => 'required',
-            'img' => 'required'
+            'img' => 'required',
+            'url' => 'required',
         ];
     }
 
@@ -33,7 +34,8 @@ class AdvertiseRequest extends Request
         {
             return [
                 'title.required' => '标题不能为空',
-                'img.required' => '图片不能为空'
+                'img.required' => '图片不能为空',
+                'url.required' => '图片不能为空'
             ];
         }
 }

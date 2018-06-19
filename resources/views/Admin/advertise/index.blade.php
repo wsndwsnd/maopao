@@ -46,9 +46,10 @@
         </thead>
             
         <tbody role="alert" aria-live="polite" aria-relevant="all">
+            <?php $i=1; ?>
             @foreach($data as $val)
             <tr class="even " >
-                    <td class="sorting_1" style="text-align: center;">{{ $val->id }}</td>
+                    <td class="sorting_1" style="text-align: center;"><?php echo $i++; ?></td>
                     <td class=" " style="text-align: center;">{{ $val->title }}</td>
 
                     <td class=" " style="text-align: center;">
@@ -60,7 +61,7 @@
                         @if($val->position ==1)黄金广告位@endif
                         @if($val->position ==2)长条广告@endif
                     </td>  
-                    <td class=" " style="text-align: center;">{{ $val->content }}</td>
+                    <td class=" " style="text-align: center;">{{ $val->url }}</td>
                     <td class=" " style="text-align: center;width: 500px;"><img src="{{ $val->img }}" alt="" width="150px">
                     </td>
                     <td class=" " style="text-align: center;width: 150px;">

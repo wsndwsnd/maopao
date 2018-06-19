@@ -19,9 +19,10 @@
                             </thead>
                             
                         <tbody role="alert" aria-live="polite" aria-relevant="all">
+                            <?php $i=1; ?>
                             @foreach($power as $v)
                                 <tr class="odd" >
-                                    <td class=" " style="border:1px #CCCCCC solid;text-align: center;">{{ $v->id }}</td>
+                                    <td class=" " style="border:1px #CCCCCC solid;text-align: center;"><?php echo $i++; ?></td>
                                     <td class=" " style="border:1px #CCCCCC solid;text-align: center;">{{ $v->username }}</td>
                                     <td class=" " style="border:1px #CCCCCC solid;text-align: center;">
                                    

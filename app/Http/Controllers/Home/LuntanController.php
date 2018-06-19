@@ -155,7 +155,7 @@ class LuntanController extends Controller
         $zd = Posts::where('cid',$id)->where('label','3')->get();
 
         //长条广告
-        $advertise = Advertise::where('status',1)->where('position',2)->first();
+        $advertise = Advertise::where('status',1)->where('position',2)->get();
 
         return view('home.cates.show',[
             'data'=>self::getPidCates($id),

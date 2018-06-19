@@ -51,7 +51,7 @@
                 <div class="mws-form-row">
                     <label class="mws-form-label">广告链接 <span class="required">*</span></label>
                     <div class="mws-form-item">
-                        <input type="text" name="content" class="required email small" value="{{ $data->content }}">
+                        <input type="text" name="url" class="required email small" value="{{ $data->url }}">
                     </div>
                 </div> 
 
