@@ -58,12 +58,7 @@
                         <label class="error plain" generated="true" for="gender" style="display:none"></label>
                     </div>
                 </div>
-                <div class="mws-form-row">
-                    <label class="mws-form-label">出生年月<span class="required">*</span></label>
-                    <div class="mws-form-item">
-                        <input type="text" name="birthday" class="required email small" value="{{ old('birthday') }}">
-                    </div>
-                </div>
+              
                 <div class="mws-form-row" style="width:350px;">
                     <label class="mws-form-label">上传头像<span class="required">*</span></label>
                     <div class="mws-form-item">

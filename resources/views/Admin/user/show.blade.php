@@ -11,7 +11,6 @@
                 <tr>
                     <th>年龄</th>
                     <th>性别</th>
-                    <th>生日</th>
                     <th>手机号</th>
                 </tr>
             </thead>
@@ -20,7 +19,6 @@
                 <tr>
                     <td style="text-align:center;  ">{{ $data->userinfo->age}}</td>
                     <td style="text-align:center;  ">@if($data->userinfo->sex  == 'm')男 @else 女 @endif </td>
-                    <td style="text-align:center;  ">{{ $data->userinfo->birthday }}</td>
                     <td style="text-align:center;  ">{{ $data->userinfo->user_tel }}</td>
                 </tr>
              @endif

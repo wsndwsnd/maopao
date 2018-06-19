@@ -72,7 +72,7 @@ class UserController extends Controller
         }
     }
        
-        $data2 = $request->only(['age','sex','birthday','user_tel']);
+        $data2 = $request->only(['age','sex','user_tel']);
         $res1 = User::insertGetId($data1);
         $data2['user_id'] = $res1;
         $res2 = Userinfo::insert($data2);
