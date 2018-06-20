@@ -17,6 +17,7 @@
                 </div>
                 
             </div>
+            @if($data->tid != 0)
             <div class="mws-form-inline">
                 <div class="mws-form-row" style="width:350px;">
                     <label class="mws-form-label">上传图片<span class="required">*</span></label>
@@ -25,6 +26,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             <div class="mws-button-row">
                 <input type="submit" value="提交" class="btn btn">
                 <input type="reset" value="重置" class="btn ">

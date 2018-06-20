@@ -168,6 +168,11 @@ Route::get('/denglu','Home\LoginController@denglu');
 		Route::post('/home/uppassword','Home\UserController@uppassword');
 		//ajax验证密码
 		Route::post('/home/passwordajax','Home\UserController@passwordajax');
+		//删除收藏帖子
+		Route::get('/user/sc/del1','Home\UserController@del1');
+		//删除收藏帖子
+		Route::get('/user/sc/del2','Home\UserController@del2');
+		
 	});
 	//查看别人的主页
 	Route::get('/home/other/{id}','Home\UserController@other');

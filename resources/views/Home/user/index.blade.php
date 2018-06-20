@@ -457,9 +457,9 @@
                         <td class="num" style="width: 190px">{{ $v->plhfs->count() }}</td>
                         <td class="by" style="width: 140px">
                          <form method="post" action="/admin/posts/sq">
-                              {{ csrf_field() }} 
-                                <input type="hidden" name="pid" value="{{$v->id}}">
-                                  <button type="button" value="{{$v->id}}" class="layui-btn layui-btn-danger layui-btn-xs postsdel">取消收藏</button>
+                                 {{ csrf_field() }} 
+                                  <input type="hidden" name="pid" value="{{$v->id}}">
+                                  <button type="button" value="{{$v->id}}" name="{{ $data->id }}" class="layui-btn layui-btn-danger layui-btn-xs postsdel2">取消收藏</button>
 
                          </form>
                         </td>
@@ -472,15 +472,15 @@
                </div>
                 <!-- ajax 删除我收藏的帖子 -->
                 <script type="text/javascript">
-                     $('.postsdel').click(function(){
+                     $('.postsdel2').click(function(){
                       var obj =  $(this);
 
-                      $.get('/admin/postsdel/'+obj.attr('value'),function(msg){
+                      $.get('/user/sc/del1?pid='+obj.attr('value')+'&uid='+obj.attr('name'),function(msg){
                           if(msg == 1){
-                            layer.msg('成功');
+                            layer.msg('取消收藏成功');
                             obj.parent().parent().parent().remove();
                           }else{
-                            layer.msg('失败');
+                            layer.msg('取消收藏失败');
                           }                      
                         });
                      });
@@ -530,7 +530,7 @@
                               {{ csrf_field() }} 
                                 
                                 <input type="hidden" name="aid" value="{{$v->id}}">
-                                  <button type="button" value="{{$v->id}}" class="layui-btn layui-btn-danger layui-btn-xs postsdel1">取消收藏</button>
+                                  <button type="button" value="{{$v->id}}" name="{{ $data->id }}" class="layui-btn layui-btn-danger layui-btn-xs postsdel3">取消收藏</button>
 
                          </form>
                         </td>
@@ -544,15 +544,14 @@
                </div>
                 <!-- ajax 删除我收藏的文章 -->
                 <script type="text/javascript">
-                     $('.postsdel1').click(function(){
+                     $('.postsdel3').click(function(){
                       var obj =  $(this);
-
-                      $.get('/admin/articleajax/'+obj.attr('value'),function(msg){
+                      $.get('/user/sc/del2?aid='+obj.attr('value')+'&uid='+obj.attr('name'),function(msg){
                           if(msg == 1){
-                            layer.msg('成功');
+                            layer.msg('取消收藏成功');
                             obj.parent().parent().parent().remove();
                           }else{
-                            layer.msg('失败');
+                            layer.msg('取消收藏失败');
                           }                      
                         });
                      });

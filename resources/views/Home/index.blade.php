@@ -40,10 +40,27 @@
                           <a href="forum.php?mod=viewthread&tid=100" target="_blank" title="发帖测试">
                             <img src="/Home/picture/172642my3xtstksrfrk333.png" width="390" height="248" alt="发帖测试" /></a>
                           <div class="sbover">
-                            <a href="forum.php?mod=viewthread&tid=100" target="_blank" title="发帖测试"></a>
+                            @if(!session('user_id'))
+                            <a href="javascript:;" title="发帖测试" class="fastre"></a>
+                            @else
+                            <a href="/posts/create" target="_blank" title="发帖测试"></a>
+                            
+                            @endif   
                           </div>
                         </li>
-
+                        <script type="text/javascript">
+                              $('.fastre').click(function(){
+                                layer.open({
+                                        type: 2,
+                                        title: '<font style="color:skyblue;font-weight:777;font-size:16px;">请登录</font>',
+                                        shadeClose: true,
+                                        shade: 0.8,
+                                        area: ['650px', '500px'],
+                                        content: '/denglu?path='+location.pathname //iframe的url
+                                    }); 
+                                
+                            });
+                        </script>
                         <!-- 遍历帖子 -->
                         @foreach($posts_view as $v)
                         <li>

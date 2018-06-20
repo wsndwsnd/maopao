@@ -158,7 +158,6 @@ class CateController extends Controller
     public function edit($id)
     {
         $data = Category::find($id);
-
         return view('/admin/cate/edit',['data'=>$data]);
     }
 
@@ -185,8 +184,11 @@ class CateController extends Controller
                 $data['picture']=$name;
                 $file ->move($dir_name,$filename);
             }
+             $res = Category::where('id',$id)->update(['title'=>$request->title,'picture'=>$name]);
+        }else{
+             $res = Category::where('id',$id)->update(['title'=>$request->title]);
         }
-        $res = Category::where('id',$id)->update(['title'=>$request->title,'picture'=>$name]);
+      
         if($res){
             return redirect('/admin/cate')->with('success','修改成功');
         }{

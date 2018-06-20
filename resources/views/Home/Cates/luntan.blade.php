@@ -193,9 +193,8 @@
               <dd class="zyzy"> 
 
                <a href="/home/read/{{ $val->posts[0]->id }}" class="xi2">
-
                 
-                {{$val->posts[0]->posts_title}}
+                    {{$val->posts[0]->posts_title}}
                 
                </a> 
               </dd> 

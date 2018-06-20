@@ -221,7 +221,29 @@ class UserController extends Controller
         $user_acollects = $data -> acollects;
         //ta收藏的帖子
         $user_pcollects = $data -> pcollects;
-
+        
         return view('Home.user.other',['data'=>$data,'user_posts'=>$user_posts,'user_article'=>$user_article,'user_acollects'=>$user_acollects,'user_pcollects'=>$user_pcollects]);
+    }
+    //删除收藏帖子
+    public function del1(Request $request)
+    {
+        $data = $request->only('pid','uid');
+        $res = DB::delete('delete from p_collect where uid = :uid and pid = :pid',$data);
+        if ($res) {
+            echo 1;
+        }else{
+            echo 2;
+        }
+    }
+     //删除收藏文章
+    public function del2(Request $request)
+    {
+        $data = $request->only('aid','uid');
+        $res = DB::delete('delete from a_collect where uid = :uid and aid = :aid',$data);
+        if ($res) {
+            echo 1;
+        }else{
+            echo 2;
+        }
     }
 }

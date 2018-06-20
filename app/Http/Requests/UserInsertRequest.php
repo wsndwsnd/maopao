@@ -24,7 +24,7 @@ class UserInsertRequest extends Request
     public function rules()
     {
         return [
-            'user_name' => 'required|unique:users,user_name|regex:/^[a-zA-Z]{1}[\w]{5,17}$/',
+            'user_name' => 'required|unique:users,user_name|regex:/^[a-zA-Z]{1}[\w]{1,5}$/',
             'user_password' => 'required|regex:/[\w]{6,18}/',
             'user_repassword' => 'required|same:user_password',
             'age' => 'regex:/[0-9]+/',

@@ -311,7 +311,7 @@ var pwlength = 6;
               var sessioncode = '{{session("phone_code")}}';
               if(phone_code == sessioncode){
                  isCode = true;
-                  $('#xxoo4').html('1111');
+                  $('#xxoo4').html('<font color="green">验证码正确</font>');
               }else{
                   isCode = false;
                  $('#xxoo4').html('<font color="#CA7D7D">验证码错误</font>'); 

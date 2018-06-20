@@ -373,12 +373,12 @@
                           </a>
                         </td>
                         <th class="common">
-                          {{$v ->article_title}} 
+                          <a href="/zixun/{{ $v->id }}" c="1" mid="card_6457"> {{$v ->article_title}} </a>
                        </th>
                         
                         <td class="by" style="width: 200px">
                           <cite>
-                            <a href="/home/other/{{ $v->users->id }}" c="1" mid="card_6457">{{$v -> users -> user_name}}</a>
+                            {{$v -> article_author}}
                           </cite>
                             <em><span>{{$v -> created_at}}</span></em>
                         </td>
